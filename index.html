@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pályaszerkesztő – v5</title>
+  <!-- <link rel="stylesheet" href="style_dark.css" />  -->
+   <link rel="stylesheet" href="style_light.css" /> 
+</head>
+<body>
+  <div id="app">
+    <header>
+      <h1>Pályaszerkesztő – THREE.js prototípus (v5)</h1>
+      <div class="hint">Középső: pan · Jobb: 3D orbit · Görgő: zoom · PageUp/Down: kamera fel/le · Bal: mozgat (XZ) · Shift+Bal: fel/le · Alt+Bal: forgatás · Ctrl+Bal: kijelölés (többes)</div>
+    </header>
+
+    <aside>
+      <fieldset>
+        <legend>Mód</legend>
+        <select id="mode">
+          <option value="gp">GamePrimitive Editor</option>
+          <option value="grp">Group Editor</option>
+          <option value="scn">Scene Editor</option>
+        </select>
+      </fieldset>
+
+      <fieldset>
+        <legend>Szerkesztés</legend>
+        <div class="btn-wrap">
+          <button class="btn" id="undoBtn">Visszavonás (Ctrl+Z)</button>
+          <button class="btn" id="redoBtn">Újra (Ctrl+Y)</button>
+          <button class="btn" id="copyBtn">Másol</button>
+          <button class="btn" id="pasteBtn">Beilleszt</button>
+          <button class="btn" id="dupBtn">Duplikál</button>
+          <button class="btn" id="toggleVisBtn">Látható/Elrejt</button>
+          <button class="btn" id="deleteBtn">Töröl (Del)</button>
+        </div>
+        <div class="note">Több kiválasztás: Ctrl+katt a listában VAGY a vásznon. A drag mindig a listában kijelölte(ke)t mozgatja.</div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Rács & Track</legend>
+        <div class="row">
+          <div>
+            <label>Minor szín (1 egység)</label>
+            <input id="minorColor" type="color" value="#cccccc" />
+          </div>
+          <div>
+            <label>Major szín (10 egység)</label>
+            <input id="majorColor" type="color" value="#888888" />
+          </div>
+          <div>
+            <label>Rács méret (±)</label>
+            <input id="gridSize" type="number" value="200" step="10" />
+          </div>
+        </div>
+        <div class="row2">
+          <div>
+            <label>Group befoglaló dobozok</label>
+            <select id="groupBoundsVis">
+              <option value="off">Kikapcsolva</option>
+              <option value="on" selected>Bekapcsolva</option>
+            </select>
+          </div>
+          <div>
+            <label>Game ver.</label>
+            <input id="gameVersion" type="text" value="1.6.17" />
+          </div>
+        </div>
+        <div class="row2">
+          <div>
+            <label>Track név</label>
+            <input id="trackName" type="text" value="Új pálya" />
+          </div>
+          <div>
+            <label>Track UUID</label>
+            <input id="trackUUID" type="text" value="00000000-0000-0000-0000-000000000000" />
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset id="gpPane">
+        <legend>GamePrimitive szerkesztő</legend>
+        <label>Név</label>
+        <input id="gpName" type="text" placeholder="pl. DrawingBoardCube0.5mx0.5m04" />
+        <div class="btn-wrap">
+          <button class="btn" id="gpNew">Új</button>
+          <button class="btn" id="gpSave">Ment/Frissít</button>
+          <button class="btn" id="gpDelete">Töröl</button>
+        </div>
+        <label class="smalllabel">Létező GamePrimitive-ek</label>
+        <ul class="list" id="gpList"></ul>
+
+        <legend>Alkatrészek</legend>
+        <div class="inline-row">
+          <select id="partType">
+            <option value="box">Box</option>
+            <option value="cylinder">Cylinder</option>
+            <option value="sphere">Sphere</option>
+            <option value="cone">Cone</option>
+            <option value="quarterTorus">QuarterTorus</option>
+            <option value="arcCyl">ArcCyl (palást)</option>
+          </select>
+          <button class="btn" id="addPart">+ Hozzáad</button>
+          <button class="btn" id="removePart">– Eltávolít</button>
+        </div>
+        <ul class="list" id="partList"></ul>
+
+        <fieldset>
+          <legend>Kijelölt alkatrész(ek) beállítás</legend>
+          <div class="row">
+            <div>
+              <label>Szín</label>
+              <input id="pColor" type="color" value="#bdbdbd" />
+            </div>
+            <div>
+              <label>Típus</label>
+              <input id="pTypeRO" type="text" disabled />
+            </div>
+            <div>
+              <label>Forgatás tengely</label>
+              <select id="pRotAxis">
+                <option value="X">X (roll)</option>
+                <option value="Y" selected>Y (yaw)</option>
+                <option value="Z">Z (pitch)</option>
+              </select>
+            </div>
+          </div>
+          <div id="pArcBox" class="row" style="display:none;">
+            <div>
+              <label>Belső sugár (innerR)</label>
+              <input id="pInnerR" type="number" step="0.05" value="0.3" />
+            </div>
+            <div>
+              <label>Külső sugár (outerR)</label>
+              <input id="pOuterR" type="number" step="0.05" value="0.5" />
+            </div>
+            <div>
+              <label>Szög (°)</label>
+              <input id="pAngle" type="number" step="1" value="90" />
+            </div>
+          </div>
+          <div class="row4">
+            <div><label>Pos X</label><input id="pPosX" type="number" step="0.1" value="0" /></div>
+            <div><label>Pos Y</label><input id="pPosY" type="number" step="0.1" value="0" /></div>
+            <div><label>Pos Z</label><input id="pPosZ" type="number" step="0.1" value="0" /></div>
+            <div class="align-bottom"> <button class="btn" id="applyPart">Alkalmaz</button> </div>
+          </div>
+          <div class="row">
+            <div><label>Roll (X°)</label><input id="pRoll" type="number" step="1" value="0" /></div>
+            <div><label>Yaw (Y°)</label><input id="pYaw" type="number" step="1" value="0" /></div>
+            <div><label>Pitch (Z°)</label><input id="pPitch" type="number" step="1" value="0" /></div>
+          </div>
+          <div class="row">
+            <div><label>Scale X</label><input id="pSx" type="number" step="0.1" value="1" /></div>
+            <div><label>Scale Y</label><input id="pSy" type="number" step="0.1" value="1" /></div>
+            <div><label>Scale Z</label><input id="pSz" type="number" step="0.1" value="1" /></div>
+          </div>
+        </fieldset>
+      </fieldset>
+
+      <fieldset id="grpPane" style="display:none;">
+        <legend>Group szerkesztő</legend>
+        <label>Név</label>
+        <input id="grpName" type="text" placeholder="pl. WallModule_A" />
+        <div class="btn-wrap">
+          <button class="btn" id="grpNew">Új</button>
+          <button class="btn" id="grpSave">Ment/Frissít</button>
+          <button class="btn" id="grpDelete">Töröl</button>
+        </div>
+        <label class="smalllabel">Létező Groupok</label>
+        <ul class="list" id="grpList"></ul>
+
+        <legend>Összetevők</legend>
+        <div class="inline-row">
+          <select id="grpAddType"><option value="gp">GamePrimitive</option><option value="grp">Group</option></select>
+          <select id="grpAddSource"></select>
+          <button class="btn" id="grpAdd">+ Hozzáad</button>
+          <button class="btn" id="grpRemove">– Eltávolít</button>
+        </div>
+        <ul class="list" id="grpItemList"></ul>
+
+        <fieldset>
+          <legend>Kijelölt elem(ek) transzform</legend>
+          <div class="row">
+            <div>
+              <label>Forgatás tengely</label>
+              <select id="gRotAxis"><option value="X">X (roll)</option><option value="Y" selected>Y (yaw)</option><option value="Z">Z (pitch)</option></select>
+            </div>
+          </div>
+          <div class="row4">
+            <div><label>Pos X</label><input id="gPosX" type="number" step="0.1" value="0" /></div>
+            <div><label>Pos Y</label><input id="gPosY" type="number" step="0.1" value="0" /></div>
+            <div><label>Pos Z</label><input id="gPosZ" type="number" step="0.1" value="0" /></div>
+            <div class="align-bottom"> <button class="btn" id="applyGrpItem">Alkalmaz</button> </div>
+          </div>
+          <div class="row">
+            <div><label>Roll (X°)</label><input id="gRoll" type="number" step="1" value="0" /></div>
+            <div><label>Yaw (Y°)</label><input id="gYaw" type="number" step="1" value="0" /></div>
+            <div><label>Pitch (Z°)</label><input id="gPitch" type="number" step="1" value="0" /></div>
+          </div>
+          <div class="row">
+            <div><label>Scale X</label><input id="gSx" type="number" step="0.1" value="1" /></div>
+            <div><label>Scale Y</label><input id="gSy" type="number" step="0.1" value="1" /></div>
+            <div><label>Scale Z</label><input id="gSz" type="number" step="0.1" value="1" /></div>
+          </div>
+        </fieldset>
+      </fieldset>
+
+      <fieldset id="scnPane" style="display:none;">
+        <legend>Scene szerkesztő</legend>
+        <div class="inline-row">
+          <select id="scnAddType"><option value="gp">GamePrimitive</option><option value="grp">Group</option></select>
+          <select id="scnAddSource"></select>
+          <button class="btn" id="scnAdd">+ Hozzáad</button>
+          <button class="btn" id="scnRemove">– Eltávolít</button>
+        </div>
+        <ul class="list" id="scnList"></ul>
+        <fieldset>
+          <legend>Kijelölt scene elem(ek) transzform</legend>
+          <div class="row">
+            <div>
+              <label>Forgatás tengely</label>
+              <select id="sRotAxis"><option value="X">X (roll)</option><option value="Y" selected>Y (yaw)</option><option value="Z">Z (pitch)</option></select>
+            </div>
+          </div>
+          <div class="row4">
+            <div><label>Pos X</label><input id="sPosX" type="number" step="0.1" value="0" /></div>
+            <div><label>Pos Y</label><input id="sPosY" type="number" step="0.1" value="0" /></div>
+            <div><label>Pos Z</label><input id="sPosZ" type="number" step="0.1" value="0" /></div>
+            <div class="align-bottom"> <button class="btn" id="applySceneItem">Alkalmaz</button> </div>
+          </div>
+          <div class="row">
+            <div><label>Roll (X°)</label><input id="sRoll" type="number" step="1" value="0" /></div>
+            <div><label>Yaw (Y°)</label><input id="sYaw" type="number" step="1" value="0" /></div>
+            <div><label>Pitch (Z°)</label><input id="sPitch" type="number" step="1" value="0" /></div>
+          </div>
+          <div class="row">
+            <div><label>Scale X</label><input id="sSx" type="number" step="0.1" value="1" /></div>
+            <div><label>Scale Y</label><input id="sSy" type="number" step="0.1" value="1" /></div>
+            <div><label>Scale Z</label><input id="sSz" type="number" step="0.1" value="1" /></div>
+          </div>
+        </fieldset>
+      </fieldset>
+
+      <fieldset>
+        <legend>Mentés/Betöltés</legend>
+        <div class="btn-wrap">
+          <button class="btn" id="exportXML">Scene → XML (flatten)</button>
+          <button class="btn" id="saveJSON">Könyvtár → JSON</button>
+          <label class="btn" for="loadJSON">Könyvtár betöltés</label>
+          <input id="loadJSON" type="file" accept="application/json" style="display:none;" />
+        </div>
+        <div class="btn-wrap">
+          <button class="btn" id="saveSceneJSON">Scene → JSON</button>
+          <label class="btn" for="loadSceneJSON">Scene betöltés</label>
+          <input id="loadSceneJSON" type="file" accept="application/json" style="display:none;" />
+        </div>
+        <div class="btn-wrap">
+          <button class="btn" id="exportGameXML">Export játék XML</button>
+          <label class="btn" for="importGameXML">Import játék XML</label>
+          <input id="importGameXML" type="file" accept="text/xml,application/xml" style="display:none;" />
+        </div>
+        <div class="note">A játékformátum Track/Blueprints XML. A groupok exportkor flattenelve kerülnek bele.</div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Diagnosztika</legend>
+        <div class="btn-wrap">
+          <button class="btn" id="runTests">Önellenőrzés futtatása</button>
+        </div>
+        <ul class="list" id="diagOut" style="max-height:120px;"></ul>
+      </fieldset>
+    </aside>
+
+    <main>
+      <canvas id="viewport"></canvas>
+    </main>
+  </div>
+
+  <script src="https://unpkg.com/three@0.160.0/build/three.min.js"></script>
+  <script src="generator.js"></script>
+</body>
+</html>
