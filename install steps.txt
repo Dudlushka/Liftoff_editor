@@ -1,0 +1,33 @@
+>>> npm init -y
+
+generates stuff ant (package.json)
+
+>>> npm install --save-dev live-server
+
+edit package.json:
+
+{
+  "name": "liftoff_editor",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "live-server .",               <<<<<<<<THIS LINE>>>>>>>>>>
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  }
+}
+
+
+>>> npm run dev
+
+if not working:
+>>> Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+>>> npm run dev
+
+ctrl+c stop

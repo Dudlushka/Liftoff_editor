@@ -15,12 +15,18 @@ async function boot()
 
   if (!loaded)
   {
-    console.warn("[init] library_1.json nem található – seed demó töltése");
-    window.seedDemoPopulate();
+
+    const loaded2 = await window.loadLibraryFromURL("public/library_1.json");
+
+    if(!loaded2)
+    {
+      console.warn("[init] library_1.json nem található – seed demó töltése");
+      window.seedDemoPopulate();
+    }
   }
   else
   {
-    console.log("Hello - betöltés faja");
+    console.log("Hello - Loading Default Library OK");
   }
 
   ui.eulerOrder.value = "YXZ";
