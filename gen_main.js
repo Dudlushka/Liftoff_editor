@@ -16,6 +16,7 @@ async function boot()
   if (!loaded)
   {
 
+    console.warn("[init] retry2");
     const loaded2 = await window.loadLibraryFromURL("/public/library_1.json");
 
     if(!loaded2)
