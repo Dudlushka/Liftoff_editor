@@ -21,6 +21,12 @@ toggleSelection,
 getPrimaryIndex,
 } from './gen_state.js';
 
+import {
+
+  buildPrimitiveMesh
+}from './gen_primitives.js';
+
+
 import {currentCLIndex}from './gen_state.js';
 import { worldRoot, gpRoot, grpRoot, scnRoot, clRoot } from './gen_roots.js';
 import { refreshCPListHighlight, refreshCPList, syncSceneEditorsFromFirstCP, RefreshCL_AAA} from './gen_controlLines.js';
@@ -882,34 +888,6 @@ export function applyDeltaToSelection({ dpos = [0,0,0], drot = [0,0,0], dscale =
 
 
 
-function buildPrimitiveMesh(p)
-{
-  let geo;
-  if (p.type === "box") geo = new THREE.BoxGeometry(1, 1, 1);
-  else if (p.type === "cylinder")
-    geo = new THREE.CylinderGeometry(0.5, 0.5, 1, 24);
-  else if (p.type === "sphere") geo = new THREE.SphereGeometry(0.5, 24, 16);
-  else if (p.type === "cone") geo = new THREE.ConeGeometry(0.5, 1, 24);
-  else if (p.type === "quarterTorus")
-    geo = new THREE.TorusGeometry(1, 0.25, 16, 64, Math.PI / 2);
-  else if (p.type === "arcCyl")
-  {
-    const inner = p.arc?.inner ?? 0.3;
-    const outer = p.arc?.outer ?? 0.5;
-    const ang = p.arc?.angle ?? 90;
-    geo = buildArcCylGeometry(inner, outer, ang, 1);
-  }
-  else geo = new THREE.BoxGeometry(1, 1, 1);
-  const mat = new THREE.MeshStandardMaterial({
-    color: new THREE.Color(p.color),
-    flatShading: false,
-  });
-  const m = new THREE.Mesh(geo, mat);
-  m.scale.set(p.scale[0], p.scale[1], p.scale[2]);
-  m.position.set(p.pos[0], p.pos[1], p.pos[2]);
-  m.rotation.set(deg(p.rotRYP[0]), deg(p.rotRYP[1]), deg(p.rotRYP[2]));
-  return m;
-}
 
 function refreshGPList()
 {
