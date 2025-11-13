@@ -1,5 +1,82 @@
-
+//import { BufferGeometryUtils } from "three/examples/jsm/utils/BufferGeometryUtils.js";
 const deg = (v) => (v * Math.PI) / 180;
+
+
+
+
+
+
+
+
+
+function mergeGeometriesManual(geos)
+{
+  // Feltételezzük, hogy mindegyiknek van position attribútuma, és ugyanúgy vannak attribútumai
+  const merged = new THREE.BufferGeometry();
+
+  // attribútumok listája (position, normal, uv, stb. – ami létezik az elsőben)
+  const attrs = Object.keys(geos[0].attributes);
+  const indexArrays = [];
+  let indexOffset = 0;
+
+  geos.forEach(g =>
+  {
+    // indexek
+    if (g.index)
+    {
+      const idx = g.index.array;
+      const shifted = new idx.constructor(idx.length);
+      for (let i = 0; i < idx.length; i++)
+      {
+        shifted[i] = idx[i] + indexOffset;
+      }
+      indexArrays.push(shifted);
+    }
+    else
+    {
+      // ha nincs index, akkor szekvenciális indexet generálunk
+      const count = g.attributes.position.count;
+      const shifted = new Uint32Array(count);
+      for (let i = 0; i < count; i++)
+      {
+        shifted[i] = indexOffset + i;
+      }
+      indexArrays.push(shifted);
+    }
+
+    indexOffset += g.attributes.position.count;
+  });
+
+  const mergedIndexLength = indexArrays.reduce((sum, arr) => sum + arr.length, 0);
+  const mergedIndex = new Uint32Array(mergedIndexLength);
+  let idxPos = 0;
+  indexArrays.forEach(arr =>
+  {
+    mergedIndex.set(arr, idxPos);
+    idxPos += arr.length;
+  });
+  merged.setIndex(new THREE.BufferAttribute(mergedIndex, 1));
+
+  // attribútumok összefűzése
+  attrs.forEach(name =>
+  {
+    const arrays = geos.map(g => g.attributes[name].array);
+    const itemSize = geos[0].attributes[name].itemSize;
+    const totalLen = arrays.reduce((sum, arr) => sum + arr.length, 0);
+    const mergedArr = new arrays[0].constructor(totalLen);
+
+    let offset = 0;
+    arrays.forEach(arr =>
+    {
+      mergedArr.set(arr, offset);
+      offset += arr.length;
+    });
+
+    merged.setAttribute(name, new THREE.BufferAttribute(mergedArr, itemSize));
+  });
+
+  return merged;
+}
 
 
 // ===== Geometries =====
@@ -82,19 +159,8 @@ function buildArcCylGeometry(inner, outer, angleDeg, height)
   return geo;
 }
 
-/*
+
 function buildPyramid()
-{
-    let geo;
-    geo = new THREE.ConeGeometry(0.5,  // radius
-      1,    // height
-      4,    // radialSegments → négy oldal
-      1     // heightSegments
-    );
-    return geo;
-}
-    */
-   function buildPyramid()
 {
   // Saját kézzel épített 5 pontos piramis:
   // alap: 1x1 (x,z ∈ [-0.5, 0.5]), magasság: 1 (y ∈ [0,1])
@@ -133,21 +199,41 @@ function buildPyramid()
 
 function buildHemisphere()
 {
-    let geo;
+  const radius = 0.5;
+  const widthSegments  = 24;
+  const heightSegments = 16;
 
-    // Rádiusz 0.5, mint a sima gömbnél, hogy a scale-eddel legyen egységes.
-    // thetaLength = PI/2 → félgömb.
-    geo = new THREE.SphereGeometry(
-      0.5,          // radius
-      24,           // widthSegments
-      16,           // heightSegments
-      0, Math.PI*2, // phiStart, phiLength
-      0, Math.PI/2  // thetaStart, thetaLength
-    );
+  // Félgömb – “kupola”
+  const hemi = new THREE.SphereGeometry(
+    radius,
+    widthSegments,
+    heightSegments,
+    0, Math.PI * 2,   // körben
+    0, Math.PI / 2    // félgömb
+  );
 
+  // Aljlap – kör
+  const cap = new THREE.CircleGeometry(radius, widthSegments);
 
-    return geo;
+  // CircleGeometry alapból XY-síkban van, normál +Z.
+  // Tegyük a körlapot az XZ-síkba, normál -Y (mint egy “tál” alja):
+  cap.rotateX(Math.PI / 2); // +Z → -Y
+
+  // Mindkettő középpontja az origón van, félgömb vágási síkja y≈0, úgyhogy
+  // nem kell translate.
+
+  // A két geometriát egy BufferGeometry-vé fűzzük össze:
+  // Ha van BufferGeometryUtils:
+  const geo = THREE.BufferGeometryUtils
+    ? THREE.BufferGeometryUtils.mergeGeometries([hemi, cap], true)
+    : mergeGeometriesManual([hemi, cap]);
+
+  geo.computeVertexNormals();
+  
+  
+  return geo;
 }
+
 
 function buildIsoPrism()
 {
@@ -186,14 +272,14 @@ function buildIsoPrism()
 export function buildPrimitiveMesh(p)
 {
   let geo;
-  if      (p.type === "box")            geo = new THREE.BoxGeometry(1, 1, 1);
-  else if (p.type === "cylinder")       geo = new THREE.CylinderGeometry(0.5, 0.5, 1, 24);
-  else if (p.type === "sphere")         geo = new THREE.SphereGeometry(0.5, 24, 16);
-  else if (p.type === "cone")           geo = new THREE.ConeGeometry(0.5, 1, 24);
-  else if (p.type === "quarterTorus")   geo = new THREE.TorusGeometry(1, 0.25, 16, 64, Math.PI / 2);
-  else if (p.type === "pyramid")        geo = buildPyramid(); 
-  else if (p.type === "hemisphere")     geo = buildHemisphere();
-  else if (p.type === "isoTriPrism")    geo = buildIsoPrism();
+  if      (p.type === "box")            {geo = new THREE.BoxGeometry(1, 1, 1);}
+  else if (p.type === "cylinder")       {geo = new THREE.CylinderGeometry(0.5, 0.5, 1, 24);}
+  else if (p.type === "sphere")         {geo = new THREE.SphereGeometry(0.5, 24, 16);}
+  else if (p.type === "cone")           {geo = new THREE.ConeGeometry(0.5, 1, 24);}
+  else if (p.type === "quarterTorus")   {geo = new THREE.TorusGeometry(1, 0.25, 16, 64, Math.PI / 2);}
+  else if (p.type === "pyramid")        {geo = buildPyramid(); }
+  else if (p.type === "hemisphere")     {geo = buildHemisphere();}
+  else if (p.type === "isoTriPrism")    {geo = buildIsoPrism();}
   else if (p.type === "arcCyl")
   {
     const inner = p.arc?.inner ?? 0.3;

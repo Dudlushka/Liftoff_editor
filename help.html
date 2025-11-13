@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8" />
+  <title>Pályaszerkesztő – Súgó (README)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    :root {
+      color-scheme: dark;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #050608;
+      color: #e6e6e6;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+      line-height: 1.5;
+    }
+
+    header {
+      background: #11141a;
+      border-bottom: 1px solid #222835;
+      padding: 0.75rem 1.5rem;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 1.1rem;
+      font-weight: 500;
+    }
+
+    header .subtitle {
+      font-size: 0.8rem;
+      color: #9ca3af;
+    }
+
+    header .back-link {
+      float: right;
+      font-size: 0.85rem;
+      margin-top: 0.1rem;
+    }
+
+    header .back-link a {
+      color: #93c5fd;
+      text-decoration: none;
+    }
+
+    header .back-link a:hover {
+      text-decoration: underline;
+    }
+
+    main {
+      max-width: 960px;
+      margin: 1.5rem auto 2.5rem auto;
+      padding: 0 1.5rem 0 1.5rem;
+    }
+
+    .help-pane {
+      background-color: #0b0f16;
+      border-radius: 10px;
+      border: 1px solid #1f2933;
+      padding: 1.5rem 1.75rem;
+      box-shadow: 0 0 25px rgba(0, 0, 0, 0.6);
+      min-height: 120px;
+    }
+
+    .help-pane.loading {
+      opacity: 0.7;
+      font-style: italic;
+      color: #9ca3af;
+    }
+
+    .help-pane.error {
+      color: #fecaca;
+      border-color: #7f1d1d;
+      background-color: #111111;
+    }
+
+    /* Markdown tartalom stílusok */
+
+    .help-pane h1,
+    .help-pane h2,
+    .help-pane h3,
+    .help-pane h4 {
+      margin-top: 1.4em;
+      margin-bottom: 0.4em;
+      line-height: 1.2;
+      font-weight: 550;
+    }
+
+    .help-pane h1 {
+      font-size: 1.6rem;
+      border-bottom: 1px solid #1f2933;
+      padding-bottom: 0.35rem;
+    }
+
+    .help-pane h2 {
+      font-size: 1.25rem;
+      color: #e5e7eb;
+    }
+
+    .help-pane h3 {
+      font-size: 1.05rem;
+      color: #d1d5db;
+    }
+
+    .help-pane p {
+      margin-top: 0.3em;
+      margin-bottom: 0.8em;
+    }
+
+    .help-pane a {
+      color: #93c5fd;
+      text-decoration: none;
+    }
+
+    .help-pane a:hover {
+      text-decoration: underline;
+    }
+
+    .help-pane ul,
+    .help-pane ol {
+      padding-left: 1.5rem;
+      margin-top: 0.2em;
+      margin-bottom: 0.8em;
+    }
+
+    .help-pane li + li {
+      margin-top: 0.2em;
+    }
+
+    .help-pane code {
+      font-family: "Consolas", "Fira Code", monospace;
+      font-size: 0.9rem;
+      background-color: #020617;
+      padding: 0.05rem 0.3rem;
+      border-radius: 4px;
+      border: 1px solid #1f2933;
+    }
+
+    .help-pane pre {
+      background-color: #020617;
+      border-radius: 6px;
+      padding: 0.75rem 1rem;
+      border: 1px solid #1f2933;
+      overflow-x: auto;
+      font-family: "Consolas", "Fira Code", monospace;
+      font-size: 0.85rem;
+      margin-top: 0.8em;
+      margin-bottom: 1em;
+    }
+
+    .help-pane pre code {
+      background: transparent;
+      border: 0;
+      padding: 0;
+      font-size: 0.85rem;
+    }
+
+    .help-pane hr {
+      border: 0;
+      border-top: 1px solid #1f2933;
+      margin: 1.5rem 0;
+    }
+
+    .help-pane table {
+      border-collapse: collapse;
+      width: 100%;
+      margin: 1rem 0;
+      font-size: 0.9rem;
+    }
+
+    .help-pane th,
+    .help-pane td {
+      border: 1px solid #1f2933;
+      padding: 0.4rem 0.6rem;
+    }
+
+    .help-pane th {
+      background-color: #020617;
+      text-align: left;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.75rem;
+      color: #6b7280;
+      padding: 1.5rem 0 1.75rem 0;
+      border-top: 1px solid #111827;
+      background-color: #050608;
+      margin-top: 2.5rem;
+    }
+  </style>
+
+  <!-- Markdown parser -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+  <header>
+    <div class="back-link">
+      <!-- Ide tehetsz visszalinket a fő appodra -->
+      <a href="./">Vissza a szerkesztőhöz</a>
+    </div>
+    <h1>Pályaszerkesztő – Súgó</h1>
+    <div class="subtitle">Tartalom: README.md</div>
+  </header>
+
+  <main>
+    <div id="helpPane" class="help-pane loading">
+      README.md betöltése…
+    </div>
+  </main>
+
+  <footer>
+    A súgó tartalmát a projekt <code>README.md</code> fájlja adja.
+  </footer>
+
+  <script>
+    // Opcionális: néhány beállítás a marked-nek
+    if (window.marked)
+    {
+      marked.setOptions(
+      {
+        breaks: true
+      });
+    }
+
+    async function loadReadme()
+    {
+      const pane = document.getElementById('helpPane');
+
+      try
+      {
+        const res = await fetch('README.md');
+
+        if (!res.ok)
+        {
+          throw new Error('README.md nem található (' + res.status + ')');
+        }
+
+        const text = await res.text();
+
+        if (!window.marked || typeof marked.parse !== 'function')
+        {
+          throw new Error('Markdown parser (marked) nem érhető el.');
+        }
+
+        const html = marked.parse(text);
+
+        pane.classList.remove('loading', 'error');
+        pane.innerHTML = html;
+      }
+      catch (err)
+      {
+        console.error(err);
+        pane.classList.remove('loading');
+        pane.classList.add('error');
+        pane.textContent =
+          'Hiba történt a README.md betöltése közben. ' +
+          'Ellenőrizd, hogy a help.html és a README.md ugyanabban a mappában van-e.';
+      }
+    }
+
+    window.addEventListener('load', loadReadme);
+  </script>
+</body>
+</html>
