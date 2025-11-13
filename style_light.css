@@ -1,7 +1,15 @@
-html, body {
+html,
+body {
   height: 100%;
   margin: 0;
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Arial;
+  font-family:
+    system-ui,
+    -apple-system,
+    Segoe UI,
+    Roboto,
+    Ubuntu,
+    Cantarell,
+    Arial;
   background: #ffffff;
   color: #000;
 }
@@ -200,4 +208,75 @@ ul.list::-webkit-scrollbar-thumb {
 aside::-webkit-scrollbar-track,
 ul.list::-webkit-scrollbar-track {
   background: #f5f5f5;
+}
+
+/* === Control Lines panel kiegészítés ============================================= */
+#clPane {
+  margin-top: 10px;
+}
+
+/* A CL panelen két oszlopos elrendezést szeretnénk */
+#clPane .row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+/* A bal/jobb hasábok rugalmasan méreteződjenek */
+#clPane .column {
+  min-width: 0;
+}
+
+/* Gombok sora a listák alatt */
+#clPane .btnrow {
+  display: flex;
+  gap: 6px;
+  margin: 6px 0;
+}
+
+/* Két- és háromhasábos rács a mezőkhöz (csak a CL panelen) */
+#clPane .grid2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+#clPane .grid3 {
+  grid-template-columns: 1fr 1fr; /* eddigi 3 helyett 2 oszlop */
+}
+
+/* kényelmesebb „touch-size” és olvashatóbb font */
+#clPane #cpStyle,
+#clPane #cpLineStyle,
+#clPane #cpIW,
+#clPane #cpOW {
+  height: 36px;
+  font-size: 14px;
+  padding: 6px 8px;
+}
+
+/* A panelen belüli inputok/legördülők szépen kitöltsék a sort */
+#clPane input,
+#clPane select {
+  width: 100%;
+}
+
+
+/* Checkbox rows: Rot(Y), AuxPoints, ShowRad */
+.checkrow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  margin-top: 6px;
+}
+
+.checkrow label {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin: 0;
+}
+
+.checkrow input[type="checkbox"] {
+  margin: 0;
 }

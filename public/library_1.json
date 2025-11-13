@@ -1,0 +1,698 @@
+{
+  "gamePrimitives": {
+    "DrawingBoardCube0.5mx0.5m04": {
+      "name": "DrawingBoardCube0.5mx0.5m04",
+      "parts": [
+        {
+          "id": "da6a095a-17b0-46e5-ad1e-73f31712d560",
+          "type": "box",
+          "color": "#e9c445",
+          "scale": [
+            0.5,
+            0.5,
+            0.5
+          ],
+          "pos": [
+            0,
+            0.25,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "ArcPalast90": {
+      "name": "ArcPalast90",
+      "parts": [
+        {
+          "id": "06aee2cf-93dc-44f0-b035-77710f0c0cc0",
+          "type": "arcCyl",
+          "arc": {
+            "inner": 0.4,
+            "outer": 0.6,
+            "angle": 90
+          },
+          "color": "#6aa6d6",
+          "scale": [
+            1,
+            1,
+            1
+          ],
+          "pos": [
+            0,
+            0.5,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "DrawingBoardCone1mx1m05": {
+      "name": "DrawingBoardCone1mx1m05",
+      "parts": [
+        {
+          "id": "0bcf90b8-79e9-4ba3-8e8a-9d3993b55399",
+          "type": "cone",
+          "color": "#fafafa",
+          "scale": [
+            1,
+            1,
+            1
+          ],
+          "pos": [
+            0,
+            0.5,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "DrawingBoardCone1mx1m04": {
+      "name": "DrawingBoardCone1mx1m04",
+      "parts": [
+        {
+          "id": "d94c3bda-3c6d-40db-9bc3-821e86fdd6e5",
+          "type": "cone",
+          "color": "#e9c445",
+          "scale": [
+            1,
+            1,
+            1
+          ],
+          "pos": [
+            0,
+            0.5,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "DrawingBoardCone1mx1m03": {
+      "name": "DrawingBoardCone1mx1m03",
+      "parts": [
+        {
+          "id": "20cc7659-d1b9-4b2f-900a-807f610ca3ef",
+          "type": "cone",
+          "color": "#263491",
+          "scale": [
+            1,
+            1,
+            1
+          ],
+          "pos": [
+            0,
+            0.5,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "DrawingBoardCone1mx1m02": {
+      "name": "DrawingBoardCone1mx1m02",
+      "parts": [
+        {
+          "id": "6c01d131-3a52-4a5b-8f22-d180d6aaf3a8",
+          "type": "cone",
+          "color": "#9bd0f0",
+          "scale": [
+            1,
+            1,
+            1
+          ],
+          "pos": [
+            0,
+            0.5,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "DrawingBoardCone1mx1m01": {
+      "name": "DrawingBoardCone1mx1m01",
+      "parts": [
+        {
+          "id": "66adb0c8-51ad-4a7f-a11f-2a7e9b583c4b",
+          "type": "cone",
+          "color": "#2b45c1",
+          "scale": [
+            1,
+            1,
+            1
+          ],
+          "pos": [
+            0,
+            0.5,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "ConcreteBarrier01": {
+      "name": "ConcreteBarrier01",
+      "parts": [
+        {
+          "id": "85b5f5b9-2a98-49f1-b121-ae695c5feb59",
+          "type": "box",
+          "color": "#f8f8f8",
+          "scale": [
+            0.762,
+            0.762,
+            1.524
+          ],
+          "pos": [
+            0,
+            0.381,
+            0.381
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "aca08ca7-f42d-4737-afc8-38a5d78300d0",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.1,
+            0,
+            0.1
+          ],
+          "pos": [
+            0.005110485530815556,
+            0.8,
+            -0.001592418003388385
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "DrawingBoardCone5mx5m05": {
+      "name": "DrawingBoardCone5mx5m05",
+      "parts": [
+        {
+          "id": "d4cce0ce-bf1b-44c4-9699-2e9d9c7f6a44",
+          "type": "cone",
+          "color": "#e8e8e8",
+          "scale": [
+            5,
+            5,
+            5
+          ],
+          "pos": [
+            0,
+            2.5,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "DrawingBoardCone5mx5m04": {
+      "name": "DrawingBoardCone5mx5m04",
+      "parts": [
+        {
+          "id": "5af5c535-27c9-4602-a5b2-44be129e084c",
+          "type": "cone",
+          "color": "#e9c445",
+          "scale": [
+            5,
+            5,
+            5
+          ],
+          "pos": [
+            0,
+            2.5,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "DrawingBoardCylinder0.5mx1m04": {
+      "name": "DrawingBoardCylinder0.5mx1m04",
+      "parts": [
+        {
+          "id": "907b2366-ca2c-4c5a-9bc0-f27cc67c944f",
+          "type": "cylinder",
+          "color": "#e9c445",
+          "scale": [
+            0.5,
+            1,
+            0.5
+          ],
+          "pos": [
+            0,
+            0.5,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "DrawingBoardCylinder0.5mx1m03": {
+      "name": "DrawingBoardCylinder0.5mx1m03",
+      "parts": [
+        {
+          "id": "fcfcd62e-7347-40e5-8fc2-b871e22dbe97",
+          "type": "cylinder",
+          "color": "#263491",
+          "scale": [
+            0.5,
+            1,
+            0.5
+          ],
+          "pos": [
+            0,
+            0.5,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "DrawingBoardCylinder0.5mx1m02": {
+      "name": "DrawingBoardCylinder0.5mx1m02",
+      "parts": [
+        {
+          "id": "afc31359-b1b3-44be-9228-f5df158f6968",
+          "type": "cylinder",
+          "color": "#7481d6",
+          "scale": [
+            0.5,
+            1,
+            0.5
+          ],
+          "pos": [
+            0,
+            0.5,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "DrawingBoardCylinder0.5mx1m01": {
+      "name": "DrawingBoardCylinder0.5mx1m01",
+      "parts": [
+        {
+          "id": "56dc351b-ed93-44b6-ad6b-855b55596211",
+          "type": "cylinder",
+          "color": "#2b45c1",
+          "scale": [
+            0.5,
+            1,
+            0.5
+          ],
+          "pos": [
+            0,
+            0.5,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "DrawingBoardCylinder0.5mx1m05": {
+      "name": "DrawingBoardCylinder0.5mx1m05",
+      "parts": [
+        {
+          "id": "1dcdd699-d79f-4be4-b07e-fbf9b2b7ee8b",
+          "type": "cylinder",
+          "color": "#e8e8e8",
+          "scale": [
+            0.5,
+            1,
+            0.5
+          ],
+          "pos": [
+            0,
+            0.5,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "DrawingBoardCube0.5mx0.5m05": {
+      "name": "DrawingBoardCube0.5mx0.5m05",
+      "parts": [
+        {
+          "id": "9d95c4aa-c09f-4350-ac29-3aadf37ee181",
+          "type": "box",
+          "color": "#e8e8e8",
+          "scale": [
+            0.5,
+            0.5,
+            0.5
+          ],
+          "pos": [
+            0,
+            0.25,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "DrawingBoardCube0.5mx0.5m03": {
+      "name": "DrawingBoardCube0.5mx0.5m03",
+      "parts": [
+        {
+          "id": "3c434599-acfc-4007-bbee-0bb240123c38",
+          "type": "box",
+          "color": "#263491",
+          "scale": [
+            0.5,
+            0.5,
+            0.5
+          ],
+          "pos": [
+            0,
+            0.25,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "DrawingBoardCube0.5mx0.5m02": {
+      "name": "DrawingBoardCube0.5mx0.5m02",
+      "parts": [
+        {
+          "id": "d15d3ebb-5aa5-4525-82e0-a441925b3a9f",
+          "type": "box",
+          "color": "#7481d6",
+          "scale": [
+            0.5,
+            0.5,
+            0.5
+          ],
+          "pos": [
+            0,
+            0.25,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "DrawingBoardCube0.5mx0.5m01": {
+      "name": "DrawingBoardCube0.5mx0.5m01",
+      "parts": [
+        {
+          "id": "9e18d585-7735-45de-970d-09150f515b9b",
+          "type": "box",
+          "color": "#2b45c1",
+          "scale": [
+            0.5,
+            0.5,
+            0.5
+          ],
+          "pos": [
+            0,
+            0.25,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "SteelProfile01": {
+      "name": "SteelProfile01",
+      "parts": [
+        {
+          "id": "706ee123-3976-4fe2-9ae4-19d6a3e4102f",
+          "type": "box",
+          "color": "#9aa7b1",
+          "scale": [
+            1,
+            1,
+            1
+          ],
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "DronogateTurn01": {
+      "name": "DronogateTurn01",
+      "parts": [
+        {
+          "id": "54179a97-4797-4dae-b96f-bece0ed03518",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.4,
+            2.85,
+            0.4
+          ],
+          "pos": [
+            0,
+            1.4,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "d47f6b2d-e2ee-4d96-9868-61fb98297fdf",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.4,
+            0.5,
+            0.4
+          ],
+          "pos": [
+            -0.3413526744181714,
+            0,
+            0.002277173546259892
+          ],
+          "rotRYP": [
+            90,
+            0,
+            90
+          ]
+        },
+        {
+          "id": "d47f6b2d-e2ee-4d96-9868-61fb98297fdf",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.4,
+            0.5,
+            0.4
+          ],
+          "pos": [
+            -0.0030231827557250512,
+            2.640000000000002,
+            0.32521710953474225
+          ],
+          "rotRYP": [
+            90,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "d47f6b2d-e2ee-4d96-9868-61fb98297fdf",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.4,
+            0.5,
+            0.4
+          ],
+          "pos": [
+            0.005123654198714855,
+            0,
+            0.31323105269021695
+          ],
+          "rotRYP": [
+            90,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "d47f6b2d-e2ee-4d96-9868-61fb98297fdf",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.4,
+            0.5,
+            0.4
+          ],
+          "pos": [
+            0.3051700548642782,
+            0,
+            0.004420798156383521
+          ],
+          "rotRYP": [
+            90,
+            0,
+            90
+          ]
+        }
+      ]
+    }
+  },
+  "groups": {
+    "Column3": {
+      "name": "Column3",
+      "items": [
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m04",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m04",
+          "pos": [
+            0,
+            0,
+            2
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m04",
+          "pos": [
+            0,
+            0,
+            4
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        }
+      ]
+    }
+  }
+}
