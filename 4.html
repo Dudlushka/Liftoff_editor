@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="utf-8" />
+<title>GroupFromPic – stabil build</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<style>
+  :root { --bg:#0e1116; --fg:#e9ecf1; --muted:#9aa3ad; --card:#151b22; --line:#253141; --accent:#5a93d8; }
+  html,body{height:100%;margin:0;background:var(--bg);color:var(--fg);font:14px/1.45 system-ui,Segoe UI,Roboto,Helvetica,Arial}
+  header{padding:10px 14px;border-bottom:1px solid var(--line);display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+  header h1{font-size:16px;margin:0}
+  main{display:grid;grid-template-columns:360px 1fr;min-height:calc(100% - 56px)}
+  aside{border-right:1px solid var(--line);padding:12px;overflow:auto}
+  .panel{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px;margin-bottom:12px}
+  .panel h2{margin:0 0 8px;font-size:13px}
+  .row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+  .ctrl{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:8px 10px;display:flex;gap:10px;align-items:center}
+  input[type="range"]{width:180px}
+  input[type="number"], input[type="text"], select{width:140px}
+  .canvases{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:12px}
+  .canvas-card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px}
+  .canvas-card h3{margin:0 0 8px;font-size:13px}
+  canvas{width:100%;height:auto;image-rendering:pixelated;background:#0a0d12;border-radius:8px}
+  .hint{color:var(--muted);font-size:12px}
+  button{background:#1b2430;color:var(--fg);border:1px solid var(--line);border-radius:10px;padding:7px 10px;cursor:pointer}
+  button:hover{background:#222e3b}
+  .colorCard{border:1px solid var(--line);border-radius:10px;padding:10px;margin-bottom:10px;background:#121821}
+  .colorTop{display:flex;gap:10px;align-items:center;margin-bottom:8px}
+  .swatch{width:24px;height:24px;border-radius:5px;border:1px solid var(--line);display:inline-block}
+  .field{display:flex;flex-direction:column;gap:4px;margin-bottom:8px}
+  .field label{font-size:12px;color:var(--muted)}
+  .rowline{display:flex;gap:10px;align-items:center}
+  /* Dark inputs visible */
+  input, select, textarea { background:#0f141b; color:var(--fg); border:1px solid var(--line); border-radius:8px; padding:6px 8px; }
+  input[type="file"]{padding:4px 6px}
+</style>
+</head>
+<body>
+<header>
+  <h1>GroupFromPic</h1>
+  <div class="row">
+    <div class="ctrl">
+      <label>Kép:</label>
+      <input id="file" type="file" accept="image/*">
+      <button id="reset">Alaphelyzet</button>
+    </div>
+    <div class="ctrl">
+      <label>Brightness</label>
+      <input id="brightness" type="range" min="-100" max="100" value="0"><span id="bVal" class="hint">0</span>
+    </div>
+    <div class="ctrl">
+      <label>Contrast</label>
+      <input id="contrast" type="range" min="-100" max="100" value="0"><span id="cVal" class="hint">0</span>
+    </div>
+    <div class="ctrl">
+      <label>Resolution</label>
+      <input id="resScale" type="range" min="0.10" max="10.00" step="0.01" value="1.00"><span id="rVal" class="hint">1.00×</span>
+    </div>
+    <div class="ctrl">
+      <label>Block</label>
+      <input id="block" type="range" min="1" max="32" step="1" value="1"><span id="blkVal" class="hint">1 px</span>
+    </div>
+  </div>
+</header>
+
+<main>
+  <aside>
+    <div class="panel">
+      <h2>Voxel / Export</h2>
+      <div class="row"><label for="voxelSize">Voxel size</label><input id="voxelSize" type="number" step="0.1" value="0.5"></div>
+      <div class="row"><label for="plane">Sík</label>
+        <select id="plane">
+          <option value="XY">XY (Z=0)</option>
+          <option value="XZ">XZ (Y=0)</option>
+          <option value="YZ">YZ (X=0)</option>
+        </select>
+      </div>
+      <div class="row"><label for="groupName">Csoport</label><input id="groupName" type="text" value="aaa"></div>
+      <div class="row"><label><input id="showGrid" type="checkbox"> Grid</label></div>
+      <div class="row" style="margin-top:8px"><button id="exportBtn">Export JSON</button></div>
+      <p class="hint">Bal alsó = (0,0); jobbra X nő, felfelé Y nő. Export csak gombnyomásra.</p>
+    </div>
+
+    <div class="panel">
+      <h2>Paletta</h2>
+      <div class="row" style="margin-bottom:8px">
+        <button id="addColor">+ Szín</button>
+        <button id="savePalette">Paletta mentése</button>
+        <button id="loadPalette">Paletta betöltése</button>
+        <input id="loadPaletteFile" type="file" accept="application/json" style="display:none">
+      </div>
+      <div id="palList"></div>
+    </div>
+  </aside>
+
+  <div class="canvases">
+    <div class="canvas-card">
+      <h3>Eredeti (korrekciókkal)</h3>
+      <canvas id="src"></canvas>
+      <p class="hint">Induláskor beépített tesztkép látszik.</p>
+    </div>
+    <div class="canvas-card">
+      <h3>Kvantált (palettára)</h3>
+      <canvas id="dst"></canvas>
+      <p class="hint">Grid kapcsolóval a pixelek határai látszanak.</p>
+    </div>
+  </div>
+</main>
+
+<script>
+/* ===== Util ===== */
+const $ = s => document.querySelector(s);
+const clamp = (v,min,max)=>v<min?min:(v>max?max:v);
+function hexToRgb(hex){const m=/^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex.trim());return m?{r:parseInt(m[1],16),g:parseInt(m[2],16),b:parseInt(m[3],16)}:{r:0,g:0,b:0};}
+function distRGB(r1,g1,b1, r2,g2,b2){const dr=r1-r2,dg=g1-g2,db=b1-b2;return dr*dr+dg*dg+db*db;}
+function applyBC(imgData, bPerc, cPerc){
+  const d=imgData.data, b=(bPerc/100)*255, c255=(cPerc/100)*255;
+  const f=(259*(c255+255))/(255*(259-c255));
+  for(let i=0;i<d.length;i+=4){
+    d[i]=clamp(f*(d[i]-128)+128+b,0,255);
+    d[i+1]=clamp(f*(d[i+1]-128)+128+b,0,255);
+    d[i+2]=clamp(f*(d[i+2]-128)+128+b,0,255);
+  }
+  return imgData;
+}
+function download(filename, text){
+  const blob = new Blob([text], {type:'application/json'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a'); a.href = url; a.download = filename; document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(url);
+}
+
+/* ===== Defaults ===== */
+const defaultPalette = [
+  { hex:'#3E578A', name:'DrawingBoardCube0.5mx0.5m01', refType:'gp', include:true },
+  { hex:'#5A93D8', name:'DrawingBoardCube0.5mx0.5m02', refType:'gp', include:true },
+  { hex:'#32375A', name:'DrawingBoardCube0.5mx0.5m03', refType:'gp', include:true },
+  { hex:'#F89C41', name:'DrawingBoardCube0.5mx0.5m04', refType:'gp', include:true },
+  { hex:'#D3D3D5', name:'DrawingBoardCube0.5mx0.5m05', refType:'gp', include:true },
+];
+
+/* ===== State & DOM ===== */
+let palette = JSON.parse(JSON.stringify(defaultPalette));
+let imgEl = null;
+let sampleW=0, sampleH=0;
+let lastQuantMap = null;
+
+const palList = $('#palList');
+const srcC = $('#src'), dstC = $('#dst');
+const srcX = srcC.getContext('2d'); const dstX = dstC.getContext('2d');
+const fileIn = $('#file'), resetBtn = $('#reset');
+const brightness = $('#brightness'), contrast = $('#contrast');
+const bVal = $('#bVal'), cVal = $('#cVal');
+const resScale = $('#resScale'), rVal = $('#rVal');
+const block = $('#block'), blkVal = $('#blkVal');
+const voxelSizeEl = $('#voxelSize'); const planeSel = $('#plane');
+const groupNameEl = $('#groupName'); const showGridEl = $('#showGrid');
+const exportBtn = $('#exportBtn');
+const addColorBtn = $('#addColor'); const savePaletteBtn = $('#savePalette');
+const loadPaletteBtn = $('#loadPalette'); const loadPaletteFile = $('#loadPaletteFile');
+
+/* ===== UI render ===== */
+function renderPaletteUI(){
+  palList.innerHTML = '';
+  palette.forEach((p, idx)=>{
+    const card = document.createElement('div'); card.className='colorCard';
+    const top = document.createElement('div'); top.className='colorTop';
+    const sw = document.createElement('span'); sw.className='swatch'; sw.style.background=p.hex;
+    const hexIn = document.createElement('input'); hexIn.type='text'; hexIn.value=p.hex; hexIn.style.width='120px';
+    hexIn.addEventListener('change',()=>{ p.hex = hexIn.value; sw.style.background = p.hex; scheduleProcess(); });
+    top.append(sw,hexIn); card.appendChild(top);
+
+    const fName = document.createElement('div'); fName.className='field';
+    fName.innerHTML = '<label>Név (refName)</label>';
+    const nameIn = document.createElement('input'); nameIn.type='text'; nameIn.value=p.name;
+    nameIn.addEventListener('input',()=>{ p.name = nameIn.value; });
+    fName.appendChild(nameIn); card.appendChild(fName);
+
+    const fRef = document.createElement('div'); fRef.className='field';
+    fRef.innerHTML = '<label>refType</label>';
+    const refIn = document.createElement('input'); refIn.type='text'; refIn.value=p.refType||'gp';
+    refIn.addEventListener('input',()=>{ p.refType = refIn.value||'gp'; });
+    fRef.appendChild(refIn); card.appendChild(fRef);
+
+    const rowline = document.createElement('div'); rowline.className='rowline';
+    const inc = document.createElement('input'); inc.type='checkbox'; inc.checked = !!p.include;
+    inc.addEventListener('change',()=>{ p.include = inc.checked; });
+    const incLab = document.createElement('label'); incLab.textContent='Export?'; incLab.style.userSelect='none';
+    const rm = document.createElement('button'); rm.textContent='Törlés'; rm.addEventListener('click',()=>{ palette.splice(idx,1); renderPaletteUI(); scheduleProcess(); });
+    rowline.append(inc,incLab,rm);
+    card.appendChild(rowline);
+
+    palList.appendChild(card);
+  });
+}
+
+/* ===== Demo image (always visible on start) ===== */
+const DEMO = new Image();
+DEMO.onload = ()=>{ if(!imgEl){ imgEl = DEMO; processAll(); } };
+DEMO.src =
+'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAgAAAAEACAYAAAB3q9q8AAAACXBIWXMAAAsSAAALEgHS3X78AAAgAElEQVR4nO3dwY3kSBQF0dP//8bqTq8pQ2r2VqQ6eQn4q4mO0W6wZyJ0s9A' +
+'...'; // rövidítve: bármilyen rövid PNG data URL jó; ha üres, a kód generál mintát
+
+/* Ha a fenti data URL túl rövid/hibás, esünk vissza egy rajzolt mintára */
+function drawFallbackPattern(){
+  const w=512, h=320;
+  srcC.width=w; srcC.height=h;
+  const g=srcX.createLinearGradient(0,0,w,0);
+  g.addColorStop(0,'#3E578A'); g.addColorStop(0.5,'#5A93D8'); g.addColorStop(1,'#F89C41');
+  srcX.fillStyle=g; srcX.fillRect(0,0,w,h);
+  for(let y=0;y<h;y+=32){ for(let x=0;x<w;x+=32){
+    srcX.fillStyle=((x^y)&32)?'rgba(255,255,255,0.12)':'rgba(0,0,0,0.12)'; srcX.fillRect(x,y,32,32);
+  }}
+}
+
+/* ===== Processing with safety caps ===== */
+const MAX_PIXELS = 300000; // ~0.3 MP – stabil
+let processTimer = null;
+function scheduleProcess(){ clearTimeout(processTimer); processTimer = setTimeout(processAll, 30); }
+
+function processAll(){
+  // 1) Forrás kép (ha nincs sikeres img, fallback)
+  let w,h;
+  if(imgEl && imgEl.naturalWidth){
+    w = imgEl.naturalWidth|0; h = imgEl.naturalHeight|0;
+    srcC.width=w; srcC.height=h;
+    srcX.imageSmoothingEnabled=true;
+    srcX.drawImage(imgEl,0,0);
+  } else {
+    drawFallbackPattern();
+    w = srcC.width; h = srcC.height;
+  }
+
+  // 2) Fényerő/kontraszt
+  let sData = srcX.getImageData(0,0,w,h);
+  sData = applyBC(sData, parseInt(brightness.value,10), parseInt(contrast.value,10));
+  srcX.putImageData(sData,0,0);
+
+  // 3) Mintavétel (Resolution + cap)
+  let rs = parseFloat(resScale.value)||1.0;
+  // ha túl nagy lenne, lejjebb vesszük rs-t:
+  const targetPixels = Math.min(MAX_PIXELS, w*h*rs*rs);
+  const scaleCap = Math.sqrt(targetPixels/(w*h));
+  if(rs > scaleCap) rs = scaleCap;
+
+  const blk = Math.max(1, parseInt(block.value,10)||1);
+  sampleW = Math.max(1, Math.round(w * rs));
+  sampleH = Math.max(1, Math.round(h * rs));
+
+  const work = document.createElement('canvas');
+  work.width = sampleW; work.height = sampleH;
+  const wctx = work.getContext('2d');
+  wctx.imageSmoothingEnabled = false;
+  wctx.drawImage(srcC, 0,0,w,h, 0,0,sampleW,sampleH);
+
+  // 4) Kvantálás palettára (egyszerű, de limitált méreten stabil)
+  const pal = palette.map(p=>({ ...p, ...hexToRgb(p.hex)}));
+  let img = wctx.getImageData(0,0,sampleW,sampleH);
+  let d = img.data;
+  lastQuantMap = new Uint16Array(sampleW*sampleH);
+
+  if(blk===1){
+    for(let i=0,pix=0;i<d.length;i+=4, pix++){
+      const r=d[i], g=d[i+1], b=d[i+2];
+      let bi=0,bc=Infinity;
+      for(let k=0;k<pal.length;k++){ const p=pal[k]; const c=distRGB(r,g,b,p.r,p.g,p.b); if(c<bc){bc=c;bi=k;} }
+      const c=pal[bi]; d[i]=c.r; d[i+1]=c.g; d[i+2]=c.b; d[i+3]=255; lastQuantMap[pix]=bi;
+    }
+  }else{
+    const tmp = new Uint8ClampedArray(d.length);
+    for(let by=0; by<sampleH; by+=blk){
+      for(let bx=0; bx<sampleW; bx+=blk){
+        let rsu=0, gsu=0, bsu=0, cnt=0;
+        const bw=Math.min(blk, sampleW-bx), bh=Math.min(blk, sampleH-by);
+        for(let yy=0; yy<bh; yy++)for(let xx=0; xx<bw; xx++){
+          const idx=((by+yy)*sampleW + (bx+xx))<<2; rsu+=d[idx]; gsu+=d[idx+1]; bsu+=d[idx+2]; cnt++;
+        }
+        const ar=(rsu/cnt)|0, ag=(gsu/cnt)|0, ab=(bsu/cnt)|0;
+        let bi=0,bc=Infinity;
+        for(let k=0;k<pal.length;k++){ const p=pal[k]; const c=distRGB(ar,ag,ab,p.r,p.g,p.b); if(c<bc){bc=c;bi=k;} }
+        const pc=pal[bi];
+        for(let yy=0; yy<bh; yy++)for(let xx=0; xx<bw; xx++){
+          const i = ((by+yy)*sampleW + (bx+xx))<<2;
+          tmp[i]=pc.r; tmp[i+1]=pc.g; tmp[i+2]=pc.b; tmp[i+3]=255;
+          lastQuantMap[((by+yy)*sampleW + (bx+xx))] = bi;
+        }
+      }
+    }
+    d.set(tmp);
+  }
+  wctx.putImageData(img,0,0);
+
+  // 5) Kirajzolás + grid
+  dstC.width=w; dstC.height=h;
+  dstX.imageSmoothingEnabled=false;
+  dstX.clearRect(0,0,w,h);
+  dstX.drawImage(work, 0,0,sampleW,sampleH, 0,0,w,h);
+
+  if(showGridEl.checked){
+    const cellW = w / sampleW, cellH = h / sampleH;
+    dstX.save();
+    dstX.strokeStyle = 'rgba(255,255,255,0.18)';
+    dstX.lineWidth = 1;
+    dstX.beginPath();
+    for(let x=0;x<=sampleW;x++){ const xx = Math.round(x*cellW)+0.5; dstX.moveTo(xx,0); dstX.lineTo(xx,h); }
+    for(let y=0;y<=sampleH;y++){ const yy = Math.round(y*cellH)+0.5; dstX.moveTo(0,yy); dstX.lineTo(w,yy); }
+    dstX.stroke(); dstX.restore();
+  }
+}
+
+/* ===== Export (gombnyomásra) ===== */
+function buildExportJSON(){
+  if(!lastQuantMap){ return { groups:{} }; }
+  const groupName = (groupNameEl.value||'aaa').trim();
+  const voxelSize = parseFloat(voxelSizeEl.value)||0.5;
+  const plane = planeSel.value;
+
+  const include = palette.map(p=>!!p.include);
+  const refName = palette.map(p=>p.name||'');
+  const refType = palette.map(p=>p.refType||'gp');
+
+  const items = [];
+  for(let row=0; row<sampleH; row++){
+    const yUp = (sampleH - 1 - row);
+    for(let col=0; col<sampleW; col++){
+      const palIdx = lastQuantMap[row*sampleW + col] | 0;
+      if(!include[palIdx]) continue;
+      const rn = refName[palIdx]; if(!rn) continue;
+      const rt = refType[palIdx] || 'gp';
+
+      const x = col * voxelSize;
+      const y = yUp * voxelSize;
+      let pos;
+      if(plane==='XY') pos=[x,y,0];
+      else if(plane==='XZ') pos=[x,0,y];
+      else pos=[0,x,y];
+
+      items.push({ refType:rt, refName:rn, pos:[+pos[0],+pos[1],+pos[2]], rotRYP:[0,0,0], scale:[1,1,1] });
+    }
+  }
+  return { groups: { [groupName]: { name:groupName, items } } };
+}
+
+/* ===== Palette save/load ===== */
+function savePaletteJSON(){
+  const clean = palette.map(p=>({hex:p.hex, name:p.name, refType:p.refType||'gp', include:!!p.include}));
+  download('palette.json', JSON.stringify({palette: clean}, null, 2));
+}
+function tryLoadPaletteObject(obj){
+  if(!obj || !Array.isArray(obj.palette)) throw new Error('Hibás paletta formátum.');
+  const arr = obj.palette.map(e=>({hex:e.hex||'#808080', name:e.name||'NewVoxel', refType:e.refType||'gp', include:!!e.include}));
+  if(arr.length===0) throw new Error('Üres paletta.');
+  palette = arr; renderPaletteUI(); scheduleProcess();
+}
+
+/* ===== Events ===== */
+[brightness,contrast,resScale,block,voxelSizeEl,planeSel,groupNameEl,showGridEl].forEach(el=>{
+  el.addEventListener('input',()=>{
+    $('#bVal').textContent=brightness.value;
+    $('#cVal').textContent=contrast.value;
+    $('#rVal').textContent=parseFloat(resScale.value).toFixed(2)+'×';
+    $('#blkVal').textContent=block.value+' px';
+    scheduleProcess();
+  });
+});
+
+fileIn.addEventListener('change',(e)=>{
+  const f = e.target.files && e.target.files[0]; if(!f) return;
+  const url = URL.createObjectURL(f);
+  const im = new Image();
+  im.onload = ()=>{ imgEl = im; processAll(); URL.revokeObjectURL(url); };
+  im.onerror = ()=>{ alert('Kép betöltési hiba.'); URL.revokeObjectURL(url); };
+  im.src = url;
+});
+
+resetBtn.addEventListener('click',()=>{
+  brightness.value='0'; contrast.value='0'; resScale.value='1.00'; block.value='1';
+  voxelSizeEl.value='0.5'; planeSel.value='XY'; groupNameEl.value='aaa'; showGridEl.checked=false;
+  $('#bVal').textContent='0'; $('#cVal').textContent='0'; $('#rVal').textContent='1.00×'; $('#blkVal').textContent='1 px';
+  palette = JSON.parse(JSON.stringify(defaultPalette));
+  renderPaletteUI(); imgEl = DEMO.naturalWidth?DEMO:null; processAll();
+});
+
+exportBtn.addEventListener('click', ()=>{ const json = JSON.stringify(buildExportJSON(), null, 2); download((groupNameEl.value||'aaa')+'.json', json); });
+addColorBtn.addEventListener('click', ()=>{ palette.push({hex:'#808080',name:'NewVoxel',refType:'gp',include:true}); renderPaletteUI(); scheduleProcess(); });
+savePaletteBtn.addEventListener('click', ()=> savePaletteJSON());
+loadPaletteBtn.addEventListener('click', ()=>{ loadPaletteFile.value=''; loadPaletteFile.click(); });
+loadPaletteFile.addEventListener('change',(e)=>{
+  const f = e.target.files && e.target.files[0]; if(!f) return;
+  const r = new FileReader();
+  r.onload = ()=>{ try{ tryLoadPaletteObject(JSON.parse(r.result)); }catch(err){ alert('Paletta betöltési hiba: '+err.message); } };
+  r.readAsText(f);
+});
+
+/* ===== Init ===== */
+renderPaletteUI();
+if(!DEMO.naturalWidth){ drawFallbackPattern(); } // ha valamiért a data URL nem érvényes
+processAll();
+</script>
+</body>
+</html>

@@ -280,3 +280,67 @@ ul.list::-webkit-scrollbar-track {
 .checkrow input[type="checkbox"] {
   margin: 0;
 }
+
+
+/*
+.header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+}
+
+.header-links a {
+  margin-left: 0.75rem;
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+.header-links a:hover {
+  text-decoration: underline;
+}*/
+
+.header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Linkek a címsorban – gombszerű “pill” stílus */
+.header-links {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.header-links a {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1px solid #888;
+  background: #ffffff;
+  color: #222;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-decoration: none;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.1s ease;
+}
+
+.header-links a:hover {
+  background: #2f80ed;
+  color: #ffffff;
+  border-color: #2f80ed;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  transform: translateY(-1px);
+}
+
+.header-links a:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.18);
+}
