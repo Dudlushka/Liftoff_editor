@@ -16,7 +16,7 @@ async function boot()
   if (!loaded)
   {
 
-    const loaded2 = await window.loadLibraryFromURL("public/library_1.json");
+    const loaded2 = await window.loadLibraryFromURL("/public/library_1.json");
 
     if(!loaded2)
     {
