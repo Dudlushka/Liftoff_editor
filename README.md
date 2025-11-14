@@ -1,5 +1,5 @@
 <p>
-  <img src="pictures/2.jpg" alt="2" width="50%" />
+  <img src="/pictures/2.jpg" alt="2" width="50%" />
 </p>
 
 # 1. General
