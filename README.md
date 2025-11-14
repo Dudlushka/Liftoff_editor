@@ -417,7 +417,7 @@ The LineStyle values are:
   - The path still exists mathematically, but it only serves as a reference or connector.
   
 <p>
-  <img src="help/6.jpg" alt="1" width="45%" />
+  <img src="help/6.jpg" alt="6 noAux" width="45%" />
 </p>
 
 - **LineStyle = 1 – Line objects only**
@@ -426,7 +426,7 @@ The LineStyle values are:
     - e.g. a sequence of cones, pillars, tiles, or small markers that follow the curve.
     
 <p>
-  <img src="help/7.jpg" alt="1" width="45%" />
+  <img src="help/7.jpg" alt="7" width="45%" />
 </p>
 
 - **LineStyle = 2 – Line objects + Major supports**
@@ -435,7 +435,7 @@ The LineStyle values are:
   - Major supports are usually larger structural elements (e.g. main columns supporting the track).
   
 <p>
-  <img src="help/8.jpg" alt="1" width="45%" />
+  <img src="help/8.jpg" alt="8" width="45%" />
 </p>
 
 - **LineStyle = 3 – Line objects + Major + Minor supports**
@@ -444,7 +444,7 @@ The LineStyle values are:
   - Minor supports typically fill in the gaps between major supports and provide visual or structural detail (e.g. additional braces or smaller pillars).
 
 <p>
-  <img src="help/9.jpg" alt="1" width="45%" />
+  <img src="help/9.jpg" alt="9" width="45%" />
 </p>
 
 
