@@ -1,7 +1,13 @@
 
-<p>
-  <img src="./help/2.jpg" alt="1" width="45%" />
+# "OFF-Blast" Track Editor manual 
+
+<p align="center">
+  <img src="./help/3.jpg" alt="1" width="45%" />
   <img src="./help/4.jpg" alt="2" width="45%" />
+</p>
+
+<p align="center">
+  <img src="./help/4b.jpg" alt="2" width="65%" />
 </p>
 
 # 1. General
@@ -667,6 +673,8 @@ The closer your source image already is to “pixel-art”, the cleaner and more
   <img src="help/pg2.jpg" alt="PixGen2" width="45%" />
   <img src="help/pg3.jpg" alt="PixGen3" width="45%" />
 </p>
-
+<p align="center">
+  <img src="help/pg4.jpg" alt="PixGen3" width="70%" />
+</p>
 
 

@@ -11,6 +11,8 @@ import {
 import {currentCLIndex,setCurrentCLIndex}from './gen_state.js';
 import { refreshCPListHighlight, refreshCPList, syncSceneEditorsFromFirstCP, RefreshCL_AAA} from './gen_controlLines.js';
 
+const deg = (v) => (v * Math.PI) / 180;
+
 // ===== Export / Import =====
 function exportSceneFlattenXML()
 {
