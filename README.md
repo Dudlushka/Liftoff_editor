@@ -205,6 +205,13 @@ I am happy to merge good community-created primitives into future versions of th
 ***
 # 3. Group Editor
 
+<p>
+  <img src="./help/10.jpg" alt="group1" width="45%" />
+  <img src="./help/11.jpg" alt="group2" width="45%" />
+</p>
+
+
+
 The **Group Editor** lets you build more complex, reusable structures out of existing **GamePrimitives** (and even other Groups).
 
 A **Group** is essentially a prefab made of multiple objects:
@@ -212,9 +219,18 @@ A **Group** is essentially a prefab made of multiple objects:
 - but internally it consists of many GamePrimitives (and optionally nested Groups).
 
 
+
 ### Typical use cases
 
-Some examples of what Groups are good for:
+
+A very simple and intuitive example of a **Group**, which almost everyone ends up using at some point, is a small pine tree:
+
+- one **cone** as the foliage, (white here: you can think of it as a snowy one).
+- and one **cylinder** as the trunk 
+
+Together these two simple primitives form a reusable “pine tree” Group, which we’ll call `tree1`, as shown in the image at the beginning of this section.
+
+Some other examples of what Groups are good for:
 
 - A straight wall section built from several brick-like GamePrimitives.
 - A staircase assembled from repeated step modules.
@@ -466,3 +482,191 @@ The exact visual result depends on the GamePrimitives/Groups you assign as Major
 - allowing you to fine-tune how your track is supported and how detailed the structure looks.
 
 With a combination of ControlPoints, LineStyles, and well-chosen offsets, you can very quickly generate complex, articulated track sections that would be extremely time-consuming to build by hand.
+
+
+***
+<p>
+  <img src="help/keys.jpg" alt="keyboard layout" width="45%" />
+</p>
+
+# 5. Keyboard and mouse controls
+
+### Selection
+
+- **Ctrl + Left click**  
+  Toggle selection of an object (select / deselect).  
+  At the moment, effective editing is still mostly single-object based, so don’t be surprised if multi-select feels limited.
+
+- **Esc**  
+  Clear the current selection.  
+  (In the current version it’s worth pressing this a few times if something looks “stuck selected” – the visual highlighting is not always perfectly in sync with the actual internal selection state.)
+
+- **Ctrl + A**  
+  Select all objects (ControlPoints are *not* included in this “select all” operation).
+
+
+### Moving objects
+
+- **Left mouse button + drag**  
+  Move the selected object(s) in the horizontal plane.
+
+- **Shift + Left mouse button + drag**  
+  Move the selected object(s) up and down (vertical movement).
+
+
+### Camera controls
+
+- **Middle mouse button + drag**  
+  Pan the camera (move the view horizontally/vertically).
+
+- **Right mouse button + drag**  
+  Orbit the camera around the scene (rotate the view).
+
+- **Page Up / Page Down**  
+  Move the camera up and down.
+
+
+### Rotation – editor vs. simulator
+
+Rotation is a bit more involved because:
+
+- the **editor** uses an internal **XYZ** Euler rotation order,
+- while the **simulator** uses **YXZ**.
+
+To help with this, there are two sets of rotation keys.
+
+
+#### Q / W / E – rotation in the editor’s selected order
+
+The editor lets you choose an Euler rotation order from a dropdown.  
+Once you pick one, the **Q / W / E** keys rotate around the axes of that chosen order:
+
+- **Q** – rotate around the first axis of the selected order  
+- **W** – rotate around the second axis of the selected order  
+- **E** – rotate around the third axis of the selected order  
+
+This is useful if you want to experiment with different rotation orders inside the editor and see which one behaves more predictably for your use case.
+
+
+#### A / S / D – rotation in the simulator’s YXZ order
+
+The **A / S / D** keys always rotate using the simulator’s own **YXZ** order, mapped as:
+
+- **A** – rotate around the **X** axis  
+- **S** – rotate around the **Y** axis  
+- **D** – rotate around the **Z** axis  
+
+Use these if you want the object’s rotation to match how the simulator interprets angles as closely as possible.
+
+
+#### Alt + drag (legacy rotation)
+
+At the moment, **Alt + mouse** still triggers rotation around a user-selectable axis (chosen from a dropdown).  
+This is considered a legacy / temporary control and will likely be removed soon, so it’s better to rely on the **Q/W/E** and **A/S/D** shortcuts instead.
+
+
+### ControlLine editing shortcuts
+
+- **R** – Add a new ControlPoint (CP) to the currently active ControlLine.  
+  This is a quick way to extend a line without going through menu commands.
+
+
+### Deletion
+
+- **Delete** – Remove all currently selected objects.  
+  (ControlPoints follow the same rule: if they are selected, they will be deleted with this key.)
+
+
+
+
+
+
+
+
+***
+
+# PicGen – pixel-art based object generator
+
+<p>
+  <img src="help/pg1.jpg" alt="PixGen1" width="45%" />
+</p>
+
+In addition to the main editor, there is a separate helper tool called **PicGen**.  
+PicGen can take an input image and turn it into a **pixel-art style layout** built from GamePrimitives or Groups.
+
+In the example screenshots, a simple bunny image is imported and converted into a field of small cubes.  
+Each pixel can become one or more 3D objects in the final track.
+
+
+### Basic idea
+
+PicGen works with the following concept:
+
+- You load an image (for example a pixel-art bunny).
+- The image is sampled into a grid of pixels.
+- Each **pixel color** can be mapped to:
+  - a simple cube,
+  - a specific GamePrimitive,
+  - or even a Group.
+
+By doing this, you can think in terms of **“1 pixel = 1 object”**, and let PicGen generate complex structures based on artwork.
+
+
+### Color mapping
+
+For convenience, the tool provides a default set of **five colored cubes** as basic building blocks.
+
+For each color in the image that you care about, you can:
+
+- **Assign an object or Group**  
+  For example:
+  - all **red** pixels could be mapped to a Group containing a cluster of red tires,
+  - all **blue** pixels could be mapped to small cubes,
+  - etc.
+
+- **Enable or disable generation per color**  
+  If you add an extra color entry corresponding to the image **background**, you can simply **uncheck** it:
+  - this tells PicGen *not* to generate any objects for pixels of that color,
+  - effectively treating them as transparent / empty.
+
+This makes it easy to isolate the interesting parts of the image (e.g. the bunny) and ignore the background.
+
+
+### Image adjustments – contrast, brightness, resolution
+
+PicGen provides a few sliders to help you tune the image before generating objects:
+
+- **Resolution**  
+  Controls how densely the image is sampled:
+  - higher resolution → more pixels → more objects,
+  - lower resolution → fewer, larger “blocks”.
+
+- **Contrast**  
+  Increases or decreases the contrast, helping to separate similar colors more clearly.
+
+- **Brightness**  
+  Shifts the overall brightness, which can help when images are too dark or too bright.
+
+You can experiment with these sliders until the preview looks reasonable.  
+Once you are happy with the result, you can export the voxelized layout into the main editor.
+
+
+### Best practices for source images
+
+PicGen works best if you prepare an image with its limitations in mind:
+
+- Ideally, **one image pixel should correspond to one object** in the scene.
+- Use a limited set of **clearly separated colors**.
+- Avoid heavy gradients or photo-like images; instead:
+  - draw or edit your image so that it looks like pixel-art,
+  - use flat colors and simple shapes.
+
+The closer your source image already is to “pixel-art”, the cleaner and more predictable the generated object layout will be.
+
+<p>
+  <img src="help/pg2.jpg" alt="PixGen2" width="45%" />
+  <img src="help/pg3.jpg" alt="PixGen3" width="45%" />
+</p>
+
+
+

@@ -22,7 +22,6 @@ getPrimaryIndex,
 } from './gen_state.js';
 
 import {
-
   buildPrimitiveMesh
 }from './gen_primitives.js';
 
@@ -760,37 +759,7 @@ const deg = (v) => (v * Math.PI) / 180;
 
 
 
-// ===== Geometries =====
-function buildArcCylGeometry(inner, outer, angleDeg, height)
-{
-  const angDeg = Math.max(1, Math.min(359, angleDeg));
-  const a = THREE.MathUtils.degToRad(angDeg);
-  const s = 0,
-    e = a;
-  const outerR = Math.max(outer, inner + 1e-4);
 
-  const shape = new THREE.Shape();
-  shape.moveTo(outerR * Math.cos(s), outerR * Math.sin(s));
-  shape.absarc(0, 0, outerR, s, e, false);
-  shape.lineTo(inner * Math.cos(e), inner * Math.sin(e));
-
-  const hole = new THREE.Path();
-  hole.moveTo(inner * Math.cos(e), inner * Math.sin(e));
-  hole.absarc(0, 0, inner, e, s, true);
-  hole.lineTo(outerR * Math.cos(s), outerR * Math.sin(s));
-  shape.holes.push(hole);
-
-  const geo = new THREE.ExtrudeGeometry(shape, {
-    depth: height,
-    bevelEnabled: false,
-    curveSegments: 96,
-  });
-  geo.translate(0, 0, -height / 2);
-  geo.rotateX(Math.PI / 2);
-  geo.center();
-  geo.computeVertexNormals();
-  return geo;
-}
 
 
 //---------------------------------
