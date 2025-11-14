@@ -1,5 +1,9 @@
 <p>
+<<<<<<< HEAD
   <img src="help/2.jpg" alt="2" width="50%" />
+=======
+  <img src="/pictures/2.jpg" alt="2" width="50%" />
+>>>>>>> 6f0a72c83f3956c66c7688ecdb3226ff3ab10694
 </p>
 
 # 1. General
@@ -81,6 +85,7 @@ With this approach you can design complex, flowing tracks in a fraction of the t
 
 
 <p>
+<<<<<<< HEAD
   <img src="help/1.jpg" alt="1" width="45%" />
   <img src="help/2.jpg" alt="2" width="45%" />
 </p>
@@ -90,3 +95,8 @@ With this approach you can design complex, flowing tracks in a fraction of the t
   <img src="help/3.jpg" alt="1" width="45%" />
   <img src="help/4.jpg" alt="2" width="45%" />
 </p>
+=======
+  <img src="pictures/1.jpg" alt="1" width="45%" />
+  <img src="pictures/2.jpg" alt="2" width="45%" />
+</p>
+>>>>>>> 6f0a72c83f3956c66c7688ecdb3226ff3ab10694
