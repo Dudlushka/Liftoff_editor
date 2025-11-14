@@ -1,6 +1,7 @@
+
 <p>
-  <img src="help/2.jpg" alt="2" width="50%" />
-  <img src="help/4.jpg" alt="2" width="50%" />
+  <img src="help/2.jpg" alt="1" width="45%" />
+  <img src="help/4.jpg" alt="2" width="45%" />
 </p>
 
 # 1. General
@@ -19,7 +20,9 @@ The editor is built around three main views:
 Each view focuses on a different “level” of building blocks: basic shapes, reusable modules, and full tracks.
 
 
-## GamePrimitive Editor
+***
+
+## 1.1. GamePrimitive Editor
 
 The purpose of the **GamePrimitive Editor** is to recreate the objects used by the game so that we can use them inside this custom editor.
 
@@ -36,7 +39,7 @@ You can extend this library with your own GamePrimitives at any time.
 If you create useful new elements, feel free to export them and share them with me – I am always happy to integrate community-made primitives into the default library.
 
 
-## Terminology
+### 1.1.1. Terminology
 
 The editor uses the following basic concepts:
 
@@ -50,7 +53,8 @@ The editor uses the following basic concepts:
   These are the objects that the Group and Scene editors work with.
 
 
-## Group Editor mode
+
+## 1.2. Group Editor mode
 
 In **Group Editor** mode you can build more complex structures out of existing GamePrimitives.  
 These structures are called **Groups**.
@@ -64,7 +68,8 @@ Groups can also use other Groups as components (nested groups), allowing you to 
 The only restriction is that a Group cannot include itself recursively (for obvious reasons).
 
 
-## Scene Editor mode
+
+## 1.3. Scene Editor mode
 
 In **Scene Editor** mode you use **GamePrimitives** and **Groups** to build your actual **Track**, similar to the game’s own editor – but hopefully a bit faster and more comfortable.
 
@@ -90,8 +95,8 @@ With this approach you can design complex, flowing tracks in a fraction of the t
   <img src="help/4.jpg" alt="2" width="45%" />
 </p>
 
-
-## GamePrimitive Editor
+***
+# 2. GamePrimitive Editor
 
 The **GamePrimitive Editor** is where you define the actual building blocks that represent the game’s placeable objects.
 
@@ -104,7 +109,7 @@ Until then there will inevitably be some objects that:
 If you want to use such an object in your track, you can recreate it yourself as a new GamePrimitive.
 
 
-### When do you need to create your own GamePrimitive?
+### 2.1.1. When do you need to create your own GamePrimitive?
 
 You only need to create a custom GamePrimitive if:
 
@@ -114,7 +119,7 @@ You only need to create a custom GamePrimitive if:
 In that case you can approximate the object’s shape and size using the editor’s simple geometric primitives, so that it looks and behaves *close enough* to the original in the final track.
 
 
-### Step-by-step: recreating an in-game object
+### 2.1.2. Step-by-step: recreating an in-game object
 
 1. **Inspect the object in the game’s track editor**
 
@@ -197,8 +202,8 @@ When the page loads, the editor automatically loads a **default library** that c
 
 I am happy to merge good community-created primitives into future versions of the default library, so over time fewer and fewer users will need to manually recreate objects.
 
-
-## Group Editor
+***
+# 3. Group Editor
 
 The **Group Editor** lets you build more complex, reusable structures out of existing **GamePrimitives** (and even other Groups).
 
@@ -268,3 +273,196 @@ You can:
 - Reuse them across multiple tracks.
 
 Your Groups are stored together with the rest of the editor’s data and can be exported/imported along with your GamePrimitives.
+
+***
+# 4. Scene Editor
+
+The **Scene Editor** is where you build the actual **track** from your available **GamePrimitives** and **Groups**.
+
+At the simplest level, this works very much like the game’s own track editor:
+
+- you place GamePrimitives and Groups into the scene,
+- move and rotate them into position,
+- and gradually assemble your full track.
+
+### Copy–paste and creating new Groups from the scene
+
+While editing a scene, you will often find a sub-structure that you like and would like to reuse elsewhere.
+
+In that case you have two main options:
+
+1. **Simple copy–paste inside the Scene Editor**  
+   - Select the objects you want to reuse.
+   - Copy and paste them somewhere else in the same scene.
+   - This is quick, but the selection only lives in this one track.
+
+2. **Turn the selection into a reusable Group**  
+   - Select the objects in the Scene Editor.
+   - Copy them.
+   - Switch to the **Group Editor**.
+   - Create a new Group and paste the selection into it.
+
+From that point on, this new Group becomes a reusable building block:
+- you can place it multiple times in the same track,
+- and also reuse it in completely different tracks.
+
+This is the recommended workflow for anything you expect to use more than once.
+
+
+## ControlLines – spline-based track building
+
+The main advanced feature of the editor is the ability to build tracks along **ControlLines**.
+
+You can think of a ControlLine as similar to a **spline** in a vector drawing program:
+
+- you define a few key points (ControlPoints),
+- the editor interpolates a smooth curve between them,
+- and then automatically places objects along that curve.
+
+This makes it possible to design complex, “roller-coaster-like” tracks very quickly.
+
+
+### Core concepts
+
+The ControlLine system uses the following elements:
+
+- **ControlLine**  
+  A complete path in 3D space, made up of multiple ControlPoints and the curve segments between them.
+
+- **ControlPoint (CP)**  
+  A key point on the ControlLine.  
+  It defines:
+  - the local position and orientation of the track,
+  - optional gate/checkpoint placement,
+  - and the style of the following line segment.
+
+- **AuxPoint**  
+  Automatically generated sample points **along** the line segments between ControlPoints.  
+  These are used as placement positions for “line objects” (for example, repeated obstacles, railing segments, tiles, etc.).
+
+- **MajorSupport**  
+  A set of primary supports generated along the line:
+  - typically larger, structural elements (e.g. main pillars under the track).
+
+- **MinorSupport**  
+  A set of secondary supports generated along the line:
+  - typically smaller, denser elements (e.g. additional braces, filler supports).
+
+
+### The role of ControlPoints
+
+Each **ControlPoint** has two main responsibilities:
+
+1. **Defining the shape of the path**
+   - The positions (and orientations) of the ControlPoints determine the overall curve of the ControlLine.
+   - The editor interpolates smoothly between them, so you can bend the track in any direction.
+
+2. **Optionally placing a gate/checkpoint**
+   - At each ControlPoint, you can decide whether you want to place a gate or some other special object (for example, a checkpoint structure).
+   - This is controlled by the CP’s **Style** attribute.
+
+
+### ControlPoint attributes
+
+Each ControlPoint has four key attributes that affect how the path is generated and what is placed along it.
+
+#### 1. Style
+
+Controls whether anything is placed exactly at the ControlPoint itself:
+
+- **Style = 0**  
+  No object is generated at this ControlPoint.  
+  It only influences the shape of the curve and the following segment.
+
+- **Style = 1**  
+  The selected **gate object** (GamePrimitive or Group) is placed at this ControlPoint.  
+  This is typically used for gates, checkpoints, or any “main feature” that should sit exactly on the path.
+
+You can choose which GamePrimitive/Group acts as the gate object in the editor’s settings.
+
+
+#### 2. LineStyle
+
+Controls what is generated along the **segment that starts at this ControlPoint**.
+
+If a ControlLine has 4 ControlPoints, then it is divided into 3 segments:
+
+- Segment 1: from CP1 to CP2
+- Segment 2: from CP2 to CP3
+- Segment 3: from CP3 to CP4
+
+The **properties of each segment** are defined by the **starting ControlPoint** of that segment.  
+For example, the style of the middle segment (between CP2 and CP3) is controlled by **CP2**.
+
+The LineStyle values are:
+
+- **LineStyle = 0 – No generation**
+  - No objects are generated along this segment.
+  - The path still exists mathematically, but it only serves as a reference or connector.
+  
+<p>
+  <img src="help/6.jpg" alt="1" width="45%" />
+</p>
+
+- **LineStyle = 1 – Line objects only**
+  - “Line objects” are generated at each AuxPoint along this segment.
+  - Typically this is used for simple repeating elements:
+    - e.g. a sequence of cones, pillars, tiles, or small markers that follow the curve.
+    
+<p>
+  <img src="help/7.jpg" alt="1" width="45%" />
+</p>
+
+- **LineStyle = 2 – Line objects + Major supports**
+  - Same as LineStyle 1 (line objects at AuxPoints),
+  - plus **MajorSupports** are generated along the segment.
+  - Major supports are usually larger structural elements (e.g. main columns supporting the track).
+  
+<p>
+  <img src="help/8.jpg" alt="1" width="45%" />
+</p>
+
+- **LineStyle = 3 – Line objects + Major + Minor supports**
+  - Same as LineStyle 2,
+  - plus **MinorSupports** are also generated.
+  - Minor supports typically fill in the gaps between major supports and provide visual or structural detail (e.g. additional braces or smaller pillars).
+
+<p>
+  <img src="help/9.jpg" alt="1" width="45%" />
+</p>
+
+
+### Major/Minor support heights and offsets
+
+Both **MajorSupports** and **MinorSupports** use configurable **height/offset parameters** to determine how they are generated around the ControlLine.
+
+Conceptually:
+
+- At each AuxPoint on a segment, the editor knows:
+  - the position of the path,
+  - and the local “up/down” direction (derived from the ControlLine’s orientation).
+- For each support type (Major and Minor), you can configure:
+  - an **upper offset** – how far from the path the support starts or ends in the upward direction,
+  - a **lower offset** – how far it extends in the downward direction (toward the ground, or below the main track).
+
+By adjusting these offsets, you control:
+
+- how tall the supports are,
+- where they connect to the track,
+- and whether they reach all the way down to the ground or stop somewhere above.
+
+Typical use cases:
+
+- For **MajorSupports**, you might use:
+  - a small positive upper offset (so the support slightly penetrates the track geometry),
+  - and a larger positive lower offset (so the support clearly reaches the ground).
+
+- For **MinorSupports**, you might:
+  - use shorter lower offsets,
+  - or even keep them entirely above ground level, acting more like braces than full pillars.
+
+The exact visual result depends on the GamePrimitives/Groups you assign as Major and Minor support objects, but the idea is always the same:
+- the **offsets** move the start/end points of these supports relative to the ControlLine,
+- allowing you to fine-tune how your track is supported and how detailed the structure looks.
+
+With a combination of ControlPoints, LineStyles, and well-chosen offsets, you can very quickly generate complex, articulated track sections that would be extremely time-consuming to build by hand.
