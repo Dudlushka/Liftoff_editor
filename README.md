@@ -89,3 +89,182 @@ With this approach you can design complex, flowing tracks in a fraction of the t
   <img src="help/3.jpg" alt="1" width="45%" />
   <img src="help/4.jpg" alt="2" width="45%" />
 </p>
+
+
+## GamePrimitive Editor
+
+The **GamePrimitive Editor** is where you define the actual building blocks that represent the game’s placeable objects.
+
+In the long run the plan is that every important object will already be present in the built-in library.  
+Until then there will inevitably be some objects that:
+
+- exist in the game,
+- but have **not yet been reverse-engineered** and added to this editor.
+
+If you want to use such an object in your track, you can recreate it yourself as a new GamePrimitive.
+
+
+### When do you need to create your own GamePrimitive?
+
+You only need to create a custom GamePrimitive if:
+
+- the object appears in the game’s track editor,
+- but you **cannot find** a matching GamePrimitive for it in this editor’s library.
+
+In that case you can approximate the object’s shape and size using the editor’s simple geometric primitives, so that it looks and behaves *close enough* to the original in the final track.
+
+
+### Step-by-step: recreating an in-game object
+
+1. **Inspect the object in the game’s track editor**
+
+   Open the game’s own track editor and locate the object you want to use.
+
+   For simplicity, place that object at the **origin** and reset its rotation:
+   - Position: `(0, 0, 0)`  
+   - Rotation: `(0, 0, 0)` on all axes
+
+   This “neutral” pose is what you should also reproduce in the GamePrimitive Editor.
+
+2. **Approximate its dimensions**
+
+   To estimate the object’s main dimensions in game units:
+
+   - Place a **second identical object** next to the first one.
+   - Move it along one axis at a time (X, Y, Z) in the in-game editor.
+   - Use this to determine:
+     - length,
+     - width,
+     - height,
+     - and any important offsets.
+
+   You do not need millimetre-perfect accuracy, but you should be close enough that:
+   - objects line up correctly,
+   - and spacing feels the same as in the game.
+
+3. **Rebuild the object in the GamePrimitive Editor**
+
+   In this editor:
+
+   - Use **simple primitives** (boxes, cylinders, etc.) to construct a composite GamePrimitive.
+   - Place and scale your simple primitives so that, in the editor’s origin with zero rotation, the object:
+     - matches the in-game orientation,
+     - and roughly matches the measured dimensions.
+
+4. **Use the correct in-game object name**
+
+   The game identifies each placeable object by a specific **internal name**.  
+   You need to save your GamePrimitive under that same name so that export/import works correctly.
+
+   To find this name:
+
+   1. In the game, create a small test track containing the object.
+   2. Export the track from the game.
+   3. Open the exported track file (usually XML or similar) and look for the object’s entry.  
+      It will typically look like this:
+
+      ```xml
+      <TrackBlueprint xsi:type="TrackBlueprintFlag">
+        <itemID>DrawingBoardCone1mx1m01</itemID>
+        <instanceID>2</instanceID>
+        <position>
+          <x>0.2734038</x>
+          <y>0</y>
+          <z>3.0748744</z>
+        </position>
+        <rotation>
+          <x>-0</x>
+          <y>40.0000038</y>
+          <z>-0</z>
+        </rotation>
+      </TrackBlueprint>
+      ```
+
+   4. The value of `<itemID>` (for example `DrawingBoardCone1mx1m01`) is the **official object name**.
+
+   When you create your GamePrimitive in this editor, set its name to **exactly** this value.  
+   Later, when you export a track from this editor, it will use this name in the generated track file, so the game can correctly map your placement to the original 3D asset.
+
+
+### Default GamePrimitive library
+
+When the page loads, the editor automatically loads a **default library** that contains the GamePrimitives I have already created.
+
+- You can freely **extend** this library with your own primitives.
+- If you create useful, well-made GamePrimitives for objects that are not yet in the default set, you can:
+  - export your library,
+  - and send it to me by email.
+
+I am happy to merge good community-created primitives into future versions of the default library, so over time fewer and fewer users will need to manually recreate objects.
+
+
+## Group Editor
+
+The **Group Editor** lets you build more complex, reusable structures out of existing **GamePrimitives** (and even other Groups).
+
+A **Group** is essentially a prefab made of multiple objects:
+- it can be placed as a single unit in the Scene Editor,
+- but internally it consists of many GamePrimitives (and optionally nested Groups).
+
+
+### Typical use cases
+
+Some examples of what Groups are good for:
+
+- A straight wall section built from several brick-like GamePrimitives.
+- A staircase assembled from repeated step modules.
+- A tower, corner module, or facade element made of multiple decorative pieces.
+- Any structure that you expect to use **many times** across different tracks.
+
+By turning these into Groups instead of placing each piece manually in every track, you:
+
+- work much faster,
+- keep your tracks more consistent,
+- and make future edits easier (you can update the Group once, then reuse it).
+
+
+### Groups using other Groups
+
+Groups are not limited to using only GamePrimitives.  
+You can also build a Group **out of other Groups**, for example:
+
+- First, create a `WallSegment` Group.
+- Then create a `CornerModule` Group that contains two `WallSegment` instances rotated by 90°.
+- Finally, build a `BuildingBlock` Group that arranges several `WallSegment` and `CornerModule` instances.
+
+This allows you to build your content in layers:
+
+1. Simple primitives → **GamePrimitives**  
+2. GamePrimitives → **basic Groups**  
+3. Basic Groups → **high-level Groups** (modules, buildings, track elements)
+
+> Note: A Group cannot directly or indirectly contain **itself** (no recursive self-reference).  
+> The editor prevents such setups, as they would lead to infinite nesting.
+
+
+### Coordinate system and alignment
+
+When placing objects inside a Group, it is recommended to think in terms of a **local origin**:
+
+- Build the Group around `(0, 0, 0)` in a way that makes sense for snapping later:
+  - For a wall, this might be the center of its base.
+  - For a tower, it might be the ground-level center point.
+- Keep rotations simple where possible (e.g. 0°, 90°, 180°, 270°) so that:
+  - Groups are easy to align in the Scene Editor,
+  - and snapping behaves predictably.
+
+When you later use this Group in the Scene Editor, you only move/rotate **one object**, but all internal parts follow automatically.
+
+
+### Naming and library
+
+Each Group has a **name** within the editor’s library.  
+It does not need to match any internal game name (unlike GamePrimitives), because Groups are a purely editor-side concept.
+
+You can:
+
+- Create as many Groups as you like.
+- Organize them logically (e.g. `Wall_Straight_4m`, `Wall_Corner_Outer`, `Tower_3x3`, etc.).
+- Reuse them across multiple tracks.
+
+Your Groups are stored together with the rest of the editor’s data and can be exported/imported along with your GamePrimitives.
