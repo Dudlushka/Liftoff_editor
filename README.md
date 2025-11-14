@@ -1,9 +1,6 @@
 <p>
-<<<<<<< HEAD
   <img src="help/2.jpg" alt="2" width="50%" />
-=======
   <img src="/pictures/2.jpg" alt="2" width="50%" />
->>>>>>> 6f0a72c83f3956c66c7688ecdb3226ff3ab10694
 </p>
 
 # 1. General
@@ -83,20 +80,12 @@ In addition to simply placing objects in 3D space, the Scene Editor supports **C
 
 With this approach you can design complex, flowing tracks in a fraction of the time it would take to place each object manually.
 
-
 <p>
-<<<<<<< HEAD
+
   <img src="help/1.jpg" alt="1" width="45%" />
   <img src="help/2.jpg" alt="2" width="45%" />
 </p>
-
-
 <p>
   <img src="help/3.jpg" alt="1" width="45%" />
   <img src="help/4.jpg" alt="2" width="45%" />
 </p>
-=======
-  <img src="pictures/1.jpg" alt="1" width="45%" />
-  <img src="pictures/2.jpg" alt="2" width="45%" />
-</p>
->>>>>>> 6f0a72c83f3956c66c7688ecdb3226ff3ab10694
