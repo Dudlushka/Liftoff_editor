@@ -1,6 +1,6 @@
 <p>
   <img src="help/2.jpg" alt="2" width="50%" />
-  <img src="/pictures/2.jpg" alt="2" width="50%" />
+  <img src="help/4.jpg" alt="2" width="50%" />
 </p>
 
 # 1. General
