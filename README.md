@@ -1,7 +1,7 @@
 
 <p>
-  <img src="help/2.jpg" alt="1" width="45%" />
-  <img src="help/4.jpg" alt="2" width="45%" />
+  <img src="./help/2.jpg" alt="1" width="45%" />
+  <img src="./help/4.jpg" alt="2" width="45%" />
 </p>
 
 # 1. General
