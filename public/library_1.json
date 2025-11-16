@@ -25,36 +25,6 @@
         }
       ]
     },
-    "ArcPalast90": {
-      "name": "ArcPalast90",
-      "parts": [
-        {
-          "id": "06aee2cf-93dc-44f0-b035-77710f0c0cc0",
-          "type": "arcCyl",
-          "arc": {
-            "inner": 0.4,
-            "outer": 0.6,
-            "angle": 90
-          },
-          "color": "#6aa6d6",
-          "scale": [
-            1,
-            1,
-            1
-          ],
-          "pos": [
-            0,
-            0.5,
-            0
-          ],
-          "rotRYP": [
-            0,
-            0,
-            0
-          ]
-        }
-      ]
-    },
     "DrawingBoardCone1mx1m05": {
       "name": "DrawingBoardCone1mx1m05",
       "parts": [
@@ -626,6 +596,1456 @@
             90,
             0,
             90
+          ]
+        }
+      ]
+    },
+    "ASLLightCurveOuter01": {
+      "name": "ASLLightCurveOuter01",
+      "parts": [
+        {
+          "id": "284de096-9ed3-4de0-9bc4-cec1f20c07ab",
+          "type": "box",
+          "color": "#9aa7b1",
+          "scale": [
+            1,
+            1,
+            1
+          ],
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "ASLLightCurveInner03": {
+      "name": "ASLLightCurveInner03",
+      "parts": [
+        {
+          "id": "818d4dd1-b323-4814-bfe3-8991b7e8be09",
+          "type": "box",
+          "color": "#9aa7b1",
+          "scale": [
+            1,
+            1,
+            1
+          ],
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "TrussLandmarkGeneric01": {
+      "name": "TrussLandmarkGeneric01",
+      "parts": [
+        {
+          "id": "6ecf17a7-e9e0-4132-9658-95595b0dc111",
+          "type": "box",
+          "color": "#9aa7b1",
+          "scale": [
+            1,
+            1,
+            1
+          ],
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "LightRigCorner01": {
+      "name": "LightRigCorner01",
+      "parts": [
+        {
+          "id": "db222821-c789-4c01-bf9e-86bd6a1f7f91",
+          "type": "box",
+          "color": "#9aa7b1",
+          "scale": [
+            1,
+            1,
+            1
+          ],
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "LightRig2M01": {
+      "name": "LightRig2M01",
+      "parts": [
+        {
+          "id": "90b81fc7-031e-4a81-a964-169f03889a50",
+          "type": "box",
+          "color": "#9aa7b1",
+          "scale": [
+            1,
+            1,
+            1
+          ],
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "LightRigBase01": {
+      "name": "LightRigBase01",
+      "parts": [
+        {
+          "id": "89926d2d-2175-4262-b5eb-abe54ba07465",
+          "type": "box",
+          "color": "#9aa7b1",
+          "scale": [
+            1,
+            1,
+            1
+          ],
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "RaceTrackTireBlank01": {
+      "name": "RaceTrackTireBlank01",
+      "parts": [
+        {
+          "id": "9f13e3f4-0a7f-487d-8c39-1e6f98103df9",
+          "type": "box",
+          "color": "#9aa7b1",
+          "scale": [
+            1,
+            1,
+            1
+          ],
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "RaceTrackTireBlue01": {
+      "name": "RaceTrackTireBlue01",
+      "parts": [
+        {
+          "id": "6917c5b6-d7c6-4e56-a79d-54d6541d5ff7",
+          "type": "box",
+          "color": "#9aa7b1",
+          "scale": [
+            1,
+            1,
+            1
+          ],
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "RaceTrackTireRed01": {
+      "name": "RaceTrackTireRed01",
+      "parts": [
+        {
+          "id": "94ca0a43-8978-402e-ab7d-ec0050f28ca6",
+          "type": "box",
+          "color": "#9aa7b1",
+          "scale": [
+            1,
+            1,
+            1
+          ],
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "RaceTrackTireYellow01": {
+      "name": "RaceTrackTireYellow01",
+      "parts": [
+        {
+          "id": "80cf2459-e105-4131-b738-b91012c1de5b",
+          "type": "box",
+          "color": "#9aa7b1",
+          "scale": [
+            1,
+            1,
+            1
+          ],
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "RaceTrackTireWhite01": {
+      "name": "RaceTrackTireWhite01",
+      "parts": [
+        {
+          "id": "c0f55919-2338-48e2-9861-e01a299e9932",
+          "type": "box",
+          "color": "#9aa7b1",
+          "scale": [
+            1,
+            1,
+            1
+          ],
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "TriggerBox_ShowText_1mX1m01": {
+      "name": "TriggerBox_ShowText_1mX1m01",
+      "parts": [
+        {
+          "id": "d4f2c391-c620-4cb0-96db-3a82f815d7a5",
+          "type": "box",
+          "color": "#9aa7b1",
+          "scale": [
+            1,
+            1,
+            1
+          ],
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "DrawingBoardCube10mx10m01": {
+      "name": "DrawingBoardCube10mx10m01",
+      "parts": [
+        {
+          "id": "2aa2eae4-e5e5-43b9-9af1-e0ebd1ed91ed",
+          "type": "box",
+          "color": "#2b45c1",
+          "scale": [
+            10,
+            10,
+            10
+          ],
+          "pos": [
+            0,
+            5,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "DrawingBoardCube10mx10m02": {
+      "name": "DrawingBoardCube10mx10m02",
+      "parts": [
+        {
+          "id": "ba39ee57-b68c-4d96-8ba0-fc1d64583507",
+          "type": "box",
+          "color": "#7481d6",
+          "scale": [
+            10,
+            10,
+            10
+          ],
+          "pos": [
+            0,
+            5,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "DrawingBoardCube10mx10m04": {
+      "name": "DrawingBoardCube10mx10m04",
+      "parts": [
+        {
+          "id": "cb974a65-e293-4f40-843a-5908ba06b20d",
+          "type": "box",
+          "color": "#e9c445",
+          "scale": [
+            10,
+            10,
+            10
+          ],
+          "pos": [
+            0,
+            5,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "DrawingBoardCube10mx10m05": {
+      "name": "DrawingBoardCube10mx10m05",
+      "parts": [
+        {
+          "id": "a4945657-7ef8-4948-9368-547e6dfc5e24",
+          "type": "box",
+          "color": "#e8e8e8",
+          "scale": [
+            10,
+            10,
+            10
+          ],
+          "pos": [
+            0,
+            5,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "DrawingBoardCube5mx5m01": {
+      "name": "DrawingBoardCube5mx5m01",
+      "parts": [
+        {
+          "id": "483d17c5-6ceb-45ca-8fa7-4c944d196523",
+          "type": "box",
+          "color": "#2b45c1",
+          "scale": [
+            5,
+            5,
+            5
+          ],
+          "pos": [
+            0,
+            2.5,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "DrawingBoardCube5mx5m02": {
+      "name": "DrawingBoardCube5mx5m02",
+      "parts": [
+        {
+          "id": "0ddd1851-d45a-45b6-a140-6f5a745fbd62",
+          "type": "box",
+          "color": "#7481d6",
+          "scale": [
+            5,
+            5,
+            5
+          ],
+          "pos": [
+            0,
+            2.5,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "DrawingBoardCube5mx5m03": {
+      "name": "DrawingBoardCube5mx5m03",
+      "parts": [
+        {
+          "id": "bea828a8-c49d-4439-b6fe-7fbbd3811cf1",
+          "type": "box",
+          "color": "#263491",
+          "scale": [
+            5,
+            5,
+            5
+          ],
+          "pos": [
+            0,
+            2.5,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "DrawingBoardCube5mx5m04": {
+      "name": "DrawingBoardCube5mx5m04",
+      "parts": [
+        {
+          "id": "8a8912df-a4c7-4c37-ad13-b83b8359e403",
+          "type": "box",
+          "color": "#e9c445",
+          "scale": [
+            5,
+            5,
+            5
+          ],
+          "pos": [
+            0,
+            2.5,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "DrawingBoardCube5mx5m05": {
+      "name": "DrawingBoardCube5mx5m05",
+      "parts": [
+        {
+          "id": "f45150b3-fa88-4f74-a7ca-db331e5eba6e",
+          "type": "box",
+          "color": "#e8e8e8",
+          "scale": [
+            5,
+            5,
+            5
+          ],
+          "pos": [
+            0,
+            2.5,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "DrawingBoardCube1mx1m01": {
+      "name": "DrawingBoardCube1mx1m01",
+      "parts": [
+        {
+          "id": "d94ca7ea-48cd-4995-a64f-2e1bd90cc23a",
+          "type": "box",
+          "color": "#2b45c1",
+          "scale": [
+            1,
+            1,
+            1
+          ],
+          "pos": [
+            0,
+            0.5,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "DrawingBoardCube1mx1m02": {
+      "name": "DrawingBoardCube1mx1m02",
+      "parts": [
+        {
+          "id": "3442169b-fe12-4798-9e2b-d14538c94680",
+          "type": "box",
+          "color": "#7481d6",
+          "scale": [
+            1,
+            1,
+            1
+          ],
+          "pos": [
+            0,
+            0.5,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "DrawingBoardCube1mx1m03": {
+      "name": "DrawingBoardCube1mx1m03",
+      "parts": [
+        {
+          "id": "53e7c099-d5ab-4233-ae92-f0754d6c3e22",
+          "type": "box",
+          "color": "#263491",
+          "scale": [
+            1,
+            1,
+            1
+          ],
+          "pos": [
+            0,
+            0.5,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "DrawingBoardCube1mx1m04": {
+      "name": "DrawingBoardCube1mx1m04",
+      "parts": [
+        {
+          "id": "77d9e3d8-de3e-4b74-b111-2dcac2e0333f",
+          "type": "box",
+          "color": "#e9c445",
+          "scale": [
+            1,
+            1,
+            1
+          ],
+          "pos": [
+            0,
+            0.5,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "DrawingBoardCube1mx1m05": {
+      "name": "DrawingBoardCube1mx1m05",
+      "parts": [
+        {
+          "id": "13573cb9-dc2a-4720-a10b-962a309a0cc3",
+          "type": "box",
+          "color": "#e8e8e8",
+          "scale": [
+            1,
+            1,
+            1
+          ],
+          "pos": [
+            0,
+            0.5,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "DrawingBoardHalfSphere1mx1m01": {
+      "name": "DrawingBoardHalfSphere1mx1m01",
+      "parts": [
+        {
+          "id": "5fe254f5-c2a0-4e51-b114-a6aebe29901c",
+          "type": "hemisphere",
+          "color": "#2b45c1",
+          "scale": [
+            1,
+            1,
+            1
+          ],
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "DrawingBoardCube10mx10m03": {
+      "name": "DrawingBoardCube10mx10m03",
+      "parts": [
+        {
+          "id": "fcf200a1-9496-4910-b8b2-f7939a4e8775",
+          "type": "box",
+          "color": "#263491",
+          "scale": [
+            10,
+            10,
+            10
+          ],
+          "pos": [
+            0,
+            5,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "DrawingBoardPlate4mx4m01": {
+      "name": "DrawingBoardPlate4mx4m01",
+      "parts": [
+        {
+          "id": "efef3dc4-b14e-492e-9d30-4d2204a1aef8",
+          "type": "box",
+          "color": "#2b45c1",
+          "scale": [
+            4,
+            0.2,
+            4
+          ],
+          "pos": [
+            0,
+            0.1,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "DrawingBoardPlate4mx4m02": {
+      "name": "DrawingBoardPlate4mx4m02",
+      "parts": [
+        {
+          "id": "6c29946e-3883-42d5-a6b9-1214d810346e",
+          "type": "box",
+          "color": "#7481d6",
+          "scale": [
+            4,
+            0.2,
+            4
+          ],
+          "pos": [
+            0,
+            0.1,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "DrawingBoardWall5mx5m02": {
+      "name": "DrawingBoardWall5mx5m02",
+      "parts": [
+        {
+          "id": "cff9233e-c53f-42dc-a024-4602c8604322",
+          "type": "box",
+          "color": "#7481d6",
+          "scale": [
+            10,
+            5,
+            1
+          ],
+          "pos": [
+            0,
+            2.5,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "DrawingBoardWall5mx5m01": {
+      "name": "DrawingBoardWall5mx5m01",
+      "parts": [
+        {
+          "id": "6b4f56d7-5ef0-46e2-93cd-46f44172c0de",
+          "type": "box",
+          "color": "#2b45c1",
+          "scale": [
+            10,
+            5,
+            1
+          ],
+          "pos": [
+            0,
+            2.5,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "DrawingBoardWall5mx5m03": {
+      "name": "DrawingBoardWall5mx5m03",
+      "parts": [
+        {
+          "id": "6be9d603-086d-4ede-830c-417236e736d9",
+          "type": "box",
+          "color": "#263491",
+          "scale": [
+            10,
+            5,
+            1
+          ],
+          "pos": [
+            0,
+            2.5,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "DrawingBoardPyramid1mx1m01": {
+      "name": "DrawingBoardPyramid1mx1m01",
+      "parts": [
+        {
+          "id": "5f0df7a5-06f3-47d5-a909-1ef5fb7d2ed2",
+          "type": "pyramid",
+          "color": "#2b45c1",
+          "scale": [
+            1,
+            1,
+            1
+          ],
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "DrawingBoardHalfSphere5mx5m01": {
+      "name": "DrawingBoardHalfSphere5mx5m01",
+      "parts": [
+        {
+          "id": "397615fd-ee8b-4b40-acd4-d233586b8e13",
+          "type": "hemisphere",
+          "color": "#2b45c1",
+          "scale": [
+            5,
+            5,
+            5
+          ],
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "LightPillarCyan01": {
+      "name": "LightPillarCyan01",
+      "parts": [
+        {
+          "id": "0d1ce61c-f1fd-4f23-9082-ec56c934d9b8",
+          "type": "box",
+          "color": "#9aa7b1",
+          "scale": [
+            1,
+            1,
+            1
+          ],
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "LightPillarGreen01": {
+      "name": "LightPillarGreen01",
+      "parts": [
+        {
+          "id": "65a204a7-8cd7-4275-9cb4-e83a586f8e89",
+          "type": "box",
+          "color": "#9aa7b1",
+          "scale": [
+            1,
+            1,
+            1
+          ],
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "LightPillarPurple01": {
+      "name": "LightPillarPurple01",
+      "parts": [
+        {
+          "id": "5750a6f1-625f-4e3d-93ba-c9cc1b3d0b39",
+          "type": "box",
+          "color": "#9aa7b1",
+          "scale": [
+            1,
+            1,
+            1
+          ],
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "LightPillarYellow01": {
+      "name": "LightPillarYellow01",
+      "parts": [
+        {
+          "id": "85d355fd-8624-4d08-bb16-c5a9d56ff855",
+          "type": "box",
+          "color": "#9aa7b1",
+          "scale": [
+            1,
+            1,
+            1
+          ],
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "LightPillarERN01": {
+      "name": "LightPillarERN01",
+      "parts": [
+        {
+          "id": "2a19ab7e-9010-46d5-83af-e55559944fe3",
+          "type": "box",
+          "color": "#9aa7b1",
+          "scale": [
+            1,
+            1,
+            1
+          ],
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "OSB10001": {
+      "name": "OSB10001",
+      "parts": [
+        {
+          "id": "4b35aaa0-68a8-4c32-9121-35c4f3f303e9",
+          "type": "box",
+          "color": "#9aa7b1",
+          "scale": [
+            1,
+            1,
+            1
+          ],
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "OSB15001": {
+      "name": "OSB15001",
+      "parts": [
+        {
+          "id": "690aa888-68af-486f-b35e-063aec042285",
+          "type": "box",
+          "color": "#9aa7b1",
+          "scale": [
+            1,
+            1,
+            1
+          ],
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "OSB22001": {
+      "name": "OSB22001",
+      "parts": [
+        {
+          "id": "12771f39-40ad-4086-bce5-2967e394ae57",
+          "type": "box",
+          "color": "#9aa7b1",
+          "scale": [
+            1,
+            1,
+            1
+          ],
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "GenericRamp01": {
+      "name": "GenericRamp01",
+      "parts": [
+        {
+          "id": "8e719fc8-02ce-473d-a23e-c510068b9420",
+          "type": "box",
+          "color": "#9aa7b1",
+          "scale": [
+            1,
+            1,
+            1
+          ],
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "DrawingBoardCylinder0.5mx5m03": {
+      "name": "DrawingBoardCylinder0.5mx5m03",
+      "parts": [
+        {
+          "id": "019f3e4b-a058-4e5a-9dec-02b567dca55e",
+          "type": "cylinder",
+          "color": "#263491",
+          "scale": [
+            0.5,
+            5,
+            0.5
+          ],
+          "pos": [
+            0,
+            2.5,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "DrawingBoardCylinder1mx5m01": {
+      "name": "DrawingBoardCylinder1mx5m01",
+      "parts": [
+        {
+          "id": "eea17fda-03b3-4148-8d66-877077bbc4c1",
+          "type": "cylinder",
+          "color": "#2b45c1",
+          "scale": [
+            1,
+            5,
+            1
+          ],
+          "pos": [
+            0,
+            2.5,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "ASLLightBeam01": {
+      "name": "ASLLightBeam01",
+      "parts": [
+        {
+          "id": "3010a246-79c0-4f3f-81b3-58eb7575b4bd",
+          "type": "cylinder",
+          "color": "#89c2f1",
+          "scale": [
+            0.08,
+            2,
+            0.08
+          ],
+          "pos": [
+            0,
+            0,
+            1
+          ],
+          "rotRYP": [
+            0,
+            90,
+            90
+          ]
+        }
+      ]
+    },
+    "ASLLightBeam02": {
+      "name": "ASLLightBeam02",
+      "parts": [
+        {
+          "id": "1bfd2aac-82a6-44ef-be32-7db83ec1cab3",
+          "type": "cylinder",
+          "color": "#db5cde",
+          "scale": [
+            0.08,
+            2,
+            0.08
+          ],
+          "pos": [
+            0,
+            0,
+            1
+          ],
+          "rotRYP": [
+            0,
+            90,
+            90
+          ]
+        }
+      ]
+    },
+    "ASLLightBeam03": {
+      "name": "ASLLightBeam03",
+      "parts": [
+        {
+          "id": "cf82e360-ee4c-4467-841f-f3221f3e93a7",
+          "type": "cylinder",
+          "color": "#99fa81",
+          "scale": [
+            0.08,
+            2,
+            0.08
+          ],
+          "pos": [
+            0,
+            0,
+            1
+          ],
+          "rotRYP": [
+            0,
+            90,
+            90
+          ]
+        }
+      ]
+    },
+    "ASLLightBeam04": {
+      "name": "ASLLightBeam04",
+      "parts": [
+        {
+          "id": "f534cfc3-ef3b-436d-80ba-9dc1d2604bed",
+          "type": "cylinder",
+          "color": "#ff8040",
+          "scale": [
+            0.08,
+            2,
+            0.08
+          ],
+          "pos": [
+            0,
+            0,
+            1
+          ],
+          "rotRYP": [
+            0,
+            90,
+            90
+          ]
+        }
+      ]
+    },
+    "DrawingBoardWall5mx5m04": {
+      "name": "DrawingBoardWall5mx5m04",
+      "parts": [
+        {
+          "id": "fad153b5-a1a3-4b2d-88ac-9be0e08684de",
+          "type": "box",
+          "color": "#e9c445",
+          "scale": [
+            10,
+            5,
+            1
+          ],
+          "pos": [
+            0,
+            2.5,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "DrawingBoardWall5mx5m05": {
+      "name": "DrawingBoardWall5mx5m05",
+      "parts": [
+        {
+          "id": "68b21f4d-7f5a-496f-ad61-88a453f38831",
+          "type": "box",
+          "color": "#e8e8e8",
+          "scale": [
+            10,
+            5,
+            1
+          ],
+          "pos": [
+            0,
+            2.5,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "DrawingBoardPlate4mx4m03": {
+      "name": "DrawingBoardPlate4mx4m03",
+      "parts": [
+        {
+          "id": "6ff3772a-4f65-420d-942b-ac1b2307e91e",
+          "type": "box",
+          "color": "#263491",
+          "scale": [
+            4,
+            0.2,
+            4
+          ],
+          "pos": [
+            0,
+            0.1,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "DrawingBoardPlate4mx4m04": {
+      "name": "DrawingBoardPlate4mx4m04",
+      "parts": [
+        {
+          "id": "e39f1993-de93-4604-a753-21bcfae3bbaa",
+          "type": "box",
+          "color": "#e9c445",
+          "scale": [
+            4,
+            0.2,
+            4
+          ],
+          "pos": [
+            0,
+            0.1,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "DrawingBoardPlate4mx4m05": {
+      "name": "DrawingBoardPlate4mx4m05",
+      "parts": [
+        {
+          "id": "f0db7ac0-6200-48db-bc32-d1b3690f23df",
+          "type": "box",
+          "color": "#e8e8e8",
+          "scale": [
+            4,
+            0.2,
+            4
+          ],
+          "pos": [
+            0,
+            0.1,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "DrawingBoardRamp1mx1m05": {
+      "name": "DrawingBoardRamp1mx1m05",
+      "parts": [
+        {
+          "id": "fb844513-bbc9-41ee-bc86-592943290579",
+          "type": "box",
+          "color": "#9aa7b1",
+          "scale": [
+            1,
+            1,
+            1
+          ],
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "DrawingBoardRamp5mx5m05": {
+      "name": "DrawingBoardRamp5mx5m05",
+      "parts": [
+        {
+          "id": "764cde58-66f3-42d8-a672-b0c27935422b",
+          "type": "box",
+          "color": "#9aa7b1",
+          "scale": [
+            1,
+            1,
+            1
+          ],
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "ASLLightCurveInner01": {
+      "name": "ASLLightCurveInner01",
+      "parts": [
+        {
+          "id": "f97a3c4b-94a1-4912-9aac-e6d9a8598ece",
+          "type": "box",
+          "color": "#9aa7b1",
+          "scale": [
+            1,
+            1,
+            1
+          ],
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
           ]
         }
       ]
