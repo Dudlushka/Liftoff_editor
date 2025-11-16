@@ -109,11 +109,18 @@
             type="text"
             placeholder="e.g. DrawingBoardCube0.5mx0.5m04"
           />
+
+          <label>
+           <input type="checkbox" id="gpScalable">
+           Scalable
+          </label>
+
           <div class="btn-wrap">
             <button class="btn" id="gpNew">New</button>
             <button class="btn" id="gpSave">Save/Update</button>
             <button class="btn" id="gpDelete">Delete</button>
           </div>
+
           <label class="smalllabel">Existing GamePrimitives</label>
           <ul class="list" id="gpList"></ul>
 
@@ -129,6 +136,7 @@
               <option value="pyramid">Pyramid</option>
               <option value="hemisphere">Hemisphere</option>
               <option value="isoTriPrism">Triangle</option>
+              <option value="rightTriPrism">Right triangle prism (half box)</option>
             </select>
             <button class="btn" id="addPart">+ Add</button>
             <button class="btn" id="removePart">– Remove</button>
@@ -200,6 +208,7 @@
                 ><input id="pPitch" type="number" step="1" value="0" />
               </div>
             </div>
+
             <div class="row">
               <div>
                 <label>Scale X</label
@@ -214,6 +223,9 @@
                 ><input id="pSz" type="number" step="0.1" value="1" />
               </div>
             </div>
+
+
+
           </fieldset>
         </fieldset>
 

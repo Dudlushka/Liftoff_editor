@@ -92,7 +92,9 @@ function pasteClipboard(targetMode = ui.mode.value)
 
     snapshot?.();
 
-    const off = [0.2, 0, 0.2]; // kis eltolás, hogy látszódjon az új példány
+    //const off = [0.2, 0, 0.2]; // kis eltolás, hogy látszódjon az új példány
+    const off = [0.0, 0.0, 0.0]; // kis eltolás, hogy látszódjon az új példány
+
 
     // -------- GP cél --------
     if (targetMode === "gp")

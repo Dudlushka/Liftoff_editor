@@ -182,8 +182,9 @@ const ui =
   clSupportRotate: $("#clSupportRotate"),
 
   //drawingmode 
-
   clDrawMode : $("#clDrawMode"),
+  //
+  gpScalable : $("#gpScalable"),
 
 };
 window.ui = ui;        // ez is globális
@@ -248,10 +249,7 @@ function doRedo()
 
 export function onSelectionChanged() 
 {
-  // Ezek nálad már megvannak:
-  // - rebuildAllBounds()
-  // - refreshGPList(), refreshGrpList(), refreshScnList(), refreshCPList() (ha van)
-  // - fillPartEditors() / inspector frissítések
+
   try { rebuildAllBounds?.(); } catch {}
   try { refreshGPList?.();       } catch {}
   try { refreshGrpList?.();      } catch {}

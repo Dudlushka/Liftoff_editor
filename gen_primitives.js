@@ -79,39 +79,6 @@ function mergeGeometriesManual(geos)
 }
 
 
-// ===== Geometries =====
-/*
-function buildArcCylGeometry(inner, outer, angleDeg, height)
-{
-  const angDeg = Math.max(1, Math.min(359, angleDeg));
-  const a = THREE.MathUtils.degToRad(angDeg);
-  const s = 0,
-    e = a;
-  const outerR = Math.max(outer, inner + 1e-4);
-
-  const shape = new THREE.Shape();
-  shape.moveTo(outerR * Math.cos(s), outerR * Math.sin(s));
-  shape.absarc(0, 0, outerR, s, e, false);
-  shape.lineTo(inner * Math.cos(e), inner * Math.sin(e));
-
-  const hole = new THREE.Path();
-  hole.moveTo(inner * Math.cos(e), inner * Math.sin(e));
-  hole.absarc(0, 0, inner, e, s, true);
-  hole.lineTo(outerR * Math.cos(s), outerR * Math.sin(s));
-  shape.holes.push(hole);
-
-  const geo = new THREE.ExtrudeGeometry(shape, {
-    depth: height,
-    bevelEnabled: false,
-    curveSegments: 96,
-  });
-  geo.translate(0, 0, -height / 2);
-  geo.rotateX(Math.PI / 2);
-  geo.center();
-  geo.computeVertexNormals();
-  
-  return geo;
-}*/
 
 function buildArcCylGeometry(inner, outer, angleDeg, height)
 {
@@ -267,6 +234,38 @@ function buildIsoPrism()
     return geo;
 }
 
+function buildRightTriPrismGeometry()
+{
+  const s = 0.5; // fél élhossz, hogy 1x1-es alapot kapjunk
+
+  // Derékszögű háromszög az XY síkban:
+  //
+  // (-0.5, -0.5)
+  // ( 0.5, -0.5)
+  // (-0.5,  0.5)
+  //
+  // Ez pont egy 1x1-es négyzet fele.
+
+  const shape = new THREE.Shape();
+  shape.moveTo(-s, -s);
+  shape.lineTo( s, -s);
+  shape.lineTo(-s,  s);
+  shape.closePath();
+
+  const extrudeSettings = {
+    depth: 1,          // Z irányú mélység → [-0.5, 0.5]-re igazítjuk
+    bevelEnabled: false
+  };
+
+  const geo = new THREE.ExtrudeGeometry(shape, extrudeSettings);
+
+  // Középre rakjuk Z-ben, hogy -0.5..+0.5 legyen:
+  geo.translate(0, 0, -0.5);
+
+  geo.computeVertexNormals();
+  return geo;
+}
+
 
 
 export function buildPrimitiveMesh(p)
@@ -276,17 +275,48 @@ export function buildPrimitiveMesh(p)
   else if (p.type === "cylinder")       {geo = new THREE.CylinderGeometry(0.5, 0.5, 1, 24);}
   else if (p.type === "sphere")         {geo = new THREE.SphereGeometry(0.5, 24, 16);}
   else if (p.type === "cone")           {geo = new THREE.ConeGeometry(0.5, 1, 24);}
-  else if (p.type === "quarterTorus")   {geo = new THREE.TorusGeometry(1, 0.25, 16, 64, Math.PI / 2);}
+  //else if (p.type === "quarterTorus")   {geo = new THREE.TorusGeometry(1, 0.25, 16, 64, Math.PI / 2);}
   else if (p.type === "pyramid")        {geo = buildPyramid(); }
   else if (p.type === "hemisphere")     {geo = buildHemisphere();}
   else if (p.type === "isoTriPrism")    {geo = buildIsoPrism();}
+  else if (p.type === "rightTriPrism") {geo = buildRightTriPrismGeometry();}
   else if (p.type === "arcCyl")
   {
+    
     const inner = p.arc?.inner ?? 0.3;
     const outer = p.arc?.outer ?? 0.5;
     const ang = p.arc?.angle ?? 90;
+    console.log("fajafelcso:",ang);
     geo = buildArcCylGeometry(inner, outer, ang, 1);
   }
+  else if (p.type === "quarterTorus")
+{
+  // UI-ból jövő mezők:
+  // p.arc.inner  → kis keresztmetszeti karika sugara (tube)
+  // p.arc.outer  → nagy gyűrű sugara (major radius)
+  // p.arc.angle  → fokban mért szög (szelet nagysága)
+  const inner  = p.arc?.inner ?? 0.25;  // tube radius
+  const outer  = p.arc?.outer ?? 1.0;   // major radius
+  const angDeg = p.arc?.angle ?? 90;    // szelet fokban
+
+  // Biztonsági clamp-ek
+  const tube   = Math.max(0.001, inner);
+  const radius = Math.max(tube + 0.001, outer); // ne legyen kisebb a nagy sugár a csőnél
+  const arc    = THREE.MathUtils.degToRad(
+                   THREE.MathUtils.clamp(angDeg, 1, 360)
+                 );
+
+  console.log("karika:",angDeg);
+            
+                 
+  geo = new THREE.TorusGeometry(
+    radius,  // nagy gyűrű sugara
+    tube,    // kis cső sugara
+    16,      // radialSegments
+    64,      // tubularSegments
+    arc      // szög radiánban
+  );
+}
   
   else geo = new THREE.BoxGeometry(1, 1, 1);    //if not found
   

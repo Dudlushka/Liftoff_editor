@@ -982,7 +982,11 @@ function showArcBoxFor(p)
   //const box = $("#pArcBox");
   const box = document.getElementById('pArcBox'); // <- itt a fix
   if (!box) return;
-  const on = p.type === "arcCyl";
+  
+  //const on = p.type === "arcCyl";
+  // arcCyl és quarterTorus is használja az inner/outer/angle mezőket
+  const on = (p.type === "arcCyl") || (p.type === "quarterTorus");
+ 
   box.style.display = on ? "grid" : "none";
   if (on)
   {
@@ -1041,6 +1045,11 @@ function loadGP(name)
 
   if (ui?.gpName) ui.gpName.value = n;
 
+  // >>> Itt frissítjük a checkboxot a GP szerint <<<
+    // Get GP object by name
+  const gp = store.gamePrimitives[n];
+  if (ui?.gpScalable){  ui.gpScalable.checked = !!gp.scalable; }
+
   // Kijelölés törlése és frissítések
   gpSelSet.clear();
   refreshPartList?.();
@@ -1065,9 +1074,12 @@ ui.gpNew.addEventListener("click", () =>
   // 1) Név eldöntése és egyedivé tétele
   const base = (ui?.gpName?.value || "").trim();
   const name = makeUniqueGPName(base || `GamePrim_${Object.keys(store.gamePrimitives).length + 1}`);
+  const scalable = !!ui.gpScalable?.checked;
+
 
   // 2) Új GP létrehozása a store-ban
-  store.gamePrimitives[name] = { name, parts: [] };
+  //store.gamePrimitives[name] = { name, parts: [] };
+  store.gamePrimitives[name] = { name, parts: [], scalable};
 
   // 3) Aktívvá tesszük
   store.activeGPName = name;
@@ -1083,7 +1095,7 @@ ui.gpNew.addEventListener("click", () =>
 
 ui.gpSave.addEventListener("click", () =>
 {
-  // 1) Aktív név és cél név
+  // 1) Active name and target name
   const oldName = (store?.activeGPName ?? ui?.gpName?.value ?? "").trim();
   if (!oldName) return;
 
@@ -1092,19 +1104,25 @@ ui.gpSave.addEventListener("click", () =>
 
   const newNameInput = (ui?.gpName?.value || "").trim() || oldName;
 
-  // 2) Ha átnevezés történik
-  if (newNameInput !== oldName) {
+  // Update scalable flag from UI
+  gp.scalable = !!ui.gpScalable?.checked;
+
+  // 2) If rename happens
+  if (newNameInput !== oldName)
+  {
     const newName = makeUniqueGPName(newNameInput);
 
-    // kulcs átnevezés a store-ban
+    // Rename key in store
     gp.name = newName;
     store.gamePrimitives[newName] = gp;
     delete store.gamePrimitives[oldName];
 
     store.activeGPName = newName;
     if (ui?.gpName) ui.gpName.value = newName;
-  } else {
-    // csak a név mezőt szinkronizáljuk (ha üres volt az input, oldName marad)
+  }
+  else
+  {
+    // Only sync name field (if input was empty, oldName remains)
     gp.name = oldName;
   }
 
@@ -1200,7 +1218,7 @@ function applyPartNow()
     p.pos = [+ui.pPosX.value, +ui.pPosY.value, +ui.pPosZ.value];
     p.rotRYP = [+ui.pRoll.value, +ui.pYaw.value, +ui.pPitch.value];
     p.scale = [+ui.pSx.value, +ui.pSy.value, +ui.pSz.value];
-    if (p.type === "arcCyl")
+    if (p.type === "arcCyl" || p.type === "quarterTorus")
     {
       const ir = +ui.pInnerR.value;
       const or = +ui.pOuterR.value;

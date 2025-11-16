@@ -604,51 +604,63 @@
       "name": "ASLLightCurveOuter01",
       "parts": [
         {
-          "id": "284de096-9ed3-4de0-9bc4-cec1f20c07ab",
-          "type": "box",
-          "color": "#9aa7b1",
+          "id": "8ac9c893-51e9-47cd-8b94-96ef0b57a96b",
+          "type": "quarterTorus",
+          "color": "#8ebdec",
           "scale": [
             1,
             1,
             1
           ],
           "pos": [
-            0,
+            -4,
             0,
             0
           ],
           "rotRYP": [
-            0,
+            90,
             0,
             0
-          ]
+          ],
+          "arc": {
+            "inner": 0.04,
+            "outer": 4,
+            "angle": 90
+          }
         }
-      ]
+      ],
+      "scalable": false
     },
     "ASLLightCurveInner03": {
       "name": "ASLLightCurveInner03",
       "parts": [
         {
-          "id": "818d4dd1-b323-4814-bfe3-8991b7e8be09",
-          "type": "box",
-          "color": "#9aa7b1",
+          "id": "08c43aaa-308b-47a1-be0b-eab9b31fedc3",
+          "type": "quarterTorus",
+          "color": "#99fa81",
           "scale": [
             1,
             1,
             1
           ],
           "pos": [
-            0,
+            -2,
             0,
             0
           ],
           "rotRYP": [
-            0,
+            90,
             0,
             0
-          ]
+          ],
+          "arc": {
+            "inner": 0.04,
+            "outer": 2,
+            "angle": 90
+          }
         }
-      ]
+      ],
+      "scalable": false
     },
     "TrussLandmarkGeneric01": {
       "name": "TrussLandmarkGeneric01",
@@ -1483,17 +1495,77 @@
           "type": "box",
           "color": "#9aa7b1",
           "scale": [
-            1,
-            1,
-            1
+            0.675,
+            0.675,
+            0.9
           ],
           "pos": [
             0,
-            0,
+            0.335,
             0
           ],
           "rotRYP": [
             0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "11d5994d-4d2a-4ca9-a269-ded9a17eb5af",
+          "type": "box",
+          "color": "#bdbdbd",
+          "scale": [
+            0.45,
+            2.7,
+            0.3
+          ],
+          "pos": [
+            0,
+            1.815,
+            -0.2
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "a76de502-b9a5-4e1a-ba72-fbe114cf7e08",
+          "type": "box",
+          "color": "#84e8de",
+          "scale": [
+            0.1,
+            1.7,
+            0.1
+          ],
+          "pos": [
+            0,
+            1.8,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "736891b7-2ac5-43f7-bfdf-ce25be748a82",
+          "type": "box",
+          "color": "#bdbdbd",
+          "scale": [
+            0.45,
+            0.7,
+            0.3
+          ],
+          "pos": [
+            0,
+            3.3,
+            0
+          ],
+          "rotRYP": [
+            47,
             0,
             0
           ]
@@ -1504,17 +1576,17 @@
       "name": "LightPillarGreen01",
       "parts": [
         {
-          "id": "65a204a7-8cd7-4275-9cb4-e83a586f8e89",
+          "id": "0d1ce61c-f1fd-4f23-9082-ec56c934d9b8",
           "type": "box",
           "color": "#9aa7b1",
           "scale": [
-            1,
-            1,
-            1
+            0.675,
+            0.675,
+            0.9
           ],
           "pos": [
             0,
-            0,
+            0.335,
             0
           ],
           "rotRYP": [
@@ -1522,24 +1594,85 @@
             0,
             0
           ]
+        },
+        {
+          "id": "11d5994d-4d2a-4ca9-a269-ded9a17eb5af",
+          "type": "box",
+          "color": "#bdbdbd",
+          "scale": [
+            0.45,
+            2.7,
+            0.3
+          ],
+          "pos": [
+            0,
+            1.815,
+            -0.2
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "a76de502-b9a5-4e1a-ba72-fbe114cf7e08",
+          "type": "box",
+          "color": "#51ec5c",
+          "scale": [
+            0.1,
+            1.7,
+            0.1
+          ],
+          "pos": [
+            0,
+            1.8,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "736891b7-2ac5-43f7-bfdf-ce25be748a82",
+          "type": "box",
+          "color": "#bdbdbd",
+          "scale": [
+            0.45,
+            0.7,
+            0.3
+          ],
+          "pos": [
+            0,
+            3.3,
+            0
+          ],
+          "rotRYP": [
+            47,
+            0,
+            0
+          ]
         }
-      ]
+      ],
+      "scalable": false
     },
     "LightPillarPurple01": {
       "name": "LightPillarPurple01",
       "parts": [
         {
-          "id": "5750a6f1-625f-4e3d-93ba-c9cc1b3d0b39",
+          "id": "0d1ce61c-f1fd-4f23-9082-ec56c934d9b8",
           "type": "box",
           "color": "#9aa7b1",
           "scale": [
-            1,
-            1,
-            1
+            0.675,
+            0.675,
+            0.9
           ],
           "pos": [
             0,
-            0,
+            0.335,
             0
           ],
           "rotRYP": [
@@ -1547,24 +1680,85 @@
             0,
             0
           ]
+        },
+        {
+          "id": "11d5994d-4d2a-4ca9-a269-ded9a17eb5af",
+          "type": "box",
+          "color": "#bdbdbd",
+          "scale": [
+            0.45,
+            2.7,
+            0.3
+          ],
+          "pos": [
+            0,
+            1.815,
+            -0.2
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "a76de502-b9a5-4e1a-ba72-fbe114cf7e08",
+          "type": "box",
+          "color": "#ea7eed",
+          "scale": [
+            0.1,
+            1.7,
+            0.1
+          ],
+          "pos": [
+            0,
+            1.8,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "736891b7-2ac5-43f7-bfdf-ce25be748a82",
+          "type": "box",
+          "color": "#bdbdbd",
+          "scale": [
+            0.45,
+            0.7,
+            0.3
+          ],
+          "pos": [
+            0,
+            3.3,
+            0
+          ],
+          "rotRYP": [
+            47,
+            0,
+            0
+          ]
         }
-      ]
+      ],
+      "scalable": false
     },
     "LightPillarYellow01": {
       "name": "LightPillarYellow01",
       "parts": [
         {
-          "id": "85d355fd-8624-4d08-bb16-c5a9d56ff855",
+          "id": "0d1ce61c-f1fd-4f23-9082-ec56c934d9b8",
           "type": "box",
           "color": "#9aa7b1",
           "scale": [
-            1,
-            1,
-            1
+            0.675,
+            0.675,
+            0.9
           ],
           "pos": [
             0,
-            0,
+            0.335,
             0
           ],
           "rotRYP": [
@@ -1572,24 +1766,85 @@
             0,
             0
           ]
+        },
+        {
+          "id": "11d5994d-4d2a-4ca9-a269-ded9a17eb5af",
+          "type": "box",
+          "color": "#bdbdbd",
+          "scale": [
+            0.45,
+            2.7,
+            0.3
+          ],
+          "pos": [
+            0,
+            1.815,
+            -0.2
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "a76de502-b9a5-4e1a-ba72-fbe114cf7e08",
+          "type": "box",
+          "color": "#f5eb67",
+          "scale": [
+            0.1,
+            1.7,
+            0.1
+          ],
+          "pos": [
+            0,
+            1.8,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "736891b7-2ac5-43f7-bfdf-ce25be748a82",
+          "type": "box",
+          "color": "#bdbdbd",
+          "scale": [
+            0.45,
+            0.7,
+            0.3
+          ],
+          "pos": [
+            0,
+            3.3,
+            0
+          ],
+          "rotRYP": [
+            47,
+            0,
+            0
+          ]
         }
-      ]
+      ],
+      "scalable": false
     },
     "LightPillarERN01": {
       "name": "LightPillarERN01",
       "parts": [
         {
-          "id": "2a19ab7e-9010-46d5-83af-e55559944fe3",
+          "id": "0d1ce61c-f1fd-4f23-9082-ec56c934d9b8",
           "type": "box",
           "color": "#9aa7b1",
           "scale": [
-            1,
-            1,
-            1
+            0.675,
+            0.675,
+            0.9
           ],
           "pos": [
             0,
-            0,
+            0.335,
             0
           ],
           "rotRYP": [
@@ -1597,8 +1852,69 @@
             0,
             0
           ]
+        },
+        {
+          "id": "11d5994d-4d2a-4ca9-a269-ded9a17eb5af",
+          "type": "box",
+          "color": "#bdbdbd",
+          "scale": [
+            0.45,
+            2.7,
+            0.3
+          ],
+          "pos": [
+            0,
+            1.815,
+            -0.2
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "a76de502-b9a5-4e1a-ba72-fbe114cf7e08",
+          "type": "box",
+          "color": "#f57676",
+          "scale": [
+            0.1,
+            1.7,
+            0.1
+          ],
+          "pos": [
+            0,
+            1.8,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "736891b7-2ac5-43f7-bfdf-ce25be748a82",
+          "type": "box",
+          "color": "#bdbdbd",
+          "scale": [
+            0.45,
+            0.7,
+            0.3
+          ],
+          "pos": [
+            0,
+            3.3,
+            0
+          ],
+          "rotRYP": [
+            47,
+            0,
+            0
+          ]
         }
-      ]
+      ],
+      "scalable": false
     },
     "OSB10001": {
       "name": "OSB10001",
@@ -1773,7 +2089,8 @@
             90
           ]
         }
-      ]
+      ],
+      "scalable": false
     },
     "ASLLightBeam02": {
       "name": "ASLLightBeam02",
@@ -1798,7 +2115,8 @@
             90
           ]
         }
-      ]
+      ],
+      "scalable": false
     },
     "ASLLightBeam03": {
       "name": "ASLLightBeam03",
@@ -1823,7 +2141,8 @@
             90
           ]
         }
-      ]
+      ],
+      "scalable": false
     },
     "ASLLightBeam04": {
       "name": "ASLLightBeam04",
@@ -1848,7 +2167,8 @@
             90
           ]
         }
-      ]
+      ],
+      "scalable": false
     },
     "DrawingBoardWall5mx5m04": {
       "name": "DrawingBoardWall5mx5m04",
@@ -2029,26 +2349,32 @@
       "name": "ASLLightCurveInner01",
       "parts": [
         {
-          "id": "f97a3c4b-94a1-4912-9aac-e6d9a8598ece",
-          "type": "box",
-          "color": "#9aa7b1",
+          "id": "08c43aaa-308b-47a1-be0b-eab9b31fedc3",
+          "type": "quarterTorus",
+          "color": "#8ebdec",
           "scale": [
             1,
             1,
             1
           ],
           "pos": [
-            0,
+            -2,
             0,
             0
           ],
           "rotRYP": [
-            0,
+            90,
             0,
             0
-          ]
+          ],
+          "arc": {
+            "inner": 0.04,
+            "outer": 2,
+            "angle": 90
+          }
         }
-      ]
+      ],
+      "scalable": false
     }
   },
   "groups": {
