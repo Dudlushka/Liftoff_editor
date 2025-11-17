@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>OFFBlast! track editor [Dudlushka]</title>
+    <title>OFFBlast! Liftoff track editor [Dudlushka]</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <!-- <link rel="stylesheet" href="style_dark.css" />  -->
     <link rel="stylesheet" href="style_light.css" />
@@ -85,6 +85,7 @@
               <input id="gameVersion" type="text" value="1.6.17" />
             </div>
           </div>
+          
           <div class="row2">
             <div>
               <label>Track name</label>
@@ -99,6 +100,17 @@
               />
             </div>
           </div>
+
+          <div class="row2">
+            <div>
+              <label>Environment</label>
+              <input id="trackEnvironment" type="text" value="TheDrawingBoard" />
+            </div>
+
+          </div>
+
+
+
         </fieldset>
 
         <fieldset id="gpPane">
@@ -585,13 +597,16 @@
               </fieldset>
             </div>
           </section>
+
+
+          
         </fieldset>
 
         <fieldset>
           <legend>Save/Load</legend>
           <div class="btn-wrap">
-            <button class="btn" id="exportXML">Scene → XML (flatten)</button>
-            <button class="btn" id="saveJSON">Library → JSON</button>
+            <!--<button class="btn" id="exportXML">Scene → XML (flatten)</button>-->
+            <button class="btn" id="saveJSON">Save library</button>
             <label class="btn" for="loadJSON">Load library</label>
             <input
               id="loadJSON"
@@ -600,8 +615,9 @@
               style="display: none"
             />
           </div>
+          
           <div class="btn-wrap">
-            <button class="btn" id="saveSceneJSON">Scene → JSON</button>
+            <button class="btn" id="saveSceneJSON">Save scene</button>
             <label class="btn" for="loadSceneJSON">Load scene</label>
             <input
               id="loadSceneJSON"
@@ -610,15 +626,16 @@
               style="display: none"
             />
           </div>
+
           <div class="btn-wrap">
             <button class="btn" id="exportGameXML">Export game XML</button>
             <label class="btn" for="importGameXML">Import game XML</label>
             <input
               id="importGameXML"
               type="file"
-              accept="text/xml,application/xml"
+              accept=".track,.xml,text/xml,application/xml"
               style="display: none"
-            />
+              />
           </div>
           <div class="note">
             The game format is Track/Blueprints XML. Groups are flattened

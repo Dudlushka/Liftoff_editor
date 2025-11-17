@@ -29,7 +29,7 @@ export let currentCLIndex = -1;       // melyik ControlLine az aktív
 
 export function setCurrentCLIndex(aaa){currentCLIndex = aaa;}
 
-// ===== KÖZÖS CLIPBOARD (globálisan elérhető) =====
+// ===== common clipboard (global)=====
 window.appClipboard = window.appClipboard || { mode: null, items: [] };
 
 const $ = (s) => document.querySelector(s);
@@ -185,6 +185,8 @@ const ui =
   clDrawMode : $("#clDrawMode"),
   //
   gpScalable : $("#gpScalable"),
+
+  trackEnvironment : $("#trackEnvironment"),
 
 };
 window.ui = ui;        // ez is globális

@@ -1036,8 +1036,26 @@ function fillPartEditors(focus = true)
 function loadGP(name)
 {
   console.log("Load GP");
+  
   const n = String(name || '').trim();
-  if (!n || !store?.gamePrimitives?.[n]) return;
+  if (!n)
+  { 
+    console.log("[loadGP] issue1:",n);
+    return;
+  }
+
+  if(!store?.gamePrimitives?.[n])
+  {
+    console.log("[loadGP] issue2:", n);
+
+    // Az összes elérhető GP név
+    console.log("[loadGP] keys:",
+    Object.keys(store?.gamePrimitives || {}));
+    Object.entries(store?.gamePrimitives || {}).forEach(([key, value]) =>{console.log("  GP:", key, " → ", value);});
+    return;
+  }
+
+  console.log("Load GP #2");
 
   // Aktív GP beállítása
   store.activeGPName = n;

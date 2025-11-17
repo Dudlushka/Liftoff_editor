@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Track xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <gameVersion>1.6.17</gameVersion>
+  <localID>
+    <str>ff1862fd-c0bd-4ebb-9301-be2ff4b7a098</str>
+    <version>1</version>
+    <type>TRACK</type>
+  </localID>
+  <name>logikai</name>
+  <description />
+  <dependencies />
+  <environment>TheDrawingBoard</environment>
+  <blueprints>
+  
+     <TrackBlueprint xsi:type="TrackBlueprintFlag">
+      <itemID>CheckpointBox20mX5m01 </itemID>
+      <instanceID>6</instanceID>
+      <position>
+        <x>-80</x>
+        <y>15</y>
+        <z>-48</z>
+      </position>
+      <rotation>
+        <x>-0</x>
+        <y>1.0095242E-05</y>
+        <z>-0</z>
+      </rotation>
+    </TrackBlueprint>
+ 
+ 
+  </blueprints>
+  <hideDefaultSpawnpoint>false</hideDefaultSpawnpoint>
+</Track>

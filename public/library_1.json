@@ -1441,7 +1441,7 @@
       "name": "DrawingBoardPyramid1mx1m01",
       "parts": [
         {
-          "id": "5f0df7a5-06f3-47d5-a909-1ef5fb7d2ed2",
+          "id": "89f403d1-5af7-4819-a741-7acc5d9c38bd",
           "type": "pyramid",
           "color": "#2b45c1",
           "scale": [
@@ -1460,7 +1460,8 @@
             0
           ]
         }
-      ]
+      ],
+      "scalable": false
     },
     "DrawingBoardHalfSphere5mx5m01": {
       "name": "DrawingBoardHalfSphere5mx5m01",
@@ -2299,51 +2300,53 @@
       "name": "DrawingBoardRamp1mx1m05",
       "parts": [
         {
-          "id": "fb844513-bbc9-41ee-bc86-592943290579",
-          "type": "box",
-          "color": "#9aa7b1",
+          "id": "f0a22bd7-6bda-4adc-9391-0707986eff7d",
+          "type": "rightTriPrism",
+          "color": "#fafafa",
           "scale": [
+            2,
             1,
-            1,
-            1
+            2
           ],
           "pos": [
             0,
-            0,
+            0.5,
             0
           ],
           "rotRYP": [
             0,
-            0,
+            180,
             0
           ]
         }
-      ]
+      ],
+      "scalable": true
     },
     "DrawingBoardRamp5mx5m05": {
       "name": "DrawingBoardRamp5mx5m05",
       "parts": [
         {
-          "id": "764cde58-66f3-42d8-a672-b0c27935422b",
-          "type": "box",
-          "color": "#9aa7b1",
+          "id": "f0a22bd7-6bda-4adc-9391-0707986eff7d",
+          "type": "rightTriPrism",
+          "color": "#fafafa",
           "scale": [
-            1,
-            1,
-            1
+            10,
+            5,
+            10
           ],
           "pos": [
             0,
-            0,
+            2.5,
             0
           ],
           "rotRYP": [
             0,
-            0,
+            180,
             0
           ]
         }
-      ]
+      ],
+      "scalable": false
     },
     "ASLLightCurveInner01": {
       "name": "ASLLightCurveInner01",
@@ -2375,6 +2378,1319 @@
         }
       ],
       "scalable": false
+    },
+    "DrawingBoardRamp1mx1m01": {
+      "name": "DrawingBoardRamp1mx1m01",
+      "parts": [
+        {
+          "id": "f0a22bd7-6bda-4adc-9391-0707986eff7d",
+          "type": "rightTriPrism",
+          "color": "#2b45c1",
+          "scale": [
+            2,
+            1,
+            2
+          ],
+          "pos": [
+            0,
+            0.5,
+            0
+          ],
+          "rotRYP": [
+            0,
+            180,
+            0
+          ]
+        }
+      ],
+      "scalable": false
+    },
+    "DrawingBoardRamp1mx1m02": {
+      "name": "DrawingBoardRamp1mx1m02",
+      "parts": [
+        {
+          "id": "f0a22bd7-6bda-4adc-9391-0707986eff7d",
+          "type": "rightTriPrism",
+          "color": "#9bd0f0",
+          "scale": [
+            2,
+            1,
+            2
+          ],
+          "pos": [
+            0,
+            0.5,
+            0
+          ],
+          "rotRYP": [
+            0,
+            180,
+            0
+          ]
+        }
+      ],
+      "scalable": false
+    },
+    "DrawingBoardRamp1mx1m03": {
+      "name": "DrawingBoardRamp1mx1m03",
+      "parts": [
+        {
+          "id": "f0a22bd7-6bda-4adc-9391-0707986eff7d",
+          "type": "rightTriPrism",
+          "color": "#263491",
+          "scale": [
+            2,
+            1,
+            2
+          ],
+          "pos": [
+            0,
+            0.5,
+            0
+          ],
+          "rotRYP": [
+            0,
+            180,
+            0
+          ]
+        }
+      ],
+      "scalable": false
+    },
+    "DrawingBoardRamp1mx1m04": {
+      "name": "DrawingBoardRamp1mx1m04",
+      "parts": [
+        {
+          "id": "f0a22bd7-6bda-4adc-9391-0707986eff7d",
+          "type": "rightTriPrism",
+          "color": "#e9c445",
+          "scale": [
+            2,
+            1,
+            2
+          ],
+          "pos": [
+            0,
+            0.5,
+            0
+          ],
+          "rotRYP": [
+            0,
+            180,
+            0
+          ]
+        }
+      ],
+      "scalable": false
+    },
+    "DrawingBoardRamp5mx5m01": {
+      "name": "DrawingBoardRamp5mx5m01",
+      "parts": [
+        {
+          "id": "f0a22bd7-6bda-4adc-9391-0707986eff7d",
+          "type": "rightTriPrism",
+          "color": "#2b45c1",
+          "scale": [
+            10,
+            5,
+            10
+          ],
+          "pos": [
+            0,
+            2.5,
+            0
+          ],
+          "rotRYP": [
+            0,
+            180,
+            0
+          ]
+        }
+      ]
+    },
+    "DrawingBoardRamp5mx5m02": {
+      "name": "DrawingBoardRamp5mx5m02",
+      "parts": [
+        {
+          "id": "f0a22bd7-6bda-4adc-9391-0707986eff7d",
+          "type": "rightTriPrism",
+          "color": "#9bd0f0",
+          "scale": [
+            10,
+            5,
+            10
+          ],
+          "pos": [
+            0,
+            2.5,
+            0
+          ],
+          "rotRYP": [
+            0,
+            180,
+            0
+          ]
+        }
+      ],
+      "scalable": false
+    },
+    "DrawingBoardRamp5mx5m03": {
+      "name": "DrawingBoardRamp5mx5m03",
+      "parts": [
+        {
+          "id": "f0a22bd7-6bda-4adc-9391-0707986eff7d",
+          "type": "rightTriPrism",
+          "color": "#263491",
+          "scale": [
+            10,
+            5,
+            10
+          ],
+          "pos": [
+            0,
+            2.5,
+            0
+          ],
+          "rotRYP": [
+            0,
+            180,
+            0
+          ]
+        }
+      ],
+      "scalable": false
+    },
+    "DrawingBoardRamp5mx5m04": {
+      "name": "DrawingBoardRamp5mx5m04",
+      "parts": [
+        {
+          "id": "f0a22bd7-6bda-4adc-9391-0707986eff7d",
+          "type": "rightTriPrism",
+          "color": "#e9c445",
+          "scale": [
+            10,
+            5,
+            10
+          ],
+          "pos": [
+            0,
+            2.5,
+            0
+          ],
+          "rotRYP": [
+            0,
+            180,
+            0
+          ]
+        }
+      ],
+      "scalable": false
+    },
+    "DrawingBoardPyramid1mx1m02": {
+      "name": "DrawingBoardPyramid1mx1m02",
+      "parts": [
+        {
+          "id": "a041d547-5007-4dd8-9a53-a93c46593cd4",
+          "type": "pyramid",
+          "color": "#9bd0f0",
+          "scale": [
+            1,
+            1,
+            1
+          ],
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "scalable": false
+    },
+    "DrawingBoardPyramid1mx1m03": {
+      "name": "DrawingBoardPyramid1mx1m03",
+      "parts": [
+        {
+          "id": "d713dd9c-47c8-426d-b552-58bb0bc5b291",
+          "type": "pyramid",
+          "color": "#263491",
+          "scale": [
+            1,
+            1,
+            1
+          ],
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "scalable": false
+    },
+    "DrawingBoardPyramid1mx1m04": {
+      "name": "DrawingBoardPyramid1mx1m04",
+      "parts": [
+        {
+          "id": "6f240a9c-bbba-4b8a-9d5d-7621d1938e82",
+          "type": "pyramid",
+          "color": "#e9c445",
+          "scale": [
+            1,
+            1,
+            1
+          ],
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "DrawingBoardPyramid1mx1m05": {
+      "name": "DrawingBoardPyramid1mx1m05",
+      "parts": [
+        {
+          "id": "09a9c8d7-47d2-426e-956e-5138db195e82",
+          "type": "pyramid",
+          "color": "#fafafa",
+          "scale": [
+            1,
+            1,
+            1
+          ],
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "DrawingBoardPyramid5mx5m01": {
+      "name": "DrawingBoardPyramid5mx5m01",
+      "parts": [
+        {
+          "id": "164df799-8461-4c7a-965e-bd8ad89010d3",
+          "type": "pyramid",
+          "color": "#2b45c1",
+          "scale": [
+            5,
+            5,
+            5
+          ],
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "DrawingBoardPyramid5mx5m02": {
+      "name": "DrawingBoardPyramid5mx5m02",
+      "parts": [
+        {
+          "id": "8cca02c6-62fd-4906-8a88-b229e808b669",
+          "type": "pyramid",
+          "color": "#9bd0f0",
+          "scale": [
+            5,
+            5,
+            5
+          ],
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "scalable": false
+    },
+    "DrawingBoardPyramid5mx5m03": {
+      "name": "DrawingBoardPyramid5mx5m03",
+      "parts": [
+        {
+          "id": "d51b42c3-7e0f-49f8-a01a-bbd80663abd4",
+          "type": "pyramid",
+          "color": "#263491",
+          "scale": [
+            5,
+            5,
+            5
+          ],
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "scalable": false
+    },
+    "DrawingBoardPyramid5mx5m04": {
+      "name": "DrawingBoardPyramid5mx5m04",
+      "parts": [
+        {
+          "id": "0578d27b-6edf-4fd0-bfbc-d05d0e164dc9",
+          "type": "pyramid",
+          "color": "#e9c445",
+          "scale": [
+            5,
+            5,
+            5
+          ],
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "scalable": false
+    },
+    "DrawingBoardPyramid5mx5m05": {
+      "name": "DrawingBoardPyramid5mx5m05",
+      "parts": [
+        {
+          "id": "76f3d5c1-12c2-4a64-ad99-4f6c50d1456b",
+          "type": "pyramid",
+          "color": "#fafafa",
+          "scale": [
+            5,
+            5,
+            5
+          ],
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "DrawingBoardHalfSphere5mx5m02": {
+      "name": "DrawingBoardHalfSphere5mx5m02",
+      "parts": [
+        {
+          "id": "397615fd-ee8b-4b40-acd4-d233586b8e13",
+          "type": "hemisphere",
+          "color": "#9bd0f0",
+          "scale": [
+            5,
+            5,
+            5
+          ],
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "DrawingBoardHalfSphere5mx5m03": {
+      "name": "DrawingBoardHalfSphere5mx5m03",
+      "parts": [
+        {
+          "id": "397615fd-ee8b-4b40-acd4-d233586b8e13",
+          "type": "hemisphere",
+          "color": "#263491",
+          "scale": [
+            5,
+            5,
+            5
+          ],
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "DrawingBoardHalfSphere5mx5m04": {
+      "name": "DrawingBoardHalfSphere5mx5m04",
+      "parts": [
+        {
+          "id": "397615fd-ee8b-4b40-acd4-d233586b8e13",
+          "type": "hemisphere",
+          "color": "#e9c445",
+          "scale": [
+            5,
+            5,
+            5
+          ],
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "DrawingBoardHalfSphere5mx5m05": {
+      "name": "DrawingBoardHalfSphere5mx5m05",
+      "parts": [
+        {
+          "id": "397615fd-ee8b-4b40-acd4-d233586b8e13",
+          "type": "hemisphere",
+          "color": "#fafafa",
+          "scale": [
+            5,
+            5,
+            5
+          ],
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "DrawingBoardHalfSphere1mx1m02": {
+      "name": "DrawingBoardHalfSphere1mx1m02",
+      "parts": [
+        {
+          "id": "5fe254f5-c2a0-4e51-b114-a6aebe29901c",
+          "type": "hemisphere",
+          "color": "#9bd0f0",
+          "scale": [
+            1,
+            1,
+            1
+          ],
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "DrawingBoardHalfSphere1mx1m03": {
+      "name": "DrawingBoardHalfSphere1mx1m03",
+      "parts": [
+        {
+          "id": "5fe254f5-c2a0-4e51-b114-a6aebe29901c",
+          "type": "hemisphere",
+          "color": "#263491",
+          "scale": [
+            1,
+            1,
+            1
+          ],
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "DrawingBoardHalfSphere1mx1m04": {
+      "name": "DrawingBoardHalfSphere1mx1m04",
+      "parts": [
+        {
+          "id": "5fe254f5-c2a0-4e51-b114-a6aebe29901c",
+          "type": "hemisphere",
+          "color": "#e9c445",
+          "scale": [
+            1,
+            1,
+            1
+          ],
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "DrawingBoardHalfSphere1mx1m05": {
+      "name": "DrawingBoardHalfSphere1mx1m05",
+      "parts": [
+        {
+          "id": "5fe254f5-c2a0-4e51-b114-a6aebe29901c",
+          "type": "hemisphere",
+          "color": "#fafafa",
+          "scale": [
+            1,
+            1,
+            1
+          ],
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "DrawingBoardCylinder5mx5m01": {
+      "name": "DrawingBoardCylinder5mx5m01",
+      "parts": [
+        {
+          "id": "37b2f34f-3d32-42da-b9c5-7fbe8fb46099",
+          "type": "cylinder",
+          "color": "#2b45c1",
+          "scale": [
+            5,
+            5,
+            5
+          ],
+          "pos": [
+            0,
+            2.5,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "DrawingBoardCylinder5mx5m02": {
+      "name": "DrawingBoardCylinder5mx5m02",
+      "parts": [
+        {
+          "id": "37b2f34f-3d32-42da-b9c5-7fbe8fb46099",
+          "type": "cylinder",
+          "color": "#9bd0f0",
+          "scale": [
+            5,
+            5,
+            5
+          ],
+          "pos": [
+            0,
+            2.5,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "DrawingBoardCylinder5mx5m03": {
+      "name": "DrawingBoardCylinder5mx5m03",
+      "parts": [
+        {
+          "id": "37b2f34f-3d32-42da-b9c5-7fbe8fb46099",
+          "type": "cylinder",
+          "color": "#263491",
+          "scale": [
+            5,
+            5,
+            5
+          ],
+          "pos": [
+            0,
+            2.5,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "DrawingBoardCylinder5mx5m04": {
+      "name": "DrawingBoardCylinder5mx5m04",
+      "parts": [
+        {
+          "id": "37b2f34f-3d32-42da-b9c5-7fbe8fb46099",
+          "type": "cylinder",
+          "color": "#e9c445",
+          "scale": [
+            5,
+            5,
+            5
+          ],
+          "pos": [
+            0,
+            2.5,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "DrawingBoardCylinder5mx5m05": {
+      "name": "DrawingBoardCylinder5mx5m05",
+      "parts": [
+        {
+          "id": "37b2f34f-3d32-42da-b9c5-7fbe8fb46099",
+          "type": "cylinder",
+          "color": "#fafafa",
+          "scale": [
+            5,
+            5,
+            5
+          ],
+          "pos": [
+            0,
+            2.5,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "DrawingBoardCylinder1mx5m02": {
+      "name": "DrawingBoardCylinder1mx5m02",
+      "parts": [
+        {
+          "id": "eea17fda-03b3-4148-8d66-877077bbc4c1",
+          "type": "cylinder",
+          "color": "#9bd0f0",
+          "scale": [
+            1,
+            5,
+            1
+          ],
+          "pos": [
+            0,
+            2.5,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "DrawingBoardCylinder1mx5m03": {
+      "name": "DrawingBoardCylinder1mx5m03",
+      "parts": [
+        {
+          "id": "eea17fda-03b3-4148-8d66-877077bbc4c1",
+          "type": "cylinder",
+          "color": "#263491",
+          "scale": [
+            1,
+            5,
+            1
+          ],
+          "pos": [
+            0,
+            2.5,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "DrawingBoardCylinder1mx5m04": {
+      "name": "DrawingBoardCylinder1mx5m04",
+      "parts": [
+        {
+          "id": "eea17fda-03b3-4148-8d66-877077bbc4c1",
+          "type": "cylinder",
+          "color": "#e9c445",
+          "scale": [
+            1,
+            5,
+            1
+          ],
+          "pos": [
+            0,
+            2.5,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "DrawingBoardCylinder1mx5m05": {
+      "name": "DrawingBoardCylinder1mx5m05",
+      "parts": [
+        {
+          "id": "eea17fda-03b3-4148-8d66-877077bbc4c1",
+          "type": "cylinder",
+          "color": "#fafafa",
+          "scale": [
+            1,
+            5,
+            1
+          ],
+          "pos": [
+            0,
+            2.5,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "DrawingBoardCylinder1mx1m01": {
+      "name": "DrawingBoardCylinder1mx1m01",
+      "parts": [
+        {
+          "id": "da248d1d-8e61-4d30-a78f-df8b970a953a",
+          "type": "cylinder",
+          "color": "#2b45c1",
+          "scale": [
+            1,
+            1,
+            1
+          ],
+          "pos": [
+            0,
+            0.5,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "DrawingBoardCylinder1mx1m02": {
+      "name": "DrawingBoardCylinder1mx1m02",
+      "parts": [
+        {
+          "id": "da248d1d-8e61-4d30-a78f-df8b970a953a",
+          "type": "cylinder",
+          "color": "#9bd0f0",
+          "scale": [
+            1,
+            1,
+            1
+          ],
+          "pos": [
+            0,
+            0.5,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "DrawingBoardCylinder1mx1m03": {
+      "name": "DrawingBoardCylinder1mx1m03",
+      "parts": [
+        {
+          "id": "da248d1d-8e61-4d30-a78f-df8b970a953a",
+          "type": "cylinder",
+          "color": "#263491",
+          "scale": [
+            1,
+            1,
+            1
+          ],
+          "pos": [
+            0,
+            0.5,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "DrawingBoardCylinder1mx1m04": {
+      "name": "DrawingBoardCylinder1mx1m04",
+      "parts": [
+        {
+          "id": "da248d1d-8e61-4d30-a78f-df8b970a953a",
+          "type": "cylinder",
+          "color": "#e9c445",
+          "scale": [
+            1,
+            1,
+            1
+          ],
+          "pos": [
+            0,
+            0.5,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "DrawingBoardCylinder1mx1m05": {
+      "name": "DrawingBoardCylinder1mx1m05",
+      "parts": [
+        {
+          "id": "da248d1d-8e61-4d30-a78f-df8b970a953a",
+          "type": "cylinder",
+          "color": "#fafafa",
+          "scale": [
+            1,
+            1,
+            1
+          ],
+          "pos": [
+            0,
+            0.5,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "DrawingBoardCylinder0.5mx5m01": {
+      "name": "DrawingBoardCylinder0.5mx5m01",
+      "parts": [
+        {
+          "id": "019f3e4b-a058-4e5a-9dec-02b567dca55e",
+          "type": "cylinder",
+          "color": "#2b45c1",
+          "scale": [
+            0.5,
+            5,
+            0.5
+          ],
+          "pos": [
+            0,
+            2.5,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "DrawingBoardCylinder0.5mx5m02": {
+      "name": "DrawingBoardCylinder0.5mx5m02",
+      "parts": [
+        {
+          "id": "019f3e4b-a058-4e5a-9dec-02b567dca55e",
+          "type": "cylinder",
+          "color": "#9bd0f0",
+          "scale": [
+            0.5,
+            5,
+            0.5
+          ],
+          "pos": [
+            0,
+            2.5,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "DrawingBoardCylinder0.5mx5m04": {
+      "name": "DrawingBoardCylinder0.5mx5m04",
+      "parts": [
+        {
+          "id": "019f3e4b-a058-4e5a-9dec-02b567dca55e",
+          "type": "cylinder",
+          "color": "#e9c445",
+          "scale": [
+            0.5,
+            5,
+            0.5
+          ],
+          "pos": [
+            0,
+            2.5,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "DrawingBoardCylinder0.5mx5m05": {
+      "name": "DrawingBoardCylinder0.5mx5m05",
+      "parts": [
+        {
+          "id": "019f3e4b-a058-4e5a-9dec-02b567dca55e",
+          "type": "cylinder",
+          "color": "#fafafa",
+          "scale": [
+            0.5,
+            5,
+            0.5
+          ],
+          "pos": [
+            0,
+            2.5,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "DrawingBoardCurveWall5mx5m01": {
+      "name": "DrawingBoardCurveWall5mx5m01",
+      "parts": [
+        {
+          "id": "9ca20080-1847-48a0-870a-0ccfe148dc54",
+          "type": "arcCyl",
+          "color": "#2b45c1",
+          "scale": [
+            1,
+            1,
+            5
+          ],
+          "pos": [
+            0,
+            2.5,
+            0
+          ],
+          "rotRYP": [
+            90,
+            0,
+            180
+          ],
+          "arc": {
+            "inner": 4.5,
+            "outer": 5.5,
+            "angle": 90
+          }
+        }
+      ],
+      "scalable": false
+    },
+    "DrawingBoardCurveWall5mx5m02": {
+      "name": "DrawingBoardCurveWall5mx5m02",
+      "parts": [
+        {
+          "id": "9ca20080-1847-48a0-870a-0ccfe148dc54",
+          "type": "arcCyl",
+          "color": "#9bd0f0",
+          "scale": [
+            1,
+            1,
+            5
+          ],
+          "pos": [
+            0,
+            2.5,
+            0
+          ],
+          "rotRYP": [
+            90,
+            0,
+            180
+          ],
+          "arc": {
+            "inner": 4.5,
+            "outer": 5.5,
+            "angle": 90
+          }
+        }
+      ]
+    },
+    "DrawingBoardCurveWall5mx5m03": {
+      "name": "DrawingBoardCurveWall5mx5m03",
+      "parts": [
+        {
+          "id": "9ca20080-1847-48a0-870a-0ccfe148dc54",
+          "type": "arcCyl",
+          "color": "#263491",
+          "scale": [
+            1,
+            1,
+            5
+          ],
+          "pos": [
+            0,
+            2.5,
+            0
+          ],
+          "rotRYP": [
+            90,
+            0,
+            180
+          ],
+          "arc": {
+            "inner": 4.5,
+            "outer": 5.5,
+            "angle": 90
+          }
+        }
+      ]
+    },
+    "DrawingBoardCurveWall5mx5m04": {
+      "name": "DrawingBoardCurveWall5mx5m04",
+      "parts": [
+        {
+          "id": "9ca20080-1847-48a0-870a-0ccfe148dc54",
+          "type": "arcCyl",
+          "color": "#e9c445",
+          "scale": [
+            1,
+            1,
+            5
+          ],
+          "pos": [
+            0,
+            2.5,
+            0
+          ],
+          "rotRYP": [
+            90,
+            0,
+            180
+          ],
+          "arc": {
+            "inner": 4.5,
+            "outer": 5.5,
+            "angle": 90
+          }
+        }
+      ]
+    },
+    "DrawingBoardCurveWall5mx5m05": {
+      "name": "DrawingBoardCurveWall5mx5m05",
+      "parts": [
+        {
+          "id": "9ca20080-1847-48a0-870a-0ccfe148dc54",
+          "type": "arcCyl",
+          "color": "#fafafa",
+          "scale": [
+            1,
+            1,
+            5
+          ],
+          "pos": [
+            0,
+            2.5,
+            0
+          ],
+          "rotRYP": [
+            90,
+            0,
+            180
+          ],
+          "arc": {
+            "inner": 4.5,
+            "outer": 5.5,
+            "angle": 90
+          }
+        }
+      ]
+    },
+    "DrawingBoardCone5mx5m01": {
+      "name": "DrawingBoardCone5mx5m01",
+      "parts": [
+        {
+          "id": "d4cce0ce-bf1b-44c4-9699-2e9d9c7f6a44",
+          "type": "cone",
+          "color": "#2b45c1",
+          "scale": [
+            5,
+            5,
+            5
+          ],
+          "pos": [
+            0,
+            2.5,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "DrawingBoardCone5mx5m02": {
+      "name": "DrawingBoardCone5mx5m02",
+      "parts": [
+        {
+          "id": "d4cce0ce-bf1b-44c4-9699-2e9d9c7f6a44",
+          "type": "cone",
+          "color": "#9bd0f0",
+          "scale": [
+            5,
+            5,
+            5
+          ],
+          "pos": [
+            0,
+            2.5,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "DrawingBoardCone5mx5m03": {
+      "name": "DrawingBoardCone5mx5m03",
+      "parts": [
+        {
+          "id": "d4cce0ce-bf1b-44c4-9699-2e9d9c7f6a44",
+          "type": "cone",
+          "color": "#263491",
+          "scale": [
+            5,
+            5,
+            5
+          ],
+          "pos": [
+            0,
+            2.5,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
     }
   },
   "groups": {

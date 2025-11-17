@@ -126,7 +126,8 @@ function exportSceneFlattenXML()
 //---------------------
 
 
-ui.exportXML.addEventListener("click", exportSceneFlattenXML);
+//ui.exportXML.addEventListener("click", exportSceneFlattenXML);
+
 ui.saveJSON.addEventListener("click", saveJSON);
 ui.loadJSON.addEventListener("change", () =>
 {
@@ -162,8 +163,10 @@ function exportGameXML()
     ui.trackUUID.value.trim() || "00000000-0000-0000-0000-000000000000";
   const ver = ui.gameVersion.value.trim() || "1.6.17";
 
+  const env = ui.trackEnvironment.value.trim() || "TheDrawingBoard";
+
   let xml = `<?xml version=\"1.0\" encoding=\"utf-8\"?>
-<Track xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">`;
+  <Track xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">`;
   xml += `
   <gameVersion>${ver}</gameVersion>
   <localID>
@@ -174,7 +177,7 @@ function exportGameXML()
   <name>${name}</name>
   <description />
   <dependencies />
-  <environment>TheDrawingBoard</environment>
+  <environment>${env}</environment>
   <blueprints>
 `;
   let instanceID = 1;
@@ -188,6 +191,16 @@ function exportGameXML()
     d = d % 360;
     if (d < 0) d += 360;
     return d;
+  }
+
+  function isUnitScale(v)
+  {
+    const eps = 1e-4;
+    return (
+      Math.abs(v.x - 1) < eps &&
+      Math.abs(v.y - 1) < eps &&
+      Math.abs(v.z - 1) < eps
+    );
   }
 
   function exportNode(node, parentMatrix)
@@ -221,14 +234,37 @@ function exportGameXML()
       const scl  = new THREE.Vector3();
       M.decompose(pos, quat, scl);
 
-      // JÁTÉK: YXZ intrinsic sorrend
+      // Game uses YXZ intrinsic order
       const eul = new THREE.Euler().setFromQuaternion(quat, "YXZ");
 
       let ex = normalizeDeg(radToDeg(eul.x));
       let ey = normalizeDeg(radToDeg(eul.y));
       let ez = normalizeDeg(radToDeg(eul.z));
 
-      xml += `    <TrackBlueprint xsi:type=\"TrackBlueprintFlag\">
+      // Look up GP and check scalable flag
+      const gp = store.gamePrimitives?.[node.refName];
+      const scalable = !!gp?.scalable;
+
+      // Decide blueprint type
+      const bpType = scalable
+        ? "TrackBlueprintFlexibleFlag"
+        : "TrackBlueprintFlag";
+
+      // Warn if non-scalable GP has non-unit scale
+      if (!scalable && !isUnitScale(scl))
+      {
+        console.warn(
+          "[exportGameXML] GP instance has non-unit scale but GP is not scalable. " +
+          "Scaling will be ignored.",
+          {
+            refName: node.refName,
+            pos: { x: pos.x, y: pos.y, z: pos.z },
+            scale: { x: scl.x, y: scl.y, z: scl.z }
+          }
+        );
+      }
+
+      xml += `    <TrackBlueprint xsi:type=\"${bpType}\">
 `;
       xml += `      <itemID>${node.refName}</itemID>
 `;
@@ -246,6 +282,18 @@ function exportGameXML()
         <z>${ez}</z>
       </rotation>
 `;
+
+      // Only write scale if GP is marked scalable
+      if (scalable)
+      {
+        xml += `      <scale>
+        <x>${scl.x}</x>
+        <y>${scl.y}</y>
+        <z>${scl.z}</z>
+      </scale>
+`;
+      }
+
       xml += `    </TrackBlueprint>
 `;
     }
@@ -264,7 +312,8 @@ function exportGameXML()
   <hideDefaultSpawnpoint>false</hideDefaultSpawnpoint>
 </Track>
 `;
-  downloadText("track_export.xml", xml);
+  
+  downloadText("track_export.track", xml);
 }
 
 
@@ -274,6 +323,7 @@ function exportGameXML()
 //--------------------------------------------------
 function importGameXML(file)
 {
+  console.log("import track file:",file);
   const reader = new FileReader();
   reader.onload = () =>
   {
@@ -283,15 +333,14 @@ function importGameXML(file)
       const dom = new DOMParser().parseFromString(text, "application/xml");
 
       const name = dom.querySelector("Track > name")?.textContent || "Imported";
-      const uuid =
-        dom.querySelector("Track > localID > str")?.textContent ||
-        "00000000-0000-0000-0000-000000000000";
-      const ver =
-        dom.querySelector("Track > gameVersion")?.textContent || "1.6.17";
+      const uuid = dom.querySelector("Track > localID > str")?.textContent || "00000000-0000-0000-0000-000000000000";
+      const ver = dom.querySelector("Track > gameVersion")?.textContent || "1.6.17";
+      const env = dom.querySelector("Track > environment")?.textContent || "error";
 
       ui.trackName.value    = name;
       ui.trackUUID.value    = uuid;
       ui.gameVersion.value  = ver;
+      ui.trackEnvironment.value = env;
 
       store.scene.length = 0;
 
@@ -303,59 +352,99 @@ function importGameXML(file)
         : (r) => r * 180 / Math.PI;
 
       dom.querySelectorAll("blueprints > TrackBlueprint").forEach((bp) =>
-      {
-        const itemID = bp.querySelector("itemID")?.textContent || "UnknownItem";
+{
+  // Read blueprint type (e.g. TrackBlueprintFlag or TrackBlueprintFlexibleFlag)
+  const bpType   = bp.getAttribute("xsi:type") || "";
+  const flexible = bpType.includes("Flexible");
 
-        const px = parseFloat(bp.querySelector("position > x")?.textContent || "0");
-        const py = parseFloat(bp.querySelector("position > y")?.textContent || "0");
-        const pz = parseFloat(bp.querySelector("position > z")?.textContent || "0");
+  // --- itemID, trimmed ---
+  let rawItemID =
+    bp.querySelector("itemID")?.textContent || "UnknownItem";
 
-        const rxGame = parseFloat(bp.querySelector("rotation > x")?.textContent || "0");
-        const ryGame = parseFloat(bp.querySelector("rotation > y")?.textContent || "0");
-        const rzGame = parseFloat(bp.querySelector("rotation > z")?.textContent || "0");
+  let itemID = String(rawItemID);
+  const trimmedItemID = itemID.trim();
 
-        // 1) játék Euler (YXZ intrinsic) → quat
-        const eGame = new THREE.Euler(
-          degToRad(rxGame),
-          degToRad(ryGame),
-          degToRad(rzGame),
-          "YXZ"
-        );
-        const q = new THREE.Quaternion().setFromEuler(eGame);
+  if (trimmedItemID !== itemID)
+  {
+    console.log(
+      "[importGameXML] itemID trimmed:",
+      JSON.stringify(itemID),
+      "->",
+      JSON.stringify(trimmedItemID)
+    );
+  }
+  itemID = trimmedItemID;
 
-        // 2) ugyanaz a quat → a szerkesztő XYZ rendszerébe
-        const eLocal = new THREE.Euler().setFromQuaternion(q, "XYZ");
+  // --- position ---
+  const px = parseFloat(bp.querySelector("position > x")?.textContent || "0");
+  const py = parseFloat(bp.querySelector("position > y")?.textContent || "0");
+  const pz = parseFloat(bp.querySelector("position > z")?.textContent || "0");
 
-        const rxLocal = radToDeg(eLocal.x);
-        const ryLocal = radToDeg(eLocal.y);
-        const rzLocal = radToDeg(eLocal.z);
+  // --- rotation from game (YXZ intrinsic) ---
+  const rxGame = parseFloat(bp.querySelector("rotation > x")?.textContent || "0");
+  const ryGame = parseFloat(bp.querySelector("rotation > y")?.textContent || "0");
+  const rzGame = parseFloat(bp.querySelector("rotation > z")?.textContent || "0");
 
-        if (!store.gamePrimitives[itemID])
+  const eGame = new THREE.Euler(
+    degToRad(rxGame),
+    degToRad(ryGame),
+    degToRad(rzGame),
+    "YXZ"
+  );
+  const q = new THREE.Quaternion().setFromEuler(eGame);
+
+  // Convert to editor's XYZ euler
+  const eLocal = new THREE.Euler().setFromQuaternion(q, "XYZ");
+
+  const rxLocal = radToDeg(eLocal.x);
+  const ryLocal = radToDeg(eLocal.y);
+  const rzLocal = radToDeg(eLocal.z);
+
+  // --- scale (if present) ---
+  const sx = parseFloat(bp.querySelector("scale > x")?.textContent || "1");
+  const sy = parseFloat(bp.querySelector("scale > y")?.textContent || "1");
+  const sz = parseFloat(bp.querySelector("scale > z")?.textContent || "1");
+  const scaleArr = [sx, sy, sz];
+
+  // Ensure GP exists
+  if (!store.gamePrimitives[itemID])
+  {
+    store.gamePrimitives[itemID] = {
+      name: itemID,
+      parts: [
         {
-          store.gamePrimitives[itemID] = {
-            name: itemID,
-            parts: [
-              {
-                id: crypto.randomUUID(),
-                type: "box",
-                color: "#9aa7b1",
-                scale: [1, 1, 1],
-                pos: [0, 0, 0],
-                rotRYP: [0, 0, 0],
-              },
-            ],
-          };
-        }
-
-        store.scene.push({
-          refType: "gp",
-          refName: itemID,
-          pos: [px, py, pz],
-          // BELSŐ XYZ forgatás fokban
-          rotRYP: [rxLocal, ryLocal, rzLocal],
+          id: crypto.randomUUID(),
+          type: "box",
+          color: "#9aa7b1",
           scale: [1, 1, 1],
-        });
-      });
+          pos: [0, 0, 0],
+          rotRYP: [0, 0, 0],
+        },
+      ],
+      // If the track blueprint is flexible, assume this GP is scalable by design
+      scalable: flexible
+    };
+  }
+  else
+  {
+    // Optional: if GP exists but has no scalable flag yet and blueprint is flexible,
+    // we can infer it once.
+    const gp = store.gamePrimitives[itemID];
+    if (gp.scalable === undefined && flexible)
+    {
+      gp.scalable = true;
+    }
+  }
+
+  // Add scene node, now using imported scale
+  store.scene.push({
+    refType: "gp",
+    refName: itemID,
+    pos: [px, py, pz],
+    rotRYP: [rxLocal, ryLocal, rzLocal],
+    scale: scaleArr,
+  });
+});
 
       refreshGPList();
       refreshGrpList();
@@ -370,6 +459,8 @@ function importGameXML(file)
     }
   };
   reader.readAsText(file);
+
+  console.log("import finished",file);
 }
 
 
@@ -440,8 +531,7 @@ function mergeLibraryData(data)
   }
 }
 
-/*
-function loadJSON(file)
+/*function loadJSON(file)
 {
   const reader = new FileReader();
   reader.onload = () =>
@@ -458,8 +548,7 @@ function loadJSON(file)
     }
   };
   reader.readAsText(file);
-}
-  */
+}*/
 
 function loadJSON(file)
 {

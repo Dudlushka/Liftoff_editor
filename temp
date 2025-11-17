@@ -1,0 +1,250 @@
+function exportGameXML()
+{
+  const name = ui.trackName.value.trim() || "Unnamed";
+  const uuid =
+    ui.trackUUID.value.trim() || "00000000-0000-0000-0000-000000000000";
+  const ver = ui.gameVersion.value.trim() || "1.6.17";
+
+  const env = ui.trackEnvironment.value.trim() || "TheDrawingBoard"
+
+  let xml = `<?xml version=\"1.0\" encoding=\"utf-8\"?>
+  <Track xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">`;
+  xml += `
+  <gameVersion>${ver}</gameVersion>
+  <localID>
+    <str>${uuid}</str>
+    <version>1</version>
+    <type>TRACK</type>
+  </localID>
+  <name>${name}</name>
+  <description />
+  <dependencies />
+  <environment>${env}</environment>
+  <blueprints>
+`;
+  let instanceID = 1;
+
+  const radToDeg = THREE.MathUtils?.radToDeg
+    ? THREE.MathUtils.radToDeg
+    : (r) => (r * 180) / Math.PI;
+
+  function normalizeDeg(d)
+  {
+    d = d % 360;
+    if (d < 0) d += 360;
+    return d;
+  }
+
+  function exportNode(node, parentMatrix)
+  {
+    const M  = new THREE.Matrix4();
+    const Rx = new THREE.Matrix4().makeRotationX(deg(node.rotRYP[0]));
+    const Ry = new THREE.Matrix4().makeRotationY(deg(node.rotRYP[1]));
+    const Rz = new THREE.Matrix4().makeRotationZ(deg(node.rotRYP[2]));
+    const S  = new THREE.Matrix4().makeScale(
+      node.scale[0],
+      node.scale[1],
+      node.scale[2],
+    );
+    const T  = new THREE.Matrix4().makeTranslation(
+      node.pos[0],
+      node.pos[1],
+      node.pos[2],
+    );
+
+    M.multiply(parentMatrix)
+      .multiply(T)
+      .multiply(Rx)
+      .multiply(Ry)
+      .multiply(Rz)
+      .multiply(S);
+
+    if (node.refType === "gp")
+    {
+      const pos  = new THREE.Vector3();
+      const quat = new THREE.Quaternion();
+      const scl  = new THREE.Vector3();
+      M.decompose(pos, quat, scl);
+
+      // JÁTÉK: YXZ intrinsic sorrend
+      const eul = new THREE.Euler().setFromQuaternion(quat, "YXZ");
+
+      let ex = normalizeDeg(radToDeg(eul.x));
+      let ey = normalizeDeg(radToDeg(eul.y));
+      let ez = normalizeDeg(radToDeg(eul.z));
+
+      xml += `    <TrackBlueprint xsi:type=\"TrackBlueprintFlag\">
+`;
+      xml += `      <itemID>${node.refName}</itemID>
+`;
+      xml += `      <instanceID>${instanceID++}</instanceID>
+`;
+      xml += `      <position>
+        <x>${pos.x}</x>
+        <y>${pos.y}</y>
+        <z>${pos.z}</z>
+      </position>
+`;
+      xml += `      <rotation>
+        <x>${ex}</x>
+        <y>${ey}</y>
+        <z>${ez}</z>
+      </rotation>
+`;
+      xml += `    </TrackBlueprint>
+`;
+    }
+    else
+    {
+      const grp = store.groups[node.refName];
+      if (!grp) return;
+      grp.items.forEach((child) => exportNode(child, M));
+    }
+  }
+
+  const I = new THREE.Matrix4();
+  store.scene.forEach((root) => exportNode(root, I));
+
+  xml += `  </blueprints>
+  <hideDefaultSpawnpoint>false</hideDefaultSpawnpoint>
+</Track>
+`;
+  
+ downloadText("track_export.track", xml);
+}
+
+
+
+
+
+
+//--------------
+
+
+//--------------------------------------------------
+//YXZ to our XYZ
+//--------------------------------------------------
+function importGameXML(file)
+{
+  console.log("import track file:",file);
+  const reader = new FileReader();
+  reader.onload = () =>
+  {
+    try
+    {
+      const text = String(reader.result);
+      const dom = new DOMParser().parseFromString(text, "application/xml");
+
+      const name = dom.querySelector("Track > name")?.textContent || "Imported";
+      const uuid = dom.querySelector("Track > localID > str")?.textContent || "00000000-0000-0000-0000-000000000000";
+      const ver = dom.querySelector("Track > gameVersion")?.textContent || "1.6.17";
+      const env = dom.querySelector("Track > environment")?.textContent || "error";
+
+      ui.trackName.value    = name;
+      ui.trackUUID.value    = uuid;
+      ui.gameVersion.value  = ver;
+      ui.trackEnvironment.value = env;
+
+      store.scene.length = 0;
+
+      const degToRad = THREE.MathUtils?.degToRad
+        ? THREE.MathUtils.degToRad
+        : (d) => d * Math.PI / 180;
+      const radToDeg = THREE.MathUtils?.radToDeg
+        ? THREE.MathUtils.radToDeg
+        : (r) => r * 180 / Math.PI;
+
+      dom.querySelectorAll("blueprints > TrackBlueprint").forEach((bp) =>
+      {
+        
+        
+        //const itemID = bp.querySelector("itemID")?.textContent || "UnknownItem";
+        //------------------------------
+        let rawItemID =
+        bp.querySelector("itemID")?.textContent || "UnknownItem";
+
+        let itemID = String(rawItemID);
+        const trimmedItemID = itemID.trim();
+
+        if (trimmedItemID !== itemID)
+        {
+          console.log(
+            "[importGameXML] itemID trimmed:",
+            JSON.stringify(itemID),
+            "->",
+            JSON.stringify(trimmedItemID)
+          );
+        }
+        itemID = trimmedItemID;
+
+        //------------------------------
+
+
+        const px = parseFloat(bp.querySelector("position > x")?.textContent || "0");
+        const py = parseFloat(bp.querySelector("position > y")?.textContent || "0");
+        const pz = parseFloat(bp.querySelector("position > z")?.textContent || "0");
+
+        const rxGame = parseFloat(bp.querySelector("rotation > x")?.textContent || "0");
+        const ryGame = parseFloat(bp.querySelector("rotation > y")?.textContent || "0");
+        const rzGame = parseFloat(bp.querySelector("rotation > z")?.textContent || "0");
+
+        // 1) játék Euler (YXZ intrinsic) → quat
+        const eGame = new THREE.Euler(
+          degToRad(rxGame),
+          degToRad(ryGame),
+          degToRad(rzGame),
+          "YXZ"
+        );
+        const q = new THREE.Quaternion().setFromEuler(eGame);
+
+        // 2) ugyanaz a quat → a szerkesztő XYZ rendszerébe
+        const eLocal = new THREE.Euler().setFromQuaternion(q, "XYZ");
+
+        const rxLocal = radToDeg(eLocal.x);
+        const ryLocal = radToDeg(eLocal.y);
+        const rzLocal = radToDeg(eLocal.z);
+
+        if (!store.gamePrimitives[itemID])
+        {
+          store.gamePrimitives[itemID] = {
+            name: itemID,
+            parts: [
+              {
+                id: crypto.randomUUID(),
+                type: "box",
+                color: "#9aa7b1",
+                scale: [1, 1, 1],
+                pos: [0, 0, 0],
+                rotRYP: [0, 0, 0],
+              },
+            ],
+          };
+        }
+
+        store.scene.push({
+          refType: "gp",
+          refName: itemID,
+          pos: [px, py, pz],
+          // BELSŐ XYZ forgatás fokban
+          rotRYP: [rxLocal, ryLocal, rzLocal],
+          scale: [1, 1, 1],
+        });
+      });
+
+      refreshGPList();
+      refreshGrpList();
+      refreshScnSourceOptions();
+      refreshScnList();
+      snapshot();
+    }
+    catch (e)
+    {
+      console.error(e);
+      alert("XML import hiba.");
+    }
+  };
+  reader.readAsText(file);
+
+  console.log("import finished",file);
+}
+
