@@ -344,3 +344,20 @@ ul.list::-webkit-scrollbar-track {
   transform: translateY(0);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.18);
 }
+
+#clLineRefList li,
+#clCPRefList li,
+#clSupportMajorRefList li,
+#clSupportMinorRefList li {
+  font-size: 7px;
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.btn-icon {
+  padding: 0 4px;
+  min-width: 0;
+  font-size: 11px;
+  line-height: 1;
+}

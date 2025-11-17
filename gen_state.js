@@ -151,6 +151,12 @@ const ui =
   clShowAux: $("#clShowAux"),
   clShowRadius: $("#clShowRadius"),
 
+  clCPRefAdd:    $("#clCPRefAdd"),
+  clCPRefList:   $("#clCPRefList"),
+
+  clLineRefAdd:  $("#clLineRefAdd"),
+  clLineRefList: $("#clLineRefList"),
+
   // === Control Points ===
   cpList: $("#cpList"),
   cpAdd: $("#cpAdd"),
@@ -181,11 +187,16 @@ const ui =
   clSupportBottomOffset: $("#clSupportBottomOffset"),
   clSupportRotate: $("#clSupportRotate"),
 
+  clSupportMajorRefAdd:   $("#clSupportMajorRefAdd"),
+  clSupportMajorRefList:  $("#clSupportMajorRefList"),
+
+  clSupportMinorRefAdd:   $("#clSupportMinorRefAdd"),
+  clSupportMinorRefList:  $("#clSupportMinorRefList"),
+
   //drawingmode 
   clDrawMode : $("#clDrawMode"),
   //
   gpScalable : $("#gpScalable"),
-
   trackEnvironment : $("#trackEnvironment"),
 
 };

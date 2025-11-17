@@ -420,183 +420,202 @@
           </fieldset>
 
           <!-- === Control Lines (Scene editor extension) === -->
-          <!-- === Control Lines (Scene editor extension) === -->
-          <section id="clPane" style="display: block">
-            <h3>Control Lines</h3>
+<section id="clPane" style="display: block">
+  <h3>Control Lines</h3>
 
-            <label>
-              Drawing mode
-              <input id="clDrawMode" type="number" step="1" min="0" max="3" value="0" />
-            </label>
+  <label>
+    Drawing mode
+    <input id="clDrawMode" type="number" step="1" min="0" max="3" value="0" />
+  </label>
 
-            <div class="row">
-              <!-- Left: ControlLine list and actions -->
-              <fieldset class="column">
-                <legend>Lines</legend>
-                <ul id="clList" class="list"></ul>
-                <div class="btnrow">
-                  <button id="clNew">New</button>
-                  <button id="clSave">Save</button>
-                  <button id="clDelete">Delete</button>
-                </div>
+  <div class="row">
+    <!-- Left: ControlLine list and actions -->
+    <fieldset class="column">
+      <legend>Lines</legend>
 
-                <label>
-                  Name
-                  <input id="clName" type="text" placeholder="CL name" />
-                </label>
+      <ul id="clList" class="list"></ul>
+      <div class="btnrow">
+        <button id="clNew">New</button>
+        <button id="clSave">Save</button>
+        <button id="clDelete">Delete</button>
+      </div>
 
-                <div class="grid2">
-                  <label>
-                    Radius
-                    <input id="clRadius" type="number" step="0.01" value="0.8" />
-                  </label>
-                  <label title="0: none · 1: path only · 2: path+Major · 3: path+Major+Minor">
-                    Style
-                    <input id="clStyle" type="number" step="1" min="0" max="3" value="0" />
-                  </label>
-                  <label>
-                    Start offset
-                    <input id="clStartOffset" type="number" step="0.01" value="0" />
-                  </label>
-                  <label>
-                    dL
-                    <input id="clDL" type="number" step="0.01" value="1.0" />
-                  </label>
-                </div>
+      <label>
+        Name
+        <input id="clName" type="text" placeholder="CL name" />
+      </label>
 
-                <!-- CP / Line objects (null is selectable) -->
-                <label>
-                  CP object
-                  <select id="clCPRefType">
-                    <option value="null">null</option>
-                    <option value="gp">GamePrimitive</option>
-                    <option value="grp">Group</option>
-                  </select>
-                  <select id="clCPRefName">
-                    <option value="null">null</option>
-                  </select>
-                </label>
+      <div class="grid2">
+        <label>
+          Radius
+          <input id="clRadius" type="number" step="0.01" value="0.8" />
+        </label>
+        <label title="0: none · 1: path only · 2: path+Major · 3: path+Major+Minor">
+          Style
+          <input id="clStyle" type="number" step="1" min="0" max="3" value="0" />
+        </label>
+        <label>
+          Start offset
+          <input id="clStartOffset" type="number" step="0.01" value="0" />
+        </label>
+        <label>
+          dL
+          <input id="clDL" type="number" step="0.01" value="1.0" />
+        </label>
+      </div>
 
-                <label>
-                  Line object
-                  <select id="clLineRefType">
-                    <option value="null">null</option>
-                    <option value="gp">GamePrimitive</option>
-                    <option value="grp">Group</option>
-                  </select>
-                  <select id="clLineRefName">
-                    <option value="null">null</option>
-                  </select>
-                </label>
+      <!-- CP / Line objects with lists -->
+      <label>
+        CP objects
+        <div class="inline-row">
+          <select id="clCPRefType">
+            <option value="null">null</option>
+            <option value="gp">GamePrimitive</option>
+            <option value="grp">Group</option>
+          </select>
+          <select id="clCPRefName">
+            <option value="null">null</option>
+          </select>
+          <button class="btn" id="clCPRefAdd">+ Add</button>
+        </div>
+        <ul id="clCPRefList" class="list"></ul>
+      </label>
 
-                <!-- Supports -->
-                <fieldset>
-                  <legend>Supports</legend>
+      <label>
+        Line objects
+        <div class="inline-row">
+          <select id="clLineRefType">
+            <option value="null">null</option>
+            <option value="gp">GamePrimitive</option>
+            <option value="grp">Group</option>
+          </select>
+          <select id="clLineRefName">
+            <option value="null">null</option>
+          </select>
+          <button class="btn" id="clLineRefAdd">+ Add</button>
+        </div>
+        <ul id="clLineRefList" class="list"></ul>
+      </label>
 
-                  <label>
-                    Major object
-                    <select id="clSupportMajorRefType">
-                      <option value="null">null</option>
-                      <option value="gp">GamePrimitive</option>
-                      <option value="grp">Group</option>
-                    </select>
-                    <select id="clSupportMajorRefName">
-                      <option value="null">null</option>
-                    </select>
-                  </label>
+      <!-- Supports -->
+      <fieldset>
+        <legend>Supports</legend>
 
-                  <label>
-                    Minor object
-                    <select id="clSupportMinorRefType">
-                      <option value="null">null</option>
-                      <option value="gp">GamePrimitive</option>
-                      <option value="grp">Group</option>
-                    </select>
-                    <select id="clSupportMinorRefName">
-                      <option value="null">null</option>
-                    </select>
-                  </label>
+        <label>
+          Major objects
+          <div class="inline-row">
+            <select id="clSupportMajorRefType">
+              <option value="null">null</option>
+              <option value="gp">GamePrimitive</option>
+              <option value="grp">Group</option>
+            </select>
+            <select id="clSupportMajorRefName">
+              <option value="null">null</option>
+            </select>
+            <button class="btn" id="clSupportMajorRefAdd">+ Add</button>
+          </div>
+          <ul id="clSupportMajorRefList" class="list"></ul>
+        </label>
 
-                  <div class="grid2">
-                    <label>
-                      Major height (m)
-                      <input id="clSupportMajorH" type="number" step="0.01" min="0" value="3.0" />
-                    </label>
-                    <label>
-                      Minor height (m)
-                      <input id="clSupportMinorH" type="number" step="0.01" min="0" value="1.0" />
-                    </label>
-                    <label title="Thinning: 1 = every AUX; 2 = every 2nd; etc.">
-                      Decimate (N)
-                      <input id="clSupportDecimate" type="number" step="1" min="1" value="1" />
-                    </label>
-                    <label title="Decimate phase offset (can be negative)">
-                      Decimate offset
-                      <input id="clSupportDecimateOffset" type="number" step="1" value="0" />
-                    </label>
-                    <label title="Top offset (m) – can be negative">
-                      Top offset (m)
-                      <input id="clSupportTopOffset" type="number" step="0.01" value="0" />
-                    </label>
-                    <label title="Bottom offset (m) – can be negative">
-                      Bottom offset (m)
-                      <input id="clSupportBottomOffset" type="number" step="0.01" value="0" />
-                    </label>
-                  </div>
+        <label>
+          Minor objects
+          <div class="inline-row">
+            <select id="clSupportMinorRefType">
+              <option value="null">null</option>
+              <option value="gp">GamePrimitive</option>
+              <option value="grp">Group</option>
+            </select>
+            <select id="clSupportMinorRefName">
+              <option value="null">null</option>
+            </select>
+            <button class="btn" id="clSupportMinorRefAdd">+ Add</button>
+          </div>
+          <ul id="clSupportMinorRefList" class="list"></ul>
+        </label>
 
-                  <div class="checkrow">
-                    <label><input id="clSupportRotate" type="checkbox" /> Rot(Y)</label>
-                  </div>
-                </fieldset>
+        <div class="grid2">
+          <label>
+            Major height (m)
+            <input id="clSupportMajorH" type="number" step="0.01" min="0" value="3.0" />
+          </label>
+          <label>
+            Minor height (m)
+            <input id="clSupportMinorH" type="number" step="0.01" min="0" value="1.0" />
+          </label>
+          <label title="Thinning: 1 = every AUX; 2 = every 2nd; etc.">
+            Decimate (N)
+            <input id="clSupportDecimate" type="number" step="1" min="1" value="1" />
+          </label>
+          <label title="Decimate phase offset (can be negative)">
+            Decimate offset
+            <input id="clSupportDecimateOffset" type="number" step="1" value="0" />
+          </label>
+          <label title="Top offset (m) – can be negative">
+            Top offset (m)
+            <input id="clSupportTopOffset" type="number" step="0.01" value="0" />
+          </label>
+          <label title="Bottom offset (m) – can be negative">
+            Bottom offset (m)
+            <input id="clSupportBottomOffset" type="number" step="0.01" value="0" />
+          </label>
+        </div>
 
-                <div class="checkrow">
-                  <label><input id="clShowAux" type="checkbox" checked /> AuxPoints</label>
-                  <label><input id="clShowRadius" type="checkbox" checked /> ShowRad</label>
-                </div>
+        <div class="checkrow">
+          <label><input id="clSupportRotate" type="checkbox" /> Rot(Y)</label>
+        </div>
+      </fieldset>
 
-                <button id="clGenerate" class="btn primary">Generate</button>
-              </fieldset>
+      <div class="checkrow">
+        <label><input id="clShowAux" type="checkbox" checked /> AuxPoints</label>
+        <label><input id="clShowRadius" type="checkbox" checked /> ShowRad</label>
+      </div>
 
-              <!-- Right: ControlPoint list and editing -->
-              <fieldset class="column">
-                <legend>Control Points</legend>
+      <button id="clGenerate" class="btn primary">Generate</button>
+    </fieldset>
 
-                <ul id="cpList" class="list"></ul>
-                <div class="btnrow">
-                  <button id="cpAdd">+ Point</button>
-                  <button id="cpRemove">– Point</button>
-                </div>
+    <!-- Right: ControlPoint list and editing -->
+    <fieldset class="column">
+      <legend>Control Points</legend>
 
-                <div class="grid3">
-                  <label title="0: no gate · 1: has gate">
-                    Style
-                    <input id="cpStyle" type="number" step="1" min="0" max="1" value="1" />
-                  </label>
-                  <label title="0: none · 1: path · 2: path+Major · 3: path+Major+Minor (for the next segment)">
-                    LineStyle
-                    <input id="cpLineStyle" type="number" step="1" min="0" max="3" value="1" />
-                  </label>
-                  <span></span>
+      <ul id="cpList" class="list"></ul>
+      <div class="btnrow">
+        <button id="cpAdd">+ Point</button>
+        <button id="cpRemove">– Point</button>
+      </div>
 
-                  <label>in-weight (iw)
-                    <input id="cpIW" type="number" step="0.01" min="0" value="0.5" />
-                  </label>
-                  <label>out-weight (ow)
-                    <input id="cpOW" type="number" step="0.01" min="0" value="0.5" />
-                  </label>
-                  <span></span>
-                </div>
+      <div class="grid3">
+        <label title="0: no gate · 1: has gate">
+          Style
+          <input id="cpStyle" type="number" step="1" min="0" max="1" value="1" />
+        </label>
+        <label title="0: none · 1: path · 2: path+Major · 3: path+Major+Minor (for the next segment)">
+          LineStyle
+          <input id="cpLineStyle" type="number" step="1" min="0" max="3" value="1" />
+        </label>
+        <span></span>
 
-                <div class="note">
-                  Position and rotation: Scene panel (sPosX/Y/Z, sRoll/Yaw/Pitch), when a CP is selected.
-                </div>
+        <label>
+          in-weight (iw)
+          <input id="cpIW" type="number" step="0.01" min="0" value="0.5" />
+        </label>
+        <label>
+          out-weight (ow)
+          <input id="cpOW" type="number" step="0.01" min="0" value="0.5" />
+        </label>
+        <span></span>
+      </div>
 
-                <div class="btnrow">
-                  <button id="cpApply">Apply</button>
-                </div>
-              </fieldset>
-            </div>
-          </section>
+      <div class="note">
+        Position and rotation: Scene panel (sPosX/Y/Z, sRoll/Yaw/Pitch), when a CP is selected.
+      </div>
+
+      <div class="btnrow">
+        <button id="cpApply">Apply</button>
+      </div>
+    </fieldset>
+  </div>
+</section>
+
 
 
           

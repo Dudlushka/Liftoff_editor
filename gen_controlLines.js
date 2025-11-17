@@ -166,7 +166,7 @@ function refreshCLSourceOptions()
   fillNameSelect(ui.clLineRefName, ui.clLineRefType?.value || 'null');
 
 
-  console.log("aaa");
+
   if (ui.clSupportMajorRefType) {
     console.log("bbb");
     fillNameSelect(ui.clSupportMajorRefName, ui.clSupportMajorRefType.value || 'null');
@@ -219,27 +219,38 @@ function loadCL(index)
   ui.clShowAux.checked   = !!currentCL.showAux;
   ui.clShowRadius.checked= !!currentCL.showRadius;
 
-  // Típus selectek: "null" ha nincs ref
-  ui.clCPRefType.value   = currentCL?.cpRef?.refType   || "null";
-  ui.clLineRefType.value = currentCL?.lineRef?.refType || "null";
+  // Listák biztosítása
+  currentCL.lineRefs         = Array.isArray(currentCL.lineRefs)         ? currentCL.lineRefs         : [];
+  currentCL.cpRefs           = Array.isArray(currentCL.cpRefs)           ? currentCL.cpRefs           : [];
+  currentCL.supportMajorRefs = Array.isArray(currentCL.supportMajorRefs) ? currentCL.supportMajorRefs : [];
+  currentCL.supportMinorRefs = Array.isArray(currentCL.supportMinorRefs) ? currentCL.supportMinorRefs : [];
 
-  // supports (ha UI van)
-  if (ui.clSupportMajorRefType) {
-    ui.clSupportMajorRefType.value = currentCL?.supportMajorRef?.refType || "null";
-    ui.clSupportMinorRefType.value = currentCL?.supportMinorRef?.refType || "null";
-  }
+  // "első" elem kiválasztása a listából, vagy ha nincs, akkor a legacy single ref
+  const firstLine =  currentCL.lineRefs[0]         || currentCL.lineRef         || null;
+  const firstCP   =  currentCL.cpRefs[0]           || currentCL.cpRef           || null;
+  const firstMaj  =  currentCL.supportMajorRefs[0] || currentCL.supportMajorRef || null;
+  const firstMin  =  currentCL.supportMinorRefs[0] || currentCL.supportMinorRef || null;
 
-  // töltsük újra a name-listákat a kiválasztott type szerint
+  // Type selectek
+  if (ui.clCPRefType)          ui.clCPRefType.value          = firstCP?.refType  || "null";
+  if (ui.clLineRefType)        ui.clLineRefType.value        = firstLine?.refType|| "null";
+  if (ui.clSupportMajorRefType)ui.clSupportMajorRefType.value= firstMaj?.refType || "null";
+  if (ui.clSupportMinorRefType)ui.clSupportMinorRefType.value= firstMin?.refType || "null";
+
+  // Name selectek újratöltése a type alapján
   refreshCLSourceOptions();
 
-  // name értékek beállítása (ha van refName, különben "null")
-  if (currentCL?.cpRef?.refName)   ui.clCPRefName.value   = currentCL.cpRef.refName;   else ui.clCPRefName.value   = "null";
-  if (currentCL?.lineRef?.refName) ui.clLineRefName.value = currentCL.lineRef.refName; else ui.clLineRefName.value = "null";
+  // Name selectek értéke
+  console.log("hakkuh");
 
-  if (ui.clSupportMajorRefName) {
-    if (currentCL?.supportMajorRef?.refName) ui.clSupportMajorRefName.value = currentCL.supportMajorRef.refName; else ui.clSupportMajorRefName.value = "null";
-    if (currentCL?.supportMinorRef?.refName) ui.clSupportMinorRefName.value = currentCL.supportMinorRef.refName; else ui.clSupportMinorRefName.value = "null";
+ // if (ui.clCPRefName)          ui.clCPRefName.value          = firstCP?.refName  || "null";
+ // if (ui.clLineRefName)        ui.clLineRefName.value        = firstLine?.refName|| "null";
+ ///if (ui.clSupportMajorRefName)ui.clSupportMajorRefName.value= firstMaj?.refName || "null";
+ // if (ui.clSupportMinorRefName)ui.clSupportMinorRefName.value= firstMin?.refName || "null";
 
+  // Support numerikus mezők
+  if (ui.clSupportMajorH)
+  {
     ui.clSupportMajorH.value         = currentCL.supportMajorH ?? 3.0;
     ui.clSupportMinorH.value         = currentCL.supportMinorH ?? 1.0;
     ui.clSupportDecimate.value       = currentCL.supportDecimate ?? 1;
@@ -249,31 +260,62 @@ function loadCL(index)
     ui.clSupportRotate.checked       = !!currentCL.supportRotate;
   }
 
+  // Listák kirajzolása
+  renderCurrentCLRefLists();
+
   refreshCPList?.();
   refreshCLList?.();
   drawControlLines?.();
 }
 
+
+//----------------------------------------------------------------------------------------------------
+
 ui.clNew?.addEventListener("click", () =>
 {
   const name =
     ui.clName?.value?.trim() || `CL_${store.controlLines.length + 1}`;
+
   const fresh = {
     name,
     radius: Number(ui.clRadius?.value) || 0.8,
     style: Number(ui.clStyle?.value) || 0,
+
+    // legacy single ref-ek (visszafelé kompatibilitás miatt maradhatnak)
     cpRef: null,
     lineRef: null,
+    supportMajorRef: null,
+    supportMinorRef: null,
+
+    // ÚJ: listás referenciák (4 típus)
+    lineRefs: [],
+    cpRefs: [],
+    supportMajorRefs: [],
+    supportMinorRefs: [],
+
     startOffset: Number(ui.clStartOffset?.value) || 0,
     dL: Number(ui.clDL?.value) || 1.0,
     showAux: !!ui.clShowAux?.checked,
     showRadius: !!ui.clShowRadius?.checked,
+
+    // Support numerikus mezők alapértékei (opcionális, de praktikus)
+    supportMajorH: 3.0,
+    supportMinorH: 1.0,
+    supportDecimate: 1,
+    supportDecimateOffset: 0,
+    supportTopOffset: 0,
+    supportBottomOffset: 0,
+    supportRotate: false,
+
     points: [],
   };
+
+  if (!Array.isArray(store.controlLines)) store.controlLines = [];
   store.controlLines.push(fresh);
   loadCL(store.controlLines.length - 1); // kijelöljük és UI-t feltöltjük
   snapshot?.();
 });
+
 
 
 
@@ -1350,53 +1392,65 @@ function computeGeneratedPoints(cl)
 function generateCurrentControlLine()
 {
   // --- lokális segédek ---
-  const num = (v, def = 0) => {
+  const num = (v, def = 0) =>
+  {
     const n = Number(v);
     return Number.isFinite(n) ? n : def;
   };
+
   const modSafe = (a, n) => ((a % n) + n) % n;
 
-  function makeRefFromUI(typeSel, nameSel) {
-    const t = typeSel?.value ?? 'null';
-    const n = nameSel?.value ?? 'null';
-    if (t === 'null' || n === 'null') return null;
+  function makeRefFromUI(typeSel, nameSel)
+  {
+    const t = typeSel?.value ?? "null";
+    const n = nameSel?.value ?? "null";
+    if (t === "null" || n === "null") return null;
     return { refType: t, refName: n };
   }
-  function resolveLegacyRef(type, name) {
+
+  function resolveLegacyRef(type, name)
+  {
     if (!name) return null;
-    if (type === 'gp')  return { refType:'gp',  refName:name };
-    if (type === 'grp') return { refType:'grp', refName:name };
+    if (type === "gp")  return { refType: "gp",  refName: name };
+    if (type === "grp") return { refType: "grp", refName: name };
     return null;
   }
+
   function quatYawFromAuxQuatXYZ(qAux /* THREE.Quaternion */)
   {
-    const Zloc = new THREE.Vector3(0,0,1).applyQuaternion(qAux);
+    const Zloc = new THREE.Vector3(0, 0, 1).applyQuaternion(qAux);
     const Zp   = new THREE.Vector3(Zloc.x, 0, Zloc.z);
     if (Zp.lengthSq() <= 1e-8) return new THREE.Quaternion(); // identity
     Zp.normalize();
-    const Y = new THREE.Vector3(0,1,0);
+    const Y = new THREE.Vector3(0, 1, 0);
     const X = new THREE.Vector3().crossVectors(Y, Zp).normalize();
     const M = new THREE.Matrix4().makeBasis(X, Y, Zp);
     return new THREE.Quaternion().setFromRotationMatrix(M);
   }
+
   function quatToEulerRYPDeg(q /* THREE.Quaternion */)
   {
-    const e = new THREE.Euler().setFromQuaternion(q, 'XYZ');
-    return [ e.x*180/Math.PI, e.y*180/Math.PI, e.z*180/Math.PI ];
+    const e = new THREE.Euler().setFromQuaternion(q, "XYZ");
+    return [ e.x * 180 / Math.PI, e.y * 180 / Math.PI, e.z * 180 / Math.PI ];
   }
 
   // --- guardok ---
-  if (ui.mode.value !== "scn") {
+  if (ui.mode.value !== "scn")
+  {
     console.warn("[Generate] Scene módban használd.");
     return;
   }
-  if (!Array.isArray(store.controlLines) || store.controlLines.length === 0) {
+
+  if (!Array.isArray(store.controlLines) || store.controlLines.length === 0)
+  {
     console.warn("[Generate] Nincs ControlLine.");
     return;
   }
+
   if (typeof currentCLIndex !== "number" ||
       currentCLIndex < 0 ||
-      currentCLIndex >= store.controlLines.length) {
+      currentCLIndex >= store.controlLines.length)
+  {
     console.warn("[Generate] Nincs kijelölt ControlLine.");
     return;
   }
@@ -1405,11 +1459,26 @@ function generateCurrentControlLine()
   const pts = Array.isArray(cl.points) ? cl.points : [];
 
   //------------------------------------------------------------------------------
-  // --- aktuális Line/CP referencia UI-ból vagy CL-ből (null támogatás) ---
-  const uiLineRef = (ui.clLineRefType && ui.clLineRefName) ? makeRefFromUI(ui.clLineRefType, ui.clLineRefName) : null;
-  const uiCPRef = (ui.clCPRefType && ui.clCPRefName) ? makeRefFromUI(ui.clCPRefType, ui.clCPRefName) : null;
-  const uiSupportMajorRef = (ui.clSupportMajorRefType && ui.clSupportMajorRefName) ? makeRefFromUI(ui.clSupportMajorRefType, ui.clSupportMajorRefName) : null;
-  const uiSupportMinorRef = (ui.clSupportMinorRefType && ui.clSupportMinorRefName) ? makeRefFromUI(ui.clSupportMinorRefType, ui.clSupportMinorRefName) : null;
+  // --- aktuális Line/CP/Support referencia UI-ból vagy CL-ből (null támogatás) ---
+  const uiLineRef =
+    (ui.clLineRefType && ui.clLineRefName)
+      ? makeRefFromUI(ui.clLineRefType, ui.clLineRefName)
+      : null;
+
+  const uiCPRef =
+    (ui.clCPRefType && ui.clCPRefName)
+      ? makeRefFromUI(ui.clCPRefType, ui.clCPRefName)
+      : null;
+
+  const uiSupportMajorRef =
+    (ui.clSupportMajorRefType && ui.clSupportMajorRefName)
+      ? makeRefFromUI(ui.clSupportMajorRefType, ui.clSupportMajorRefName)
+      : null;
+
+  const uiSupportMinorRef =
+    (ui.clSupportMinorRefType && ui.clSupportMinorRefName)
+      ? makeRefFromUI(ui.clSupportMinorRefType, ui.clSupportMinorRefName)
+      : null;
 
   // Legacy -> objektumos konverzió (ha régi mezők vannak eltárolva)
   const legacyLineRef  = resolveLegacyRef(cl.lineRefType,  cl.lineRefName);
@@ -1417,31 +1486,52 @@ function generateCurrentControlLine()
   const legacyMajRef   = resolveLegacyRef(cl.supportMajorRefType, cl.supportMajorRefName);
   const legacyMinRef   = resolveLegacyRef(cl.supportMinorRefType, cl.supportMinorRefName);
 
-  // Végső referenciák prioritással: UI → új objektumos → legacy → null
-  let lineRef  = uiLineRef           ?? cl.lineRef           ?? legacyLineRef ?? null;
-  let cpRef    = uiCPRef             ?? cl.cpRef             ?? legacyCPRef   ?? null;
-  let majRef   = uiSupportMajorRef   ?? cl.supportMajorRef   ?? legacyMajRef  ?? null;
-  let minRef   = uiSupportMinorRef   ?? cl.supportMinorRef   ?? legacyMinRef  ?? null;
-
-
-  console.log("CL line ref: ",lineRef);
-  console.log("CP ref: ",cpRef);
-  console.log("major ref: ",majRef);
-  console.log("minor ref: ",minRef);
-
+  // Végső single-referenciák prioritással: UI → új objektumos → legacy → null
+  let lineRef  = uiLineRef         ?? cl.lineRef         ?? legacyLineRef ?? null;
+  let cpRef    = uiCPRef           ?? cl.cpRef           ?? legacyCPRef   ?? null;
+  let majRef   = uiSupportMajorRef ?? cl.supportMajorRef ?? legacyMajRef  ?? null;
+  let minRef   = uiSupportMinorRef ?? cl.supportMinorRef ?? legacyMinRef  ?? null;
 
   // Visszaírjuk az új (objektumos) formát, hogy mentődjön
-  cl.lineRef           = lineRef;
-  cl.cpRef             = cpRef;
-  cl.supportMajorRef   = majRef;
-  cl.supportMinorRef   = minRef;
-//------------------------------------------------------------------------------
+  cl.lineRef         = lineRef;
+  cl.cpRef           = cpRef;
+  cl.supportMajorRef = majRef;
+  cl.supportMinorRef = minRef;
 
+  // --- ÚJ: több elemű referencia-listák támogatása ---
+  const isValidRef = (r) =>
+    r &&
+    typeof r === "object" &&
+    r.refType &&
+    r.refName &&
+    r.refType !== "null" &&
+    r.refName !== "null";
 
-  // --- Útvonal-elemek lerakása a közös kimenet alapján ---
-  if (lineRef && lineRef.refType && lineRef.refName)
+  function resolveRefList(arrayField, single)
+  {
+    if (Array.isArray(arrayField))
+    {
+      return arrayField.filter(isValidRef);
+    }
+    if (isValidRef(single))
+    {
+      return [single];
+    }
+    return [];
+  }
+
+  const lineRefs = resolveRefList(cl.lineRefs,         lineRef); // pályaelemek
+  const cpRefs   = resolveRefList(cl.cpRefs,           cpRef);   // kapuk
+  const majRefs  = resolveRefList(cl.supportMajorRefs, majRef);  // Major
+  const minRefs  = resolveRefList(cl.supportMinorRefs, minRef);  // Minor
+  //------------------------------------------------------------------------------
+
+  // --- Útvonal-elemek lerakása a közös kimenet alapján (lista támogatással) ---
+  if (lineRefs.length > 0)
   {
     const gen = computeGeneratedPoints(cl);
+    let lineIndex = 0; // hányadik pályaelemet rakjuk le összesen
+
     for (const g of gen)
     {
       if (!g.active) continue; // lineStyle==0 → kihagyjuk ezt a szakaszt
@@ -1452,24 +1542,27 @@ function generateCurrentControlLine()
       // kvaternion → XYZ euler (RYP fokok a te rendszeredhez)
       const rotRYP = quatToEulerRYPDeg(q);
 
+      // körkörös választás a lineRefs listából: 0,1,2,0,1,2, ...
+      const ref = lineRefs[lineIndex % lineRefs.length];
+
       addSceneItem(
-        lineRef.refType,
-        lineRef.refName,
+        ref.refType,
+        ref.refName,
         [pos[0], pos[1], pos[2]],
         rotRYP,
         [1, 1, 1]
       );
+
+      lineIndex++;
     }
-  } else {
-    console.warn("[Generate] hiányzik a Line object (lineRef).");
   }
 
-  // --- SUPPORT generálás (Major/Minor) – a rajzolóval azonos logika ---
+  // --- SUPPORT generálás (Major/Minor) – lista támogatással ---
   {
     const gen = computeGeneratedPoints(cl); // pos/tan/quat/segIndex/active
 
-    const hasMajor = !!cl.supportMajorRef;
-    const hasMinor = !!cl.supportMinorRef;
+    const hasMajor = majRefs.length > 0;
+    const hasMinor = minRefs.length > 0;
     const Hmaj     = Math.max(0, num(cl.supportMajorH, 0));
     const Hmin     = Math.max(0, num(cl.supportMinorH, 0));
     const topOff   = num(cl.supportTopOffset, 0);
@@ -1478,17 +1571,14 @@ function generateCurrentControlLine()
     const off      = num(cl.supportDecimateOffset, 0);
     const doYaw    = !!cl.supportRotate;
 
-    const majorRef = cl.supportMajorRef || null; // {refType,refName} | null
-    const minorRef = cl.supportMinorRef || null;
-
-    const canPlace = (ref) => (ref && ref.refType && ref.refName);
-
-    let globalAuxIndex = 0; // TELJES vonal mentén (szakasz-stílustól függetlenül léptetjük)
+    let globalAuxIndex  = 0; // TELJES vonal mentén (szakasz-stílustól függetlenül léptetjük)
+    let majorPlaceIndex = 0; // hányadik Major darabot rakjuk le összesen
+    let minorPlaceIndex = 0; // hányadik Minor darabot rakjuk le összesen
 
     for (const g of gen)
     {
       const isActive = g.active === true;
-      const segStyle = ((pts[g.segIndex]?.lineStyle)|0) || 0;
+      const segStyle = ((pts[g.segIndex]?.lineStyle) | 0) || 0;
 
       // decimálás globális index alapján
       const take = (modSafe(globalAuxIndex - off, N) === 0);
@@ -1518,37 +1608,46 @@ function generateCurrentControlLine()
           if (segStyle >= 2 && hasMajor && Hmaj > 0)
           {
             nMaj = Math.floor(Le / Hmaj);
-            if (canPlace(majorRef))
+
+            for (let k = 0; k < nMaj; k++)
             {
-              for (let k=0; k<nMaj; k++)
-              {
-                const yBase = yBottom + k*Hmaj;
-                addSceneItem(
-                  majorRef.refType, majorRef.refName,
-                  [x, yBase, z],
-                  rotRYP,
-                  [1,1,1]
-                );
-              }
+              const yBase = yBottom + k * Hmaj;
+
+              const ref = majRefs[majorPlaceIndex % majRefs.length];
+              majorPlaceIndex++;
+
+              addSceneItem(
+                ref.refType,
+                ref.refName,
+                [x, yBase, z],
+                rotRYP,
+                [1, 1, 1]
+              );
             }
           }
 
           // Minorok a majorok tetejétől felfelé
           if (segStyle >= 3 && hasMinor && Hmin > 0)
           {
-            const yMajorTop = yBottom + nMaj*Hmaj;
-            const R = yTop - yMajorTop;
-            if (R > 0 && canPlace(minorRef))
+            const yMajorTop = yBottom + nMaj * Hmaj;
+            const R         = yTop - yMajorTop;
+
+            if (R > 0)
             {
               const nMin = Math.floor(R / Hmin);
-              for (let j=0; j<nMin; j++)
+              for (let j = 0; j < nMin; j++)
               {
-                const yBase = yMajorTop + j*Hmin;
+                const yBase = yMajorTop + j * Hmin;
+
+                const ref = minRefs[minorPlaceIndex % minRefs.length];
+                minorPlaceIndex++;
+
                 addSceneItem(
-                  minorRef.refType, minorRef.refName,
+                  ref.refType,
+                  ref.refName,
                   [x, yBase, z],
                   rotRYP,
-                  [1,1,1]
+                  [1, 1, 1]
                 );
               }
             }
@@ -1560,21 +1659,24 @@ function generateCurrentControlLine()
     }
   }
 
-  // --- Kapuk a CP-kre (csak ahol cp.style != 0) ---
-  if (cpRef && cpRef.refType && cpRef.refName)
+  // --- Kapuk a CP-kre (csak ahol cp.style != 0) – lista támogatással ---
+  if (cpRefs.length > 0)
   {
+    let gateIndex = 0; // hányadik kaput rakjuk le összesen
+
     for (let i = 0; i < pts.length; i++)
     {
       const cp = pts[i] || { pos: [0, 0, 0], rotRYP: [0, 0, 0], style: 1 };
       if ((cp.style | 0) === 0) continue;
-      const p = cp.pos || [0, 0, 0];
+
+      const p = cp.pos    || [0, 0, 0];
       const r = cp.rotRYP || [0, 0, 0];
-      addSceneItem(cpRef.refType, cpRef.refName, p, r, [1, 1, 1]);
+
+      const ref = cpRefs[gateIndex % cpRefs.length];
+      gateIndex++;
+
+      addSceneItem(ref.refType, ref.refName, p, r, [1, 1, 1]);
     }
-  }
-  else
-  {
-    // csendben továbblépünk – a kapu opcionális
   }
 
   refreshScnList?.();
@@ -1582,6 +1684,7 @@ function generateCurrentControlLine()
   snapshot?.();
   console.info("[Generate] kész.");
 }
+
 
 
 //----------------------------------
@@ -1971,6 +2074,201 @@ export function RefreshCL_AAA()
     refreshCLList?.();
     //fillCLEditors?.(false);
 }
+
+
+
+
+
+
+
+//---------------------------------------------------------------------
+// list shitting
+//---------------------------------------------------------------------
+
+function getCurrentCL()
+{
+  if (!Array.isArray(store.controlLines)) return null;
+  if (typeof currentCLIndex !== "number") return null;
+  if (currentCLIndex < 0 || currentCLIndex >= store.controlLines.length) return null;
+  return store.controlLines[currentCLIndex];
+}
+
+function renderRefList(ulElem, refArray, onRemoveIndex)
+{
+  if (!ulElem) return;
+
+  // ürítés
+  while (ulElem.firstChild)
+  {
+    ulElem.removeChild(ulElem.firstChild);
+  }
+
+  if (!Array.isArray(refArray)) return;
+
+  refArray.forEach((ref, idx) =>
+  {
+    const li   = document.createElement("li");
+
+    const btn  = document.createElement("button");
+    btn.textContent = "x";
+    btn.className   = "btn btn-icon"; // vagy simán "btn"
+    btn.type        = "button"; // biztos ami biztos, ne submitolja a formot
+    btn.addEventListener("click", (ev) =>
+    {
+      ev.stopPropagation();
+      onRemoveIndex(idx);
+    });
+
+    const span = document.createElement("span");
+    span.textContent = ` ${ref.refType}:${ref.refName}`;
+
+    // Gomb ELŐL, utána a felirat
+    li.appendChild(btn);
+    li.appendChild(span);
+
+    ulElem.appendChild(li);
+  });
+}
+
+function renderCurrentCLRefLists()
+{
+  const cl = getCurrentCL();
+
+  // ha nincs aktuális CL, ürítsük a listákat
+  if (!cl)
+  {
+    if (ui.clLineRefList)          ui.clLineRefList.innerHTML = "";
+    if (ui.clCPRefList)            ui.clCPRefList.innerHTML = "";
+    if (ui.clSupportMajorRefList)  ui.clSupportMajorRefList.innerHTML = "";
+    if (ui.clSupportMinorRefList)  ui.clSupportMinorRefList.innerHTML = "";
+    return;
+  }
+
+  // biztosítsuk, hogy a listák legalább üres tömbök legyenek
+  cl.lineRefs         = Array.isArray(cl.lineRefs)         ? cl.lineRefs         : [];
+  cl.cpRefs           = Array.isArray(cl.cpRefs)           ? cl.cpRefs           : [];
+  cl.supportMajorRefs = Array.isArray(cl.supportMajorRefs) ? cl.supportMajorRefs : [];
+  cl.supportMinorRefs = Array.isArray(cl.supportMinorRefs) ? cl.supportMinorRefs : [];
+
+  renderRefList(ui.clLineRefList, cl.lineRefs, (idx) =>
+  {
+    cl.lineRefs.splice(idx, 1);
+    renderCurrentCLRefLists();
+    snapshot?.();
+  });
+
+  renderRefList(ui.clCPRefList, cl.cpRefs, (idx) =>
+  {
+    cl.cpRefs.splice(idx, 1);
+    renderCurrentCLRefLists();
+    snapshot?.();
+  });
+
+  renderRefList(ui.clSupportMajorRefList, cl.supportMajorRefs, (idx) =>
+  {
+    cl.supportMajorRefs.splice(idx, 1);
+    renderCurrentCLRefLists();
+    snapshot?.();
+  });
+
+  renderRefList(ui.clSupportMinorRefList, cl.supportMinorRefs, (idx) =>
+  {
+    cl.supportMinorRefs.splice(idx, 1);
+    renderCurrentCLRefLists();
+    snapshot?.();
+  });
+}
+
+//===========================================================
+//Add buttons
+//==========================================================
+
+
+  function makeRefFromSelects(typeSel, nameSel)
+  {
+    const t = typeSel?.value ?? "null";
+    const n = nameSel?.value ?? "null";
+    if (t === "null" || n === "null") return null;
+    return { refType: t, refName: n };
+  }
+
+  // Line refs
+  ui.clLineRefAdd?.addEventListener("click", () =>
+  {
+    const cl = getCurrentCL();
+    if (!cl) return;
+
+    const ref = makeRefFromSelects(ui.clLineRefType, ui.clLineRefName);
+    if (!ref) return;
+
+    cl.lineRefs = Array.isArray(cl.lineRefs) ? cl.lineRefs : [];
+    cl.lineRefs.push(ref);
+
+    renderCurrentCLRefLists();
+    snapshot?.();
+  });
+
+  // CP refs (kapuk)
+  ui.clCPRefAdd?.addEventListener("click", () =>
+  {
+    const cl = getCurrentCL();
+    if (!cl) return;
+
+    const ref = makeRefFromSelects(ui.clCPRefType, ui.clCPRefName);
+    if (!ref) return;
+
+    cl.cpRefs = Array.isArray(cl.cpRefs) ? cl.cpRefs : [];
+    cl.cpRefs.push(ref);
+
+    renderCurrentCLRefLists();
+    snapshot?.();
+  });
+
+  // Major supports
+  ui.clSupportMajorRefAdd?.addEventListener("click", () =>
+  {
+    const cl = getCurrentCL();
+    if (!cl) return;
+
+    const ref = makeRefFromSelects(ui.clSupportMajorRefType, ui.clSupportMajorRefName);
+    if (!ref) return;
+
+    cl.supportMajorRefs = Array.isArray(cl.supportMajorRefs) ? cl.supportMajorRefs : [];
+    cl.supportMajorRefs.push(ref);
+
+    renderCurrentCLRefLists();
+    snapshot?.();
+  });
+
+  // Minor supports
+  ui.clSupportMinorRefAdd?.addEventListener("click", () =>
+  {
+    const cl = getCurrentCL();
+    if (!cl) return;
+
+    const ref = makeRefFromSelects(ui.clSupportMinorRefType, ui.clSupportMinorRefName);
+    if (!ref) return;
+
+    cl.supportMinorRefs = Array.isArray(cl.supportMinorRefs) ? cl.supportMinorRefs : [];
+    cl.supportMinorRefs.push(ref);
+
+    renderCurrentCLRefLists();
+    snapshot?.();
+  });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

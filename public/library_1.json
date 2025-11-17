@@ -766,17 +766,17 @@
       "name": "RaceTrackTireBlank01",
       "parts": [
         {
-          "id": "9f13e3f4-0a7f-487d-8c39-1e6f98103df9",
-          "type": "box",
-          "color": "#9aa7b1",
+          "id": "8e769636-a553-40d5-ad1f-cc58ccc15b0d",
+          "type": "cylinder",
+          "color": "#5f5f5f",
           "scale": [
-            1,
-            1,
-            1
+            0.65,
+            0.215,
+            0.65
           ],
           "pos": [
             0,
-            0,
+            0.1075,
             0
           ],
           "rotRYP": [
@@ -791,17 +791,17 @@
       "name": "RaceTrackTireBlue01",
       "parts": [
         {
-          "id": "6917c5b6-d7c6-4e56-a79d-54d6541d5ff7",
-          "type": "box",
-          "color": "#9aa7b1",
+          "id": "8e769636-a553-40d5-ad1f-cc58ccc15b0d",
+          "type": "cylinder",
+          "color": "#1bc0de",
           "scale": [
-            1,
-            1,
-            1
+            0.65,
+            0.215,
+            0.65
           ],
           "pos": [
             0,
-            0,
+            0.1075,
             0
           ],
           "rotRYP": [
@@ -816,17 +816,17 @@
       "name": "RaceTrackTireRed01",
       "parts": [
         {
-          "id": "94ca0a43-8978-402e-ab7d-ec0050f28ca6",
-          "type": "box",
-          "color": "#9aa7b1",
+          "id": "8e769636-a553-40d5-ad1f-cc58ccc15b0d",
+          "type": "cylinder",
+          "color": "#fe7a7a",
           "scale": [
-            1,
-            1,
-            1
+            0.65,
+            0.215,
+            0.65
           ],
           "pos": [
             0,
-            0,
+            0.1075,
             0
           ],
           "rotRYP": [
@@ -841,42 +841,17 @@
       "name": "RaceTrackTireYellow01",
       "parts": [
         {
-          "id": "80cf2459-e105-4131-b738-b91012c1de5b",
-          "type": "box",
-          "color": "#9aa7b1",
+          "id": "8e769636-a553-40d5-ad1f-cc58ccc15b0d",
+          "type": "cylinder",
+          "color": "#d5cf68",
           "scale": [
-            1,
-            1,
-            1
+            0.65,
+            0.215,
+            0.65
           ],
           "pos": [
             0,
-            0,
-            0
-          ],
-          "rotRYP": [
-            0,
-            0,
-            0
-          ]
-        }
-      ]
-    },
-    "RaceTrackTireWhite01": {
-      "name": "RaceTrackTireWhite01",
-      "parts": [
-        {
-          "id": "c0f55919-2338-48e2-9861-e01a299e9932",
-          "type": "box",
-          "color": "#9aa7b1",
-          "scale": [
-            1,
-            1,
-            1
-          ],
-          "pos": [
-            0,
-            0,
+            0.1075,
             0
           ],
           "rotRYP": [
@@ -3691,6 +3666,182 @@
           ]
         }
       ]
+    },
+    "DangerPyramid01": {
+      "name": "DangerPyramid01",
+      "parts": [
+        {
+          "id": "76433d60-c042-43d2-8d89-9dec25c4ebf8",
+          "type": "box",
+          "color": "#9aa7b1",
+          "scale": [
+            1,
+            1,
+            1
+          ],
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "scalable": false
+    },
+    "SpawnPointSingle02": {
+      "name": "SpawnPointSingle02",
+      "parts": [
+        {
+          "id": "a66d35d8-9607-4bd8-ac2a-357055d822b6",
+          "type": "sphere",
+          "color": "#fc7efc",
+          "scale": [
+            0.15,
+            0.15,
+            0.15
+          ],
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "280babcf-c230-4ed7-ac2e-ef1c304eb5f9",
+          "type": "cone",
+          "color": "#f081fa",
+          "scale": [
+            0.07,
+            0.07,
+            0.07
+          ],
+          "pos": [
+            0,
+            0,
+            0.12
+          ],
+          "rotRYP": [
+            90,
+            0,
+            0
+          ]
+        }
+      ],
+      "scalable": false
+    },
+    "Banner5x5mLiftoffCyan01": {
+      "name": "Banner5x5mLiftoffCyan01",
+      "parts": [
+        {
+          "id": "70553d83-7970-4e6a-abca-2456fdb9ef2b",
+          "type": "box",
+          "color": "#9aa7b1",
+          "scale": [
+            1,
+            1,
+            1
+          ],
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "scalable": false
+    },
+    "Banner5x5mLiftoffGreen01": {
+      "name": "Banner5x5mLiftoffGreen01",
+      "parts": [
+        {
+          "id": "6e2fc355-086c-4e78-98a6-ffe87d4df060",
+          "type": "box",
+          "color": "#9aa7b1",
+          "scale": [
+            1,
+            1,
+            1
+          ],
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "scalable": false
+    },
+    "TapeWhiteRed01": {
+      "name": "TapeWhiteRed01",
+      "parts": [
+        {
+          "id": "8069f008-293a-4df5-835c-02b57afab7d2",
+          "type": "box",
+          "color": "#9aa7b1",
+          "scale": [
+            1,
+            1,
+            1
+          ],
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "scalable": false
+    },
+    "RaceTrackTireWhite01": {
+      "name": "RaceTrackTireWhite01",
+      "parts": [
+        {
+          "id": "8e769636-a553-40d5-ad1f-cc58ccc15b0d",
+          "type": "cylinder",
+          "color": "#ffffff",
+          "scale": [
+            0.65,
+            0.215,
+            0.65
+          ],
+          "pos": [
+            0,
+            0.1075,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "scalable": false
     }
   },
   "groups": {
