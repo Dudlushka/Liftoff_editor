@@ -12,7 +12,8 @@ import {
 
 
 import{
-  rebuildAllBounds
+  rebuildAllBounds,
+  fillScnEditors
 } from './gen_3d.js'
 
 
@@ -20,8 +21,6 @@ let currentCL;
 
 import { clRoot } from "./gen_roots.js";
 import {snapshot}from './gen_undo.js';
-
-
 
 
 export function selectCP(pointIdx, additive=false) {
@@ -110,32 +109,22 @@ function dbgLabel(text, color='#333') {
 
 
 
-///--------------------------
+///---------------------------------------
 // Listás mocskok
+//---------------------------------------
 
-
-//--------------------------------------------------------------
-// --- helpers ---
-const num = (v, def = 0) => {
-  const n = Number(v);
-  return Number.isFinite(n) ? n : def;
-};
-
-const modSafe = (a, n) => ((a % n) + n) % n; // ha később kell a decimate offsethez
-
-function makeRef(typeSel, nameSel) {
-  const t = typeSel?.value ?? 'null';
-  const n = nameSel?.value ?? 'null';
-  if (t === 'null' || n === 'null') return null;
-  return { refType: t, refName: n };
-}
-
-
-
+//Refresh options for the 4 innput list:
 function refreshCLSourceOptions() 
 {
-  const gps  = Object.keys(store?.gamePrimitives || {});
-  const grps = Object.keys(store?.groups || {});
+  const gpsAll  = Object.keys(store?.gamePrimitives || {});
+  const grpsAll = Object.keys(store?.groups || {});
+
+  // Szűrő szöveg a Scene-filter mezőből
+  const filter = (ui.scnFilter?.value || '').trim().toLowerCase();
+
+  // Ha van filter, csak azokat a neveket tartjuk meg, amelyek tartalmazzák
+  const gps  = filter ? gpsAll.filter(n  => n.toLowerCase().includes(filter)) : gpsAll;
+  const grps = filter ? grpsAll.filter(n => n.toLowerCase().includes(filter)) : grpsAll;
 
   function fillNameSelect(sel, type) 
   {
@@ -144,7 +133,8 @@ function refreshCLSourceOptions()
     sel.innerHTML = '';
 
     // első opció: null
-    const add = (val, text) => {
+    const add = (val, text) =>
+    {
       const o = document.createElement('option');
       o.value = val;
       o.textContent = text;
@@ -152,29 +142,30 @@ function refreshCLSourceOptions()
     };
     add('null', 'null');
 
-    if (type === 'gp')  gps.forEach(n  => add(n, n));
-    if (type === 'grp') grps.forEach(n => add(n, n));
+    if (type === 'gp')
+    {
+      gps.forEach(n => add(n, n));
+    }
+    if (type === 'grp')
+    {
+      grps.forEach(n => add(n, n));
+    }
 
     // próbáld visszaállítani a korábbi értéket, ha létezik
-    if (prev && Array.from(sel.options).some(o => o.value === prev)) {
+    if (prev && Array.from(sel.options).some(o => o.value === prev)) 
+    {
       sel.value = prev;
-    } else {
+    }
+    else 
+    {
       sel.value = 'null';
     }
   }
 
-  fillNameSelect(ui.clCPRefName,   ui.clCPRefType?.value || 'null');
-  fillNameSelect(ui.clLineRefName, ui.clLineRefType?.value || 'null');
-
-
-
-  if (ui.clSupportMajorRefType) {
-    console.log("bbb");
-    fillNameSelect(ui.clSupportMajorRefName, ui.clSupportMajorRefType.value || 'null');
-    fillNameSelect(ui.clSupportMinorRefName, ui.clSupportMinorRefType.value || 'null');
-  }
-
-  
+  fillNameSelect(ui.clCPRefName,            ui.clCPRefType?.value || 'null');
+  fillNameSelect(ui.clLineRefName,          ui.clLineRefType?.value || 'null');
+  fillNameSelect(ui.clSupportMajorRefName,  ui.clSupportMajorRefType?.value || 'null');
+  fillNameSelect(ui.clSupportMinorRefName,  ui.clSupportMinorRefType?.value || 'null');
 }
 
 // típusváltásra újratöltjük a neveket
@@ -182,6 +173,8 @@ ui.clCPRefType?.addEventListener('change', refreshCLSourceOptions);
 ui.clLineRefType?.addEventListener('change', refreshCLSourceOptions);
 ui.clSupportMajorRefType?.addEventListener('change', refreshCLSourceOptions);
 ui.clSupportMinorRefType?.addEventListener('change', refreshCLSourceOptions);
+
+ui.scnFilter.addEventListener("input", refreshCLSourceOptions); //2nd call after the (gen_3d.js)
 
 //---------------------------------------------------------------
 
@@ -484,34 +477,6 @@ export function refreshCPList()
 
 //-------------------------------------------------------
 
-/*
-ui.cpAdd.addEventListener("click", () =>
-{
-  if (currentCLIndex < 0) return;
-
-  console.debug("hozzaad CP");
-
-  const cl = store.controlLines[currentCLIndex];
-  cl.points = cl.points || [];
-  cl.points.push({
-    pos: [0, 0, 0],
-    rotRYP: [0, 0, 0],
-    style: 1,
-    lineStyle: 1,
-    iw: 0.5,
-    ow: 0.5,
-  });
-  refreshCPList();
-  drawControlLines?.();
-  snapshot?.();
-});
-*/
-
-
-//---------------------------------------------------------------
-// Új CP
-
-//ui.cpAdd.addEventListener("click", () => );
 
 
 function AddNewCP()
@@ -587,19 +552,15 @@ function AddNewCP()
   let ID = cl.points.length-1;
   console.log("addpoint selection",ID)
   cpSelSet.add(ID);
-  refreshCPListHighlight();
-
-
   
+  refreshCPListHighlight();
   drawControlLines?.();
   rebuildAllBounds?.();
+  fillScnEditors?.();
   snapshot?.();
 }
 
 //-------------------------------------------------------------------------
-
-
-//ui.cpAdd.addEventListener("click", () => );
 
 ui.cpAdd.addEventListener("click", AddNewCP);
 
@@ -709,6 +670,7 @@ ui.cpApply.addEventListener("click", applyCPMetaNow);
 export function syncSceneEditorsFromFirstCP()
 {
   if (currentCLIndex < 0 || cpSelSet.size === 0) return;
+  
   const cl = store.controlLines[currentCLIndex];
   if (!cl || !Array.isArray(cl.points)) return;
 
@@ -725,7 +687,6 @@ export function syncSceneEditorsFromFirstCP()
   ui.sSx.value = 1;
   ui.sSy.value = 1;
   ui.sSz.value = 1;
-
 
   ui.cpStyle.value = cp.style;
   ui.cpLineStyle.value = cp.lineStyle;
@@ -924,7 +885,8 @@ function makeCircleYZ(radius, color)
 {
     // RingGeometry alapból XY síkban van (normál +Z),
     // forgatással tesszük YZ síkba (normál +X).
-    const geom = new THREE.RingGeometry(radius - 0.01, radius, 32);
+
+    const geom = new THREE.RingGeometry(radius - 0.05, radius, 32);
     const mat  = new THREE.MeshStandardMaterial({
         color,
         side: THREE.DoubleSide,
@@ -963,15 +925,13 @@ function makeCPGizmo(cp, radius, labelText, showCircle = false)
 
   if (radius > 0)
   {
-    // csak akkor rajzoljuk a lefelé mutató vonalat és a karikát,
-    // ha a kapcsoló true
     if (showCircle)
     {
-      g.add(makeLine(radius, 0.005, COLOR_DOWN, new THREE.Vector3(0, -1, 0)));
-      g.add(makeCircleYZ(radius, COLOR_DOWN));
+      g.add(makeLine(radius, 0.02, COLOR_DOWN, new THREE.Vector3(0, -1, 0)));  //down indicator
+      g.add(makeCircleYZ(radius, COLOR_DOWN));  
     }
 
-    // ezek maradnak mindig, mint eddig
+    // side indicators
     g.add(makeLine(radius, 0.005, COLOR_RIGHTMZ, new THREE.Vector3(0, 0, -1)));
     g.add(makeLine(radius, 0.005, COLOR_LEFTPZ,  new THREE.Vector3(0, 0, 1)));
   }
@@ -1846,6 +1806,8 @@ ui.clDrawMode.addEventListener("change", () =>
 
 });
 
+
+
 function drawControlLines()
 {
   if(DrawMode === 0){drawControlLines_simple();}
@@ -2079,9 +2041,6 @@ export function RefreshCL_AAA()
 
 
 
-
-
-
 //---------------------------------------------------------------------
 // list shitting
 //---------------------------------------------------------------------
@@ -2094,6 +2053,9 @@ function getCurrentCL()
   return store.controlLines[currentCLIndex];
 }
 
+//-----------------------------------------------------------------
+//
+//-----------------------------------------------------------------
 function renderRefList(ulElem, refArray, onRemoveIndex)
 {
   if (!ulElem) return;
@@ -2193,6 +2155,8 @@ function renderCurrentCLRefLists()
     return { refType: t, refName: n };
   }
 
+
+
   // Line refs
   ui.clLineRefAdd?.addEventListener("click", () =>
   {
@@ -2208,6 +2172,7 @@ function renderCurrentCLRefLists()
     renderCurrentCLRefLists();
     snapshot?.();
   });
+
 
   // CP refs (kapuk)
   ui.clCPRefAdd?.addEventListener("click", () =>
@@ -2225,6 +2190,7 @@ function renderCurrentCLRefLists()
     snapshot?.();
   });
 
+
   // Major supports
   ui.clSupportMajorRefAdd?.addEventListener("click", () =>
   {
@@ -2240,6 +2206,7 @@ function renderCurrentCLRefLists()
     renderCurrentCLRefLists();
     snapshot?.();
   });
+
 
   // Minor supports
   ui.clSupportMinorRefAdd?.addEventListener("click", () =>

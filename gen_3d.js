@@ -71,7 +71,7 @@ function toggleCPSelection(pi, withCtrl)
     cpSelSet.clear(); cpSelSet.add(pi);
   }
   refreshCPListHighlight?.();
-  syncSceneEditorsFromFirstCP?.();
+  fillScnEditors?.();
   rebuildAllBounds?.();
   snapshot?.();
 }
@@ -393,9 +393,11 @@ export function clearSelections()
   refreshCPListHighlight?.();
 
   rebuildAllBounds?.();
- 
-  // Undo/Redo:
-  //snapshot?.();
+
+                        //TODO:
+  fillPartEditors?.();  //if GP mode
+  fillGrpEditors?.();   //if GRP mode
+  fillScnEditors?.();   //if SCN mode
 }
 
 // --- BOUNDING BOX HELPEREK: minden a worldRoot alá kerül ---
@@ -519,7 +521,6 @@ export function rebuildAllBounds()
         }
 
 
-
         // világ AABB → aktív gyökér lokáltér
         
         const boxW = new THREE.Box3().setFromObject(o);
@@ -535,18 +536,15 @@ export function rebuildAllBounds()
 
     // 3) Kijelölt CP-k piros keretei
     // Megjegyzés: ha a CP-k külön clRoot alatt vannak, ott számolunk és oda is tesszük.
+
     let cpNodesForHull = []; // csak akkor teszünk be a unionba, ha ugyanazon szülő alatt vannak
     if (typeof clRoot !== 'undefined' && currentCLIndex >= 0 && cpSelSet?.size > 0)
     {
         const cpParent = clRoot;
         cpParent.updateMatrixWorld(true);
         const cpParentInv = cpParent.matrixWorld.clone().invert();
-
         const wanted = new Set([...cpSelSet].map(i => `${currentCLIndex}:${i}`));
-
         const foundCpNodes = [];
-        
-
         
         cpParent.traverse(o =>
         {
@@ -678,18 +676,21 @@ function togglePickSelection(obj)
     if (gpSelSet.has(idx)) gpSelSet.delete(idx);
     else gpSelSet.add(idx);
     refreshPartListHighlight();
+    fillPartEditors?.();
   }
   if (mode === "grp")
   {
     if (grpSelSet.has(idx)) grpSelSet.delete(idx);
     else grpSelSet.add(idx);
     refreshGrpItemListHighlight();
+    fillGrpEditors?.();
   }
   if (mode === "scn")
   {
     if (scnSelSet.has(idx)) scnSelSet.delete(idx);
     else scnSelSet.add(idx);
     refreshScnListHighlight();
+    fillScnEditors?.();
   }
 
   if (obj.userData.pickKind === 'cp') 
@@ -705,6 +706,7 @@ function togglePickSelection(obj)
     refreshCPListHighlight();
     fillCPEditors(false);
     rebuildAllBounds?.();
+    fillScnEditors?.();
     return;
   }
 }
@@ -832,7 +834,7 @@ export function applyDeltaToSelection({ dpos = [0,0,0], drot = [0,0,0], dscale =
           // (CP-ket tipikusan nem scale-eljük; ha kell, itt kezeld)
         });
 
-        syncSceneEditorsFromFirstCP?.();
+        fillScnEditors?.();
         drawControlLines?.();
         rebuildAllBounds?.();
         snapshot?.();
@@ -1006,14 +1008,56 @@ function firstSelIndex(set)
 
 export function fillPartEditors(focus = true)
 {
+
+  console.log("[fillPartEditors]");
+
   // Aktív GP kikeresése
   const activeName = store?.activeGPName ?? (ui?.gpName?.value || "");
   const gp = activeName ? store?.gamePrimitives?.[activeName] : null;
-  if (!gp || !Array.isArray(gp.parts)) return;
+  if (!gp || !Array.isArray(gp.parts))
+  {
+    // UI mezők feltöltése
+    ui.pColor.value   = "#f0f0f0";
+    ui.pTypeRO.value  = '';
+    ui.pPosX.value    = '';
+    ui.pPosY.value    = '';
+    ui.pPosZ.value    = '';
+    ui.pRoll.value    = '';
+    ui.pYaw.value     = '';
+    ui.pPitch.value   = '';
+    ui.pSx.value      = '';
+    ui.pSy.value      = '';
+    ui.pSz.value      = '';
+
+    return;
+  }
+    
+  console.log("[fillPartEditors] SZED2");  
+    
+
 
   // Első (primer) kijelölt part index a Set-ből
   const i = getPrimaryIndex('gp');
-  if (i < 0 || i >= gp.parts.length) return;
+  
+  if (i < 0 || i >= gp.parts.length)
+  {
+        // UI mezők feltöltése
+    ui.pColor.value   = "#f0f0f0";
+    ui.pTypeRO.value  = '';
+    ui.pPosX.value    = '';
+    ui.pPosY.value    = '';
+    ui.pPosZ.value    = '';
+    ui.pRoll.value    = '';
+    ui.pYaw.value     = '';
+    ui.pPitch.value   = '';
+    ui.pSx.value      = '';
+    ui.pSy.value      = '';
+    ui.pSz.value      = '';
+    
+      return;
+  }
+
+  console.log("[fillPartEditors] SZED3");
 
   const p = gp.parts[i];
 
@@ -1576,7 +1620,22 @@ ui.grpRemove.addEventListener("click", () =>
 
 export function fillGrpEditors(focus = true)
 {
-  if (!getActiveGRP() || grpSelSet.size === 0) return;
+  if (!getActiveGRP() || grpSelSet.size === 0)
+  {
+    ui.gPosX.value = '';
+    ui.gPosY.value = '';
+    ui.gPosZ.value = '';
+    ui.gRoll.value = '';
+    ui.gYaw.value = '';
+    ui.gPitch.value = '';
+    ui.gSx.value = '';
+    ui.gSy.value = '';
+    ui.gSz.value = '';
+
+        return;
+  }
+    
+
   const i = firstSelIndex(grpSelSet);
   const it = getActiveGRP().items[i];
   ui.gPosX.value = it.pos[0];
@@ -1588,6 +1647,7 @@ export function fillGrpEditors(focus = true)
   ui.gSx.value = it.scale[0];
   ui.gSy.value = it.scale[1];
   ui.gSz.value = it.scale[2];
+  
   if (focus) refreshGrpItemList();
 }
 
@@ -1831,9 +1891,37 @@ function applySceneEditorsToCPsAbsolute()
 
 export function fillScnEditors(focus = true)
 {
-  if (scnSelSet.size === 0) return;
+
+  if (
+  (scnSelSet.size === 0) &&
+  (currentCLIndex < 0 || cpSelSet.size === 0)
+  )
+  {
+    if (ui.sPosX)   ui.sPosX.value = '';
+    if (ui.sPosY)   ui.sPosY.value = '';
+    if (ui.sPosZ)   ui.sPosZ.value = '';
+    if (ui.sRoll)   ui.sRoll.value = '';
+    if (ui.sYaw)    ui.sYaw.value = '';
+    if (ui.sPitch)  ui.sPitch.value = '';
+    if (ui.sSx)     ui.sSx.value = '';
+    if (ui.sSy)     ui.sSy.value = '';
+    if (ui.sSz)     ui.sSz.value = '';
+
+    if (focus)
+    {
+      refreshScnList();
+    }
+    return;
+  }
+
+  if((currentCLIndex > 0 || cpSelSet.size !== 0)){
+    syncSceneEditorsFromFirstCP?.();
+    return;
+  }
+
   const i = firstSelIndex(scnSelSet);
   const it = store.scene[i];
+  
   ui.sPosX.value = it.pos[0];
   ui.sPosY.value = it.pos[1];
   ui.sPosZ.value = it.pos[2];
@@ -1843,6 +1931,7 @@ export function fillScnEditors(focus = true)
   ui.sSx.value = it.scale[0];
   ui.sSy.value = it.scale[1];
   ui.sSz.value = it.scale[2];
+  
   if (focus) refreshScnList();
 }
 
@@ -2095,7 +2184,7 @@ function applyMode()
   rebuildAllBounds?.();
 
   if (isSCN && typeof cpSelSet !== 'undefined' && cpSelSet.size > 0) {
-    syncSceneEditorsFromFirstCP?.();
+    fillScnEditors?.();
     syncCPMetaEditorsFromFirst?.();
   }
 }
@@ -2242,7 +2331,7 @@ function applyDeltaToSelectionByOrder(order, which, dAngDeg, dposLocal = [0, 0, 
             if (cl && Array.isArray(cl.points))
             {
                 cpSelSet.forEach((i) => applyOne(cl.points[i]));
-                syncSceneEditorsFromFirstCP?.();
+                fillScnEditors?.();
                 drawControlLines?.();
                 rebuildAllBounds?.();
                 snapshot?.();
