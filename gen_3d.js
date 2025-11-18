@@ -1301,6 +1301,7 @@ function refreshGrpList()
   refreshScnSourceOptions();
 }
 
+/*
 function refreshGrpSourceOptions()
 {
   ui.grpAddSource.innerHTML = "";
@@ -1316,7 +1317,38 @@ function refreshGrpSourceOptions()
     ui.grpAddSource.appendChild(o);
   });
 }
+*/
+function refreshGrpSourceOptions()
+{
+  if (!ui.grpAddSource) return;
+
+  ui.grpAddSource.innerHTML = "";
+
+  // Alap lista: vagy GP-k, vagy Groupok – ahogy eddig
+  const allNames =
+    ui.grpAddType.value === "gp"
+      ? Object.keys(store.gamePrimitives)
+      : Object.keys(store.groups);
+
+  // Szűrő szöveg (új mező: grpFilter)
+  const filter = (ui.grpFilter?.value || "").trim().toLowerCase();
+
+  const src = filter
+    ? allNames.filter((n) => n.toLowerCase().includes(filter))
+    : allNames;
+
+  src.forEach((n) =>
+  {
+    const o = document.createElement("option");
+    o.value = n;
+    o.textContent = n;
+    ui.grpAddSource.appendChild(o);
+  });
+}
+
+
 ui.grpAddType.addEventListener("change", refreshGrpSourceOptions);
+ui.grpFilter.addEventListener("input", refreshGrpSourceOptions);
 
 
 
@@ -1648,6 +1680,7 @@ ui.applyGrpItem.addEventListener("click", applyGrpNow);
 );
 
 // ===== Scene =====
+/*
 function refreshScnSourceOptions()
 {
   ui.scnAddSource.innerHTML = "";
@@ -1662,8 +1695,41 @@ function refreshScnSourceOptions()
     o.textContent = n;
     ui.scnAddSource.appendChild(o);
   });
+}*/
+
+function refreshScnSourceOptions()
+{
+  if (!ui.scnAddSource) return;
+
+  ui.scnAddSource.innerHTML = "";
+
+  // Alap lista: vagy GP-k, vagy Groupok – ahogy eddig
+  const allNames =
+    ui.scnAddType.value === "gp"
+      ? Object.keys(store.gamePrimitives)
+      : Object.keys(store.groups);
+
+  // Szűrő szöveg (új mező: scnFilter)
+  const filter = (ui.scnFilter?.value || "").trim().toLowerCase();
+
+  const src = filter
+    ? allNames.filter((n) => n.toLowerCase().includes(filter))
+    : allNames;
+
+  src.forEach((n) =>
+  {
+    const o = document.createElement("option");
+    o.value = n;
+    o.textContent = n;
+    ui.scnAddSource.appendChild(o);
+  });
 }
+
 ui.scnAddType.addEventListener("change", refreshScnSourceOptions);
+ui.scnFilter.addEventListener("input", refreshScnSourceOptions);
+
+
+
 
 function refreshScnList()
 {
@@ -2488,16 +2554,8 @@ window.addEventListener("keydown", (e) =>
     camState.yOffset -= 0.5;
     updateCamera();
   }
-  if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "z")
-  {
-    e.preventDefault();
-    doUndo();
-  }
-  if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "y")
-  {
-    e.preventDefault();
-    doRedo();
-  }
+
+  //undo redo copy paste in different files
 
 
   if (e.key === "Escape")

@@ -21,6 +21,8 @@ rebuildAllBounds,
 drawGRPPreview,
 }from './gen_3d.js';
 
+import {snapshot}from './gen_undo.js';
+
 
 
 // ===== Copy / Paste / Duplicate / Visibility / Delete =====
@@ -612,6 +614,20 @@ window.addEventListener("keydown", (ev) =>
         ev.preventDefault();
         //ev.stopPropagation?.();
         selectAll(ui.mode.value);
+    }
+
+
+    if ((ev.ctrlKey || ev.metaKey) && ev.key.toLowerCase() === "c")
+    {   
+        console.log("ctrl+c");
+        ev.preventDefault();
+        copySelection();
+    }
+    if ((ev.ctrlKey || ev.metaKey) && ev.key.toLowerCase() === "v")
+    {
+        console.log("ctrl+v");
+        ev.preventDefault();
+        pasteClipboard();
     }
 
 

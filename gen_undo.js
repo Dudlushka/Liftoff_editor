@@ -105,3 +105,17 @@ function doRedo()
 ui.undoBtn.addEventListener("click", doUndo);
 ui.redoBtn.addEventListener("click", doRedo);
 
+
+window.addEventListener("keydown", (e) =>
+{
+  if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "z")
+  {
+    e.preventDefault();
+    doUndo();
+  }
+  if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "y")
+  {
+    e.preventDefault();
+    doRedo();
+  }
+});

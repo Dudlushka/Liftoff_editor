@@ -198,6 +198,10 @@ const ui =
   //
   gpScalable : $("#gpScalable"),
   trackEnvironment : $("#trackEnvironment"),
+  //
+
+  scnFilter : $("#scnFilter"),
+  grpFilter : $("#grpFilter"),
 
 };
 window.ui = ui;        // ez is globális
