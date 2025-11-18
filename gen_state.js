@@ -204,56 +204,6 @@ window.ui = ui;        // ez is globális
 
 
 
-// ===== Undo/Redo (egyszerű snapshot stack) =====
-const history = {
-  stack: [],
-  idx: -1,
-};
-
-function snapshot()
-{
-  const snap = JSON.stringify({
-    store,
-    gpSel: [...gpSelSet],
-    grpSel: [...grpSelSet],
-    scnSel: [...scnSelSet],
-    mode: ui.mode.value,
-  });
-  history.stack = history.stack.slice(0, history.idx + 1);
-  history.stack.push(snap);
-  history.idx++;
-}
-
-function restore(idx)
-{
-  if (idx < 0 || idx >= history.stack.length) return;
-  const state = JSON.parse(history.stack[idx]);
-  Object.keys(store).forEach((k) => delete store[k]);
-  Object.assign(store, state.store);
-  gpSelSet = new Set(state.gpSel || []);
-  grpSelSet = new Set(state.grpSel || []);
-  scnSelSet = new Set(state.scnSel || []);
-  ui.mode.value = state.mode || "scn";
-  applyMode();
-  refreshGPList();
-  refreshGrpList();
-  refreshScnSourceOptions();
-  refreshScnList();
-  fillPartEditors(false);
-  fillGrpEditors(false);
-  fillScnEditors(false);
-  history.idx = idx;
-}
-
-function doUndo()
-{
-  if (history.idx > 0) restore(history.idx - 1);
-}
-
-function doRedo()
-{
-  if (history.idx < history.stack.length - 1) restore(history.idx + 1);
-}
 
 //-------------------------------------
 
@@ -339,6 +289,3 @@ export function getPrimaryIndex(kind) {
 
 
 
-window.doUndo                   = doUndo;
-window.doRedo                   = doRedo;
-window.snapshot                 = snapshot;

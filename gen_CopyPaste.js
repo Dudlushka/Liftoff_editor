@@ -245,7 +245,7 @@ function duplicateSelection()
 function toggleVisibility()
 {
   const m = ui.mode.value;
-  snapshot();
+  snapshot?.();
   if (m === "gp" && getActiveGP())
   {
     gpSelSet.forEach((i) =>
@@ -287,7 +287,7 @@ function deleteSelection()
     (m === "scn" && scnSelSet.size === 0)
   )
     return;
-  snapshot();
+  snapshot?.();
   if (m === "gp" && getActiveGP())
   {
     const sorted = [...gpSelSet].sort((a, b) => b - a);
@@ -563,8 +563,6 @@ ui.pasteBtn.addEventListener("click", pasteClipboard);
 ui.dupBtn.addEventListener("click", duplicateSelection);
 ui.toggleVisBtn.addEventListener("click", toggleVisibility);
 ui.deleteBtn.addEventListener("click", deleteSelection);
-ui.undoBtn.addEventListener("click", doUndo);
-ui.redoBtn.addEventListener("click", doRedo);
 
 
 

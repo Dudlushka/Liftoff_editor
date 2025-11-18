@@ -25,6 +25,8 @@ import {
   buildPrimitiveMesh
 }from './gen_primitives.js';
 
+import {snapshot}from './gen_undo.js';
+
 
 import {currentCLIndex}from './gen_state.js';
 import { worldRoot, gpRoot, grpRoot, scnRoot, clRoot } from './gen_roots.js';
@@ -1002,7 +1004,7 @@ function firstSelIndex(set)
   return -1;
 }
 
-function fillPartEditors(focus = true)
+export function fillPartEditors(focus = true)
 {
   // Aktív GP kikeresése
   const activeName = store?.activeGPName ?? (ui?.gpName?.value || "");
@@ -1540,7 +1542,7 @@ ui.grpRemove.addEventListener("click", () =>
 //
 //=============================================
 
-function fillGrpEditors(focus = true)
+export function fillGrpEditors(focus = true)
 {
   if (!getActiveGRP() || grpSelSet.size === 0) return;
   const i = firstSelIndex(grpSelSet);
@@ -1761,7 +1763,7 @@ function applySceneEditorsToCPsAbsolute()
 
 //---------------------------------------------------
 
-function fillScnEditors(focus = true)
+export function fillScnEditors(focus = true)
 {
   if (scnSelSet.size === 0) return;
   const i = firstSelIndex(scnSelSet);
@@ -2037,8 +2039,6 @@ ui.mode.addEventListener("change", applyMode);
 //---------------------------------------------------------------
 
 
-ui.undoBtn.addEventListener("click", doUndo);
-ui.redoBtn.addEventListener("click", doRedo);
 
 // ===== Seed demo =====
 

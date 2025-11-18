@@ -5,6 +5,10 @@ import './gen_controlLines.js';
 import './gen_CopyPaste.js';
 import './gen_files.js';
 import './gen_ui.js'
+import './gen_undo.js'
+
+
+import {snapshot}from './gen_undo.js';
 
 async function boot()
 {
@@ -38,7 +42,7 @@ async function boot()
   window.refreshScnSourceOptions();
   window.applyMode();
   window.refreshScnList();
-  window.snapshot();
+  snapshot?.();
 }
 
 // indítás
