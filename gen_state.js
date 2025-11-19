@@ -203,6 +203,13 @@ const ui =
   scnFilter : $("#scnFilter"),
   grpFilter : $("#grpFilter"),
 
+  //snap and local
+  snapEnable: $("#snapEnable"),
+  localMove:  $("#localMove"),
+  snapX:      $("#snapX"),
+  snapY:      $("#snapY"),
+  snapZ:      $("#snapZ"),
+
 };
 window.ui = ui;        // ez is globális
 

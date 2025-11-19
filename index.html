@@ -422,9 +422,40 @@
             </div>
           </fieldset>
 
+
+            <!-- snap distances -->
+            <div class="row">
+              <div>
+                <label>Snap X</label
+                ><input id="snapX" type="number" step="0.1" value="1" />
+              </div>
+              <div>
+                <label>Snap Y</label
+                ><input id="snapY" type="number" step="0.1" value="1" />
+              </div>
+              <div>
+                <label>Snap Z</label
+                ><input id="snapZ" type="number" step="0.1" value="1" />
+              </div>
+            </div>
+
+            <!-- ÚJ: Snap + Local kapcsolók -->
+            <div class="checkrow">
+              <label>
+                <input id="snapEnable" type="checkbox" />
+                Snap
+              </label>
+              <label>
+                <input id="localMove" type="checkbox" />
+                Local
+              </label>
+            </div>
+          </fieldset>
+
+
+
           <fieldset>
             <legend>Rotation – Euler</legend>
-
             <label for="eulerOrder">Euler order</label>
             <select id="eulerOrder">
               <option value="XYZ">XYZ</option>

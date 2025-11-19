@@ -1,61 +1,88 @@
-// -------- Control Lines – fő vezérlők --------
-  clPane:        $("#clPane"),
-  clDrawMode:    $("#clDrawMode"),
+export function applyDeltaToSelection({ dpos = [0,0,0], drot = [0,0,0], dscale = [0,0,0] })
+{
+  const m = ui.mode.value;
 
-  clList:        $("#clList"),
-  clNew:         $("#clNew"),
-  clSave:        $("#clSave"),
-  clDelete:      $("#clDelete"),
+  // ---------- GP mód: csak GP-partok ----------
+  if (m === 'gp')
+  {
+    const gpName = (store?.activeGPName ?? ui?.gpName?.value ?? '').trim();
+    const gp = gpName ? store?.gamePrimitives?.[gpName] : null;
+    if (!gp || !Array.isArray(gp.parts)) return;
 
-  clName:        $("#clName"),
-  clRadius:      $("#clRadius"),
-  clStyle:       $("#clStyle"),
-  clStartOffset: $("#clStartOffset"),
-  clDL:          $("#clDL"),
+    gpSelSet.forEach(i =>
+    {
+      const p = gp.parts[i]; if (!p) return;
+      p.pos    = [ (p.pos?.[0]??0)+dpos[0],  (p.pos?.[1]??0)+dpos[1],  (p.pos?.[2]??0)+dpos[2] ];
+      p.rotRYP = [ (p.rotRYP?.[0]??0)+drot[0], (p.rotRYP?.[1]??0)+drot[1], (p.rotRYP?.[2]??0)+drot[2] ];
+      p.scale  = [ (p.scale?.[0]??1)+dscale[0], (p.scale?.[1]??1)+dscale[1], (p.scale?.[2]??1)+dscale[2] ];
+    });
 
-  // -------- CP / Line objektum választók + listák --------
-  clCPRefType:   $("#clCPRefType"),
-  clCPRefName:   $("#clCPRefName"),
-  clCPRefAdd:    $("#clCPRefAdd"),
-  clCPRefList:   $("#clCPRefList"),
+    fillPartEditors?.(false);
+    drawGPPreview?.();
+    rebuildAllBounds?.();
+    snapshot?.();
+    return;
+  }
 
-  clLineRefType: $("#clLineRefType"),
-  clLineRefName: $("#clLineRefName"),
-  clLineRefAdd:  $("#clLineRefAdd"),
-  clLineRefList: $("#clLineRefList"),
+  // ---------- GRP mód: csak GRP-itemek ----------
+  if (m === 'grp')
+  {
+    const grpName = (store?.activeGRPName ?? ui?.grpName?.value ?? '').trim();
+    const grp = grpName ? store?.groups?.[grpName] : null;
+    if (!grp || !Array.isArray(grp.items)) return;
 
-  // -------- Supports (Major / Minor) + listák --------
-  clSupportMajorRefType:  $("#clSupportMajorRefType"),
-  clSupportMajorRefName:  $("#clSupportMajorRefName"),
-  clSupportMajorRefAdd:   $("#clSupportMajorRefAdd"),
-  clSupportMajorRefList:  $("#clSupportMajorRefList"),
+    grpSelSet.forEach(i =>
+    {
+      const it = grp.items[i]; if (!it) return;
+      it.pos    = [ (it.pos?.[0]??0)+dpos[0],  (it.pos?.[1]??0)+dpos[1],  (it.pos?.[2]??0)+dpos[2] ];
+      it.rotRYP = [ (it.rotRYP?.[0]??0)+drot[0], (it.rotRYP?.[1]??0)+drot[1], (it.rotRYP?.[2]??0)+drot[2] ];
+      it.scale  = [ (it.scale?.[0]??1)+dscale[0], (it.scale?.[1]??1)+dscale[1], (it.scale?.[2]??1)+dscale[2] ];
+    });
 
-  clSupportMinorRefType:  $("#clSupportMinorRefType"),
-  clSupportMinorRefName:  $("#clSupportMinorRefName"),
-  clSupportMinorRefAdd:   $("#clSupportMinorRefAdd"),
-  clSupportMinorRefList:  $("#clSupportMinorRefList"),
+    fillGrpEditors?.(false);
+    drawGRPPreview?.();
+    rebuildAllBounds?.();
+    snapshot?.();
+    return;
+  }
 
-  clSupportMajorH:        $("#clSupportMajorH"),
-  clSupportMinorH:        $("#clSupportMinorH"),
-  clSupportDecimate:      $("#clSupportDecimate"),
-  clSupportDecimateOffset:$("#clSupportDecimateOffset"),
-  clSupportTopOffset:     $("#clSupportTopOffset"),
-  clSupportBottomOffset:  $("#clSupportBottomOffset"),
-  clSupportRotate:        $("#clSupportRotate"),
+  // ---------- SCN mód: CP-elsőbbség, különben scene-itemek ----------
+  if (m === 'scn')
+  {
+    // 1) Ha van CP-kijelölés, AZT kezeljük (elsőbbség)
+    if (cpSelSet.size > 0 && Number.isInteger(currentCLIndex) && currentCLIndex >= 0)
+    {
+      const cl = store?.controlLines?.[currentCLIndex];
+      if (cl && Array.isArray(cl.points))
+      {
+        cpSelSet.forEach(i =>
+        {
+          const cp = cl.points[i]; if (!cp) return;
+          cp.pos    = [ (cp.pos?.[0]??0)+dpos[0],  (cp.pos?.[1]??0)+dpos[1],  (cp.pos?.[2]??0)+dpos[2] ];
+          cp.rotRYP = [ (cp.rotRYP?.[0]??0)+drot[0], (cp.rotRYP?.[1]??0)+drot[1], (cp.rotRYP?.[2]??0)+drot[2] ];
+          // (CP-ket tipikusan nem scale-eljük; ha kell, itt kezeld)
+        });
 
-  // -------- ControlLine debug / megjelenítés --------
-  clShowAux:      $("#clShowAux"),
-  clShowRadius:   $("#clShowRadius"),
-  clGenerate:     $("#clGenerate"),
+        fillScnEditors?.();
+        drawControlLines?.();
+        rebuildAllBounds?.();
+        snapshot?.();
+        return;
+      }
+    }
 
-  // -------- Control Points panel --------
-  cpList:       $("#cpList"),
-  cpAdd:        $("#cpAdd"),
-  cpRemove:     $("#cpRemove"),
+    // 2) Különben a Scene-itemek
+    scnSelSet.forEach(i =>
+    {
+      const it = store?.scene?.[i]; if (!it) return;
+      it.pos    = [ (it.pos?.[0]??0)+dpos[0],  (it.pos?.[1]??0)+dpos[1],  (it.pos?.[2]??0)+dpos[2] ];
+      it.rotRYP = [ (it.rotRYP?.[0]??0)+drot[0], (it.rotRYP?.[1]??0)+drot[1], (it.rotRYP?.[2]??0)+drot[2] ];
+      it.scale  = [ (it.scale?.[0]??1)+dscale[0], (it.scale?.[1]??1)+dscale[1], (it.scale?.[2]??1)+dscale[2] ];
+    });
 
-  cpStyle:      $("#cpStyle"),
-  cpLineStyle:  $("#cpLineStyle"),
-  cpIW:         $("#cpIW"),
-  cpOW:         $("#cpOW"),
-
-  cpApply:      $("#cpApply"),
+    fillScnEditors?.(false);
+    drawScene?.();          // (CL-ek külön rajzolódnak)
+    rebuildAllBounds?.();
+    snapshot?.();
+  }
+}

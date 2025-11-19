@@ -189,21 +189,42 @@ const rotKey = {
   KeyA:false, KeyS:false, KeyD:false
 };
 
+// Mozgatási tengely választáshoz: X/C/V
+const moveAxisKey = {
+  KeyX:false, // X tengely mentén
+  KeyC:false, // Y tengely mentén (mint a Shift)
+  KeyV:false  // Z tengely mentén
+};
+
 window.addEventListener("keydown", (e) =>
 {
-  //if (isEditingContext?.(e)) { return; } // inputmezőkben ne zavarjunk
-  if (e.code in rotKey) {
+  // if (isEditingContext?.(e)) { return; } // inputmezőkben ne zavarjunk
+
+  if (e.code in rotKey)
+  {
     rotKey[e.code] = true;
-    console.log("aaa");
-    // e.preventDefault(); // ha akarod, ne „csilingeljen”
+    // console.log("rot on", e.code);
+  }
+
+  if (e.code in moveAxisKey)
+  {
+    moveAxisKey[e.code] = true;
+    // console.log("move axis on", e.code);
   }
 });
 
 window.addEventListener("keyup", (e) =>
 {
-  if (e.code in rotKey) {
+  if (e.code in rotKey)
+  {
     rotKey[e.code] = false;
-    console.log("bbb");
+    // console.log("rot off", e.code);
+  }
+
+  if (e.code in moveAxisKey)
+  {
+    moveAxisKey[e.code] = false;
+    // console.log("move axis off", e.code);
   }
 });
 
@@ -231,15 +252,35 @@ function isRotateGesture(e)
   );
 }
 
+
+
+
+const snapAccum = { x: 0, y: 0, z: 0 };
+
+function resetSnapAccum()
+{
+  snapAccum.x = 0;
+  snapAccum.y = 0;
+  snapAccum.z = 0;
+}
+
+
+
+
+
 // 3) startDrag: csak ezt cseréld
 function startDrag(e) 
 {
   // fontos: a vászonnak legyen fókusza, különben nem jön keyup/keydown
   // canvas.tabIndex = 0; canvas.focus();  // ha szükséges
   isLDragging = true;
+
   dragMode = isRotateGesture(e) ? 'rotate' : 'move';
 
   setMouseNDC(e);
+
+  resetSnapAccum();
+
   raycaster.setFromCamera(mouseNDC, camera);
   lastHit = new THREE.Vector3();
   raycaster.ray.intersectPlane(dragPlane, lastHit);
@@ -475,7 +516,11 @@ export function rebuildAllBounds()
     if (!parent) return;
 
     parent.updateMatrixWorld(true);
+    
     const parentWorldInv = parent.matrixWorld.clone().invert();
+    //const parentWorldInv = parent.matrixWorld.clone();
+
+
 
     // segéd: egy adott userData kiválasztott-e az aktuális módban
     function isSelectedUd(ud)
@@ -488,7 +533,7 @@ export function rebuildAllBounds()
     }
 
     // ide gyűjtjük a kiválasztott node-okat az összesítő (union) kerethez
-    const selectedNodes = [];
+    const     selectedNodes = [];
 
     // 2) GP/GRP/SCN objektumok keretei – CSAK az aktív gyökérben
     parent.traverse(o =>
@@ -498,41 +543,75 @@ export function rebuildAllBounds()
 
         const pk = ud.pickKind;
 
-        /*
-        console.log('bounds traverse',
-        {
-          name: o.name,
-          pk,
-          selected: isSelectedUd(ud),
-          mode,
-          index: ud.index,
-        });*/
-        
-
+        // Csak ezekre rajzolunk keretet
         if (pk !== 'gpPart' && pk !== 'grpItem' && pk !== 'scnItem') return;
         if (o.visible === false) return;
 
+        const selected = isSelectedUd(ud);
 
-        //TODO: majd rendesen, hogy a groupok azért látszódjanak
-       const selected = isSelectedUd(ud);
+        // SCN módban csak a kijelölt scene-itemekre rajzoljunk
         if (pk === 'scnItem' && !selected)
         {
             return;
         }
 
-
-        // világ AABB → aktív gyökér lokáltér
-        
+        // Világ AABB a mesh köré
         const boxW = new THREE.Box3().setFromObject(o);
-        const boxL = boxW.clone().applyMatrix4(parentWorldInv);
-        const color = isSelectedUd(ud) ? 0xff3333 : 0x0077ff; // piros = kijelölt, kék = nem
-        const helper = new THREE.Box3Helper(boxL, color);
-        markHelper(helper);
-        parent.add(helper);
-        
+        if (boxW.isEmpty()) return;
 
-        if (isSelectedUd(ud)) selectedNodes.push(o);
+        // A group közös (narancs) keretéhez a világ AABB kell
+        if (selected)
+        {
+            selectedNodes.push(o);
+        }
+
+        // Objektum-lokál AABB (orientált kis kerethez)
+        const objWorld    = o.matrixWorld;
+        const objWorldInv = objWorld.clone().invert();
+        const boxLocal    = boxW.clone().applyMatrix4(objWorldInv);
+
+        // Kis keret – az objektum lokál terében, az objektumhoz csatolva
+        const color    = selected ? 0xff3333 : 0x0077ff; // piros = kijelölt, kék = nem
+        const smallBox = new THREE.Box3Helper(boxLocal, color);
+        markHelper(smallBox);
+        o.add(smallBox);  // <-- ettől fog együtt forogni az objektummal
+
+        // Tengelyhossz a doboz méretéből
+        const size = new THREE.Vector3();
+        boxLocal.getSize(size);
+        const maxSize      = Math.max(size.x, size.y, size.z) || 1;
+        const axisLenLocal = maxSize * 1.5;   // mindig kilógjon az objektumból
+
+        if (selected)
+        {
+            // Lokális tengelyek – az objektum lokál terében
+            const axesLocal = new THREE.AxesHelper(axisLenLocal);
+            markHelper(axesLocal);
+            o.add(axesLocal);
+
+            // Ha NINCS bepipálva a localMove, rajzoljunk globális tengelyeket is
+            const useLocalMove = !!ui.localMove?.checked;
+            if (!useLocalMove)
+            {
+                const axisLenGlobal = axisLenLocal * 1.1; // kicsit nagyobb
+
+                const axesGlobal = new THREE.AxesHelper(axisLenGlobal);
+                markHelper(axesGlobal);
+
+                // Objektum origó világpozíciója
+                const posW = new THREE.Vector3();
+                o.getWorldPosition(posW);
+
+                // Parent lokális pozíció
+                const posParent = posW.clone().applyMatrix4(parentWorldInv);
+
+                axesGlobal.position.copy(posParent);
+                // orientációja parent tengelyeivel egyezik → globális irány
+                parent.add(axesGlobal);
+            }
+        }
     });
+
 
     // 3) Kijelölt CP-k piros keretei
     // Megjegyzés: ha a CP-k külön clRoot alatt vannak, ott számolunk és oda is tesszük.
@@ -761,19 +840,88 @@ rebuildGrids();
 resize();
 const deg = (v) => (v * Math.PI) / 180;
 
-
-
-
-
-
 //---------------------------------
+
+
+//----------------------------------------------------------------------------
+// ---------- Snap + local move helpers ----------
+
+function getSnapConfig()
+{
+  if (!ui || !ui.snapEnable)
+  {
+    return { enabled: false, sx: 0, sy: 0, sz: 0 };
+  }
+
+  const enabled = !!ui.snapEnable.checked;
+  const sx = parseFloat(ui.snapX?.value || '0') || 0;
+  const sy = parseFloat(ui.snapY?.value || '0') || 0;
+  const sz = parseFloat(ui.snapZ?.value || '0') || 0;
+
+  return { enabled, sx, sy, sz };
+}
+
+function snapCoord(v, step)
+{
+  if (!(step > 0)) return v;
+  return Math.round(v / step) * step;
+}
+
+function snapPos(pos)
+{
+  const cfg = getSnapConfig();
+  if (!cfg.enabled) return pos;
+
+  const [x, y, z] = pos;
+  return [
+    snapCoord(x, cfg.sx),
+    snapCoord(y, cfg.sy),
+    snapCoord(z, cfg.sz),
+  ];
+}
+
+// dpos: [dx,dy,dz] – ha localMove be van kapcsolva, akkor
+// a saját orientáció (rotRYP) szerinti lokális vektorként értelmezzük
+function computeWorldDelta(it, dpos)
+{
+  const useLocal = !!ui.localMove?.checked;
+  let [dx, dy, dz] = dpos || [0, 0, 0];
+
+  if (!useLocal || !(dx || dy || dz))
+  {
+    return [dx, dy, dz];
+  }
+
+  const r = it.rotRYP || [0, 0, 0];
+
+  const ex = THREE.MathUtils.degToRad(r[0] || 0);
+  const ey = THREE.MathUtils.degToRad(r[1] || 0);
+  const ez = THREE.MathUtils.degToRad(r[2] || 0);
+
+  const q = new THREE.Quaternion().setFromEuler(
+    new THREE.Euler(ex, ey, ez, "XYZ"),
+  );
+
+  const vLocal = new THREE.Vector3(dx, dy, dz);
+  const vWorld = vLocal.applyQuaternion(q);
+
+  return [vWorld.x, vWorld.y, vWorld.z];
+}
+
+//-----------------------------------------------------------------------------------
+
+
+
+
+
+
 
 
 export function applyDeltaToSelection({ dpos = [0,0,0], drot = [0,0,0], dscale = [0,0,0] })
 {
   const m = ui.mode.value;
 
-  // ---------- GP mód: csak GP-partok ----------
+// ---------- GP mód: csak GP-partok ----------
   if (m === 'gp')
   {
     const gpName = (store?.activeGPName ?? ui?.gpName?.value ?? '').trim();
@@ -783,9 +931,36 @@ export function applyDeltaToSelection({ dpos = [0,0,0], drot = [0,0,0], dscale =
     gpSelSet.forEach(i =>
     {
       const p = gp.parts[i]; if (!p) return;
-      p.pos    = [ (p.pos?.[0]??0)+dpos[0],  (p.pos?.[1]??0)+dpos[1],  (p.pos?.[2]??0)+dpos[2] ];
-      p.rotRYP = [ (p.rotRYP?.[0]??0)+drot[0], (p.rotRYP?.[1]??0)+drot[1], (p.rotRYP?.[2]??0)+drot[2] ];
-      p.scale  = [ (p.scale?.[0]??1)+dscale[0], (p.scale?.[1]??1)+dscale[1], (p.scale?.[2]??1)+dscale[2] ];
+
+      const [dx, dy, dz] = computeWorldDelta(p, dpos);
+      const posOld = p.pos || [0, 0, 0];
+      
+      /*
+      const posNew = snapPos([
+        (posOld[0] ?? 0) + dx,
+        (posOld[1] ?? 0) + dy,
+        (posOld[2] ?? 0) + dz,
+      ]);*/
+
+      const posNew = [
+        (posOld[0] ?? 0) + dx,
+        (posOld[1] ?? 0) + dy,
+        (posOld[2] ?? 0) + dz,
+      ];
+
+      p.pos    = posNew;
+
+
+      p.rotRYP = [
+        (p.rotRYP?.[0] ?? 0) + drot[0],
+        (p.rotRYP?.[1] ?? 0) + drot[1],
+        (p.rotRYP?.[2] ?? 0) + drot[2],
+      ];
+      p.scale  = [
+        (p.scale?.[0] ?? 1) + dscale[0],
+        (p.scale?.[1] ?? 1) + dscale[1],
+        (p.scale?.[2] ?? 1) + dscale[2],
+      ];
     });
 
     fillPartEditors?.(false);
@@ -805,9 +980,37 @@ export function applyDeltaToSelection({ dpos = [0,0,0], drot = [0,0,0], dscale =
     grpSelSet.forEach(i =>
     {
       const it = grp.items[i]; if (!it) return;
-      it.pos    = [ (it.pos?.[0]??0)+dpos[0],  (it.pos?.[1]??0)+dpos[1],  (it.pos?.[2]??0)+dpos[2] ];
-      it.rotRYP = [ (it.rotRYP?.[0]??0)+drot[0], (it.rotRYP?.[1]??0)+drot[1], (it.rotRYP?.[2]??0)+drot[2] ];
-      it.scale  = [ (it.scale?.[0]??1)+dscale[0], (it.scale?.[1]??1)+dscale[1], (it.scale?.[2]??1)+dscale[2] ];
+
+      const [dx, dy, dz] = computeWorldDelta(it, dpos);
+      const posOld = it.pos || [0, 0, 0];
+      
+      
+      /*const posNew = snapPos([
+        (posOld[0] ?? 0) + dx,
+        (posOld[1] ?? 0) + dy,
+        (posOld[2] ?? 0) + dz,
+      ]);*/
+
+      
+      const posNew = [
+        (posOld[0] ?? 0) + dx,
+        (posOld[1] ?? 0) + dy,
+        (posOld[2] ?? 0) + dz,
+      ];
+
+      it.pos    = posNew;
+
+
+      it.rotRYP = [
+        (it.rotRYP?.[0] ?? 0) + drot[0],
+        (it.rotRYP?.[1] ?? 0) + drot[1],
+        (it.rotRYP?.[2] ?? 0) + drot[2],
+      ];
+      it.scale  = [
+        (it.scale?.[0] ?? 1) + dscale[0],
+        (it.scale?.[1] ?? 1) + dscale[1],
+        (it.scale?.[2] ?? 1) + dscale[2],
+      ];
     });
 
     fillGrpEditors?.(false);
@@ -821,7 +1024,8 @@ export function applyDeltaToSelection({ dpos = [0,0,0], drot = [0,0,0], dscale =
   if (m === 'scn')
   {
     // 1) Ha van CP-kijelölés, AZT kezeljük (elsőbbség)
-    if (cpSelSet.size > 0 && Number.isInteger(currentCLIndex) && currentCLIndex >= 0)
+    
+ if (cpSelSet.size > 0 && Number.isInteger(currentCLIndex) && currentCLIndex >= 0)
     {
       const cl = store?.controlLines?.[currentCLIndex];
       if (cl && Array.isArray(cl.points))
@@ -829,12 +1033,31 @@ export function applyDeltaToSelection({ dpos = [0,0,0], drot = [0,0,0], dscale =
         cpSelSet.forEach(i =>
         {
           const cp = cl.points[i]; if (!cp) return;
-          cp.pos    = [ (cp.pos?.[0]??0)+dpos[0],  (cp.pos?.[1]??0)+dpos[1],  (cp.pos?.[2]??0)+dpos[2] ];
-          cp.rotRYP = [ (cp.rotRYP?.[0]??0)+drot[0], (cp.rotRYP?.[1]??0)+drot[1], (cp.rotRYP?.[2]??0)+drot[2] ];
-          // (CP-ket tipikusan nem scale-eljük; ha kell, itt kezeld)
+
+          const [dx, dy, dz] = computeWorldDelta(cp, dpos);
+          const posOld = cp.pos || [0, 0, 0];
+          
+          /*const posNew = snapPos([
+            (posOld[0] ?? 0) + dx,
+            (posOld[1] ?? 0) + dy,
+            (posOld[2] ?? 0) + dz,
+          ]);*/
+          const posNew = [
+            (posOld[0] ?? 0) + dx,
+            (posOld[1] ?? 0) + dy,
+            (posOld[2] ?? 0) + dz,
+          ];
+
+          cp.pos    = posNew;
+          cp.rotRYP = [
+            (cp.rotRYP?.[0] ?? 0) + drot[0],
+            (cp.rotRYP?.[1] ?? 0) + drot[1],
+            (cp.rotRYP?.[2] ?? 0) + drot[2],
+          ];
+          // scale itt továbbra sincs
         });
 
-        fillScnEditors?.();
+        syncSceneEditorsFromFirstCP?.();
         drawControlLines?.();
         rebuildAllBounds?.();
         snapshot?.();
@@ -846,9 +1069,31 @@ export function applyDeltaToSelection({ dpos = [0,0,0], drot = [0,0,0], dscale =
     scnSelSet.forEach(i =>
     {
       const it = store?.scene?.[i]; if (!it) return;
-      it.pos    = [ (it.pos?.[0]??0)+dpos[0],  (it.pos?.[1]??0)+dpos[1],  (it.pos?.[2]??0)+dpos[2] ];
-      it.rotRYP = [ (it.rotRYP?.[0]??0)+drot[0], (it.rotRYP?.[1]??0)+drot[1], (it.rotRYP?.[2]??0)+drot[2] ];
-      it.scale  = [ (it.scale?.[0]??1)+dscale[0], (it.scale?.[1]??1)+dscale[1], (it.scale?.[2]??1)+dscale[2] ];
+
+      const [dx, dy, dz] = computeWorldDelta(it, dpos);
+      const posOld = it.pos || [0, 0, 0];
+      /*const posNew = snapPos([
+        (posOld[0] ?? 0) + dx,
+        (posOld[1] ?? 0) + dy,
+        (posOld[2] ?? 0) + dz,
+      ]);*/
+      const posNew = [
+        (posOld[0] ?? 0) + dx,
+        (posOld[1] ?? 0) + dy,
+        (posOld[2] ?? 0) + dz,
+      ];
+
+      it.pos    = posNew;
+      it.rotRYP = [
+        (it.rotRYP?.[0] ?? 0) + drot[0],
+        (it.rotRYP?.[1] ?? 0) + drot[1],
+        (it.rotRYP?.[2] ?? 0) + drot[2],
+      ];
+      it.scale  = [
+        (it.scale?.[0] ?? 1) + dscale[0],
+        (it.scale?.[1] ?? 1) + dscale[1],
+        (it.scale?.[2] ?? 1) + dscale[2],
+      ];
     });
 
     fillScnEditors?.(false);
@@ -2433,6 +2678,70 @@ window.addEventListener("mouseup", () =>
 // Mouse movement
 //---------------------------------------------
 
+function getMoveAxis(e)
+{
+  // C = Y tengely, ugyanaz a szerepe mint a Shiftnek
+  if (e.shiftKey || moveAxisKey.KeyC)
+  {
+    return "y";
+  }
+
+  // X = X tengely
+  if (moveAxisKey.KeyX)
+  {
+    return "x";
+  }
+
+  // V = Z tengely
+  if (moveAxisKey.KeyV)
+  {
+    return "z";
+  }
+
+  // Nincs tengely-lock: síkban mozgatás (régi viselkedés)
+  return "plane";
+}
+
+
+function quantizeDelta(dpos)
+{
+  const cfg = getSnapConfig();
+  if (!cfg.enabled) return dpos;
+
+  let [dx, dy, dz] = dpos;
+
+  // X
+  if (cfg.sx > 0)
+  {
+    snapAccum.x += dx;
+    const stepsX = Math.trunc(snapAccum.x / cfg.sx); // lehet negatív is
+    dx = stepsX * cfg.sx;
+    snapAccum.x -= dx;
+  }
+
+  // Y
+  if (cfg.sy > 0)
+  {
+    snapAccum.y += dy;
+    const stepsY = Math.trunc(snapAccum.y / cfg.sy);
+    dy = stepsY * cfg.sy;
+    snapAccum.y -= dy;
+  }
+
+  // Z
+  if (cfg.sz > 0)
+  {
+    snapAccum.z += dz;
+    const stepsZ = Math.trunc(snapAccum.z / cfg.sz);
+    dz = stepsZ * cfg.sz;
+    snapAccum.z -= dz;
+  }
+
+  return [dx, dy, dz];
+}
+
+
+
 const ORBIT_INVERT = 1; // +1 vagy -1
 const PAN_INVERT = -1; // +1 vagy -1
 
@@ -2489,47 +2798,77 @@ window.addEventListener("mousemove", (e) =>
     //---------------------------
     // Mouse - drag
     //---------------------------
-    if (dragMode === "move")
+if (dragMode === "move")
+{
+  // Melyik tengelyen mozgatunk? (Shift/C = Y, X = X, V = Z, egyébként sík)
+  const axis = getMoveAxis(e);
+
+  //---------------------------
+  // Mouse - Y tengely (fel/le)
+  //---------------------------
+  if (axis === "y")
+  {
+    // fel/le mindenkinek – marad a régi logika, csak most axis alapján
+    let dY = -dy * 0.02;
+    let dposY = quantizeDelta([0, dY, 0]);
+
+    // Ha a snap miatt még nem gyűlt össze lépés, dposY = [0,0,0] lehet
+    if (dposY[0] !== 0 || dposY[1] !== 0 || dposY[2] !== 0)
     {
-
-
-      //---------------------------
-      // Mouse - up/down
-      //---------------------------
-
-      if (e.shiftKey)
-      {
-        // fel/le mindenkinek
-        const dY = -dy * 0.02;
-        applyDeltaToSelection({
-          dpos: [0, dY, 0],
-        });
-      }
-
-      //---------------------------
-      // Mouse - in plane
-      //---------------------------
-
-      else
-      {
-        setMouseNDC(e);
-        raycaster.setFromCamera(mouseNDC, camera);
-        const hit = new THREE.Vector3();
-        if (!raycaster.ray.intersectPlane(dragPlane, hit)) return;
-        if (!lastHit)
-        {
-          lastHit = hit.clone();
-          return;
-        }
-        const d = new THREE.Vector3().subVectors(hit, lastHit);
-        lastHit.copy(hit);
-        applyDeltaToSelection({
-          dpos: [d.x, 0, -d.z],
-        });
-      }
-
-      rebuildAllBounds();
+      applyDeltaToSelection({ dpos: dposY });
     }
+  }
+
+  //---------------------------
+  // Mouse - síkban / X / Z tengelyen
+  //---------------------------
+  else
+  {
+    setMouseNDC(e);
+    raycaster.setFromCamera(mouseNDC, camera);
+
+    const hit = new THREE.Vector3();
+    if (!raycaster.ray.intersectPlane(dragPlane, hit)) return;
+
+    if (!lastHit)
+    {
+      lastHit = hit.clone();
+      return;
+    }
+
+    const d = new THREE.Vector3().subVectors(hit, lastHit);
+    lastHit.copy(hit);
+
+    // Alap: síkban mozgatás (régi viselkedés)
+    //----------------------------------------------------
+    let dxWorld = d.x;
+    let dzWorld = -d.z;
+
+    // Ha X/C/V be van nyomva, akkor tengelyre szorítjuk
+    if (axis === "x")
+    {
+      // csak X tengely
+      dzWorld = 0;
+    }
+    else if (axis === "z")
+    {
+      // csak Z tengely
+      dxWorld = 0;
+    }
+
+    // Delta-snap alkalmazása
+    let dpos = quantizeDelta([dxWorld, 0, dzWorld]);
+
+
+    // Ha még nincs elég mozgás egy lépéshez, dpos = [0,0,0]
+    if (dpos[0] !== 0 || dpos[1] !== 0 || dpos[2] !== 0)
+    {
+      applyDeltaToSelection({ dpos });
+    }
+  }
+
+  rebuildAllBounds();
+}
 
 //------------------------------
 //
