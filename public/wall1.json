@@ -1,0 +1,6051 @@
+{
+  "groups": {
+    "wall1": {
+      "name": "wall1",
+      "items": [
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m02",
+          "pos": [
+            -2.75,
+            0,
+            -1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m02",
+          "pos": [
+            -2.25,
+            0,
+            -1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m02",
+          "pos": [
+            -1.75,
+            0,
+            -1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m02",
+          "pos": [
+            1.75,
+            0,
+            -1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m02",
+          "pos": [
+            2.25,
+            0,
+            -1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m02",
+          "pos": [
+            2.75,
+            0,
+            -1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m02",
+          "pos": [
+            -2.75,
+            0,
+            -0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m02",
+          "pos": [
+            -2.25,
+            0,
+            -0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m02",
+          "pos": [
+            -1.75,
+            0,
+            -0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m02",
+          "pos": [
+            1.75,
+            0,
+            -0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m02",
+          "pos": [
+            2.25,
+            0,
+            -0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m02",
+          "pos": [
+            2.75,
+            0,
+            -0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m02",
+          "pos": [
+            -1.75,
+            0,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m02",
+          "pos": [
+            1.75,
+            0,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m02",
+          "pos": [
+            -1.75,
+            0,
+            0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m02",
+          "pos": [
+            1.75,
+            0,
+            0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m02",
+          "pos": [
+            -2.75,
+            0,
+            1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m02",
+          "pos": [
+            -2.25,
+            0,
+            1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m02",
+          "pos": [
+            -1.75,
+            0,
+            1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m02",
+          "pos": [
+            1.75,
+            0,
+            1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m02",
+          "pos": [
+            2.25,
+            0,
+            1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m02",
+          "pos": [
+            2.75,
+            0,
+            1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m01",
+          "pos": [
+            -2.75,
+            0.5,
+            -0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m01",
+          "pos": [
+            -2.25,
+            0.5,
+            -0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m01",
+          "pos": [
+            2.25,
+            0.5,
+            -0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m01",
+          "pos": [
+            2.75,
+            0.5,
+            -0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            -2.25,
+            0.5,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            2.25,
+            0.5,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            -2.25,
+            0.5,
+            0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            2.25,
+            0.5,
+            0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            -2.75,
+            0.5,
+            1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            -2.25,
+            0.5,
+            1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            2.25,
+            0.5,
+            1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            2.75,
+            0.5,
+            1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            -2.75,
+            1,
+            -0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            -2.25,
+            1,
+            -0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            2.25,
+            1,
+            -0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            2.75,
+            1,
+            -0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            -2.25,
+            1,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            2.25,
+            1,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            -2.25,
+            1,
+            0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            2.25,
+            1,
+            0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m01",
+          "pos": [
+            -2.75,
+            1,
+            1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m01",
+          "pos": [
+            -2.25,
+            1,
+            1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m01",
+          "pos": [
+            2.25,
+            1,
+            1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            2.75,
+            1,
+            1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m01",
+          "pos": [
+            -2.75,
+            1.5,
+            -0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m01",
+          "pos": [
+            -2.25,
+            1.5,
+            -0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m01",
+          "pos": [
+            2.25,
+            1.5,
+            -0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m01",
+          "pos": [
+            2.75,
+            1.5,
+            -0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            -2.25,
+            1.5,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            2.25,
+            1.5,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            -2.25,
+            1.5,
+            0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            2.25,
+            1.5,
+            0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            -2.75,
+            1.5,
+            1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            -2.25,
+            1.5,
+            1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            2.25,
+            1.5,
+            1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            2.75,
+            1.5,
+            1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            -2.75,
+            2,
+            -0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            -2.25,
+            2,
+            -0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            2.25,
+            2,
+            -0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            2.75,
+            2,
+            -0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            -2.25,
+            2,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            2.25,
+            2,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            -2.25,
+            2,
+            0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            2.25,
+            2,
+            0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m01",
+          "pos": [
+            -2.75,
+            2,
+            1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            -2.25,
+            2,
+            1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            2.25,
+            2,
+            1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m01",
+          "pos": [
+            2.75,
+            2,
+            1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            -2.75,
+            2.5,
+            -0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            -2.25,
+            2.5,
+            -0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            2.25,
+            2.5,
+            -0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            2.75,
+            2.5,
+            -0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            -2.25,
+            2.5,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            2.25,
+            2.5,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            -2.25,
+            2.5,
+            0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            2.25,
+            2.5,
+            0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            -2.75,
+            2.5,
+            1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            -2.25,
+            2.5,
+            1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            2.25,
+            2.5,
+            1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            2.75,
+            2.5,
+            1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            -2.75,
+            3,
+            -0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            -2.25,
+            3,
+            -0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m01",
+          "pos": [
+            2.25,
+            3,
+            -0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            2.75,
+            3,
+            -0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            -2.25,
+            3,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            2.25,
+            3,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m01",
+          "pos": [
+            -2.25,
+            3,
+            0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            2.25,
+            3,
+            0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m01",
+          "pos": [
+            -2.75,
+            3,
+            1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m01",
+          "pos": [
+            -2.25,
+            3,
+            1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m01",
+          "pos": [
+            2.25,
+            3,
+            1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            2.75,
+            3,
+            1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            -2.75,
+            3.5,
+            -0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            -2.25,
+            3.5,
+            -0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            2.25,
+            3.5,
+            -0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            2.75,
+            3.5,
+            -0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            -2.25,
+            3.5,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            2.25,
+            3.5,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            -2.25,
+            3.5,
+            0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            2.25,
+            3.5,
+            0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            -2.75,
+            3.5,
+            1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            -2.25,
+            3.5,
+            1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            2.25,
+            3.5,
+            1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            2.75,
+            3.5,
+            1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m02",
+          "pos": [
+            -2.75,
+            4,
+            -1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m02",
+          "pos": [
+            -2.25,
+            4,
+            -1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m02",
+          "pos": [
+            -1.75,
+            4,
+            -1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m02",
+          "pos": [
+            1.75,
+            4,
+            -1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m02",
+          "pos": [
+            2.25,
+            4,
+            -1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m02",
+          "pos": [
+            2.75,
+            4,
+            -1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m02",
+          "pos": [
+            -2.75,
+            4,
+            -0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m02",
+          "pos": [
+            -2.25,
+            4,
+            -0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m02",
+          "pos": [
+            -1.75,
+            4,
+            -0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m02",
+          "pos": [
+            1.75,
+            4,
+            -0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m02",
+          "pos": [
+            2.25,
+            4,
+            -0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m02",
+          "pos": [
+            2.75,
+            4,
+            -0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m02",
+          "pos": [
+            -2.25,
+            4,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m02",
+          "pos": [
+            -1.75,
+            4,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m02",
+          "pos": [
+            1.75,
+            4,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m02",
+          "pos": [
+            2.25,
+            4,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m02",
+          "pos": [
+            -2.25,
+            4,
+            0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m02",
+          "pos": [
+            -1.75,
+            4,
+            0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m02",
+          "pos": [
+            1.75,
+            4,
+            0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m02",
+          "pos": [
+            2.25,
+            4,
+            0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m02",
+          "pos": [
+            -2.75,
+            4,
+            1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m02",
+          "pos": [
+            -2.25,
+            4,
+            1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m02",
+          "pos": [
+            -1.75,
+            4,
+            1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m02",
+          "pos": [
+            1.75,
+            4,
+            1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m02",
+          "pos": [
+            2.25,
+            4,
+            1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m02",
+          "pos": [
+            2.75,
+            4,
+            1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            -2.75,
+            4.5,
+            -0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            -2.25,
+            4.5,
+            -0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            2.25,
+            4.5,
+            -0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            2.75,
+            4.5,
+            -0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            -2.25,
+            4.5,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            2.25,
+            4.5,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            -2.25,
+            4.5,
+            0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            2.25,
+            4.5,
+            0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            -2.75,
+            4.5,
+            1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            -2.25,
+            4.5,
+            1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            2.25,
+            4.5,
+            1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m01",
+          "pos": [
+            2.75,
+            4.5,
+            1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m01",
+          "pos": [
+            -2.75,
+            5,
+            -0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m01",
+          "pos": [
+            -2.25,
+            5,
+            -0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            -1.75,
+            5,
+            -0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            1.75,
+            5,
+            -0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m01",
+          "pos": [
+            2.25,
+            5,
+            -0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m01",
+          "pos": [
+            2.75,
+            5,
+            -0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            -2.25,
+            5,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            -1.75,
+            5,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            1.75,
+            5,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            2.25,
+            5,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            -2.25,
+            5,
+            0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            -1.75,
+            5,
+            0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            1.75,
+            5,
+            0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            2.25,
+            5,
+            0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            -2.75,
+            5,
+            1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            -2.25,
+            5,
+            1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            -1.75,
+            5,
+            1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m01",
+          "pos": [
+            1.75,
+            5,
+            1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m01",
+          "pos": [
+            2.25,
+            5,
+            1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            2.75,
+            5,
+            1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            -2.75,
+            5.5,
+            -0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            -2.25,
+            5.5,
+            -0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            -1.75,
+            5.5,
+            -0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            -1.25,
+            5.5,
+            -0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            -0.75,
+            5.5,
+            -0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            -0.25,
+            5.5,
+            -0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            0.25,
+            5.5,
+            -0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            0.75,
+            5.5,
+            -0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            1.25,
+            5.5,
+            -0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            1.75,
+            5.5,
+            -0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            2.25,
+            5.5,
+            -0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            2.75,
+            5.5,
+            -0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            -2.25,
+            5.5,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            -1.75,
+            5.5,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            -1.25,
+            5.5,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            -0.75,
+            5.5,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            -0.25,
+            5.5,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            0.25,
+            5.5,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            0.75,
+            5.5,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            1.25,
+            5.5,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            1.75,
+            5.5,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            2.25,
+            5.5,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            -2.25,
+            5.5,
+            0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            -1.75,
+            5.5,
+            0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            -1.25,
+            5.5,
+            0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            -0.75,
+            5.5,
+            0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            -0.25,
+            5.5,
+            0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            0.25,
+            5.5,
+            0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            0.75,
+            5.5,
+            0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            1.25,
+            5.5,
+            0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            1.75,
+            5.5,
+            0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            2.25,
+            5.5,
+            0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            -2.75,
+            5.5,
+            1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            -2.25,
+            5.5,
+            1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            -1.75,
+            5.5,
+            1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            -1.25,
+            5.5,
+            1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            -0.75,
+            5.5,
+            1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            -0.25,
+            5.5,
+            1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            0.25,
+            5.5,
+            1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            0.75,
+            5.5,
+            1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            1.25,
+            5.5,
+            1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            1.75,
+            5.5,
+            1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            2.25,
+            5.5,
+            1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            2.75,
+            5.5,
+            1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m02",
+          "pos": [
+            -1.25,
+            6,
+            -1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m02",
+          "pos": [
+            1.25,
+            6,
+            -1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            -2.75,
+            6,
+            -0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            -2.25,
+            6,
+            -0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            -1.75,
+            6,
+            -0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            -1.25,
+            6,
+            -0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            -0.75,
+            6,
+            -0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            -0.25,
+            6,
+            -0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            0.25,
+            6,
+            -0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            0.75,
+            6,
+            -0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m02",
+          "pos": [
+            1.25,
+            6,
+            -0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            1.75,
+            6,
+            -0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m01",
+          "pos": [
+            2.25,
+            6,
+            -0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            2.75,
+            6,
+            -0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m01",
+          "pos": [
+            -2.75,
+            6,
+            1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            -2.25,
+            6,
+            1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            -1.75,
+            6,
+            1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            -1.25,
+            6,
+            1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            -0.75,
+            6,
+            1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            -0.25,
+            6,
+            1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m01",
+          "pos": [
+            0.25,
+            6,
+            1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            0.75,
+            6,
+            1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            1.25,
+            6,
+            1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            1.75,
+            6,
+            1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            2.25,
+            6,
+            1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            2.75,
+            6,
+            1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            -2.75,
+            6.5,
+            -0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            -2.25,
+            6.5,
+            -0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            -1.75,
+            6.5,
+            -0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            -1.25,
+            6.5,
+            -0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            -0.75,
+            6.5,
+            -0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            -0.25,
+            6.5,
+            -0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            0.25,
+            6.5,
+            -0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            0.75,
+            6.5,
+            -0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            1.25,
+            6.5,
+            -0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            1.75,
+            6.5,
+            -0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            2.25,
+            6.5,
+            -0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            2.75,
+            6.5,
+            -0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            -2.75,
+            6.5,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            -2.25,
+            6.5,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            -1.75,
+            6.5,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            -1.25,
+            6.5,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            -0.75,
+            6.5,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            -0.25,
+            6.5,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            0.25,
+            6.5,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            0.75,
+            6.5,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            1.25,
+            6.5,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            1.75,
+            6.5,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            2.25,
+            6.5,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            2.75,
+            6.5,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            -2.75,
+            6.5,
+            0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            -2.25,
+            6.5,
+            0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            -1.75,
+            6.5,
+            0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            -1.25,
+            6.5,
+            0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            -0.75,
+            6.5,
+            0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            -0.25,
+            6.5,
+            0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            0.25,
+            6.5,
+            0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            0.75,
+            6.5,
+            0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            1.25,
+            6.5,
+            0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            1.75,
+            6.5,
+            0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            2.25,
+            6.5,
+            0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            2.75,
+            6.5,
+            0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            -2.75,
+            6.5,
+            1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            -2.25,
+            6.5,
+            1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            -1.75,
+            6.5,
+            1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            -1.25,
+            6.5,
+            1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            -0.75,
+            6.5,
+            1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            -0.25,
+            6.5,
+            1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            0.25,
+            6.5,
+            1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            0.75,
+            6.5,
+            1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            1.25,
+            6.5,
+            1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m01",
+          "pos": [
+            1.75,
+            6.5,
+            1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m01",
+          "pos": [
+            2.25,
+            6.5,
+            1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m03",
+          "pos": [
+            2.75,
+            6.5,
+            1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m02",
+          "pos": [
+            -2.75,
+            7,
+            -1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m02",
+          "pos": [
+            -2.25,
+            7,
+            -1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m02",
+          "pos": [
+            -1.75,
+            7,
+            -1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m02",
+          "pos": [
+            -1.25,
+            7,
+            -1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m02",
+          "pos": [
+            -0.75,
+            7,
+            -1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m02",
+          "pos": [
+            -0.25,
+            7,
+            -1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m02",
+          "pos": [
+            0.25,
+            7,
+            -1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m02",
+          "pos": [
+            0.75,
+            7,
+            -1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m02",
+          "pos": [
+            1.25,
+            7,
+            -1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m02",
+          "pos": [
+            1.75,
+            7,
+            -1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m02",
+          "pos": [
+            2.25,
+            7,
+            -1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m02",
+          "pos": [
+            2.75,
+            7,
+            -1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m02",
+          "pos": [
+            -2.75,
+            7,
+            1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m02",
+          "pos": [
+            -2.25,
+            7,
+            1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m02",
+          "pos": [
+            -1.75,
+            7,
+            1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m02",
+          "pos": [
+            -1.25,
+            7,
+            1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m02",
+          "pos": [
+            -0.75,
+            7,
+            1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m02",
+          "pos": [
+            -0.25,
+            7,
+            1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m02",
+          "pos": [
+            0.25,
+            7,
+            1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m02",
+          "pos": [
+            0.75,
+            7,
+            1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m02",
+          "pos": [
+            1.25,
+            7,
+            1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m02",
+          "pos": [
+            1.75,
+            7,
+            1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m02",
+          "pos": [
+            2.25,
+            7,
+            1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m02",
+          "pos": [
+            2.75,
+            7,
+            1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m02",
+          "pos": [
+            -2.25,
+            7.5,
+            -1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m02",
+          "pos": [
+            -1.25,
+            7.5,
+            -1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m02",
+          "pos": [
+            -0.25,
+            7.5,
+            -1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m02",
+          "pos": [
+            0.75,
+            7.5,
+            -1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m02",
+          "pos": [
+            1.75,
+            7.5,
+            -1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m02",
+          "pos": [
+            2.75,
+            7.5,
+            -1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m02",
+          "pos": [
+            -2.25,
+            7.5,
+            1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m02",
+          "pos": [
+            -1.25,
+            7.5,
+            1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m02",
+          "pos": [
+            -0.25,
+            7.5,
+            1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m02",
+          "pos": [
+            0.75,
+            7.5,
+            1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m02",
+          "pos": [
+            1.75,
+            7.5,
+            1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "refType": "gp",
+          "refName": "DrawingBoardCube0.5mx0.5m02",
+          "pos": [
+            2.75,
+            7.5,
+            1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        }
+      ]
+    }
+  }
+}

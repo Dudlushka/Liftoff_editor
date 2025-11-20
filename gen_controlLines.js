@@ -782,7 +782,12 @@ ui.applyCP?.addEventListener("click", applyCPNow);
 //------------------------------------------------------------------------------
 
 // ===== ControlLine / ControlPoint vizuál =====
-const COLOR_CP_BOX = 0xffcc00; // sárga kocka
+
+
+
+//const COLOR_CP_BOX = 0xffcc00; // sárga kocka
+const COLOR_CP_BOX = 0xff0000; // sárga kocka
+
 const COLOR_OUT = 0x00aa00; // +X zöld nyíl (out)
 const COLOR_IN = 0xaa0000; // -X piros nyíl (in)
 const COLOR_DOWN = 0x111111; // -Y fekete

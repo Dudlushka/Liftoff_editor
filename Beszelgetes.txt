@@ -1,0 +1,73 @@
+A segédtengelyek most két helyen „születnek”, mindkettő a rebuildAllBounds() parent.traverse(o => { ... }) blokkjában:
+
+(1) Lokális tengely (piros–zöld–kék)
+
+Ott, ahol egy objektum kijelölt (selected === true), a lokális bounding box kiszámolása után:
+* létrehozunk egy new THREE.AxesHelper(axisLenLocal)-t
+* meghívjuk rá a markHelper(axesLocal)-t
+* és o.add(axesLocal) – vagyis közvetlenül a kijelölt objektum gyereke lesz.
+
+Emiatt a lokális segédtengely az objektum saját lokál terében van, együtt forog vele.
+
+(2) Globális tengely (csak ha localMove nincs bepipálva)
+
+Ugyanebben az if (selected) ágban, a lokális tengely után:
+csak akkor, ha !ui.localMove.checked, létrejön egy new THREE.AxesHelper(axisLenGlobal)
+
+markHelper(axesGlobal)
+
+kiszámoljuk az objektum világpozícióját, majd azt parent-lokálba visszavisszük
+és parent.add(axesGlobal) – tehát ez már az aktuális root (gpRoot / grpRoot / scnRoot) gyereke.
+Ez a globális segédtengely a világ/parent tengelyeihez igazodik, csak a pozíciója egyezik az objektuméval.
+
+Összefoglalva:
+
+Lokális tengely: o.add(axesLocal) – az objektumhoz ragasztva, lokál térben.
+Globális tengely: parent.add(axesGlobal) – a root alá rakva, parent-térben, az objektum pozíciójára illesztve.
+
+
+
+---------------------------------------------------------------------------------------
+és hogy van az megoldva, hogy a kijelöletlen sárga legyen, vagy ne legyen keret?
+----------------------------------------------------------------------------------------
+
+
+Úgy van megoldva, hogy ez teljesen a rebuildAllBounds()-on belüli parent.traverse(...) blokkban dől el, objektumonként.
+
+(1) Végigmegyünk az aktív root (gpRoot/grpRoot/scnRoot) gyerekein
+A parent.traverse(o => { ... }) belsejében minden o-nál megnézzük:
+
+* van-e userData.pickKind (gpPart / grpItem / scnItem)
+* látható-e (o.visible)
+* és az isSelectedUd(ud) alapján, hogy kijelölt-e.
+
+(2) Itt születik a selected flag
+Egy változóban tárolod, pl.:
+
+* const selected = isSelectedUd(ud);
+Ez mondja meg, hogy az adott GP-part / group-item / scene-item benne van-e a kiválasztási halmazban.
+
+(3) A színválasztás teljesen erre épül
+Utána jön egy egyszerű döntés:
+
+* ha selected === true → piros keret (kijelölt),
+* ha selected === false → sárga keret (csak „preview”).
+
+Magyarul: itt van a logika, hogy „kijelöletlen = sárga”:
+* „ha kijelölt, piros; különben sárga”.
+
+(4) Ha azt akarod, hogy kijelöletlenre ne is legyen keret
+Ugyanitt lehetne azt is csinálni, hogy:
+
+* ha !selected, akkor egyszerűen nem is hozol létre Box3Helper-t.
+Tehát a „ne legyen keret” is ebben a blokkban dől el:
+
+* vagy színt váltasz (piros/sárga),
+* vagy egyáltalán nem rajzolsz semmit, ha nem selected.
+
+
+Összefoglalva:
+Az, hogy mi kap piros keretet, mi sárgát, és mi nem kap semmit, kizárólag a rebuildAllBounds()-ban, a parent.traverse belsejében levő selected-függő elágazáson múlik. Ott döntöd el:
+
+-kell-e neki keret,
+-ha igen, milyen színnel.

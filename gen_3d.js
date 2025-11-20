@@ -312,9 +312,6 @@ renderer.setPixelRatio(devicePixelRatio);
 
 const scene = new THREE.Scene();
 
-//scene.background = new THREE.Color(0xf0f0f0);
-//scene.background = new THREE.Color(0x202530); // hex, vagy 'rgb(32,37,48)' / 'hsl(...)'
-
 const hemi = new THREE.HemisphereLight(0xffffff, 0x999999, 0.8);
 scene.add(hemi);
 const dir = new THREE.DirectionalLight(0xffffff, 0.8);
@@ -498,6 +495,89 @@ function clearAllBounds()
 }
 
 
+function computeLocalBounds(o)
+{
+    const box = new THREE.Box3();
+    let has = false;
+
+    o.traverse(child =>
+    {
+        if (!child.isMesh || !child.geometry) return;
+
+        const geom = child.geometry;
+        if (!geom.boundingBox)
+        {
+            geom.computeBoundingBox();
+        }
+        const bb = geom.boundingBox;
+        if (!bb) return;
+
+        // child.matrix: child lokál -> o lokál
+        const bbChild = bb.clone().applyMatrix4(child.matrix);
+
+        if (!has)
+        {
+            box.copy(bbChild);
+            has = true;
+        }
+        else
+        {
+            box.union(bbChild);
+        }
+    });
+
+    return has ? box : null;
+}
+
+
+function computeLocalBoundsFor(o)
+{
+    const box = new THREE.Box3();
+    let has = false;
+
+    const mAccum = new THREE.Matrix4();
+
+    o.traverse(child =>
+    {
+        if (!child.isMesh || !child.geometry) return;
+
+        const geom = child.geometry;
+        if (!geom.boundingBox)
+        {
+            geom.computeBoundingBox();
+        }
+        const bb = geom.boundingBox;
+        if (!bb) return;
+
+        // 1) bounding box a child SAJÁT lokál terében
+        const bbInO = bb.clone();
+
+        // 2) child lokál -> o lokál:
+        //    csak a .matrix láncot gyűjtjük child-tól o-ig (o saját mátrixát NEM!)
+        mAccum.identity();
+        let n = child;
+        while (n && n !== o)
+        {
+            mAccum.premultiply(n.matrix);  // n.matrix * ... * child.matrix
+            n = n.parent;
+        }
+
+        bbInO.applyMatrix4(mAccum);
+
+        if (!has)
+        {
+            box.copy(bbInO);
+            has = true;
+        }
+        else
+        {
+            box.union(bbInO);
+        }
+    });
+
+    return has ? box : null;
+}
+
 
 
 
@@ -508,19 +588,21 @@ export function rebuildAllBounds()
 
     // ha ki van kapcsolva a megjelenítés, lépjünk ki
     const show = (ui.groupBoundsVis?.value === 'on');
-    if (!show) return;
+    if (!show)
+    {
+        return;
+    }
 
     // 1) szülő (aktív mód gyökere)
-    const mode = ui.mode.value;
-    const parent = getModeRoot(); // gpRoot,grpRoot,ScnRoot
-    if (!parent) return;
+    const mode   = ui.mode.value;
+    const parent = getModeRoot(); // gpRoot, grpRoot, scnRoot
+    if (!parent)
+    {
+        return;
+    }
 
     parent.updateMatrixWorld(true);
-    
     const parentWorldInv = parent.matrixWorld.clone().invert();
-    //const parentWorldInv = parent.matrixWorld.clone();
-
-
 
     // segéd: egy adott userData kiválasztott-e az aktuális módban
     function isSelectedUd(ud)
@@ -532,129 +614,104 @@ export function rebuildAllBounds()
         return false;
     }
 
-    // ide gyűjtjük a kiválasztott node-okat az összesítő (union) kerethez
-    const     selectedNodes = [];
+   const selectedNodes = [];
 
-    // 2) GP/GRP/SCN objektumok keretei – CSAK az aktív gyökérben
-    parent.traverse(o =>
+parent.traverse(o =>
+{
+    const ud = o?.userData;
+    if (!ud) return;
+
+    const pk = ud.pickKind;
+    if (pk !== 'gpPart' && pk !== 'grpItem' && pk !== 'scnItem') return;
+    if (o.visible === false) return;
+
+    const selected = isSelectedUd(ud);
+
+    // Scene módban csak a kijelölt scene-itemekre rajzoljunk keretet
+    if (pk === 'scnItem' && !selected)
     {
-        const ud = o?.userData;
-        if (!ud) return;
+        return;
+    }
 
-        const pk = ud.pickKind;
+    // Union kerethez eltesszük a kijelölteket
+    if (selected)
+    {
+        selectedNodes.push(o);
+    }
 
-        // Csak ezekre rajzolunk keretet
-        if (pk !== 'gpPart' && pk !== 'grpItem' && pk !== 'scnItem') return;
-        if (o.visible === false) return;
+    // 1) Lokális bounding box a fenti függvényünkkel
+    const boxLocal = computeLocalBoundsFor(o);
+    if (!boxLocal) return;
 
-        const selected = isSelectedUd(ud);
+    // 2) Kis keret – O lokál terében, az objektumhoz csatolva
+    const color    = selected ? 0xff3333 : 0xffff00; // piros / citromsárga
+    const smallBox = new THREE.Box3Helper(boxLocal, color);
+    markHelper(smallBox);
 
-        // SCN módban csak a kijelölt scene-itemekre rajzoljunk
-        if (pk === 'scnItem' && !selected)
+    // NINCS saját mátrix buherálás, NINCS matrixAutoUpdate = false
+    // egyszerűen gyerek:
+    o.add(smallBox);
+
+    // 3) Tengely-hossz a lokális box méretéből
+    const size = new THREE.Vector3();
+    boxLocal.getSize(size);
+    const maxSize      = Math.max(size.x, size.y, size.z) || 1;
+    const axisLenLocal = maxSize * 1.5;
+
+    if (selected)
+    {
+        // 3/a) Lokális tengely – O lokál terében
+        const axesLocal = new THREE.AxesHelper(axisLenLocal);
+        markHelper(axesLocal);
+        o.add(axesLocal);
+
+        // 3/b) Globális tengely – csak ha NINCS bepipálva a localMove
+        const useLocalMove = !!ui.localMove?.checked;
+        if (!useLocalMove)
         {
-            return;
+            const axisLenGlobal = axisLenLocal * 1.1;
+
+            const axesGlobal = new THREE.AxesHelper(axisLenGlobal);
+            markHelper(axesGlobal);
+
+            // Objektum origó világban
+            const posW = new THREE.Vector3();
+            o.getWorldPosition(posW);
+
+            // Parent lokál (gpRoot/grpRoot/scnRoot)
+            const posParent = posW.clone().applyMatrix4(parentWorldInv);
+
+            axesGlobal.position.copy(posParent);
+            parent.add(axesGlobal);
         }
+    }
+});
 
-        // Világ AABB a mesh köré
-        const boxW = new THREE.Box3().setFromObject(o);
-        if (boxW.isEmpty()) return;
+    // 3) Kijelölt CP-k piros keretei (ez maradhat, ahogy nálad volt)
 
-        // A group közös (narancs) keretéhez a világ AABB kell
-        if (selected)
-        {
-            selectedNodes.push(o);
-        }
-
-        // Objektum-lokál AABB (orientált kis kerethez)
-        const objWorld    = o.matrixWorld;
-        const objWorldInv = objWorld.clone().invert();
-        const boxLocal    = boxW.clone().applyMatrix4(objWorldInv);
-
-        // Kis keret – az objektum lokál terében, az objektumhoz csatolva
-        const color    = selected ? 0xff3333 : 0x0077ff; // piros = kijelölt, kék = nem
-        const smallBox = new THREE.Box3Helper(boxLocal, color);
-        markHelper(smallBox);
-        o.add(smallBox);  // <-- ettől fog együtt forogni az objektummal
-
-        // Tengelyhossz a doboz méretéből
-        const size = new THREE.Vector3();
-        boxLocal.getSize(size);
-        const maxSize      = Math.max(size.x, size.y, size.z) || 1;
-        const axisLenLocal = maxSize * 1.5;   // mindig kilógjon az objektumból
-
-        if (selected)
-        {
-            // Lokális tengelyek – az objektum lokál terében
-            const axesLocal = new THREE.AxesHelper(axisLenLocal);
-            markHelper(axesLocal);
-            o.add(axesLocal);
-
-            // Ha NINCS bepipálva a localMove, rajzoljunk globális tengelyeket is
-            const useLocalMove = !!ui.localMove?.checked;
-            if (!useLocalMove)
-            {
-                const axisLenGlobal = axisLenLocal * 1.1; // kicsit nagyobb
-
-                const axesGlobal = new THREE.AxesHelper(axisLenGlobal);
-                markHelper(axesGlobal);
-
-                // Objektum origó világpozíciója
-                const posW = new THREE.Vector3();
-                o.getWorldPosition(posW);
-
-                // Parent lokális pozíció
-                const posParent = posW.clone().applyMatrix4(parentWorldInv);
-
-                axesGlobal.position.copy(posParent);
-                // orientációja parent tengelyeivel egyezik → globális irány
-                parent.add(axesGlobal);
-            }
-        }
-    });
-
-
-    // 3) Kijelölt CP-k piros keretei
-    // Megjegyzés: ha a CP-k külön clRoot alatt vannak, ott számolunk és oda is tesszük.
-
-    let cpNodesForHull = []; // csak akkor teszünk be a unionba, ha ugyanazon szülő alatt vannak
+    let cpNodesForHull = []; // csak akkor tesszük be a unionba, ha ugyanazon szülő alatt vannak
     if (typeof clRoot !== 'undefined' && currentCLIndex >= 0 && cpSelSet?.size > 0)
     {
         const cpParent = clRoot;
         cpParent.updateMatrixWorld(true);
         const cpParentInv = cpParent.matrixWorld.clone().invert();
+
         const wanted = new Set([...cpSelSet].map(i => `${currentCLIndex}:${i}`));
         const foundCpNodes = [];
-        
+
         cpParent.traverse(o =>
         {
-
             const ud = o?.userData;
-
-
             if (!ud || ud.pickKind !== 'cp') return;
             if (o.visible === false) return;
 
             const key = `${ud.lineIdx}:${ud.pointIdx}`;
             if (!wanted.has(key)) return;
 
-                  // DEBUG: nézzük meg, mik jönnek
-                  /*
-                  console.log('CP traverse', {
-                    name: o.name,
-                    ud,
-                    visible: o.visible,
-                    isCP: ud?.pickKind === 'cp',
-                    lineIdx: ud?.lineIdx,
-                    pointIdx: ud?.pointIdx,
-                  });
-                  */
-
-
-            // >>> Itt a lényeg: ha van cpCenterBox, csak azt vegyük a kerethez
+            // ha van cpCenterBox, csak azt vegyük a kerethez
             const target = (ud.cpCenterBox instanceof THREE.Object3D)
                 ? ud.cpCenterBox
                 : o;
-
 
             // világ → CP-szülő lokál
             const boxW = new THREE.Box3().setFromObject(target);
@@ -669,20 +726,32 @@ export function rebuildAllBounds()
 
         // csak akkor vesszük bele a CP-ket a nagy „union” keretbe,
         // ha a CP-k ugyanazon parent alatt vannak, mint az aktív kiválasztottak
-        if (cpParent === parent) cpNodesForHull = foundCpNodes;
+        if (cpParent === parent)
+        {
+            cpNodesForHull = foundCpNodes;
+        }
     }
 
     // 4) Összesítő (union) keret a teljes kiválasztott halmaz köré (narancs)
     const hullCandidates = selectedNodes.concat(cpNodesForHull);
-    if (hullCandidates.length >= 2)
+
+    // GP módban NINCS szükség narancssárga union keretre? -> ha mégis kell, vedd ki ezt a feltételt
+    if (mode !== 'gp' && hullCandidates.length >= 2)
     {
         let unionL = null;
+
         hullCandidates.forEach(n =>
         {
-            const bW = new THREE.Box3().setFromObject(n);
-            const bL = bW.clone().applyMatrix4(parentWorldInv);
-            unionL = unionL ? unionL.union(bL) : bL;
+            const boxLocal = computeLocalBounds(n);
+            if (!boxLocal) return;
+
+            // local -> parent lokál: parentInv * n.matrixWorld
+            const m = new THREE.Matrix4().multiplyMatrices(parentWorldInv, n.matrixWorld);
+            const boxInParent = boxLocal.clone().applyMatrix4(m);
+
+            unionL = unionL ? unionL.union(boxInParent) : boxInParent;
         });
+
         if (unionL && !unionL.isEmpty())
         {
             const hull = new THREE.Box3Helper(unionL, 0xff9900); // narancs
@@ -690,7 +759,12 @@ export function rebuildAllBounds()
             parent.add(hull);
         }
     }
+
+
+
+
 }
+
 
 
 
@@ -1211,6 +1285,8 @@ export function drawGPPreview()
     root.add(mesh);
 
     // --- Kijelölés vizuális jelzése a gpSelSet alapján (opcionális) ---
+    
+    /*
     if (gpSelSet.has(idx))
     {
       try {
@@ -1219,7 +1295,10 @@ export function drawGPPreview()
         helper.userData = { pickKind: 'none' }; // ne legyen kattintható
         root.add(helper);
       } catch {}
-    }
+    }*/
+
+
+
   });
 
   gpRoot.add(root);
@@ -1520,6 +1599,7 @@ function applyPartNow()
 
 
   const __gp = getActiveGP(); if (!__gp || gpSelSet.size === 0) return;
+  
   gpSelSet.forEach((i) =>
   {
     const p = __gp.parts[i];
