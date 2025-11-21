@@ -693,61 +693,21 @@
         {
           "id": "db222821-c789-4c01-bf9e-86bd6a1f7f91",
           "type": "box",
-          "color": "#bfbfbf",
+          "color": "#9aa7b1",
           "scale": [
-            0.2,
-            0.316,
-            0.2
+            1,
+            1,
+            1
           ],
           "pos": [
             0,
-            0.158,
+            0,
             0
           ],
           "rotRYP": [
             0,
             0,
             0
-          ]
-        },
-        {
-          "id": "db222821-c789-4c01-bf9e-86bd6a1f7f91",
-          "type": "box",
-          "color": "#bfbfbf",
-          "scale": [
-            0.2,
-            0.41,
-            0.2
-          ],
-          "pos": [
-            0.11,
-            0.216,
-            0
-          ],
-          "rotRYP": [
-            0,
-            0,
-            90
-          ]
-        },
-        {
-          "id": "db222821-c789-4c01-bf9e-86bd6a1f7f91",
-          "type": "box",
-          "color": "#bfbfbf",
-          "scale": [
-            0.2,
-            0.41,
-            0.2
-          ],
-          "pos": [
-            0,
-            0.216,
-            -0.11
-          ],
-          "rotRYP": [
-            0,
-            90,
-            90
           ]
         }
       ]
@@ -758,15 +718,15 @@
         {
           "id": "90b81fc7-031e-4a81-a964-169f03889a50",
           "type": "box",
-          "color": "#e6e6e6",
+          "color": "#9aa7b1",
           "scale": [
-            0.2,
-            2,
-            0.2
+            1,
+            1,
+            1
           ],
           "pos": [
             0,
-            1,
+            0,
             0
           ],
           "rotRYP": [
@@ -2011,22 +1971,22 @@
       "name": "GenericRamp01",
       "parts": [
         {
-          "id": "ed3fb144-cd22-4e43-b2e1-f7882fdd4717",
-          "type": "rightTriPrism",
-          "color": "#616161",
+          "id": "8e719fc8-02ce-473d-a23e-c510068b9420",
+          "type": "box",
+          "color": "#9aa7b1",
           "scale": [
-            4.85,
-            3.638,
+            1,
+            1,
             1
           ],
           "pos": [
-            -0.5549742753827804,
-            1.819,
-            0.012882661296795384
+            0,
+            0,
+            0
           ],
           "rotRYP": [
             0,
-            180,
+            0,
             0
           ]
         }
@@ -3878,442 +3838,6 @@
             0,
             0,
             0
-          ]
-        }
-      ],
-      "scalable": false
-    },
-    "CheckpointBox10mX10m01": {
-      "name": "CheckpointBox10mX10m01",
-      "parts": [
-        {
-          "id": "fbc93287-77ea-4c89-bcc6-52ff89b1e1b3",
-          "type": "box",
-          "color": "#90ffff",
-          "scale": [
-            10,
-            10,
-            0.2
-          ],
-          "pos": [
-            0,
-            0,
-            0
-          ],
-          "rotRYP": [
-            0,
-            0,
-            0
-          ]
-        }
-      ],
-      "scalable": false
-    },
-    "CheckpointBox10mX20m01": {
-      "name": "CheckpointBox10mX20m01",
-      "parts": [
-        {
-          "id": "097bbfee-8689-4460-8708-48ac74457cb2",
-          "type": "box",
-          "color": "#90ffff",
-          "scale": [
-            10,
-            20,
-            0.2
-          ],
-          "pos": [
-            0,
-            0,
-            0
-          ],
-          "rotRYP": [
-            0,
-            0,
-            0
-          ]
-        }
-      ],
-      "scalable": false
-    },
-    "CheckpointBox10mX5m01": {
-      "name": "CheckpointBox10mX5m01",
-      "parts": [
-        {
-          "id": "ed86f159-81ee-4231-93c5-2123b97e6531",
-          "type": "box",
-          "color": "#90ffff",
-          "scale": [
-            10,
-            5,
-            0.2
-          ],
-          "pos": [
-            0,
-            0,
-            0
-          ],
-          "rotRYP": [
-            0,
-            0,
-            0
-          ]
-        }
-      ],
-      "scalable": false
-    },
-    "CheckpointBox20mX10m01": {
-      "name": "CheckpointBox20mX10m01",
-      "parts": [
-        {
-          "id": "a5a19c88-4be7-4fc0-8ff4-0ed2907117e6",
-          "type": "box",
-          "color": "#90ffff",
-          "scale": [
-            20,
-            10,
-            0.2
-          ],
-          "pos": [
-            0,
-            0,
-            0
-          ],
-          "rotRYP": [
-            0,
-            0,
-            0
-          ]
-        }
-      ],
-      "scalable": false
-    },
-    "CheckpointBox20mX20m01": {
-      "name": "CheckpointBox20mX20m01",
-      "parts": [
-        {
-          "id": "ba631db9-08b8-452b-9287-52b7457dbe6f",
-          "type": "box",
-          "color": "#9aa7b1",
-          "scale": [
-            20,
-            20,
-            0.2
-          ],
-          "pos": [
-            0,
-            0,
-            0
-          ],
-          "rotRYP": [
-            0,
-            0,
-            0
-          ]
-        }
-      ],
-      "scalable": false
-    },
-    "CheckpointBox20mX5m01": {
-      "name": "CheckpointBox20mX5m01",
-      "parts": [
-        {
-          "id": "d101a548-1308-46be-b1ba-8a02dca7bf5d",
-          "type": "box",
-          "color": "#90ffff",
-          "scale": [
-            20,
-            5,
-            0.2
-          ],
-          "pos": [
-            0,
-            0,
-            0
-          ],
-          "rotRYP": [
-            0,
-            0,
-            0
-          ]
-        }
-      ],
-      "scalable": false
-    },
-    "CheckpointBox2mX2m01": {
-      "name": "CheckpointBox2mX2m01",
-      "parts": [
-        {
-          "id": "838b31d8-4624-4b1b-9265-96316c104c41",
-          "type": "box",
-          "color": "#90ffff",
-          "scale": [
-            2,
-            2,
-            0.2
-          ],
-          "pos": [
-            0,
-            0,
-            0
-          ],
-          "rotRYP": [
-            0,
-            0,
-            0
-          ]
-        }
-      ],
-      "scalable": false
-    },
-    "CheckpointBox2mX4m01": {
-      "name": "CheckpointBox2mX4m01",
-      "parts": [
-        {
-          "id": "108bf1e9-b39c-4ecc-afc4-8481c290e763",
-          "type": "box",
-          "color": "#90ffff",
-          "scale": [
-            2,
-            4,
-            0.2
-          ],
-          "pos": [
-            0,
-            0,
-            0
-          ],
-          "rotRYP": [
-            0,
-            0,
-            0
-          ]
-        }
-      ],
-      "scalable": false
-    },
-    "CheckpointBox5mX10m01": {
-      "name": "CheckpointBox5mX10m01",
-      "parts": [
-        {
-          "id": "aa8e27c8-6130-46e1-9bcb-1a0b5745e37a",
-          "type": "box",
-          "color": "#90ffff",
-          "scale": [
-            5,
-            10,
-            0.2
-          ],
-          "pos": [
-            0,
-            0,
-            0
-          ],
-          "rotRYP": [
-            0,
-            0,
-            0
-          ]
-        }
-      ],
-      "scalable": false
-    },
-    "CheckpointBox5mX5m01": {
-      "name": "CheckpointBox5mX5m01",
-      "parts": [
-        {
-          "id": "fd26e73a-725c-40b0-a3cf-c3259978c1e8",
-          "type": "box",
-          "color": "#90ffff",
-          "scale": [
-            5,
-            5,
-            0.2
-          ],
-          "pos": [
-            0,
-            0,
-            0
-          ],
-          "rotRYP": [
-            0,
-            0,
-            0
-          ]
-        }
-      ],
-      "scalable": false
-    },
-    "CheckpointBoxFlexible01": {
-      "name": "CheckpointBoxFlexible01",
-      "parts": [
-        {
-          "id": "e4c24c8f-2a69-44e1-b024-4a052494bba0",
-          "type": "box",
-          "color": "#90ffff",
-          "scale": [
-            1,
-            1,
-            1
-          ],
-          "pos": [
-            0,
-            0,
-            0
-          ],
-          "rotRYP": [
-            0,
-            0,
-            0
-          ]
-        }
-      ],
-      "scalable": true
-    },
-    "CheckpointCylinder10mX10m01": {
-      "name": "CheckpointCylinder10mX10m01",
-      "parts": [
-        {
-          "id": "f692761d-ccde-47c1-950a-b71cc21cf9cf",
-          "type": "cylinder",
-          "color": "#90ffff",
-          "scale": [
-            10,
-            0.2,
-            10
-          ],
-          "pos": [
-            0,
-            0,
-            0
-          ],
-          "rotRYP": [
-            90,
-            0,
-            0
-          ]
-        }
-      ],
-      "scalable": false
-    },
-    "CheckpointCylinder2mX2m01": {
-      "name": "CheckpointCylinder2mX2m01",
-      "parts": [
-        {
-          "id": "b03a0a5a-2b3c-48d5-853b-02c7f8f80739",
-          "type": "cylinder",
-          "color": "#90ffff",
-          "scale": [
-            2,
-            0.2,
-            2
-          ],
-          "pos": [
-            0,
-            0,
-            0
-          ],
-          "rotRYP": [
-            90,
-            0,
-            0
-          ]
-        }
-      ],
-      "scalable": false
-    },
-    "CheckpointCylinder4mX4m01": {
-      "name": "CheckpointCylinder4mX4m01",
-      "parts": [
-        {
-          "id": "e2f64927-9f99-41ae-bb40-1fbf23ab2d3d",
-          "type": "cylinder",
-          "color": "#90ffff",
-          "scale": [
-            4,
-            0.2,
-            4
-          ],
-          "pos": [
-            0,
-            0,
-            0
-          ],
-          "rotRYP": [
-            90,
-            0,
-            0
-          ]
-        }
-      ],
-      "scalable": false
-    },
-    "CheckpointSphereFlexible01": {
-      "name": "CheckpointSphereFlexible01",
-      "parts": [
-        {
-          "id": "8d16fec2-a8e8-4c59-b494-46b063b4da08",
-          "type": "sphere",
-          "color": "#90ffff",
-          "scale": [
-            1,
-            1,
-            1
-          ],
-          "pos": [
-            0,
-            0,
-            0
-          ],
-          "rotRYP": [
-            0,
-            0,
-            0
-          ]
-        }
-      ],
-      "scalable": true
-    },
-    "DirectionArrowBlue01": {
-      "name": "DirectionArrowBlue01",
-      "parts": [
-        {
-          "id": "b92a4adb-a095-4261-a6bc-efe182d8f0c1",
-          "type": "box",
-          "color": "#8accff",
-          "scale": [
-            0.2,
-            0.05,
-            0.4
-          ],
-          "pos": [
-            0.0038871937547835245,
-            0,
-            0.00009805480416424928
-          ],
-          "rotRYP": [
-            0,
-            90,
-            0
-          ]
-        },
-        {
-          "id": "7fa54155-a1ac-4f39-a9f3-bfdc4e3d4c66",
-          "type": "isoTriPrism",
-          "color": "#85fdff",
-          "scale": [
-            0.4,
-            0.3,
-            0.05
-          ],
-          "pos": [
-            0.3040260024648675,
-            0,
-            -0.0001870930428715667
-          ],
-          "rotRYP": [
-            90,
-            0,
-            -90
           ]
         }
       ],
