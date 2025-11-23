@@ -475,15 +475,15 @@
     </TrackBlueprint>
     <TrackBlueprint xsi:type="TrackBlueprintFlag">
       <itemID>OSB10001</itemID>
-      <instanceID>39</instanceID>
+      <instanceID>130</instanceID>
       <position>
-        <x>23.9127655</x>
+        <x>22</x>
         <y>0</y>
-        <z>6.43774271</z>
+        <z>-0.834</z>
       </position>
       <rotation>
-        <x>0</x>
-        <y>255.000031</y>
+        <x>-0</x>
+        <y>-4.42549151E-07</y>
         <z>0</z>
       </rotation>
     </TrackBlueprint>
@@ -517,11 +517,11 @@
     </TrackBlueprint>
     <TrackBlueprint xsi:type="TrackBlueprintFlag">
       <itemID>OSB15001</itemID>
-      <instanceID>42</instanceID>
+      <instanceID>120</instanceID>
       <position>
-        <x>13.2718458</x>
+        <x>9.829387</x>
         <y>0</y>
-        <z>3.377853</z>
+        <z>2.34920835</z>
       </position>
       <rotation>
         <x>-0</x>
@@ -531,11 +531,11 @@
     </TrackBlueprint>
     <TrackBlueprint xsi:type="TrackBlueprintFlag">
       <itemID>OSB15001</itemID>
-      <instanceID>43</instanceID>
+      <instanceID>124</instanceID>
       <position>
-        <x>13.2718458</x>
+        <x>13</x>
         <y>0</y>
-        <z>-0.222146988</z>
+        <z>0</z>
       </position>
       <rotation>
         <x>-0</x>
@@ -549,7 +549,7 @@
       <position>
         <x>5</x>
         <y>0</y>
-        <z>3</z>
+        <z>0</z>
       </position>
       <rotation>
         <x>-0</x>
@@ -559,25 +559,11 @@
     </TrackBlueprint>
     <TrackBlueprint xsi:type="TrackBlueprintFlag">
       <itemID>OSB22001</itemID>
-      <instanceID>45</instanceID>
+      <instanceID>127</instanceID>
       <position>
-        <x>5</x>
+        <x>5.00000048</x>
         <y>0</y>
-        <z>-2</z>
-      </position>
-      <rotation>
-        <x>-0</x>
-        <y>-3.92686343E-06</y>
-        <z>0</z>
-      </rotation>
-    </TrackBlueprint>
-    <TrackBlueprint xsi:type="TrackBlueprintFlag">
-      <itemID>OSB22001</itemID>
-      <instanceID>46</instanceID>
-      <position>
-        <x>5</x>
-        <y>0</y>
-        <z>-5.596027</z>
+        <z>-3.6</z>
       </position>
       <rotation>
         <x>-0</x>
@@ -1479,6 +1465,202 @@
         <x>-0</x>
         <y>-5.224957E-05</y>
         <z>0</z>
+      </rotation>
+    </TrackBlueprint>
+    <TrackBlueprint xsi:type="TrackBlueprintFlag">
+      <itemID>OSB15001</itemID>
+      <instanceID>120</instanceID>
+      <position>
+        <x>9.829387</x>
+        <y>0</y>
+        <z>2.34920835</z>
+      </position>
+      <rotation>
+        <x>-0</x>
+        <y>0</y>
+        <z>0</z>
+      </rotation>
+    </TrackBlueprint>
+    <TrackBlueprint xsi:type="TrackBlueprintFlag">
+      <itemID>OSB15001</itemID>
+      <instanceID>121</instanceID>
+      <position>
+        <x>13</x>
+        <y>0</y>
+        <z>3.6</z>
+      </position>
+      <rotation>
+        <x>-0</x>
+        <y>0</y>
+        <z>0</z>
+      </rotation>
+    </TrackBlueprint>
+    <TrackBlueprint xsi:type="TrackBlueprintFlag">
+      <itemID>OSB15001</itemID>
+      <instanceID>122</instanceID>
+      <position>
+        <x>13</x>
+        <y>0</y>
+        <z>7.2</z>
+      </position>
+      <rotation>
+        <x>-0</x>
+        <y>0</y>
+        <z>0</z>
+      </rotation>
+    </TrackBlueprint>
+    <TrackBlueprint xsi:type="TrackBlueprintFlag">
+      <itemID>OSB15001</itemID>
+      <instanceID>124</instanceID>
+      <position>
+        <x>13</x>
+        <y>0</y>
+        <z>0</z>
+      </position>
+      <rotation>
+        <x>-0</x>
+        <y>0</y>
+        <z>0</z>
+      </rotation>
+    </TrackBlueprint>
+    <TrackBlueprint xsi:type="TrackBlueprintFlag">
+      <itemID>OSB15001</itemID>
+      <instanceID>124</instanceID>
+      <position>
+        <x>13</x>
+        <y>0</y>
+        <z>0</z>
+      </position>
+      <rotation>
+        <x>-0</x>
+        <y>0</y>
+        <z>0</z>
+      </rotation>
+    </TrackBlueprint>
+    <TrackBlueprint xsi:type="TrackBlueprintFlag">
+      <itemID>OSB15001</itemID>
+      <instanceID>125</instanceID>
+      <position>
+        <x>13</x>
+        <y>1.5</y>
+        <z>0</z>
+      </position>
+      <rotation>
+        <x>-0</x>
+        <y>0</y>
+        <z>0</z>
+      </rotation>
+    </TrackBlueprint>
+    <TrackBlueprint xsi:type="TrackBlueprintFlag">
+      <itemID>OSB22001</itemID>
+      <instanceID>127</instanceID>
+      <position>
+        <x>5.00000048</x>
+        <y>0</y>
+        <z>-3.6</z>
+      </position>
+      <rotation>
+        <x>-0</x>
+        <y>-3.92686343E-06</y>
+        <z>0</z>
+      </rotation>
+    </TrackBlueprint>
+    <TrackBlueprint xsi:type="TrackBlueprintFlag">
+      <itemID>OSB22001</itemID>
+      <instanceID>127</instanceID>
+      <position>
+        <x>5.00000048</x>
+        <y>0</y>
+        <z>-3.6</z>
+      </position>
+      <rotation>
+        <x>-0</x>
+        <y>-3.92686343E-06</y>
+        <z>0</z>
+      </rotation>
+    </TrackBlueprint>
+    <TrackBlueprint xsi:type="TrackBlueprintFlag">
+      <itemID>OSB22001</itemID>
+      <instanceID>128</instanceID>
+      <position>
+        <x>5</x>
+        <y>2.25</y>
+        <z>-3</z>
+      </position>
+      <rotation>
+        <x>-0</x>
+        <y>-4.42549151E-07</y>
+        <z>0</z>
+      </rotation>
+    </TrackBlueprint>
+    <TrackBlueprint xsi:type="TrackBlueprintFlag">
+      <itemID>OSB22001</itemID>
+      <instanceID>129</instanceID>
+      <position>
+        <x>8.248743</x>
+        <y>0</y>
+        <z>-12.5995369</z>
+      </position>
+      <rotation>
+        <x>-0</x>
+        <y>-4.42549151E-07</y>
+        <z>-0</z>
+      </rotation>
+    </TrackBlueprint>
+    <TrackBlueprint xsi:type="TrackBlueprintFlag">
+      <itemID>OSB10001</itemID>
+      <instanceID>130</instanceID>
+      <position>
+        <x>22</x>
+        <y>0</y>
+        <z>-0.834</z>
+      </position>
+      <rotation>
+        <x>-0</x>
+        <y>-4.42549151E-07</y>
+        <z>0</z>
+      </rotation>
+    </TrackBlueprint>
+    <TrackBlueprint xsi:type="TrackBlueprintFlag">
+      <itemID>OSB10001</itemID>
+      <instanceID>131</instanceID>
+      <position>
+        <x>22</x>
+        <y>0</y>
+        <z>-4.434</z>
+      </position>
+      <rotation>
+        <x>-0</x>
+        <y>-4.42549151E-07</y>
+        <z>0</z>
+      </rotation>
+    </TrackBlueprint>
+    <TrackBlueprint xsi:type="TrackBlueprintFlag">
+      <itemID>OSB10001</itemID>
+      <instanceID>132</instanceID>
+      <position>
+        <x>22.1122818</x>
+        <y>0</y>
+        <z>-4.4</z>
+      </position>
+      <rotation>
+        <x>-0</x>
+        <y>-8.967026E-07</y>
+        <z>0</z>
+      </rotation>
+    </TrackBlueprint>
+    <TrackBlueprint xsi:type="TrackBlueprintFlag">
+      <itemID>OSB10001</itemID>
+      <instanceID>133</instanceID>
+      <position>
+        <x>22</x>
+        <y>1</y>
+        <z>-5</z>
+      </position>
+      <rotation>
+        <x>-0</x>
+        <y>-8.967026E-07</y>
+        <z>-0</z>
       </rotation>
     </TrackBlueprint>
   </blueprints>

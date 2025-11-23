@@ -1938,20 +1938,140 @@
         {
           "id": "4b35aaa0-68a8-4c32-9121-35c4f3f303e9",
           "type": "box",
-          "color": "#9aa7b1",
+          "color": "#c8782d",
           "scale": [
-            1,
-            1,
-            1
+            0.112,
+            0.95,
+            3.6
           ],
           "pos": [
             0,
-            0,
+            0.525,
             0
           ],
           "rotRYP": [
             0,
             0,
+            0
+          ]
+        },
+        {
+          "id": "404dfa87-e984-4e0a-865d-16f0e94dfabb",
+          "type": "box",
+          "color": "#bdbdbd",
+          "scale": [
+            1.62,
+            0.05,
+            0.12
+          ],
+          "pos": [
+            -0.0007639075327317002,
+            0.025,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "404dfa87-e984-4e0a-865d-16f0e94dfabb",
+          "type": "box",
+          "color": "#bdbdbd",
+          "scale": [
+            1.62,
+            0.05,
+            0.12
+          ],
+          "pos": [
+            -0.0007639075327317002,
+            0.025,
+            -1.6
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "404dfa87-e984-4e0a-865d-16f0e94dfabb",
+          "type": "box",
+          "color": "#bdbdbd",
+          "scale": [
+            1.62,
+            0.05,
+            0.12
+          ],
+          "pos": [
+            -0.0007639075327317002,
+            0.025,
+            1.6
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "404dfa87-e984-4e0a-865d-16f0e94dfabb",
+          "type": "box",
+          "color": "#bdbdbd",
+          "scale": [
+            1,
+            0.05,
+            0.12
+          ],
+          "pos": [
+            -0.3579985550905539,
+            0.385,
+            -1.671141113824683
+          ],
+          "rotRYP": [
+            90,
+            45,
+            0
+          ]
+        },
+        {
+          "id": "404dfa87-e984-4e0a-865d-16f0e94dfabb",
+          "type": "box",
+          "color": "#bdbdbd",
+          "scale": [
+            1,
+            0.05,
+            0.12
+          ],
+          "pos": [
+            -0.3579985550905539,
+            0.385,
+            -0.07079921138471423
+          ],
+          "rotRYP": [
+            90,
+            45,
+            0
+          ]
+        },
+        {
+          "id": "404dfa87-e984-4e0a-865d-16f0e94dfabb",
+          "type": "box",
+          "color": "#bdbdbd",
+          "scale": [
+            1,
+            0.05,
+            0.12
+          ],
+          "pos": [
+            -0.3579985550905539,
+            0.385,
+            1.5351108004063063
+          ],
+          "rotRYP": [
+            90,
+            45,
             0
           ]
         }
@@ -1961,22 +2081,142 @@
       "name": "OSB15001",
       "parts": [
         {
-          "id": "690aa888-68af-486f-b35e-063aec042285",
+          "id": "4b35aaa0-68a8-4c32-9121-35c4f3f303e9",
           "type": "box",
-          "color": "#9aa7b1",
+          "color": "#c8782d",
           "scale": [
-            1,
-            1,
-            1
+            0.112,
+            1.45,
+            3.6
           ],
           "pos": [
             0,
-            0,
+            0.775,
             0
           ],
           "rotRYP": [
             0,
             0,
+            0
+          ]
+        },
+        {
+          "id": "404dfa87-e984-4e0a-865d-16f0e94dfabb",
+          "type": "box",
+          "color": "#bdbdbd",
+          "scale": [
+            1.62,
+            0.05,
+            0.12
+          ],
+          "pos": [
+            -0.0007639075327317002,
+            0.025,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "404dfa87-e984-4e0a-865d-16f0e94dfabb",
+          "type": "box",
+          "color": "#bdbdbd",
+          "scale": [
+            1.62,
+            0.05,
+            0.12
+          ],
+          "pos": [
+            -0.0007639075327317002,
+            0.025,
+            -1.6
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "404dfa87-e984-4e0a-865d-16f0e94dfabb",
+          "type": "box",
+          "color": "#bdbdbd",
+          "scale": [
+            1.62,
+            0.05,
+            0.12
+          ],
+          "pos": [
+            -0.0007639075327317002,
+            0.025,
+            1.6
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "404dfa87-e984-4e0a-865d-16f0e94dfabb",
+          "type": "box",
+          "color": "#bdbdbd",
+          "scale": [
+            1,
+            0.05,
+            0.12
+          ],
+          "pos": [
+            -0.3579985550905539,
+            0.385,
+            -1.671141113824683
+          ],
+          "rotRYP": [
+            90,
+            45,
+            0
+          ]
+        },
+        {
+          "id": "404dfa87-e984-4e0a-865d-16f0e94dfabb",
+          "type": "box",
+          "color": "#bdbdbd",
+          "scale": [
+            1,
+            0.05,
+            0.12
+          ],
+          "pos": [
+            -0.3579985550905539,
+            0.385,
+            -0.07079921138471423
+          ],
+          "rotRYP": [
+            90,
+            45,
+            0
+          ]
+        },
+        {
+          "id": "404dfa87-e984-4e0a-865d-16f0e94dfabb",
+          "type": "box",
+          "color": "#bdbdbd",
+          "scale": [
+            1,
+            0.05,
+            0.12
+          ],
+          "pos": [
+            -0.3579985550905539,
+            0.385,
+            1.5351108004063063
+          ],
+          "rotRYP": [
+            90,
+            45,
             0
           ]
         }
@@ -1986,22 +2226,142 @@
       "name": "OSB22001",
       "parts": [
         {
-          "id": "12771f39-40ad-4086-bce5-2967e394ae57",
+          "id": "4b35aaa0-68a8-4c32-9121-35c4f3f303e9",
           "type": "box",
-          "color": "#9aa7b1",
+          "color": "#c8782d",
           "scale": [
-            1,
-            1,
-            1
+            0.112,
+            2.2,
+            3.6
           ],
           "pos": [
             0,
-            0,
+            1.151,
             0
           ],
           "rotRYP": [
             0,
             0,
+            0
+          ]
+        },
+        {
+          "id": "404dfa87-e984-4e0a-865d-16f0e94dfabb",
+          "type": "box",
+          "color": "#bdbdbd",
+          "scale": [
+            1.62,
+            0.05,
+            0.12
+          ],
+          "pos": [
+            -0.0007639075327317002,
+            0.025,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "404dfa87-e984-4e0a-865d-16f0e94dfabb",
+          "type": "box",
+          "color": "#bdbdbd",
+          "scale": [
+            1.62,
+            0.05,
+            0.12
+          ],
+          "pos": [
+            -0.0007639075327317002,
+            0.025,
+            -1.6
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "404dfa87-e984-4e0a-865d-16f0e94dfabb",
+          "type": "box",
+          "color": "#bdbdbd",
+          "scale": [
+            1.62,
+            0.05,
+            0.12
+          ],
+          "pos": [
+            -0.0007639075327317002,
+            0.025,
+            1.6
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "404dfa87-e984-4e0a-865d-16f0e94dfabb",
+          "type": "box",
+          "color": "#bdbdbd",
+          "scale": [
+            1,
+            0.05,
+            0.12
+          ],
+          "pos": [
+            -0.3579985550905539,
+            0.385,
+            -1.671141113824683
+          ],
+          "rotRYP": [
+            90,
+            45,
+            0
+          ]
+        },
+        {
+          "id": "404dfa87-e984-4e0a-865d-16f0e94dfabb",
+          "type": "box",
+          "color": "#bdbdbd",
+          "scale": [
+            1,
+            0.05,
+            0.12
+          ],
+          "pos": [
+            -0.3579985550905539,
+            0.385,
+            -0.07079921138471423
+          ],
+          "rotRYP": [
+            90,
+            45,
+            0
+          ]
+        },
+        {
+          "id": "404dfa87-e984-4e0a-865d-16f0e94dfabb",
+          "type": "box",
+          "color": "#bdbdbd",
+          "scale": [
+            1,
+            0.05,
+            0.12
+          ],
+          "pos": [
+            -0.3579985550905539,
+            0.385,
+            1.5351108004063063
+          ],
+          "rotRYP": [
+            90,
+            45,
             0
           ]
         }
@@ -3783,9 +4143,9 @@
       "name": "Banner5x5mLiftoffCyan01",
       "parts": [
         {
-          "id": "70553d83-7970-4e6a-abca-2456fdb9ef2b",
+          "id": "e4d1f9a0-9ce1-4b29-9f93-83698d1142f2",
           "type": "box",
-          "color": "#9aa7b1",
+          "color": "#bdbdbd",
           "scale": [
             1,
             1,
@@ -3993,7 +4353,7 @@
         {
           "id": "ba631db9-08b8-452b-9287-52b7457dbe6f",
           "type": "box",
-          "color": "#9aa7b1",
+          "color": "#90ffff",
           "scale": [
             20,
             20,
@@ -4314,6 +4674,1756 @@
             90,
             0,
             -90
+          ]
+        }
+      ],
+      "scalable": false
+    },
+    "AirFlagASL01": {
+      "name": "AirFlagASL01",
+      "parts": [
+        {
+          "id": "8fdfe5e2-0842-4bdf-972d-8d1c879c7a3e",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.05,
+            2.5,
+            0.05
+          ],
+          "pos": [
+            0,
+            1.25,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "908c4ec2-64ba-4712-be95-b0acdda16942",
+          "type": "rightTriPrism",
+          "color": "#bdbdbd",
+          "scale": [
+            0.5,
+            2,
+            0.02
+          ],
+          "pos": [
+            -0.2777535062624299,
+            1.4800000000000009,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            180
+          ]
+        }
+      ],
+      "scalable": false
+    },
+    "AirflagFliteTest01": {
+      "name": "AirflagFliteTest01",
+      "parts": [
+        {
+          "id": "8fdfe5e2-0842-4bdf-972d-8d1c879c7a3e",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.05,
+            2.5,
+            0.05
+          ],
+          "pos": [
+            0,
+            1.25,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "908c4ec2-64ba-4712-be95-b0acdda16942",
+          "type": "rightTriPrism",
+          "color": "#4a4a4a",
+          "scale": [
+            0.5,
+            2,
+            0.02
+          ],
+          "pos": [
+            -0.2777535062624299,
+            1.4800000000000009,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            180
+          ]
+        }
+      ],
+      "scalable": false
+    },
+    "AirflagLiftoffSlalomDark01": {
+      "name": "AirflagLiftoffSlalomDark01",
+      "parts": [
+        {
+          "id": "8fdfe5e2-0842-4bdf-972d-8d1c879c7a3e",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.05,
+            2.5,
+            0.05
+          ],
+          "pos": [
+            0,
+            1.25,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "908c4ec2-64ba-4712-be95-b0acdda16942",
+          "type": "rightTriPrism",
+          "color": "#bdbdbd",
+          "scale": [
+            0.5,
+            2,
+            0.02
+          ],
+          "pos": [
+            -0.2777535062624299,
+            1.4800000000000009,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            180
+          ]
+        }
+      ],
+      "scalable": false
+    },
+    "AirFlagRsC01": {
+      "name": "AirFlagRsC01",
+      "parts": [
+        {
+          "id": "8fdfe5e2-0842-4bdf-972d-8d1c879c7a3e",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.05,
+            2.5,
+            0.05
+          ],
+          "pos": [
+            0,
+            1.25,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "908c4ec2-64ba-4712-be95-b0acdda16942",
+          "type": "rightTriPrism",
+          "color": "#bdbdbd",
+          "scale": [
+            0.5,
+            2,
+            0.02
+          ],
+          "pos": [
+            -0.2777535062624299,
+            1.4800000000000009,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            180
+          ]
+        }
+      ],
+      "scalable": false
+    },
+    "HangingFlagParisDroneFestival": {
+      "name": "HangingFlagParisDroneFestival",
+      "parts": [
+        {
+          "id": "334c8040-c76c-4b8e-9da3-ac672e316e0f",
+          "type": "box",
+          "color": "#850061",
+          "scale": [
+            1,
+            10,
+            0.01
+          ],
+          "pos": [
+            0,
+            -5,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "scalable": false
+    },
+    "HangingFlagGeneric01": {
+      "name": "HangingFlagGeneric01",
+      "parts": [
+        {
+          "id": "bf098212-ab5e-4095-b20e-2b4dbc5127a3",
+          "type": "box",
+          "color": "#20bc80",
+          "scale": [
+            1,
+            10,
+            0.01
+          ],
+          "pos": [
+            0,
+            -5,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "scalable": false
+    },
+    "AirflagLiftoffSlalomWhite01": {
+      "name": "AirflagLiftoffSlalomWhite01",
+      "parts": [
+        {
+          "id": "8fdfe5e2-0842-4bdf-972d-8d1c879c7a3e",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.05,
+            2.5,
+            0.05
+          ],
+          "pos": [
+            0,
+            1.25,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "908c4ec2-64ba-4712-be95-b0acdda16942",
+          "type": "rightTriPrism",
+          "color": "#bdbdbd",
+          "scale": [
+            0.5,
+            2,
+            0.02
+          ],
+          "pos": [
+            -0.2777535062624299,
+            1.4800000000000009,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            180
+          ]
+        }
+      ],
+      "scalable": false
+    },
+    "AirflagLiftoffTurnDark01": {
+      "name": "AirflagLiftoffTurnDark01",
+      "parts": [
+        {
+          "id": "8fdfe5e2-0842-4bdf-972d-8d1c879c7a3e",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.05,
+            2.5,
+            0.05
+          ],
+          "pos": [
+            0,
+            1.25,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "908c4ec2-64ba-4712-be95-b0acdda16942",
+          "type": "rightTriPrism",
+          "color": "#bdbdbd",
+          "scale": [
+            0.5,
+            2,
+            0.02
+          ],
+          "pos": [
+            -0.2777535062624299,
+            1.4800000000000009,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            180
+          ]
+        }
+      ],
+      "scalable": false
+    },
+    "AirflagLiftoffTurnWhite01": {
+      "name": "AirflagLiftoffTurnWhite01",
+      "parts": [
+        {
+          "id": "8fdfe5e2-0842-4bdf-972d-8d1c879c7a3e",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.05,
+            2.5,
+            0.05
+          ],
+          "pos": [
+            0,
+            1.25,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "908c4ec2-64ba-4712-be95-b0acdda16942",
+          "type": "rightTriPrism",
+          "color": "#bdbdbd",
+          "scale": [
+            0.5,
+            2,
+            0.02
+          ],
+          "pos": [
+            -0.2777535062624299,
+            1.4800000000000009,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            180
+          ]
+        }
+      ],
+      "scalable": false
+    },
+    "AirFlagv01Slalom01": {
+      "name": "AirFlagv01Slalom01",
+      "parts": [
+        {
+          "id": "8fdfe5e2-0842-4bdf-972d-8d1c879c7a3e",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.05,
+            2.5,
+            0.05
+          ],
+          "pos": [
+            0,
+            1.25,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "908c4ec2-64ba-4712-be95-b0acdda16942",
+          "type": "rightTriPrism",
+          "color": "#bdbdbd",
+          "scale": [
+            0.5,
+            2,
+            0.02
+          ],
+          "pos": [
+            -0.2777535062624299,
+            1.4800000000000009,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            180
+          ]
+        }
+      ],
+      "scalable": false
+    },
+    "AirFlagv01Turn": {
+      "name": "AirFlagv01Turn",
+      "parts": [
+        {
+          "id": "8fdfe5e2-0842-4bdf-972d-8d1c879c7a3e",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.05,
+            2.5,
+            0.05
+          ],
+          "pos": [
+            0,
+            1.25,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "908c4ec2-64ba-4712-be95-b0acdda16942",
+          "type": "rightTriPrism",
+          "color": "#bdbdbd",
+          "scale": [
+            0.5,
+            2,
+            0.02
+          ],
+          "pos": [
+            -0.2777535062624299,
+            1.4800000000000009,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            180
+          ]
+        }
+      ],
+      "scalable": false
+    },
+    "AirflagAustralianArmy01": {
+      "name": "AirflagAustralianArmy01",
+      "parts": [
+        {
+          "id": "8fdfe5e2-0842-4bdf-972d-8d1c879c7a3e",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.05,
+            2.5,
+            0.05
+          ],
+          "pos": [
+            0,
+            1.25,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "908c4ec2-64ba-4712-be95-b0acdda16942",
+          "type": "rightTriPrism",
+          "color": "#0b3c1e",
+          "scale": [
+            0.5,
+            2,
+            0.02
+          ],
+          "pos": [
+            -0.2777535062624299,
+            1.4800000000000009,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            180
+          ]
+        }
+      ],
+      "scalable": false
+    },
+    "AirflagLiftoffFinishDark01": {
+      "name": "AirflagLiftoffFinishDark01",
+      "parts": [
+        {
+          "id": "8fdfe5e2-0842-4bdf-972d-8d1c879c7a3e",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.05,
+            2.5,
+            0.05
+          ],
+          "pos": [
+            0,
+            1.25,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "908c4ec2-64ba-4712-be95-b0acdda16942",
+          "type": "rightTriPrism",
+          "color": "#bdbdbd",
+          "scale": [
+            0.5,
+            2,
+            0.02
+          ],
+          "pos": [
+            -0.2777535062624299,
+            1.4800000000000009,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            180
+          ]
+        }
+      ],
+      "scalable": false
+    },
+    "AirflagLiftoffFinishWhite01": {
+      "name": "AirflagLiftoffFinishWhite01",
+      "parts": [
+        {
+          "id": "8fdfe5e2-0842-4bdf-972d-8d1c879c7a3e",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.05,
+            2.5,
+            0.05
+          ],
+          "pos": [
+            0,
+            1.25,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "908c4ec2-64ba-4712-be95-b0acdda16942",
+          "type": "rightTriPrism",
+          "color": "#bdbdbd",
+          "scale": [
+            0.5,
+            2,
+            0.02
+          ],
+          "pos": [
+            -0.2777535062624299,
+            1.4800000000000009,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            180
+          ]
+        }
+      ],
+      "scalable": false
+    },
+    "AirFlagv01StartFinish01": {
+      "name": "AirFlagv01StartFinish01",
+      "parts": [
+        {
+          "id": "8fdfe5e2-0842-4bdf-972d-8d1c879c7a3e",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.05,
+            2.5,
+            0.05
+          ],
+          "pos": [
+            0,
+            1.25,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "908c4ec2-64ba-4712-be95-b0acdda16942",
+          "type": "rightTriPrism",
+          "color": "#bdbdbd",
+          "scale": [
+            0.5,
+            2,
+            0.02
+          ],
+          "pos": [
+            -0.2777535062624299,
+            1.4800000000000009,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            180
+          ]
+        }
+      ],
+      "scalable": false
+    },
+    "AirflagFormulaFPV01": {
+      "name": "AirflagFormulaFPV01",
+      "parts": [
+        {
+          "id": "8fdfe5e2-0842-4bdf-972d-8d1c879c7a3e",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.05,
+            2.5,
+            0.05
+          ],
+          "pos": [
+            0,
+            1.25,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "908c4ec2-64ba-4712-be95-b0acdda16942",
+          "type": "rightTriPrism",
+          "color": "#bdbdbd",
+          "scale": [
+            0.5,
+            2,
+            0.02
+          ],
+          "pos": [
+            -0.2777535062624299,
+            1.4800000000000009,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            180
+          ]
+        }
+      ],
+      "scalable": false
+    },
+    "GemfanFlag360cm01": {
+      "name": "GemfanFlag360cm01",
+      "parts": [
+        {
+          "id": "8fdfe5e2-0842-4bdf-972d-8d1c879c7a3e",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.05,
+            3.6,
+            0.05
+          ],
+          "pos": [
+            0,
+            1.8,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "908c4ec2-64ba-4712-be95-b0acdda16942",
+          "type": "rightTriPrism",
+          "color": "#bdbdbd",
+          "scale": [
+            0.65,
+            3.66,
+            0.02
+          ],
+          "pos": [
+            -0.32921770190282373,
+            1.8200000000000012,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            180
+          ]
+        }
+      ],
+      "scalable": false
+    },
+    "LightConeBlue01": {
+      "name": "LightConeBlue01",
+      "parts": [
+        {
+          "id": "a487db77-74b3-447a-af13-3050650f9e06",
+          "type": "cylinder",
+          "color": "#383838",
+          "scale": [
+            0.7,
+            0.4,
+            0.7
+          ],
+          "pos": [
+            0,
+            0.2,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "5472767d-58b9-44dd-aa15-63d2283fa75d",
+          "type": "cone",
+          "color": "#2e7eff",
+          "scale": [
+            0.7,
+            2.5,
+            0.7
+          ],
+          "pos": [
+            0,
+            1.64,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "scalable": false
+    },
+    "LightConeGreen01": {
+      "name": "LightConeGreen01",
+      "parts": [
+        {
+          "id": "a487db77-74b3-447a-af13-3050650f9e06",
+          "type": "cylinder",
+          "color": "#383838",
+          "scale": [
+            0.7,
+            0.4,
+            0.7
+          ],
+          "pos": [
+            0,
+            0.2,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "5472767d-58b9-44dd-aa15-63d2283fa75d",
+          "type": "cone",
+          "color": "#2eff62",
+          "scale": [
+            0.7,
+            2.5,
+            0.7
+          ],
+          "pos": [
+            0,
+            1.64,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "scalable": false
+    },
+    "LightConePurple01": {
+      "name": "LightConePurple01",
+      "parts": [
+        {
+          "id": "a487db77-74b3-447a-af13-3050650f9e06",
+          "type": "cylinder",
+          "color": "#383838",
+          "scale": [
+            0.7,
+            0.4,
+            0.7
+          ],
+          "pos": [
+            0,
+            0.2,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "5472767d-58b9-44dd-aa15-63d2283fa75d",
+          "type": "cone",
+          "color": "#ff2ee3",
+          "scale": [
+            0.7,
+            2.5,
+            0.7
+          ],
+          "pos": [
+            0,
+            1.64,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "scalable": false
+    },
+    "LightConeRed01": {
+      "name": "LightConeRed01",
+      "parts": [
+        {
+          "id": "a487db77-74b3-447a-af13-3050650f9e06",
+          "type": "cylinder",
+          "color": "#383838",
+          "scale": [
+            0.7,
+            0.4,
+            0.7
+          ],
+          "pos": [
+            0,
+            0.2,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "5472767d-58b9-44dd-aa15-63d2283fa75d",
+          "type": "cone",
+          "color": "#ff2e2e",
+          "scale": [
+            0.7,
+            2.5,
+            0.7
+          ],
+          "pos": [
+            0,
+            1.64,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "scalable": false
+    },
+    "LightConeYellow01": {
+      "name": "LightConeYellow01",
+      "parts": [
+        {
+          "id": "a487db77-74b3-447a-af13-3050650f9e06",
+          "type": "cylinder",
+          "color": "#383838",
+          "scale": [
+            0.7,
+            0.4,
+            0.7
+          ],
+          "pos": [
+            0,
+            0.2,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "5472767d-58b9-44dd-aa15-63d2283fa75d",
+          "type": "cone",
+          "color": "#ffed24",
+          "scale": [
+            0.7,
+            2.5,
+            0.7
+          ],
+          "pos": [
+            0,
+            1.64,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "scalable": false
+    },
+    "DCLLightCone01": {
+      "name": "DCLLightCone01",
+      "parts": [
+        {
+          "id": "a487db77-74b3-447a-af13-3050650f9e06",
+          "type": "cylinder",
+          "color": "#383838",
+          "scale": [
+            0.7,
+            0.4,
+            0.7
+          ],
+          "pos": [
+            0,
+            0.2,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "5472767d-58b9-44dd-aa15-63d2283fa75d",
+          "type": "cone",
+          "color": "#fcff2e",
+          "scale": [
+            0.7,
+            2.5,
+            0.7
+          ],
+          "pos": [
+            0,
+            1.64,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "scalable": false
+    },
+    "AirPylonLuGusStudios01": {
+      "name": "AirPylonLuGusStudios01",
+      "parts": [
+        {
+          "id": "32b3f7da-c00f-45fa-add5-8ab72f8cc688",
+          "type": "cone",
+          "color": "#60fe0b",
+          "scale": [
+            0.4,
+            1.6,
+            0.4
+          ],
+          "pos": [
+            0,
+            0.8,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "f3addfcc-e1f5-4472-b136-06ac651ec3c8",
+          "type": "cylinder",
+          "color": "#ffffff",
+          "scale": [
+            0.4,
+            0.4,
+            0.4
+          ],
+          "pos": [
+            0,
+            0.2,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "f3addfcc-e1f5-4472-b136-06ac651ec3c8",
+          "type": "cylinder",
+          "color": "#ffffff",
+          "scale": [
+            0.1,
+            0.4,
+            0.1
+          ],
+          "pos": [
+            0,
+            1.4,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "scalable": false
+    },
+    "DiscConeBlue01": {
+      "name": "DiscConeBlue01",
+      "parts": [
+        {
+          "id": "c5ce0fc2-6ddf-4048-a3e6-a0f24f9d6b99",
+          "type": "cone",
+          "color": "#8af1ff",
+          "scale": [
+            0.2,
+            0.1,
+            0.2
+          ],
+          "pos": [
+            0,
+            0.05,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "scalable": false
+    },
+    "DiscConeGreen01": {
+      "name": "DiscConeGreen01",
+      "parts": [
+        {
+          "id": "c5ce0fc2-6ddf-4048-a3e6-a0f24f9d6b99",
+          "type": "cone",
+          "color": "#80ff95",
+          "scale": [
+            0.2,
+            0.1,
+            0.2
+          ],
+          "pos": [
+            0,
+            0.05,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "scalable": false
+    },
+    "DiscConeMagenta01": {
+      "name": "DiscConeMagenta01",
+      "parts": [
+        {
+          "id": "c5ce0fc2-6ddf-4048-a3e6-a0f24f9d6b99",
+          "type": "cone",
+          "color": "#fe62e9",
+          "scale": [
+            0.2,
+            0.1,
+            0.2
+          ],
+          "pos": [
+            0,
+            0.05,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "scalable": false
+    },
+    "DiscConeOrange01": {
+      "name": "DiscConeOrange01",
+      "parts": [
+        {
+          "id": "c5ce0fc2-6ddf-4048-a3e6-a0f24f9d6b99",
+          "type": "cone",
+          "color": "#ffae52",
+          "scale": [
+            0.2,
+            0.1,
+            0.2
+          ],
+          "pos": [
+            0,
+            0.05,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "scalable": false
+    },
+    "DiscConeRed01": {
+      "name": "DiscConeRed01",
+      "parts": [
+        {
+          "id": "c5ce0fc2-6ddf-4048-a3e6-a0f24f9d6b99",
+          "type": "cone",
+          "color": "#fe5858",
+          "scale": [
+            0.2,
+            0.1,
+            0.2
+          ],
+          "pos": [
+            0,
+            0.05,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "scalable": false
+    },
+    "DiscConeYellow01": {
+      "name": "DiscConeYellow01",
+      "parts": [
+        {
+          "id": "c5ce0fc2-6ddf-4048-a3e6-a0f24f9d6b99",
+          "type": "cone",
+          "color": "#f0ff24",
+          "scale": [
+            0.2,
+            0.1,
+            0.2
+          ],
+          "pos": [
+            0,
+            0.05,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "scalable": false
+    },
+    "DiscConeGITD01": {
+      "name": "DiscConeGITD01",
+      "parts": [
+        {
+          "id": "c5ce0fc2-6ddf-4048-a3e6-a0f24f9d6b99",
+          "type": "cone",
+          "color": "#8affd2",
+          "scale": [
+            0.2,
+            0.1,
+            0.2
+          ],
+          "pos": [
+            0,
+            0.05,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "scalable": false
+    },
+    "LEDBall01Blue": {
+      "name": "LEDBall01Blue",
+      "parts": [
+        {
+          "id": "b1aee348-eb69-4bb7-b393-7fe08bad12f0",
+          "type": "sphere",
+          "color": "#86f6fe",
+          "scale": [
+            0.3,
+            0.3,
+            0.3
+          ],
+          "pos": [
+            0,
+            0.15,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "scalable": false
+    },
+    "LEDBall01Green": {
+      "name": "LEDBall01Green",
+      "parts": [
+        {
+          "id": "b1aee348-eb69-4bb7-b393-7fe08bad12f0",
+          "type": "sphere",
+          "color": "#86fe8e",
+          "scale": [
+            0.3,
+            0.3,
+            0.3
+          ],
+          "pos": [
+            0,
+            0.15,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "scalable": false
+    },
+    "LEDBall01Purple": {
+      "name": "LEDBall01Purple",
+      "parts": [
+        {
+          "id": "b1aee348-eb69-4bb7-b393-7fe08bad12f0",
+          "type": "sphere",
+          "color": "#fe86f4",
+          "scale": [
+            0.3,
+            0.3,
+            0.3
+          ],
+          "pos": [
+            0,
+            0.15,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "scalable": false
+    },
+    "LEDBall01Red": {
+      "name": "LEDBall01Red",
+      "parts": [
+        {
+          "id": "b1aee348-eb69-4bb7-b393-7fe08bad12f0",
+          "type": "sphere",
+          "color": "#fe8686",
+          "scale": [
+            0.3,
+            0.3,
+            0.3
+          ],
+          "pos": [
+            0,
+            0.15,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "scalable": false
+    },
+    "LEDCube01Blue": {
+      "name": "LEDCube01Blue",
+      "parts": [
+        {
+          "id": "2cb055a8-9030-45fc-af74-dff1e1b6eb35",
+          "type": "box",
+          "color": "#8accff",
+          "scale": [
+            0.3,
+            0.3,
+            0.3
+          ],
+          "pos": [
+            0,
+            0.15,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "scalable": false
+    },
+    "LEDCube01Green": {
+      "name": "LEDCube01Green",
+      "parts": [
+        {
+          "id": "2cb055a8-9030-45fc-af74-dff1e1b6eb35",
+          "type": "box",
+          "color": "#9effae",
+          "scale": [
+            0.3,
+            0.3,
+            0.3
+          ],
+          "pos": [
+            0,
+            0.15,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "scalable": false
+    },
+    "LEDCube01Purple": {
+      "name": "LEDCube01Purple",
+      "parts": [
+        {
+          "id": "2cb055a8-9030-45fc-af74-dff1e1b6eb35",
+          "type": "box",
+          "color": "#fda4fe",
+          "scale": [
+            0.3,
+            0.3,
+            0.3
+          ],
+          "pos": [
+            0,
+            0.15,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "scalable": false
+    },
+    "LEDCube01Red": {
+      "name": "LEDCube01Red",
+      "parts": [
+        {
+          "id": "2cb055a8-9030-45fc-af74-dff1e1b6eb35",
+          "type": "box",
+          "color": "#ff9494",
+          "scale": [
+            0.3,
+            0.3,
+            0.3
+          ],
+          "pos": [
+            0,
+            0.15,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "scalable": false
+    },
+    "LedFlag01": {
+      "name": "LedFlag01",
+      "parts": [
+        {
+          "id": "d9df1107-be7b-45f7-b8f2-3484155e6504",
+          "type": "box",
+          "color": "#bdbdbd",
+          "scale": [
+            1,
+            0.005,
+            0.5
+          ],
+          "pos": [
+            0,
+            0.0025,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "b29a7c9f-8cfa-4033-bee1-bbc933c0de76",
+          "type": "rightTriPrism",
+          "color": "#e4fbf6",
+          "scale": [
+            0.2,
+            0.2,
+            0.001
+          ],
+          "pos": [
+            0.003322679228916492,
+            0.007,
+            -0.005455881950099162
+          ],
+          "rotRYP": [
+            90,
+            0,
+            -45
+          ]
+        }
+      ],
+      "scalable": false
+    },
+    "LedFlagBlue01": {
+      "name": "LedFlagBlue01",
+      "parts": [
+        {
+          "id": "d9df1107-be7b-45f7-b8f2-3484155e6504",
+          "type": "box",
+          "color": "#bdbdbd",
+          "scale": [
+            1,
+            0.005,
+            0.5
+          ],
+          "pos": [
+            0,
+            0.0025,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "b29a7c9f-8cfa-4033-bee1-bbc933c0de76",
+          "type": "rightTriPrism",
+          "color": "#52ffdc",
+          "scale": [
+            0.2,
+            0.2,
+            0.001
+          ],
+          "pos": [
+            0.003322679228916492,
+            0.007,
+            -0.005455881950099162
+          ],
+          "rotRYP": [
+            90,
+            0,
+            -45
+          ]
+        }
+      ],
+      "scalable": false
+    },
+    "LedFlagGreen01": {
+      "name": "LedFlagGreen01",
+      "parts": [
+        {
+          "id": "d9df1107-be7b-45f7-b8f2-3484155e6504",
+          "type": "box",
+          "color": "#bdbdbd",
+          "scale": [
+            1,
+            0.005,
+            0.5
+          ],
+          "pos": [
+            0,
+            0.0025,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "b29a7c9f-8cfa-4033-bee1-bbc933c0de76",
+          "type": "rightTriPrism",
+          "color": "#18ff14",
+          "scale": [
+            0.2,
+            0.2,
+            0.001
+          ],
+          "pos": [
+            0.003322679228916492,
+            0.007,
+            -0.005455881950099162
+          ],
+          "rotRYP": [
+            90,
+            0,
+            -45
+          ]
+        }
+      ],
+      "scalable": false
+    },
+    "NexxbladesPylon300cm01": {
+      "name": "NexxbladesPylon300cm01",
+      "parts": [
+        {
+          "id": "0cdfd29a-9445-439a-925d-526d142c8408",
+          "type": "cone",
+          "color": "#b3ffc6",
+          "scale": [
+            0.5,
+            3,
+            0.5
+          ],
+          "pos": [
+            0,
+            1.5,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "4233e051-6998-4906-b5ca-581310627c75",
+          "type": "cylinder",
+          "color": "#b4feca",
+          "scale": [
+            0.1,
+            0.6,
+            0.1
+          ],
+          "pos": [
+            0,
+            2.7,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "scalable": false
+    },
+    "TlTrackLight01": {
+      "name": "TlTrackLight01",
+      "parts": [
+        {
+          "id": "ee916d62-f88e-43c8-8319-0c6b33ade8c7",
+          "type": "box",
+          "color": "#9aa7b1",
+          "scale": [
+            0.14,
+            0.03,
+            1.5
+          ],
+          "pos": [
+            0,
+            0.015,
+            0
+          ],
+          "rotRYP": [
+            0,
+            90,
+            0
+          ]
+        },
+        {
+          "id": "ee916d62-f88e-43c8-8319-0c6b33ade8c7",
+          "type": "box",
+          "color": "#ffffff",
+          "scale": [
+            0.13,
+            0.08,
+            1.49
+          ],
+          "pos": [
+            0,
+            0.06499999999999999,
+            0
+          ],
+          "rotRYP": [
+            0,
+            90,
+            0
+          ]
+        }
+      ],
+      "scalable": false
+    },
+    "TrafficCone01": {
+      "name": "TrafficCone01",
+      "parts": [
+        {
+          "id": "e5ff6519-2583-4a6d-9b5e-76daf861c475",
+          "type": "cone",
+          "color": "#fa5700",
+          "scale": [
+            0.25,
+            0.5,
+            0.25
+          ],
+          "pos": [
+            0,
+            0.25,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "fda064f7-2598-477b-ac0c-bef4d8aaf947",
+          "type": "box",
+          "color": "#ff630f",
+          "scale": [
+            0.27,
+            0.05,
+            0.27
+          ],
+          "pos": [
+            0,
+            0.025,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
           ]
         }
       ],
