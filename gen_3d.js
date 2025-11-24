@@ -1,7 +1,3 @@
-// *** PATCHED by ChatGPT on 2025-11-11 ***
-// Original filename: gen_3d.js
-// Summary: remove reliance on window.currentGP/currentGRP; use active name + selection Sets only.
-
 // generator_3d.js
 import './gen_state.js';
 
@@ -3075,3 +3071,11 @@ window.addEventListener("keydown", (e) =>
     console.debug("[ESC] nyomkodjuk");
   }
 });
+
+
+
+
+
+
+
+

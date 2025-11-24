@@ -210,6 +210,10 @@ const ui =
   snapY:      $("#snapY"),
   snapZ:      $("#snapZ"),
 
+  saveJSONGRP: $("#saveJSONGRP"),
+  breakGRP: $("#breakGRP"),
+  makeGRP: $("#makeGRP"),
+
 };
 window.ui = ui;        // ez is globális
 

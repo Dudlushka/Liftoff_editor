@@ -6,6 +6,8 @@ import './gen_CopyPaste.js';
 import './gen_files.js';
 import './gen_ui.js'
 import './gen_undo.js'
+import './gen_groups.js'
+
 
 
 import {snapshot}from './gen_undo.js';

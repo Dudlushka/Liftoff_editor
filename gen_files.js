@@ -476,6 +476,21 @@ function saveJSON()
   downloadText("library.json", JSON.stringify(data, null, 2));
 }
 
+
+
+function saveJSON_GRPonly()
+{
+  const data = {
+    //gamePrimitives: store.gamePrimitives,
+    groups: store.groups,
+  };
+  downloadText("GRPlibrary.json", JSON.stringify(data, null, 2));
+}
+ui.saveJSONGRP.addEventListener("click", saveJSON_GRPonly);
+
+
+
+
 function applyLibraryDataObject(data)
 {
   if (data.gamePrimitives) store.gamePrimitives = data.gamePrimitives;
