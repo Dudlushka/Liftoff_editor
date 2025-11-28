@@ -89,6 +89,7 @@ const ui =
   grpList: $("#grpList"),
   grpAddType: $("#grpAddType"),
   grpAddSource: $("#grpAddSource"),
+
   grpAdd: $("#grpAdd"),
   grpRemove: $("#grpRemove"),
   grpItemList: $("#grpItemList"),
@@ -107,6 +108,7 @@ const ui =
   scnPane: $("#scnPane"),
   scnAddType: $("#scnAddType"),
   scnAddSource: $("#scnAddSource"),
+    scnAddSourceTree: $("#scnAddSourceTree"),
   scnAdd: $("#scnAdd"),
   scnRemove: $("#scnRemove"),
   scnList: $("#scnList"),
@@ -213,6 +215,22 @@ const ui =
   saveJSONGRP: $("#saveJSONGRP"),
   breakGRP: $("#breakGRP"),
   makeGRP: $("#makeGRP"),
+
+    // GP meta
+  gpMainGroup: $("#gpMainGroup"),
+  gpSubGroup:  $("#gpSubGroup"),
+  gpType:      $("#gpType"),
+  gpBtnColor:  $("#gpBtnColor"),
+  gpBtnNr:     $("#gpBtnNr"),
+
+  // Group meta
+  grpMainGroup: $("#grpMainGroup"),
+  grpSubGroup:  $("#grpSubGroup"),
+  grpType:      $("#grpType"),
+  grpBtnColor:  $("#grpBtnColor"),
+  grpBtnNr:     $("#grpBtnNr"),
+
+  gpVariantIconBar: $("#gpVariantIconBar"),
 
 };
 window.ui = ui;        // ez is globális

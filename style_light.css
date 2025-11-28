@@ -361,3 +361,58 @@ ul.list::-webkit-scrollbar-track {
   font-size: 11px;
   line-height: 1;
 }
+
+
+#gpList li.sel {
+    background: #444;
+    color: #fff;
+}
+#grpList li.sel {
+    background: #444;
+    color: #fff;
+}
+#scnAddSourceTree li.sel {
+    background: #4b9ee2;
+    color: #131313;
+}
+
+/* #gpList {
+  max-height: none;
+  overflow-y: visible; // ha a .list-ben auto volt, és nem akarsz scrollt 
+} 
+*/
+
+
+.variant-icon-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-bottom: 4px;
+}
+
+.variant-icon {
+  min-width: 20px;
+  padding: 2px 4px;
+  border-radius: 4px;
+  border: 1px solid #444;
+  font-size: 12px;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+#avatarCorner {
+  position: fixed;          /* mindig a sarokban marad */
+  top: 8px;                 /* állíthatod: pl. bottom: 8px; is lehetne */
+  right: 8px;
+  width: var(--avatar-size, 64px);
+  height: var(--avatar-size, 64px);
+  z-index: 1000;            /* hogy minden fölött legyen */
+  pointer-events: none;     /* ne zavarja a kattintást az editorban */
+}
+
+#avatarCorner img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;      /* ne torzuljon a kép */
+  border-radius: 50%;       /* ha kör alakút szeretnél, különben kiveheted */
+}

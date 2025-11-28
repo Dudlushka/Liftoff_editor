@@ -1176,7 +1176,7 @@ export function applyDeltaToSelection({ dpos = [0,0,0], drot = [0,0,0], dscale =
 
 
 
-
+/*
 function refreshGPList()
 {
   const activeName = ui?.gpName?.value || ""; // „melyik GP van épp betöltve”
@@ -1209,6 +1209,186 @@ function refreshGPList()
 
   refreshGrpSourceOptions?.();
   refreshScnSourceOptions?.();
+}*/
+
+// opcionális helper – névre szűrés (ha van gpFilter input)
+function nameMatchesGPFilter(name)
+{
+    const f = (ui.gpFilter?.value || "").trim().toLowerCase();
+    if (!f) return true;
+    return name.toLowerCase().includes(f);
+}
+
+export function refreshGPList()
+{
+    const root = ui.gpList;
+    if (!root) return;
+
+    const activeName = ui?.gpName?.value || ""; // épp betöltött GP neve
+    const all = store.gamePrimitives || {};
+    const names = Object.keys(all).sort();
+
+    root.innerHTML = "";
+
+    // main → sub → type → [gpName...]
+    const tree = new Map();
+    const ungrouped = [];
+
+    for (const name of names)
+    {
+        // névre szűrés ugyanúgy, mint eddig
+        if (!nameMatchesGPFilter(name))
+        {
+            continue;
+        }
+
+        const gp   = all[name];
+        const meta = gp?.meta || {};
+
+        const hasAnyMeta =
+            (meta.mainGroup && meta.mainGroup.trim() !== "") ||
+            (meta.subGroup  && meta.subGroup.trim()  !== "") ||
+            (meta.type      && meta.type.trim()      !== "") ||
+            (meta.btnColor  && meta.btnColor.trim()  !== "") ||
+            (meta.btnNr != null);
+
+        if (!hasAnyMeta)
+        {
+            // meta nélkül → külső „ömlesztett” mappa
+            ungrouped.push(name);
+            continue;
+        }
+
+        const main = (meta.mainGroup && meta.mainGroup.trim()) || "(no main)";
+        const sub  = (meta.subGroup  && meta.subGroup.trim())  || "(no sub)";
+        const type = (meta.type      && meta.type.trim())      || "(no type)";
+
+        if (!tree.has(main)) tree.set(main, new Map());
+        const subMap = tree.get(main);
+        if (!subMap.has(sub)) subMap.set(sub, new Map());
+        const typeMap = subMap.get(sub);
+        if (!typeMap.has(type)) typeMap.set(type, []);
+        typeMap.get(type).push(name);
+    }
+
+    // ha semmi nincs, hagyjuk üresen
+    if (tree.size === 0 && ungrouped.length === 0)
+    {
+        refreshGrpSourceOptions?.();
+        refreshScnSourceOptions?.();
+        return;
+    }
+
+    const topUl = document.createElement("ul");
+    root.appendChild(topUl);
+
+    // helper: egy konkrét GP névhez li elemet készít, kattintással
+    function makeGPLeafLi(gpName)
+    {
+        const li = document.createElement("li");
+        li.textContent = gpName;
+
+        // kijelölés jelzése (ugyanúgy, mint a régi verzióban)
+        if (gpName === activeName)
+        {
+            li.classList.add("sel");
+        }
+
+        li.onclick = (ev) =>
+        {
+            if (ev.ctrlKey) return;
+            ev.stopPropagation(); // ne csukogassa a <details>-t
+
+            loadGP(gpName);
+
+            gpSelSet.clear();
+            onSelectionChanged(); // bounds + listák + inspektor frissítése
+        };
+
+        return li;
+    }
+
+    // Fő fa: main → sub → type → gpName
+    for (const [main, subMap] of tree.entries())
+    {
+        const liMain   = document.createElement("li");
+        const detMain  = document.createElement("details");
+        detMain.open   = true;
+        const sumMain  = document.createElement("summary");
+        sumMain.textContent = main;
+        detMain.appendChild(sumMain);
+
+        const ulSub = document.createElement("ul");
+        detMain.appendChild(ulSub);
+
+        for (const [sub, typeMap] of subMap.entries())
+        {
+            const liSub   = document.createElement("li");
+            const detSub  = document.createElement("details");
+            detSub.open   = true;
+            const sumSub  = document.createElement("summary");
+            sumSub.textContent = sub;
+            detSub.appendChild(sumSub);
+
+            const ulType = document.createElement("ul");
+            detSub.appendChild(ulType);
+
+            for (const [type, list] of typeMap.entries())
+            {
+                const liType   = document.createElement("li");
+                const detType  = document.createElement("details");
+                detType.open   = true;
+                const sumType  = document.createElement("summary");
+                sumType.textContent = type;
+                detType.appendChild(sumType);
+
+                const ulNames = document.createElement("ul");
+                detType.appendChild(ulNames);
+
+                list.forEach((gpName) =>
+                {
+                    const liName = makeGPLeafLi(gpName);
+                    ulNames.appendChild(liName);
+                });
+
+                ulType.appendChild(liType);
+                liType.appendChild(detType);
+            }
+
+            ulSub.appendChild(liSub);
+            liSub.appendChild(detSub);
+        }
+
+        topUl.appendChild(liMain);
+        liMain.appendChild(detMain);
+    }
+
+    // meta nélküli GP-k külön "(no meta)" mappában
+    if (ungrouped.length > 0)
+    {
+        const liUng   = document.createElement("li");
+        const detUng  = document.createElement("details");
+        detUng.open   = true;
+        const sumUng  = document.createElement("summary");
+        sumUng.textContent = "(no meta)";
+        detUng.appendChild(sumUng);
+
+        const ulUng = document.createElement("ul");
+        detUng.appendChild(ulUng);
+
+        ungrouped.forEach((gpName) =>
+        {
+            const liName = makeGPLeafLi(gpName);
+            ulUng.appendChild(liName);
+        });
+
+        topUl.appendChild(liUng);
+        liUng.appendChild(detUng);
+    }
+
+    // a forrás-selectek továbbra is frissüljenek
+    refreshGrpSourceOptions?.();
+    refreshScnSourceOptions?.();
 }
 
 
@@ -1399,6 +1579,10 @@ export function fillPartEditors(focus = true)
   if (focus) refreshPartList?.();
 }
 
+
+
+
+
 function loadGP(name)
 {
   console.log("Load GP");
@@ -1432,7 +1616,9 @@ function loadGP(name)
   // >>> Itt frissítjük a checkboxot a GP szerint <<<
     // Get GP object by name
   const gp = store.gamePrimitives[n];
+  
   if (ui?.gpScalable){  ui.gpScalable.checked = !!gp.scalable; }
+  writeMetaToGPUI(gp.meta)
 
   // Kijelölés törlése és frissítések
   gpSelSet.clear();
@@ -1490,6 +1676,7 @@ ui.gpSave.addEventListener("click", () =>
 
   // Update scalable flag from UI
   gp.scalable = !!ui.gpScalable?.checked;
+  gp.meta = readMetaFromGPUI();
 
   // 2) If rename happens
   if (newNameInput !== oldName)
@@ -1644,7 +1831,7 @@ ui.applyPart.addEventListener("click", applyPartNow);
 
 // ===== Group szerkesztő =====
 
-
+/*
 function refreshGrpList()
 {
   ui.grpList.innerHTML = "";
@@ -1664,25 +1851,190 @@ function refreshGrpList()
     });
   refreshGrpSourceOptions();
   refreshScnSourceOptions();
+}*/
+
+// opcionális helper – névre szűrés (ha van grpFilter input)
+function nameMatchesGRPFilter(name)
+{
+    const f = (ui.grpFilter?.value || "").trim().toLowerCase();
+    if (!f) return true;
+    return name.toLowerCase().includes(f);
 }
 
-/*
-function refreshGrpSourceOptions()
+export function refreshGrpList()
 {
-  ui.grpAddSource.innerHTML = "";
-  const src =
-    ui.grpAddType.value === "gp"
-      ? Object.keys(store.gamePrimitives)
-      : Object.keys(store.groups);
-  src.forEach((n) =>
-  {
-    const o = document.createElement("option");
-    o.value = n;
-    o.textContent = n;
-    ui.grpAddSource.appendChild(o);
-  });
+    const root = ui.grpList;
+    if (!root) return;
+
+    const activeName = ui?.grpName?.value || ""; // épp betöltött GRP neve
+    const all   = store.groups || {};
+    const names = Object.keys(all).sort();
+
+    root.innerHTML = "";
+
+    // main → sub → type → [grpName...]
+    const tree = new Map();
+    const ungrouped = [];
+
+    for (const name of names)
+    {
+        // névre szűrés ugyanúgy, mint eddig
+        if (!nameMatchesGRPFilter(name))
+        {
+            continue;
+        }
+
+        const grp  = all[name];
+        const meta = grp?.meta || {};
+
+        const hasAnyMeta =
+            (meta.mainGroup && meta.mainGroup.trim() !== "") ||
+            (meta.subGroup  && meta.subGroup.trim()  !== "") ||
+            (meta.type      && meta.type.trim()      !== "") ||
+            (meta.btnColor  && meta.btnColor.trim()  !== "") ||
+            (meta.btnNr != null);
+
+        if (!hasAnyMeta)
+        {
+            // meta nélkül → külső „ömlesztett” mappa
+            ungrouped.push(name);
+            continue;
+        }
+
+        const main = (meta.mainGroup && meta.mainGroup.trim()) || "(no main)";
+        const sub  = (meta.subGroup  && meta.subGroup.trim())  || "(no sub)";
+        const type = (meta.type      && meta.type.trim())      || "(no type)";
+
+        if (!tree.has(main)) tree.set(main, new Map());
+        const subMap = tree.get(main);
+        if (!subMap.has(sub)) subMap.set(sub, new Map());
+        const typeMap = subMap.get(sub);
+        if (!typeMap.has(type)) typeMap.set(type, []);
+        typeMap.get(type).push(name);
+    }
+
+    // ha semmi nincs, hagyjuk üresen
+    if (tree.size === 0 && ungrouped.length === 0)
+    {
+        refreshGrpSourceOptions?.();
+        refreshScnSourceOptions?.();
+        return;
+    }
+
+    const topUl = document.createElement("ul");
+    root.appendChild(topUl);
+
+    // helper: egy konkrét GRP névhez li elemet készít, kattintással
+    function makeGRPLeafLi(grpName)
+    {
+        const li = document.createElement("li");
+        li.textContent = grpName;
+
+        // kijelölés jelzése (ugyanúgy, mint a régi verzióban)
+        if (grpName === activeName)
+        {
+            li.classList.add("sel");
+        }
+
+        li.onclick = (ev) =>
+        {
+            if (ev.ctrlKey) return;
+            ev.stopPropagation(); // ne csukogassa a <details>-t
+
+            loadGRP(grpName);
+
+            grpSelSet.clear();
+            onSelectionChanged(); // bounds + listák + inspektor frissítése
+        };
+
+        return li;
+    }
+
+    // Fő fa: main → sub → type → grpName
+    for (const [main, subMap] of tree.entries())
+    {
+        const liMain  = document.createElement("li");
+        const detMain = document.createElement("details");
+        detMain.open  = true;
+        const sumMain = document.createElement("summary");
+        sumMain.textContent = main;
+        detMain.appendChild(sumMain);
+
+        const ulSub = document.createElement("ul");
+        detMain.appendChild(ulSub);
+
+        for (const [sub, typeMap] of subMap.entries())
+        {
+            const liSub  = document.createElement("li");
+            const detSub = document.createElement("details");
+            detSub.open  = true;
+            const sumSub = document.createElement("summary");
+            sumSub.textContent = sub;
+            detSub.appendChild(sumSub);
+
+            const ulType = document.createElement("ul");
+            detSub.appendChild(ulType);
+
+            for (const [type, list] of typeMap.entries())
+            {
+                const liType  = document.createElement("li");
+                const detType = document.createElement("details");
+                detType.open  = true;
+                const sumType = document.createElement("summary");
+                sumType.textContent = type;
+                detType.appendChild(sumType);
+
+                const ulNames = document.createElement("ul");
+                detType.appendChild(ulNames);
+
+                list.forEach((grpName) =>
+                {
+                    const liName = makeGRPLeafLi(grpName);
+                    ulNames.appendChild(liName);
+                });
+
+                ulType.appendChild(liType);
+                liType.appendChild(detType);
+            }
+
+            ulSub.appendChild(liSub);
+            liSub.appendChild(detSub);
+        }
+
+        topUl.appendChild(liMain);
+        liMain.appendChild(detMain);
+    }
+
+    // meta nélküli GRP-k külön "(no meta)" mappában
+    if (ungrouped.length > 0)
+    {
+        const liUng  = document.createElement("li");
+        const detUng = document.createElement("details");
+        detUng.open  = true;
+        const sumUng = document.createElement("summary");
+        sumUng.textContent = "(no meta)";
+        detUng.appendChild(sumUng);
+
+        const ulUng = document.createElement("ul");
+        detUng.appendChild(ulUng);
+
+        ungrouped.forEach((grpName) =>
+        {
+            const liName = makeGRPLeafLi(grpName);
+            ulUng.appendChild(liName);
+        });
+
+        topUl.appendChild(liUng);
+        liUng.appendChild(detUng);
+    }
+
+    // a forrás-selectek továbbra is frissüljenek
+    refreshGrpSourceOptions?.();
+    refreshScnSourceOptions?.();
 }
-*/
+
+
+
 function refreshGrpSourceOptions()
 {
   if (!ui.grpAddSource) return;
@@ -1721,6 +2073,9 @@ export function refreshGrpItemList()
 {
   ui.grpItemList.innerHTML = "";
   if (!getActiveGRP()) return;
+  
+  writeMetaToGRPUI(getActiveGRP().meta);
+  
   getActiveGRP().items.forEach((it, i) =>
   {
     const li = document.createElement("li");
@@ -1781,6 +2136,8 @@ export function loadGRP(name)
   store.activeGRPName = n;
   if (ui?.grpName) ui.grpName.value = n;
 
+
+
   grpSelSet.clear();
   refreshGrpItemList?.();
   refreshGrpList?.();
@@ -1837,6 +2194,8 @@ ui.grpSave.addEventListener("click", () =>
   } else {
     grp.name = oldName;
   }
+
+  grp.meta = readMetaFromGRPUI();
 
   refreshGrpList?.();
   snapshot?.();
@@ -2061,23 +2420,8 @@ ui.applyGrpItem.addEventListener("click", applyGrpNow);
 );
 
 // ===== Scene =====
-/*
-function refreshScnSourceOptions()
-{
-  ui.scnAddSource.innerHTML = "";
-  const src =
-    ui.scnAddType.value === "gp"
-      ? Object.keys(store.gamePrimitives)
-      : Object.keys(store.groups);
-  src.forEach((n) =>
-  {
-    const o = document.createElement("option");
-    o.value = n;
-    o.textContent = n;
-    ui.scnAddSource.appendChild(o);
-  });
-}*/
 
+/*
 function refreshScnSourceOptions()
 {
   if (!ui.scnAddSource) return;
@@ -2104,14 +2448,103 @@ function refreshScnSourceOptions()
     o.textContent = n;
     ui.scnAddSource.appendChild(o);
   });
+}*/
+
+
+export function refreshScnSourceOptions()
+{
+    if (!ui.scnAddSource || !ui.scnAddType)
+    {
+        return;
+    }
+
+    const typeSel   = ui.scnAddType.value; // "gp" / "grp" / "cl" / stb.
+    const sel       = ui.scnAddSource;
+    const prevValue = sel.value;
+
+    // 1) elérhető nevek összeállítása az AddType alapján
+    let names = [];
+
+    if (typeSel === "gp")
+    {
+        const dict = store.gamePrimitives || {};
+        names = Object.keys(dict);
+    }
+    else if (typeSel === "grp")
+    {
+        const dict = store.groups || {};
+        names = Object.keys(dict);
+    }
+    else if (typeSel === "cl")
+    {
+        // ha van control line / spline forrásod, azt ide tedd
+        const dict = store.controlLines || {};
+        names = Object.keys(dict);
+    }
+    else
+    {
+        names = [];
+    }
+
+    // 2) név szerinti szűrés scnFilterrel
+    names = names
+        .filter((name) => nameMatchesScnFilter(name))
+        .sort();
+
+    // 3) select feltöltése
+    sel.innerHTML = "";
+
+    const addOption = (val, text) =>
+    {
+        const o = document.createElement("option");
+        o.value = val;
+        o.textContent = text;
+        sel.appendChild(o);
+    };
+
+    addOption("", "(none)");
+
+    names.forEach((name) =>
+    {
+        addOption(name, name);
+    });
+
+    // 4) próbáljuk visszaállítani az előző értéket
+    if (prevValue && names.includes(prevValue))
+    {
+        sel.value = prevValue;
+    }
+    else
+    {
+        sel.value = "";
+    }
+
+    // 5) Tree view felépítése UGYANEZZEL a listával
+    refreshScnSourceTree(typeSel, names);
+    refreshVariantIconBar();
 }
 
+
+//..............
 ui.scnAddType.addEventListener("change", refreshScnSourceOptions);
 ui.scnFilter.addEventListener("input", refreshScnSourceOptions);
 
 
+ ui.scnAddSource.addEventListener("change", () =>
+    {
+
+        refreshScnSourceOptions();
+
+    });
 
 
+
+
+
+
+
+
+//---------------------------------------
 function refreshScnList()
 {
   ui.scnList.innerHTML = "";
@@ -2542,6 +2975,466 @@ window.refreshScnList           = refreshScnList;
 
 
 
+
+//-----------------------------------------------------------------
+// Meta Data control
+//-----------------------------------------------------------------
+
+function readMetaFromGPUI()
+{
+    const trimOrNull = (s) =>
+    {
+        const t = (s ?? "").trim();
+        return t === "" ? null : t;
+    };
+
+    const nr = ui.gpBtnNr?.value;
+    const btnNr = nr === "" ? null : Number(nr);
+
+    return {
+        mainGroup: trimOrNull(ui.gpMainGroup?.value),
+        subGroup:  trimOrNull(ui.gpSubGroup?.value),
+        type:      trimOrNull(ui.gpType?.value),
+        btnColor:  trimOrNull(ui.gpBtnColor?.value),
+        btnNr:     Number.isFinite(btnNr) ? btnNr : null,
+    };
+}
+
+
+/*
+function writeMetaToGPUI(meta)
+{
+    const m = meta || {};
+    ui.gpMainGroup.value = m.mainGroup ?? "";
+    ui.gpSubGroup.value  = m.subGroup  ?? "";
+    ui.gpType.value      = m.type      ?? "";
+    ui.gpBtnColor.value  = m.btnColor  ?? "";
+    ui.gpBtnNr.value     = m.btnNr ?? "";
+}*/
+
+function sanitizeColorForInput(c, fallback = "#000000")
+{
+    if (!c || typeof c !== "string")
+    {
+        return fallback;
+    }
+    const s = c.trim();
+    if (/^#[0-9a-fA-F]{6}$/.test(s))
+    {
+        return s;
+    }
+    return fallback;
+}
+
+function writeMetaToGPUI(meta)
+{
+    const m = meta || {};
+    ui.gpMainGroup.value = m.mainGroup ?? "";
+    ui.gpSubGroup.value  = m.subGroup  ?? "";
+    ui.gpType.value      = m.type      ?? "";
+
+    if (ui.gpBtnColor)
+    {
+        // ha type="color", mindig adjunk neki érvényes értéket
+        if (ui.gpBtnColor.type === "color")
+        {
+            ui.gpBtnColor.value = sanitizeColorForInput(m.btnColor, "#000000");
+        }
+        else
+        {
+            ui.gpBtnColor.value = m.btnColor ?? "";
+        }
+    }
+
+    ui.gpBtnNr.value = m.btnNr ?? "";
+}
+
+//---------------------------------------------------
+
+function readMetaFromGRPUI()
+{
+    const trimOrNull = (s) =>
+    {
+        const t = (s ?? "").trim();
+        return t === "" ? null : t;
+    };
+
+    const nr = ui.grpBtnNr?.value;
+    const btnNr = nr === "" ? null : Number(nr);
+
+    return {
+        mainGroup: trimOrNull(ui.grpMainGroup?.value),
+        subGroup:  trimOrNull(ui.grpSubGroup?.value),
+        type:      trimOrNull(ui.grpType?.value),
+        btnColor:  trimOrNull(ui.grpBtnColor?.value),
+        btnNr:     Number.isFinite(btnNr) ? btnNr : null,
+    };
+}
+
+function writeMetaToGRPUI(meta)
+{
+    const m = meta || {};
+    ui.grpMainGroup.value = m.mainGroup ?? "";
+    ui.grpSubGroup.value  = m.subGroup  ?? "";
+    ui.grpType.value      = m.type      ?? "";
+    ui.grpBtnColor.value  = m.btnColor  ?? "";
+    ui.grpBtnNr.value     = m.btnNr ?? "";
+}
+
+
+
+//---x*x*x*x*x*x*x*x*x*x*x*x*x*x*x*x*x*x*x*x*x*x*x*x*x*---------------
+
+function nameMatchesScnFilter(name)
+{
+    const f = (ui.scnFilter?.value || "").trim().toLowerCase();
+    if (!f)
+    {
+        return true;
+    }
+    return name.toLowerCase().includes(f);
+}
+
+function refreshScnSourceTree(kind, names)
+{
+    const root = ui.scnAddSourceTree;
+    if (!root)
+    {
+        return;
+    }
+
+    root.innerHTML = "";
+
+    if (!names || names.length === 0)
+    {
+        return;
+    }
+
+    console.log("refreshTree");
+
+    const active = ui.scnAddSource?.value || "";
+
+    // forrás: gp-k vagy grp-k meta-ja
+    let dict = null;
+    if (kind === "gp")
+    {
+        dict = store.gamePrimitives || {};
+    }
+    else if (kind === "grp")
+    {
+        dict = store.groups || {};
+    }
+
+    // Ha nincs meta (pl. CL típus), egyszerű lapos lista:
+    if (!dict)
+    {
+        const ul = document.createElement("ul");
+        root.appendChild(ul);
+
+        names.forEach((name) =>
+        {
+            const li = document.createElement("li");
+            li.textContent = name;
+            if (name === active)
+            {
+                li.classList.add("sel");
+            }
+
+            li.onclick = (ev) =>
+            {
+                if (ev.ctrlKey)
+                {
+                    return;
+                }
+                ev.stopPropagation();
+
+                if (ui.scnAddSource)
+                {
+                    ui.scnAddSource.value = name;
+                    ui.scnAddSource.dispatchEvent(new Event("change"));
+                }
+            };
+
+            ul.appendChild(li);
+        });
+
+        return;
+    }
+
+    // Meta-alapú tree: main -> sub -> type -> [name...]
+    const tree = new Map();
+    const ungrouped = [];
+
+    names.forEach((name) =>
+    {
+        const obj  = dict[name];
+        const meta = obj?.meta || {};
+
+        const hasAnyMeta =
+            (meta.mainGroup && meta.mainGroup.trim() !== "") ||
+            (meta.subGroup  && meta.subGroup.trim()  !== "") ||
+            (meta.type      && meta.type.trim()      !== "") ||
+            (meta.btnColor  && meta.btnColor.trim()  !== "") ||
+            (meta.btnNr != null);
+
+        if (!hasAnyMeta)
+        {
+            ungrouped.push(name);
+            return;
+        }
+
+        const main = (meta.mainGroup && meta.mainGroup.trim()) || "(no main)";
+        const sub  = (meta.subGroup  && meta.subGroup.trim())  || "(no sub)";
+        const type = (meta.type      && meta.type.trim())      || "(no type)";
+
+        if (!tree.has(main))
+        {
+            tree.set(main, new Map());
+        }
+        const subMap = tree.get(main);
+        if (!subMap.has(sub))
+        {
+            subMap.set(sub, new Map());
+        }
+        const typeMap = subMap.get(sub);
+        if (!typeMap.has(type))
+        {
+            typeMap.set(type, []);
+        }
+        typeMap.get(type).push(name);
+    });
+
+    const topUl = document.createElement("ul");
+    root.appendChild(topUl);
+
+//li.style.outline = "2px solid red"; // DEBUG
+
+ function makeLeafLi(name)
+{
+    const li = document.createElement("li");
+    li.textContent = name;
+
+    if (name === active)
+    {
+        li.classList.add("sel");
+    }
+
+    li.onclick = (ev) =>
+    {
+        if (ev.ctrlKey)
+        {
+            return;
+        }
+        ev.stopPropagation();
+
+        if (ui.scnAddSource)
+        {
+            ui.scnAddSource.value = name;
+            // NINCS kézi li.classList buhera!
+            // Egyszerűen újrarajzoljuk a selectet + fát:
+            refreshScnSourceOptions();
+        }
+    };
+
+    return li;
+}
+
+
+
+    // main -> sub -> type -> name
+    for (const [main, subMap] of tree.entries())
+    {
+        const liMain  = document.createElement("li");
+        const detMain = document.createElement("details");
+        detMain.open  = true;
+        const sumMain = document.createElement("summary");
+        sumMain.textContent = main;
+        detMain.appendChild(sumMain);
+
+        const ulSub = document.createElement("ul");
+        detMain.appendChild(ulSub);
+
+        for (const [sub, typeMap] of subMap.entries())
+        {
+            const liSub  = document.createElement("li");
+            const detSub = document.createElement("details");
+            detSub.open  = true;
+            const sumSub = document.createElement("summary");
+            sumSub.textContent = sub;
+            detSub.appendChild(sumSub);
+
+            const ulType = document.createElement("ul");
+            detSub.appendChild(ulType);
+
+            for (const [type, list] of typeMap.entries())
+            {
+                const liType  = document.createElement("li");
+                const detType = document.createElement("details");
+                detType.open  = true;
+                const sumType = document.createElement("summary");
+                sumType.textContent = type;
+                detType.appendChild(sumType);
+
+                const ulNames = document.createElement("ul");
+                detType.appendChild(ulNames);
+
+                list.forEach((name) =>
+                {
+                    const liName = makeLeafLi(name);
+                    ulNames.appendChild(liName);
+                });
+
+                ulType.appendChild(liType);
+                liType.appendChild(detType);
+            }
+
+            ulSub.appendChild(liSub);
+            liSub.appendChild(detSub);
+        }
+
+        topUl.appendChild(liMain);
+        liMain.appendChild(detMain);
+    }
+
+    // meta nélküli cuccok külön "(no meta)" alatt
+    if (ungrouped.length > 0)
+    {
+        const liUng  = document.createElement("li");
+        const detUng = document.createElement("details");
+        detUng.open  = true;
+        const sumUng = document.createElement("summary");
+        sumUng.textContent = "(no meta)";
+        detUng.appendChild(sumUng);
+
+        const ulUng = document.createElement("ul");
+        detUng.appendChild(ulUng);
+
+        ungrouped.forEach((name) =>
+        {
+            const liName = makeLeafLi(name);
+            ulUng.appendChild(liName);
+        });
+
+        topUl.appendChild(liUng);
+        liUng.appendChild(detUng);
+    }
+}
+
+
+
+
+
+
+//---------------------------------xxxxxxxxxxxxxxxxxxxx----------------
+
+
+
+
+function refreshVariantIconBar()
+{
+    const host = ui.gpVariantIconBar;
+    if (!host) return;
+
+    host.innerHTML = "";
+
+    const gps = store.gamePrimitives || {};
+
+    // 1) Aktuális GP név kiderítése
+    let currentGP = null;
+
+    // 1/a) Elsőbbség: Scene AddSource, ha GP-típust választunk
+    if (ui.scnAddType?.value === "gp")
+    {
+        const src = ui.scnAddSource?.value || "";
+        if (src && gps[src])
+        {
+            currentGP = src;
+        }
+    }
+
+    // 1/b) Ha nincs, akkor Scene kijelölésből
+    if (!currentGP && scnSelSet && scnSelSet.size > 0 && Array.isArray(store.scene))
+    {
+        const idx = firstSelIndex(scnSelSet);
+        if (idx != null && idx >= 0 && idx < store.scene.length)
+        {
+            const it = store.scene[idx];
+            if (it?.refType === "gp" && gps[it.refName])
+            {
+                currentGP = it.refName;
+            }
+        }
+    }
+
+    if (!currentGP) return;
+
+    const meta = gps[currentGP]?.meta || {};
+    const type = meta.type && meta.type.trim();
+    if (!type) return;
+
+    // 2) Ugyanilyen type-ú GP-k összegyűjtése
+    const sameTypeNames = Object.keys(gps).filter((name) =>
+    {
+        const m = gps[name]?.meta;
+        return m && m.type && m.type.trim() === type;
+    });
+
+    if (sameTypeNames.length <= 1) return;
+
+    // 3) Közülük azok, amelyeknek van btnNr
+    const withNr = sameTypeNames
+        .map((name) => ({ name, meta: gps[name].meta }))
+        .filter((x) => x.meta && x.meta.btnNr != null);
+
+    if (withNr.length <= 1) return;
+
+    // 4) Sorbarakás: btnNr szerint, aztán név szerint
+    withNr.sort((a, b) =>
+    {
+        const an = a.meta.btnNr ?? 0;
+        const bn = b.meta.btnNr ?? 0;
+        if (an !== bn) return an - bn;
+        return a.name.localeCompare(b.name);
+    });
+
+    // 5) Ikonok kirajzolása
+    withNr.forEach(({ name, meta }) =>
+    {
+        const icon = document.createElement("div");
+        icon.className = "variant-icon";
+
+        const color = meta.btnColor && meta.btnColor.trim();
+        if (color)
+        {
+            icon.style.background = color;
+            icon.style.color = "#000"; // első körben fekete betű
+        }
+
+        icon.textContent = String(meta.btnNr);
+        icon.title = name; // tooltip: melyik GP
+
+        // most még semmit se csinál kattintásra
+        host.appendChild(icon);
+    });
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//----------------------------------------------------------------
 
 //------------------------------------------------------
 

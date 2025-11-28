@@ -10,16 +10,25 @@
   </head>
   <body>
     <div id="app">
-<header>
+
+
+      <header>
+
+<div id="avatarCorner" style="--avatar-size: 35px;">
+  <img src="public/avatar.jpg" alt="Avatar">
+</div>
+
   <div class="header-top">
     <h1>OFFBlast! (unofficial) track editor – (with THREE.js) </h1>
     <nav class="header-links">
       <a href="help.html" target="_blank" rel="noopener noreferrer">Help</a>
       <a href="picgen.html" target="_blank" rel="noopener noreferrer">PicGen</a>
-      <a href="https://dudlushka.github.io/Liftoff_voxel/" target="_blank" rel="noopener noreferrer">VoxGen</a>
-      
+      <a href="https://dudlushka.github.io/Liftoff_voxel/" target="_blank" rel="noopener noreferrer">VoxGen</a>      
     </nav>
   </div>
+  
+  <div id="gpVariantIconBar" class="variant-icon-bar"></div>
+
   <div class="hint">
     Middle: pan · Right: 3D orbit · Wheel: zoom · PageUp/Down: camera
     up/down · Left: move (XZ) · Shift+Left: up/down · Alt+Left: rotate ·
@@ -27,7 +36,9 @@
   </div>
 </header>
 
-      <aside>
+
+
+<aside>
         <fieldset>
           <legend>Mode</legend>
           <select id="mode">
@@ -128,6 +139,37 @@
            <input type="checkbox" id="gpScalable">
            Scalable
           </label>
+
+
+<div class="panel-block">
+  <h4>GP meta</h4>
+
+  <label>
+    Main group:
+    <input id="gpMainGroup" type="text" />
+  </label>
+
+  <label>
+    Sub group:
+    <input id="gpSubGroup" type="text" />
+  </label>
+
+  <label>
+    Type:
+    <input id="gpType" type="text" />
+  </label>
+
+  <label>
+    Btn color:
+    <input id="gpBtnColor" type="color" />
+  </label>
+
+  <label>
+    Btn nr:
+    <input id="gpBtnNr" type="number" min="0" max="99" />
+  </label>
+</div>
+
 
           <div class="btn-wrap">
             <button class="btn" id="gpNew">New</button>
@@ -255,6 +297,44 @@
           <label class="smalllabel">Existing Groups</label>
           <ul class="list" id="grpList"></ul>
 
+
+          <div class="panel-block">
+  <h4>Group meta (csoportosítás / gyorsgomb)</h4>
+
+  <label>
+    Main group:
+    <input id="grpMainGroup" type="text" />
+  </label>
+
+  <label>
+    Sub group:
+    <input id="grpSubGroup" type="text" />
+  </label>
+
+  <label>
+    Type:
+    <input id="grpType" type="text" />
+  </label>
+
+  <label>
+    Btn color:
+    <!-- <input id="grpBtnColor" type="text" placeholder="#ff0011" /> -->
+    <input id="grpBtnColor" type="color" />
+  </label>
+
+  <label>
+    Btn nr:
+    <input id="grpBtnNr" type="number" min="0" max="99" />
+  </label>
+</div>
+
+
+
+
+
+
+
+
           <legend>Components</legend>
 
           <label class="smalllabel" for="grpFilter">
@@ -359,6 +439,9 @@
               <option value="gp">GamePrimitive</option>
               <option value="grp">Group</option>
             </select>
+
+            <div id="scnAddSourceTree" class="tree-list"></div>
+
             <select id="scnAddSource"></select>
             <button class="btn" id="scnAdd">+ Add</button>
             <button class="btn" id="scnRemove">– Remove</button>
