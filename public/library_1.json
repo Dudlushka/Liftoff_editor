@@ -1075,7 +1075,15 @@
             0
           ]
         }
-      ]
+      ],
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Logical",
+        "subGroup": "TriggerBox",
+        "type": "TriggerBox",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "DrawingBoardCube10mx10m01": {
       "name": "DrawingBoardCube10mx10m01",
@@ -4970,7 +4978,14 @@
           ]
         }
       ],
-      "scalable": false
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Logical",
+        "subGroup": "Spawn",
+        "type": "Spawn",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "Banner5x5mLiftoffCyan01": {
       "name": "Banner5x5mLiftoffCyan01",
@@ -7464,6 +7479,171 @@
         }
       ],
       "scalable": false
+    },
+    "TriggerBox_ChargeBattery_1mX1m01": {
+      "name": "TriggerBox_ChargeBattery_1mX1m01",
+      "parts": [
+        {
+          "id": "979a4625-9544-497d-b12d-33a8b94fd23d",
+          "type": "box",
+          "color": "#9aa7b1",
+          "scale": [
+            1,
+            1,
+            1
+          ],
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Logical",
+        "subGroup": "TriggerBox",
+        "type": "TriggerBox",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
+    },
+    "TriggerBox_KillDrone_1mX1m01": {
+      "name": "TriggerBox_KillDrone_1mX1m01",
+      "parts": [
+        {
+          "id": "e29ba3ae-5d7f-454c-b8e5-a7bf6faf138b",
+          "type": "box",
+          "color": "#9aa7b1",
+          "scale": [
+            1,
+            1,
+            1
+          ],
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Logical",
+        "subGroup": "TriggerBox",
+        "type": "TriggerBox",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
+    },
+    "TriggerBox_PlaySound_1mX1m01": {
+      "name": "TriggerBox_PlaySound_1mX1m01",
+      "parts": [
+        {
+          "id": "6b2df5f5-9c3d-45df-9032-b2415acf28cf",
+          "type": "box",
+          "color": "#9aa7b1",
+          "scale": [
+            1,
+            1,
+            1
+          ],
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Logical",
+        "subGroup": "TriggerBox",
+        "type": "TriggerBox",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
+    },
+    "TriggerBox_RepairPropellers_1mX1m01": {
+      "name": "TriggerBox_RepairPropellers_1mX1m01",
+      "parts": [
+        {
+          "id": "c34e4c0f-6f86-426d-9946-f464eaac052a",
+          "type": "box",
+          "color": "#9aa7b1",
+          "scale": [
+            1,
+            1,
+            1
+          ],
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Logical",
+        "subGroup": "TriggerBox",
+        "type": "TriggerBox",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
+    },
+    "PlayerPosition01": {
+      "name": "PlayerPosition01",
+      "parts": [
+        {
+          "id": "58105785-cb33-43a3-9a25-43fb4f23c565",
+          "type": "box",
+          "color": "#9aa7b1",
+          "scale": [
+            1,
+            1,
+            1
+          ],
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Logical",
+        "subGroup": "human",
+        "type": "human",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     }
   },
   "groups": {
