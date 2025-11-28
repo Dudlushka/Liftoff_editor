@@ -1234,9 +1234,15 @@ export function refreshGPList()
     const tree = new Map();
     const ungrouped = [];
 
+    // aktív GP útvonal (ha van)
+    let activeMain = null;
+    let activeSub  = null;
+    let activeType = null;
+    let activeIsUngrouped = false;
+
     for (const name of names)
     {
-        // névre szűrés ugyanúgy, mint eddig
+        // névre szűrés
         if (!nameMatchesGPFilter(name))
         {
             continue;
@@ -1254,8 +1260,13 @@ export function refreshGPList()
 
         if (!hasAnyMeta)
         {
-            // meta nélkül → külső „ömlesztett” mappa
             ungrouped.push(name);
+
+            if (name === activeName)
+            {
+                activeIsUngrouped = true;
+            }
+
             continue;
         }
 
@@ -1269,9 +1280,15 @@ export function refreshGPList()
         const typeMap = subMap.get(sub);
         if (!typeMap.has(type)) typeMap.set(type, []);
         typeMap.get(type).push(name);
+
+        if (name === activeName)
+        {
+            activeMain = main;
+            activeSub  = sub;
+            activeType = type;
+        }
     }
 
-    // ha semmi nincs, hagyjuk üresen
     if (tree.size === 0 && ungrouped.length === 0)
     {
         refreshGrpSourceOptions?.();
@@ -1282,13 +1299,11 @@ export function refreshGPList()
     const topUl = document.createElement("ul");
     root.appendChild(topUl);
 
-    // helper: egy konkrét GP névhez li elemet készít, kattintással
     function makeGPLeafLi(gpName)
     {
         const li = document.createElement("li");
         li.textContent = gpName;
 
-        // kijelölés jelzése (ugyanúgy, mint a régi verzióban)
         if (gpName === activeName)
         {
             li.classList.add("sel");
@@ -1297,24 +1312,25 @@ export function refreshGPList()
         li.onclick = (ev) =>
         {
             if (ev.ctrlKey) return;
-            ev.stopPropagation(); // ne csukogassa a <details>-t
+            ev.stopPropagation();
 
             loadGP(gpName);
 
             gpSelSet.clear();
-            onSelectionChanged(); // bounds + listák + inspektor frissítése
+            onSelectionChanged();
         };
 
         return li;
     }
 
-    // Fő fa: main → sub → type → gpName
+    // main → sub → type → name-ek
     for (const [main, subMap] of tree.entries())
     {
-        const liMain   = document.createElement("li");
-        const detMain  = document.createElement("details");
-        detMain.open   = true;
-        const sumMain  = document.createElement("summary");
+        const liMain  = document.createElement("li");
+        const detMain = document.createElement("details");
+        // csak az aktív GP-t tartalmazó main nyíljon ki
+        detMain.open = (main === activeMain);
+        const sumMain = document.createElement("summary");
         sumMain.textContent = main;
         detMain.appendChild(sumMain);
 
@@ -1323,10 +1339,11 @@ export function refreshGPList()
 
         for (const [sub, typeMap] of subMap.entries())
         {
-            const liSub   = document.createElement("li");
-            const detSub  = document.createElement("details");
-            detSub.open   = true;
-            const sumSub  = document.createElement("summary");
+            const liSub  = document.createElement("li");
+            const detSub = document.createElement("details");
+            // csak az aktív útvonalon levő sub nyíljon
+            detSub.open = (main === activeMain && sub === activeSub);
+            const sumSub = document.createElement("summary");
             sumSub.textContent = sub;
             detSub.appendChild(sumSub);
 
@@ -1335,10 +1352,11 @@ export function refreshGPList()
 
             for (const [type, list] of typeMap.entries())
             {
-                const liType   = document.createElement("li");
-                const detType  = document.createElement("details");
-                detType.open   = true;
-                const sumType  = document.createElement("summary");
+                const liType  = document.createElement("li");
+                const detType = document.createElement("details");
+                // csak az aktív útvonalon levő type nyíljon
+                detType.open = (main === activeMain && sub === activeSub && type === activeType);
+                const sumType = document.createElement("summary");
                 sumType.textContent = type;
                 detType.appendChild(sumType);
 
@@ -1366,10 +1384,11 @@ export function refreshGPList()
     // meta nélküli GP-k külön "(no meta)" mappában
     if (ungrouped.length > 0)
     {
-        const liUng   = document.createElement("li");
-        const detUng  = document.createElement("details");
-        detUng.open   = true;
-        const sumUng  = document.createElement("summary");
+        const liUng  = document.createElement("li");
+        const detUng = document.createElement("details");
+        // akkor legyen nyitva, ha az aktív GP ungrouped
+        detUng.open = activeIsUngrouped;
+        const sumUng = document.createElement("summary");
         sumUng.textContent = "(no meta)";
         detUng.appendChild(sumUng);
 
@@ -1386,7 +1405,6 @@ export function refreshGPList()
         liUng.appendChild(detUng);
     }
 
-    // a forrás-selectek továbbra is frissüljenek
     refreshGrpSourceOptions?.();
     refreshScnSourceOptions?.();
 }
@@ -3098,10 +3116,7 @@ function nameMatchesScnFilter(name)
 function refreshScnSourceTree(kind, names)
 {
     const root = ui.scnAddSourceTree;
-    if (!root)
-    {
-        return;
-    }
+    if (!root) return;
 
     root.innerHTML = "";
 
@@ -3109,8 +3124,6 @@ function refreshScnSourceTree(kind, names)
     {
         return;
     }
-
-    console.log("refreshTree");
 
     const active = ui.scnAddSource?.value || "";
 
@@ -3125,7 +3138,7 @@ function refreshScnSourceTree(kind, names)
         dict = store.groups || {};
     }
 
-    // Ha nincs meta (pl. CL típus), egyszerű lapos lista:
+    // Ha nincs meta (pl. CL típus) -> egyszerű lapos lista
     if (!dict)
     {
         const ul = document.createElement("ul");
@@ -3142,16 +3155,14 @@ function refreshScnSourceTree(kind, names)
 
             li.onclick = (ev) =>
             {
-                if (ev.ctrlKey)
-                {
-                    return;
-                }
+                if (ev.ctrlKey) return;
                 ev.stopPropagation();
 
                 if (ui.scnAddSource)
                 {
                     ui.scnAddSource.value = name;
-                    ui.scnAddSource.dispatchEvent(new Event("change"));
+                    // teljes frissítés: select + tree + ikon bar
+                    refreshScnSourceOptions();
                 }
             };
 
@@ -3164,6 +3175,12 @@ function refreshScnSourceTree(kind, names)
     // Meta-alapú tree: main -> sub -> type -> [name...]
     const tree = new Map();
     const ungrouped = [];
+
+    // aktív elem útvonal (ha van)
+    let activeMain = null;
+    let activeSub  = null;
+    let activeType = null;
+    let activeIsUngrouped = false;
 
     names.forEach((name) =>
     {
@@ -3180,6 +3197,12 @@ function refreshScnSourceTree(kind, names)
         if (!hasAnyMeta)
         {
             ungrouped.push(name);
+
+            if (name === active)
+            {
+                activeIsUngrouped = true;
+            }
+
             return;
         }
 
@@ -3202,51 +3225,51 @@ function refreshScnSourceTree(kind, names)
             typeMap.set(type, []);
         }
         typeMap.get(type).push(name);
+
+        if (name === active)
+        {
+            activeMain = main;
+            activeSub  = sub;
+            activeType = type;
+        }
     });
 
     const topUl = document.createElement("ul");
     root.appendChild(topUl);
 
-//li.style.outline = "2px solid red"; // DEBUG
-
- function makeLeafLi(name)
-{
-    const li = document.createElement("li");
-    li.textContent = name;
-
-    if (name === active)
+    function makeLeafLi(name)
     {
-        li.classList.add("sel");
+        const li = document.createElement("li");
+        li.textContent = name;
+
+        if (name === active)
+        {
+            li.classList.add("sel");
+        }
+
+        li.onclick = (ev) =>
+        {
+            if (ev.ctrlKey) return;
+            ev.stopPropagation();
+
+            if (ui.scnAddSource)
+            {
+                ui.scnAddSource.value = name;
+                // ugyanaz a teljes refresh, mint a select change-nél
+                refreshScnSourceOptions();
+            }
+        };
+
+        return li;
     }
 
-    li.onclick = (ev) =>
-    {
-        if (ev.ctrlKey)
-        {
-            return;
-        }
-        ev.stopPropagation();
-
-        if (ui.scnAddSource)
-        {
-            ui.scnAddSource.value = name;
-            // NINCS kézi li.classList buhera!
-            // Egyszerűen újrarajzoljuk a selectet + fát:
-            refreshScnSourceOptions();
-        }
-    };
-
-    return li;
-}
-
-
-
-    // main -> sub -> type -> name
+    // main -> sub -> type -> name-ek
     for (const [main, subMap] of tree.entries())
     {
         const liMain  = document.createElement("li");
         const detMain = document.createElement("details");
-        detMain.open  = true;
+        // csak az aktív GP/GRP-hez tartozó main ág legyen nyitva
+        detMain.open = (main === activeMain);
         const sumMain = document.createElement("summary");
         sumMain.textContent = main;
         detMain.appendChild(sumMain);
@@ -3258,7 +3281,8 @@ function refreshScnSourceTree(kind, names)
         {
             const liSub  = document.createElement("li");
             const detSub = document.createElement("details");
-            detSub.open  = true;
+            // csak az aktív útvonalon levő sub legyen nyitva
+            detSub.open = (main === activeMain && sub === activeSub);
             const sumSub = document.createElement("summary");
             sumSub.textContent = sub;
             detSub.appendChild(sumSub);
@@ -3270,7 +3294,8 @@ function refreshScnSourceTree(kind, names)
             {
                 const liType  = document.createElement("li");
                 const detType = document.createElement("details");
-                detType.open  = true;
+                // csak az aktív útvonalon levő type legyen nyitva
+                detType.open = (main === activeMain && sub === activeSub && type === activeType);
                 const sumType = document.createElement("summary");
                 sumType.textContent = type;
                 detType.appendChild(sumType);
@@ -3301,7 +3326,8 @@ function refreshScnSourceTree(kind, names)
     {
         const liUng  = document.createElement("li");
         const detUng = document.createElement("details");
-        detUng.open  = true;
+        // akkor legyen nyitva, ha az aktív elem meta nélküli
+        detUng.open = activeIsUngrouped;
         const sumUng = document.createElement("summary");
         sumUng.textContent = "(no meta)";
         detUng.appendChild(sumUng);

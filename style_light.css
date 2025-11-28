@@ -376,11 +376,11 @@ ul.list::-webkit-scrollbar-track {
     color: #131313;
 }
 
-/* #gpList {
+#gpList {
   max-height: none;
   overflow-y: visible; // ha a .list-ben auto volt, és nem akarsz scrollt 
 } 
-*/
+
 
 
 .variant-icon-bar {

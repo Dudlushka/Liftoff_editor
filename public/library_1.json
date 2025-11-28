@@ -23,7 +23,15 @@
             0
           ]
         }
-      ]
+      ],
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Primitive",
+        "subGroup": "Cube",
+        "type": "Cube_0.5",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "DrawingBoardCone1mx1m05": {
       "name": "DrawingBoardCone1mx1m05",
@@ -48,7 +56,15 @@
             0
           ]
         }
-      ]
+      ],
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Primitive",
+        "subGroup": "Cone",
+        "type": "Cone_1x1",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "DrawingBoardCone1mx1m04": {
       "name": "DrawingBoardCone1mx1m04",
@@ -73,7 +89,15 @@
             0
           ]
         }
-      ]
+      ],
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Primitive",
+        "subGroup": "Cone",
+        "type": "Cone_1x1",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "DrawingBoardCone1mx1m03": {
       "name": "DrawingBoardCone1mx1m03",
@@ -98,7 +122,15 @@
             0
           ]
         }
-      ]
+      ],
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Primitive",
+        "subGroup": "Cone",
+        "type": "Cone_1x1",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "DrawingBoardCone1mx1m02": {
       "name": "DrawingBoardCone1mx1m02",
@@ -123,7 +155,15 @@
             0
           ]
         }
-      ]
+      ],
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Primitive",
+        "subGroup": "Cone",
+        "type": "Cone_1x1",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "DrawingBoardCone1mx1m01": {
       "name": "DrawingBoardCone1mx1m01",
@@ -148,7 +188,15 @@
             0
           ]
         }
-      ]
+      ],
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Primitive",
+        "subGroup": "Cone",
+        "type": "Cone_1x1",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "ConcreteBarrier01": {
       "name": "ConcreteBarrier01",
@@ -218,7 +266,15 @@
             0
           ]
         }
-      ]
+      ],
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Primitive",
+        "subGroup": "Cone",
+        "type": "Cone_5x5",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "DrawingBoardCone5mx5m04": {
       "name": "DrawingBoardCone5mx5m04",
@@ -243,7 +299,15 @@
             0
           ]
         }
-      ]
+      ],
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Primitive",
+        "subGroup": "Cone",
+        "type": "Cone_5x5",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "DrawingBoardCylinder0.5mx1m04": {
       "name": "DrawingBoardCylinder0.5mx1m04",
@@ -268,7 +332,15 @@
             0
           ]
         }
-      ]
+      ],
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Primitive",
+        "subGroup": "Cylinder",
+        "type": "Cylinder_0.5x1",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "DrawingBoardCylinder0.5mx1m03": {
       "name": "DrawingBoardCylinder0.5mx1m03",
@@ -293,7 +365,15 @@
             0
           ]
         }
-      ]
+      ],
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Primitive",
+        "subGroup": "Cylinder",
+        "type": "Cylinder_0.5x1",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "DrawingBoardCylinder0.5mx1m02": {
       "name": "DrawingBoardCylinder0.5mx1m02",
@@ -318,7 +398,15 @@
             0
           ]
         }
-      ]
+      ],
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Primitive",
+        "subGroup": "Cylinder",
+        "type": "Cylinder_0.5x1",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "DrawingBoardCylinder0.5mx1m01": {
       "name": "DrawingBoardCylinder0.5mx1m01",
@@ -343,7 +431,15 @@
             0
           ]
         }
-      ]
+      ],
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Primitive",
+        "subGroup": "Cylinder",
+        "type": "Cylinder_0.5x1",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "DrawingBoardCylinder0.5mx1m05": {
       "name": "DrawingBoardCylinder0.5mx1m05",
@@ -368,7 +464,15 @@
             0
           ]
         }
-      ]
+      ],
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Primitive",
+        "subGroup": "Cylinder",
+        "type": "Cylinder_0.5x1",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "DrawingBoardCube0.5mx0.5m05": {
       "name": "DrawingBoardCube0.5mx0.5m05",
@@ -393,7 +497,15 @@
             0
           ]
         }
-      ]
+      ],
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Primitive",
+        "subGroup": "Cube",
+        "type": "Cube_0.5",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "DrawingBoardCube0.5mx0.5m03": {
       "name": "DrawingBoardCube0.5mx0.5m03",
@@ -418,7 +530,15 @@
             0
           ]
         }
-      ]
+      ],
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Primitive",
+        "subGroup": "Cube",
+        "type": "Cube_0.5",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "DrawingBoardCube0.5mx0.5m02": {
       "name": "DrawingBoardCube0.5mx0.5m02",
@@ -443,7 +563,15 @@
             0
           ]
         }
-      ]
+      ],
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Primitive",
+        "subGroup": "Cube",
+        "type": "Cube_0.5",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "DrawingBoardCube0.5mx0.5m01": {
       "name": "DrawingBoardCube0.5mx0.5m01",
@@ -468,7 +596,15 @@
             0
           ]
         }
-      ]
+      ],
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Primitive",
+        "subGroup": "Cube",
+        "type": "Cube_0.5",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "SteelProfile01": {
       "name": "SteelProfile01",
@@ -629,7 +765,14 @@
           }
         }
       ],
-      "scalable": false
+      "scalable": false,
+      "meta": {
+        "mainGroup": "LED",
+        "subGroup": "Rod",
+        "type": "Outer",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "ASLLightCurveInner03": {
       "name": "ASLLightCurveInner03",
@@ -660,7 +803,14 @@
           }
         }
       ],
-      "scalable": false
+      "scalable": false,
+      "meta": {
+        "mainGroup": "LED",
+        "subGroup": "Rod",
+        "type": "Inner",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "TrussLandmarkGeneric01": {
       "name": "TrussLandmarkGeneric01",
@@ -950,7 +1100,15 @@
             0
           ]
         }
-      ]
+      ],
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Primitive",
+        "subGroup": "Cube",
+        "type": "Cube_10",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "DrawingBoardCube10mx10m02": {
       "name": "DrawingBoardCube10mx10m02",
@@ -975,7 +1133,15 @@
             0
           ]
         }
-      ]
+      ],
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Primitive",
+        "subGroup": "Cube",
+        "type": "Cube_10",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "DrawingBoardCube10mx10m04": {
       "name": "DrawingBoardCube10mx10m04",
@@ -1000,7 +1166,15 @@
             0
           ]
         }
-      ]
+      ],
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Primitive",
+        "subGroup": "Cube",
+        "type": "Cube_10",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "DrawingBoardCube10mx10m05": {
       "name": "DrawingBoardCube10mx10m05",
@@ -1025,7 +1199,15 @@
             0
           ]
         }
-      ]
+      ],
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Primitive",
+        "subGroup": "Cube",
+        "type": "Cube_10",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "DrawingBoardCube5mx5m01": {
       "name": "DrawingBoardCube5mx5m01",
@@ -1050,7 +1232,15 @@
             0
           ]
         }
-      ]
+      ],
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Primitive",
+        "subGroup": "Cube",
+        "type": "Cube_5",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "DrawingBoardCube5mx5m02": {
       "name": "DrawingBoardCube5mx5m02",
@@ -1075,7 +1265,15 @@
             0
           ]
         }
-      ]
+      ],
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Primitive",
+        "subGroup": "Cube",
+        "type": "Cube_5",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "DrawingBoardCube5mx5m03": {
       "name": "DrawingBoardCube5mx5m03",
@@ -1100,7 +1298,15 @@
             0
           ]
         }
-      ]
+      ],
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Primitive",
+        "subGroup": "Cube",
+        "type": "Cube_5",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "DrawingBoardCube5mx5m04": {
       "name": "DrawingBoardCube5mx5m04",
@@ -1125,7 +1331,15 @@
             0
           ]
         }
-      ]
+      ],
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Primitive",
+        "subGroup": "Cube",
+        "type": "Cube_5",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "DrawingBoardCube5mx5m05": {
       "name": "DrawingBoardCube5mx5m05",
@@ -1150,7 +1364,15 @@
             0
           ]
         }
-      ]
+      ],
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Primitive",
+        "subGroup": "Cube",
+        "type": "Cube_5",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "DrawingBoardCube1mx1m01": {
       "name": "DrawingBoardCube1mx1m01",
@@ -1175,7 +1397,15 @@
             0
           ]
         }
-      ]
+      ],
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Primitive",
+        "subGroup": "Cube",
+        "type": "Cube_1",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "DrawingBoardCube1mx1m02": {
       "name": "DrawingBoardCube1mx1m02",
@@ -1200,7 +1430,15 @@
             0
           ]
         }
-      ]
+      ],
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Primitive",
+        "subGroup": "Cube",
+        "type": "Cube_1",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "DrawingBoardCube1mx1m03": {
       "name": "DrawingBoardCube1mx1m03",
@@ -1225,7 +1463,15 @@
             0
           ]
         }
-      ]
+      ],
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Primitive",
+        "subGroup": "Cube",
+        "type": "Cube_1",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "DrawingBoardCube1mx1m04": {
       "name": "DrawingBoardCube1mx1m04",
@@ -1250,7 +1496,15 @@
             0
           ]
         }
-      ]
+      ],
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Primitive",
+        "subGroup": "Cube",
+        "type": "Cube_1",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "DrawingBoardCube1mx1m05": {
       "name": "DrawingBoardCube1mx1m05",
@@ -1275,7 +1529,15 @@
             0
           ]
         }
-      ]
+      ],
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Primitive",
+        "subGroup": "Cube",
+        "type": "Cube_1",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "DrawingBoardHalfSphere1mx1m01": {
       "name": "DrawingBoardHalfSphere1mx1m01",
@@ -1300,7 +1562,15 @@
             0
           ]
         }
-      ]
+      ],
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Primitive",
+        "subGroup": "Sphere",
+        "type": "Sphere_1",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "DrawingBoardCube10mx10m03": {
       "name": "DrawingBoardCube10mx10m03",
@@ -1325,7 +1595,15 @@
             0
           ]
         }
-      ]
+      ],
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Primitive",
+        "subGroup": "Cube",
+        "type": "Cube_10",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "DrawingBoardPlate4mx4m01": {
       "name": "DrawingBoardPlate4mx4m01",
@@ -1350,7 +1628,15 @@
             0
           ]
         }
-      ]
+      ],
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Primitive",
+        "subGroup": "Plate",
+        "type": "Plate_4x4",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "DrawingBoardPlate4mx4m02": {
       "name": "DrawingBoardPlate4mx4m02",
@@ -1375,7 +1661,15 @@
             0
           ]
         }
-      ]
+      ],
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Primitive",
+        "subGroup": "Plate",
+        "type": "Plate_4x4",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "DrawingBoardWall5mx5m02": {
       "name": "DrawingBoardWall5mx5m02",
@@ -1400,7 +1694,15 @@
             0
           ]
         }
-      ]
+      ],
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Primitive",
+        "subGroup": "Wall",
+        "type": "Wall_5",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "DrawingBoardWall5mx5m01": {
       "name": "DrawingBoardWall5mx5m01",
@@ -1425,7 +1727,15 @@
             0
           ]
         }
-      ]
+      ],
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Primitive",
+        "subGroup": "Wall",
+        "type": "Wall_5",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "DrawingBoardWall5mx5m03": {
       "name": "DrawingBoardWall5mx5m03",
@@ -1450,7 +1760,15 @@
             0
           ]
         }
-      ]
+      ],
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Primitive",
+        "subGroup": "Wall",
+        "type": "Wall_5",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "DrawingBoardPyramid1mx1m01": {
       "name": "DrawingBoardPyramid1mx1m01",
@@ -1476,7 +1794,14 @@
           ]
         }
       ],
-      "scalable": false
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Primitive",
+        "subGroup": "Pyramid",
+        "type": "Pyramid_1",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "DrawingBoardHalfSphere5mx5m01": {
       "name": "DrawingBoardHalfSphere5mx5m01",
@@ -1501,7 +1826,15 @@
             0
           ]
         }
-      ]
+      ],
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Primitive",
+        "subGroup": "Sphere",
+        "type": "Sphere_5",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "LightPillarCyan01": {
       "name": "LightPillarCyan01",
@@ -2415,7 +2748,15 @@
             0
           ]
         }
-      ]
+      ],
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Primitive",
+        "subGroup": "Cylinder",
+        "type": "Cylinder_0.5x5",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "DrawingBoardCylinder1mx5m01": {
       "name": "DrawingBoardCylinder1mx5m01",
@@ -2440,7 +2781,15 @@
             0
           ]
         }
-      ]
+      ],
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Primitive",
+        "subGroup": "Cylinder",
+        "type": "Cylinder_1x5",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "ASLLightBeam01": {
       "name": "ASLLightBeam01",
@@ -2466,7 +2815,14 @@
           ]
         }
       ],
-      "scalable": false
+      "scalable": false,
+      "meta": {
+        "mainGroup": "LED",
+        "subGroup": "Rod",
+        "type": "Beam",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "ASLLightBeam02": {
       "name": "ASLLightBeam02",
@@ -2492,7 +2848,14 @@
           ]
         }
       ],
-      "scalable": false
+      "scalable": false,
+      "meta": {
+        "mainGroup": "LED",
+        "subGroup": "Rod",
+        "type": "Beam",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "ASLLightBeam03": {
       "name": "ASLLightBeam03",
@@ -2518,7 +2881,14 @@
           ]
         }
       ],
-      "scalable": false
+      "scalable": false,
+      "meta": {
+        "mainGroup": "LED",
+        "subGroup": "Rod",
+        "type": "Beam",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "ASLLightBeam04": {
       "name": "ASLLightBeam04",
@@ -2544,7 +2914,14 @@
           ]
         }
       ],
-      "scalable": false
+      "scalable": false,
+      "meta": {
+        "mainGroup": "LED",
+        "subGroup": "Rod",
+        "type": "Beam",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "DrawingBoardWall5mx5m04": {
       "name": "DrawingBoardWall5mx5m04",
@@ -2569,7 +2946,15 @@
             0
           ]
         }
-      ]
+      ],
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Primitive",
+        "subGroup": "Wall",
+        "type": "Wall_5",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "DrawingBoardWall5mx5m05": {
       "name": "DrawingBoardWall5mx5m05",
@@ -2594,7 +2979,15 @@
             0
           ]
         }
-      ]
+      ],
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Primitive",
+        "subGroup": "Wall",
+        "type": "Wall_5",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "DrawingBoardPlate4mx4m03": {
       "name": "DrawingBoardPlate4mx4m03",
@@ -2619,7 +3012,15 @@
             0
           ]
         }
-      ]
+      ],
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Primitive",
+        "subGroup": "Plate",
+        "type": "Plate_4x4",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "DrawingBoardPlate4mx4m04": {
       "name": "DrawingBoardPlate4mx4m04",
@@ -2644,7 +3045,15 @@
             0
           ]
         }
-      ]
+      ],
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Primitive",
+        "subGroup": "Plate",
+        "type": "Plate_4x4",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "DrawingBoardPlate4mx4m05": {
       "name": "DrawingBoardPlate4mx4m05",
@@ -2669,7 +3078,15 @@
             0
           ]
         }
-      ]
+      ],
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Primitive",
+        "subGroup": "Plate",
+        "type": "Plate_4x4",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "DrawingBoardRamp1mx1m05": {
       "name": "DrawingBoardRamp1mx1m05",
@@ -2695,7 +3112,14 @@
           ]
         }
       ],
-      "scalable": true
+      "scalable": true,
+      "meta": {
+        "mainGroup": "Primitive",
+        "subGroup": "Ramp",
+        "type": "Ramp_1",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "DrawingBoardRamp5mx5m05": {
       "name": "DrawingBoardRamp5mx5m05",
@@ -2721,7 +3145,14 @@
           ]
         }
       ],
-      "scalable": false
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Primitive",
+        "subGroup": "Ramp",
+        "type": "Ramp_5",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "ASLLightCurveInner01": {
       "name": "ASLLightCurveInner01",
@@ -2752,7 +3183,14 @@
           }
         }
       ],
-      "scalable": false
+      "scalable": false,
+      "meta": {
+        "mainGroup": "LED",
+        "subGroup": "Rod",
+        "type": "Inner",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "DrawingBoardRamp1mx1m01": {
       "name": "DrawingBoardRamp1mx1m01",
@@ -2778,7 +3216,14 @@
           ]
         }
       ],
-      "scalable": false
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Primitive",
+        "subGroup": "Ramp",
+        "type": "Ramp_1",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "DrawingBoardRamp1mx1m02": {
       "name": "DrawingBoardRamp1mx1m02",
@@ -2804,7 +3249,14 @@
           ]
         }
       ],
-      "scalable": false
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Primitive",
+        "subGroup": "Ramp",
+        "type": "Ramp_1",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "DrawingBoardRamp1mx1m03": {
       "name": "DrawingBoardRamp1mx1m03",
@@ -2830,7 +3282,14 @@
           ]
         }
       ],
-      "scalable": false
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Primitive",
+        "subGroup": "Ramp",
+        "type": "Ramp_1",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "DrawingBoardRamp1mx1m04": {
       "name": "DrawingBoardRamp1mx1m04",
@@ -2856,7 +3315,14 @@
           ]
         }
       ],
-      "scalable": false
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Primitive",
+        "subGroup": "Ramp",
+        "type": "Ramp_1",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "DrawingBoardRamp5mx5m01": {
       "name": "DrawingBoardRamp5mx5m01",
@@ -2881,7 +3347,15 @@
             0
           ]
         }
-      ]
+      ],
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Primitive",
+        "subGroup": "Ramp",
+        "type": "Ramp_5",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "DrawingBoardRamp5mx5m02": {
       "name": "DrawingBoardRamp5mx5m02",
@@ -2907,7 +3381,14 @@
           ]
         }
       ],
-      "scalable": false
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Primitive",
+        "subGroup": "Ramp",
+        "type": "Ramp_5",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "DrawingBoardRamp5mx5m03": {
       "name": "DrawingBoardRamp5mx5m03",
@@ -2933,7 +3414,14 @@
           ]
         }
       ],
-      "scalable": false
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Primitive",
+        "subGroup": "Ramp",
+        "type": "Ramp_5",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "DrawingBoardRamp5mx5m04": {
       "name": "DrawingBoardRamp5mx5m04",
@@ -2959,7 +3447,14 @@
           ]
         }
       ],
-      "scalable": false
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Primitive",
+        "subGroup": "Ramp",
+        "type": "Ramp_5",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "DrawingBoardPyramid1mx1m02": {
       "name": "DrawingBoardPyramid1mx1m02",
@@ -2985,7 +3480,14 @@
           ]
         }
       ],
-      "scalable": false
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Primitive",
+        "subGroup": "Pyramid",
+        "type": "Pyramid_1",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "DrawingBoardPyramid1mx1m03": {
       "name": "DrawingBoardPyramid1mx1m03",
@@ -3011,7 +3513,14 @@
           ]
         }
       ],
-      "scalable": false
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Primitive",
+        "subGroup": "Pyramid",
+        "type": "Pyramid_1",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "DrawingBoardPyramid1mx1m04": {
       "name": "DrawingBoardPyramid1mx1m04",
@@ -3036,7 +3545,15 @@
             0
           ]
         }
-      ]
+      ],
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Primitive",
+        "subGroup": "Pyramid",
+        "type": "Pyramid_1",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "DrawingBoardPyramid1mx1m05": {
       "name": "DrawingBoardPyramid1mx1m05",
@@ -3061,7 +3578,15 @@
             0
           ]
         }
-      ]
+      ],
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Primitive",
+        "subGroup": "Pyramid",
+        "type": "Pyramid_1",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "DrawingBoardPyramid5mx5m01": {
       "name": "DrawingBoardPyramid5mx5m01",
@@ -3086,7 +3611,15 @@
             0
           ]
         }
-      ]
+      ],
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Primitive",
+        "subGroup": "Pyramid",
+        "type": "Pyramid_5",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "DrawingBoardPyramid5mx5m02": {
       "name": "DrawingBoardPyramid5mx5m02",
@@ -3112,7 +3645,14 @@
           ]
         }
       ],
-      "scalable": false
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Primitive",
+        "subGroup": "Pyramid",
+        "type": "Pyramid_5",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "DrawingBoardPyramid5mx5m03": {
       "name": "DrawingBoardPyramid5mx5m03",
@@ -3138,7 +3678,14 @@
           ]
         }
       ],
-      "scalable": false
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Primitive",
+        "subGroup": "Pyramid",
+        "type": "Pyramid_5",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "DrawingBoardPyramid5mx5m04": {
       "name": "DrawingBoardPyramid5mx5m04",
@@ -3164,7 +3711,14 @@
           ]
         }
       ],
-      "scalable": false
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Primitive",
+        "subGroup": "Pyramid",
+        "type": "Pyramid_5",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "DrawingBoardPyramid5mx5m05": {
       "name": "DrawingBoardPyramid5mx5m05",
@@ -3189,7 +3743,15 @@
             0
           ]
         }
-      ]
+      ],
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Primitive",
+        "subGroup": "Pyramid",
+        "type": "Pyramid_5",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "DrawingBoardHalfSphere5mx5m02": {
       "name": "DrawingBoardHalfSphere5mx5m02",
@@ -3214,7 +3776,15 @@
             0
           ]
         }
-      ]
+      ],
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Primitive",
+        "subGroup": "Sphere",
+        "type": "Sphere_5",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "DrawingBoardHalfSphere5mx5m03": {
       "name": "DrawingBoardHalfSphere5mx5m03",
@@ -3239,7 +3809,15 @@
             0
           ]
         }
-      ]
+      ],
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Primitive",
+        "subGroup": "Sphere",
+        "type": "Sphere_5",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "DrawingBoardHalfSphere5mx5m04": {
       "name": "DrawingBoardHalfSphere5mx5m04",
@@ -3264,7 +3842,15 @@
             0
           ]
         }
-      ]
+      ],
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Primitive",
+        "subGroup": "Sphere",
+        "type": "Sphere_5",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "DrawingBoardHalfSphere5mx5m05": {
       "name": "DrawingBoardHalfSphere5mx5m05",
@@ -3289,7 +3875,15 @@
             0
           ]
         }
-      ]
+      ],
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Primitive",
+        "subGroup": "Sphere",
+        "type": "Sphere_5",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "DrawingBoardHalfSphere1mx1m02": {
       "name": "DrawingBoardHalfSphere1mx1m02",
@@ -3314,7 +3908,15 @@
             0
           ]
         }
-      ]
+      ],
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Primitive",
+        "subGroup": "Sphere",
+        "type": "Sphere_1",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "DrawingBoardHalfSphere1mx1m03": {
       "name": "DrawingBoardHalfSphere1mx1m03",
@@ -3339,7 +3941,15 @@
             0
           ]
         }
-      ]
+      ],
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Primitive",
+        "subGroup": "Sphere",
+        "type": "Sphere_1",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "DrawingBoardHalfSphere1mx1m04": {
       "name": "DrawingBoardHalfSphere1mx1m04",
@@ -3364,7 +3974,15 @@
             0
           ]
         }
-      ]
+      ],
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Primitive",
+        "subGroup": "Sphere",
+        "type": "Sphere_1",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "DrawingBoardHalfSphere1mx1m05": {
       "name": "DrawingBoardHalfSphere1mx1m05",
@@ -3389,7 +4007,15 @@
             0
           ]
         }
-      ]
+      ],
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Primitive",
+        "subGroup": "Sphere",
+        "type": "Sphere_1",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "DrawingBoardCylinder5mx5m01": {
       "name": "DrawingBoardCylinder5mx5m01",
@@ -3414,7 +4040,15 @@
             0
           ]
         }
-      ]
+      ],
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Primitive",
+        "subGroup": "Cylinder",
+        "type": "Cylinder_5x5",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "DrawingBoardCylinder5mx5m02": {
       "name": "DrawingBoardCylinder5mx5m02",
@@ -3439,7 +4073,15 @@
             0
           ]
         }
-      ]
+      ],
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Primitive",
+        "subGroup": "Cylinder",
+        "type": "Cylinder_5x5",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "DrawingBoardCylinder5mx5m03": {
       "name": "DrawingBoardCylinder5mx5m03",
@@ -3464,7 +4106,15 @@
             0
           ]
         }
-      ]
+      ],
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Primitive",
+        "subGroup": "Cylinder",
+        "type": "Cylinder_5x5",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "DrawingBoardCylinder5mx5m04": {
       "name": "DrawingBoardCylinder5mx5m04",
@@ -3489,7 +4139,15 @@
             0
           ]
         }
-      ]
+      ],
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Primitive",
+        "subGroup": "Cylinder",
+        "type": "Cylinder_5x5",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "DrawingBoardCylinder5mx5m05": {
       "name": "DrawingBoardCylinder5mx5m05",
@@ -3514,7 +4172,15 @@
             0
           ]
         }
-      ]
+      ],
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Primitive",
+        "subGroup": "Cylinder",
+        "type": "Cylinder_5x5",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "DrawingBoardCylinder1mx5m02": {
       "name": "DrawingBoardCylinder1mx5m02",
@@ -3539,7 +4205,15 @@
             0
           ]
         }
-      ]
+      ],
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Primitive",
+        "subGroup": "Cylinder",
+        "type": "Cylinder_1x5",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "DrawingBoardCylinder1mx5m03": {
       "name": "DrawingBoardCylinder1mx5m03",
@@ -3564,7 +4238,15 @@
             0
           ]
         }
-      ]
+      ],
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Primitive",
+        "subGroup": "Cylinder",
+        "type": "Cylinder_1x5",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "DrawingBoardCylinder1mx5m04": {
       "name": "DrawingBoardCylinder1mx5m04",
@@ -3589,7 +4271,15 @@
             0
           ]
         }
-      ]
+      ],
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Primitive",
+        "subGroup": "Cylinder",
+        "type": "Cylinder_1x5",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "DrawingBoardCylinder1mx5m05": {
       "name": "DrawingBoardCylinder1mx5m05",
@@ -3614,7 +4304,15 @@
             0
           ]
         }
-      ]
+      ],
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Primitive",
+        "subGroup": "Cylinder",
+        "type": "Cylinder_1x5",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "DrawingBoardCylinder1mx1m01": {
       "name": "DrawingBoardCylinder1mx1m01",
@@ -3639,7 +4337,15 @@
             0
           ]
         }
-      ]
+      ],
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Primitive",
+        "subGroup": "Cylinder",
+        "type": "Cylinder_1x1",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "DrawingBoardCylinder1mx1m02": {
       "name": "DrawingBoardCylinder1mx1m02",
@@ -3664,7 +4370,15 @@
             0
           ]
         }
-      ]
+      ],
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Primitive",
+        "subGroup": "Cylinder",
+        "type": "Cylinder_1x1",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "DrawingBoardCylinder1mx1m03": {
       "name": "DrawingBoardCylinder1mx1m03",
@@ -3689,7 +4403,15 @@
             0
           ]
         }
-      ]
+      ],
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Primitive",
+        "subGroup": "Cylinder",
+        "type": "Cylinder_1x1",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "DrawingBoardCylinder1mx1m04": {
       "name": "DrawingBoardCylinder1mx1m04",
@@ -3714,7 +4436,15 @@
             0
           ]
         }
-      ]
+      ],
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Primitive",
+        "subGroup": "Cylinder",
+        "type": "Cylinder_1x1",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "DrawingBoardCylinder1mx1m05": {
       "name": "DrawingBoardCylinder1mx1m05",
@@ -3739,7 +4469,15 @@
             0
           ]
         }
-      ]
+      ],
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Primitive",
+        "subGroup": "Cylinder",
+        "type": "Cylinder_1x1",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "DrawingBoardCylinder0.5mx5m01": {
       "name": "DrawingBoardCylinder0.5mx5m01",
@@ -3764,7 +4502,15 @@
             0
           ]
         }
-      ]
+      ],
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Primitive",
+        "subGroup": "Cylinder",
+        "type": "Cylinder_0.5x5",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "DrawingBoardCylinder0.5mx5m02": {
       "name": "DrawingBoardCylinder0.5mx5m02",
@@ -3789,7 +4535,15 @@
             0
           ]
         }
-      ]
+      ],
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Primitive",
+        "subGroup": "Cylinder",
+        "type": "Cylinder_0.5x5",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "DrawingBoardCylinder0.5mx5m04": {
       "name": "DrawingBoardCylinder0.5mx5m04",
@@ -3814,7 +4568,15 @@
             0
           ]
         }
-      ]
+      ],
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Primitive",
+        "subGroup": "Cylinder",
+        "type": "Cylinder_0.5x5",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "DrawingBoardCylinder0.5mx5m05": {
       "name": "DrawingBoardCylinder0.5mx5m05",
@@ -3839,7 +4601,15 @@
             0
           ]
         }
-      ]
+      ],
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Primitive",
+        "subGroup": "Cylinder",
+        "type": "Cylinder_0.5x5",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "DrawingBoardCurveWall5mx5m01": {
       "name": "DrawingBoardCurveWall5mx5m01",
@@ -3870,7 +4640,14 @@
           }
         }
       ],
-      "scalable": false
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Primitive",
+        "subGroup": "Wall",
+        "type": "CurveWall",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "DrawingBoardCurveWall5mx5m02": {
       "name": "DrawingBoardCurveWall5mx5m02",
@@ -3900,7 +4677,15 @@
             "angle": 90
           }
         }
-      ]
+      ],
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Primitive",
+        "subGroup": "Wall",
+        "type": "CurveWall",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "DrawingBoardCurveWall5mx5m03": {
       "name": "DrawingBoardCurveWall5mx5m03",
@@ -3930,7 +4715,15 @@
             "angle": 90
           }
         }
-      ]
+      ],
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Primitive",
+        "subGroup": "Wall",
+        "type": "CurveWall",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "DrawingBoardCurveWall5mx5m04": {
       "name": "DrawingBoardCurveWall5mx5m04",
@@ -3960,7 +4753,15 @@
             "angle": 90
           }
         }
-      ]
+      ],
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Primitive",
+        "subGroup": "Wall",
+        "type": "CurveWall",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "DrawingBoardCurveWall5mx5m05": {
       "name": "DrawingBoardCurveWall5mx5m05",
@@ -3990,7 +4791,15 @@
             "angle": 90
           }
         }
-      ]
+      ],
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Primitive",
+        "subGroup": "Wall",
+        "type": "CurveWall",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "DrawingBoardCone5mx5m01": {
       "name": "DrawingBoardCone5mx5m01",
@@ -4015,7 +4824,15 @@
             0
           ]
         }
-      ]
+      ],
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Primitive",
+        "subGroup": "Cone",
+        "type": "Cone_5x5",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "DrawingBoardCone5mx5m02": {
       "name": "DrawingBoardCone5mx5m02",
@@ -4040,7 +4857,15 @@
             0
           ]
         }
-      ]
+      ],
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Primitive",
+        "subGroup": "Cone",
+        "type": "Cone_5x5",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "DrawingBoardCone5mx5m03": {
       "name": "DrawingBoardCone5mx5m03",
@@ -4065,7 +4890,15 @@
             0
           ]
         }
-      ]
+      ],
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Primitive",
+        "subGroup": "Cone",
+        "type": "Cone_5x5",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "DangerPyramid01": {
       "name": "DangerPyramid01",
@@ -4267,7 +5100,14 @@
           ]
         }
       ],
-      "scalable": false
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Checkpoint",
+        "subGroup": "Box",
+        "type": null,
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "CheckpointBox10mX20m01": {
       "name": "CheckpointBox10mX20m01",
@@ -4293,7 +5133,14 @@
           ]
         }
       ],
-      "scalable": false
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Checkpoint",
+        "subGroup": "Box",
+        "type": null,
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "CheckpointBox10mX5m01": {
       "name": "CheckpointBox10mX5m01",
@@ -4319,7 +5166,14 @@
           ]
         }
       ],
-      "scalable": false
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Checkpoint",
+        "subGroup": "Box",
+        "type": null,
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "CheckpointBox20mX10m01": {
       "name": "CheckpointBox20mX10m01",
@@ -4345,7 +5199,14 @@
           ]
         }
       ],
-      "scalable": false
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Checkpoint",
+        "subGroup": "Box",
+        "type": null,
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "CheckpointBox20mX20m01": {
       "name": "CheckpointBox20mX20m01",
@@ -4371,7 +5232,14 @@
           ]
         }
       ],
-      "scalable": false
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Checkpoint",
+        "subGroup": "Box",
+        "type": null,
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "CheckpointBox20mX5m01": {
       "name": "CheckpointBox20mX5m01",
@@ -4397,7 +5265,14 @@
           ]
         }
       ],
-      "scalable": false
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Checkpoint",
+        "subGroup": "Box",
+        "type": null,
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "CheckpointBox2mX2m01": {
       "name": "CheckpointBox2mX2m01",
@@ -4423,7 +5298,14 @@
           ]
         }
       ],
-      "scalable": false
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Checkpoint",
+        "subGroup": "Box",
+        "type": null,
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "CheckpointBox2mX4m01": {
       "name": "CheckpointBox2mX4m01",
@@ -4449,7 +5331,14 @@
           ]
         }
       ],
-      "scalable": false
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Checkpoint",
+        "subGroup": "Box",
+        "type": null,
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "CheckpointBox5mX10m01": {
       "name": "CheckpointBox5mX10m01",
@@ -4475,7 +5364,14 @@
           ]
         }
       ],
-      "scalable": false
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Checkpoint",
+        "subGroup": "Box",
+        "type": null,
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "CheckpointBox5mX5m01": {
       "name": "CheckpointBox5mX5m01",
@@ -4501,7 +5397,14 @@
           ]
         }
       ],
-      "scalable": false
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Checkpoint",
+        "subGroup": "Box",
+        "type": null,
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "CheckpointBoxFlexible01": {
       "name": "CheckpointBoxFlexible01",
@@ -4527,7 +5430,14 @@
           ]
         }
       ],
-      "scalable": true
+      "scalable": true,
+      "meta": {
+        "mainGroup": "Checkpoint",
+        "subGroup": "Box",
+        "type": "Flexible",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "CheckpointCylinder10mX10m01": {
       "name": "CheckpointCylinder10mX10m01",
@@ -4553,7 +5463,14 @@
           ]
         }
       ],
-      "scalable": false
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Checkpoint",
+        "subGroup": "Cylinder",
+        "type": null,
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "CheckpointCylinder2mX2m01": {
       "name": "CheckpointCylinder2mX2m01",
@@ -4579,7 +5496,14 @@
           ]
         }
       ],
-      "scalable": false
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Checkpoint",
+        "subGroup": "Cylinder",
+        "type": null,
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "CheckpointCylinder4mX4m01": {
       "name": "CheckpointCylinder4mX4m01",
@@ -4605,7 +5529,14 @@
           ]
         }
       ],
-      "scalable": false
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Checkpoint",
+        "subGroup": "Cylinder",
+        "type": null,
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "CheckpointSphereFlexible01": {
       "name": "CheckpointSphereFlexible01",
@@ -4631,7 +5562,14 @@
           ]
         }
       ],
-      "scalable": true
+      "scalable": true,
+      "meta": {
+        "mainGroup": "Checkpoint",
+        "subGroup": "Sphere",
+        "type": "Flexible",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "DirectionArrowBlue01": {
       "name": "DirectionArrowBlue01",
@@ -4723,7 +5661,14 @@
           ]
         }
       ],
-      "scalable": false
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Flag",
+        "subGroup": "Airflag",
+        "type": "Airflag",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "AirflagFliteTest01": {
       "name": "AirflagFliteTest01",
@@ -4769,7 +5714,14 @@
           ]
         }
       ],
-      "scalable": false
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Flag",
+        "subGroup": "Airflag",
+        "type": "Airflag",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "AirflagLiftoffSlalomDark01": {
       "name": "AirflagLiftoffSlalomDark01",
@@ -4815,7 +5767,14 @@
           ]
         }
       ],
-      "scalable": false
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Flag",
+        "subGroup": "Airflag",
+        "type": "Airflag",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "AirFlagRsC01": {
       "name": "AirFlagRsC01",
@@ -4861,7 +5820,14 @@
           ]
         }
       ],
-      "scalable": false
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Flag",
+        "subGroup": "Airflag",
+        "type": "Airflag",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "HangingFlagParisDroneFestival": {
       "name": "HangingFlagParisDroneFestival",
@@ -4959,7 +5925,14 @@
           ]
         }
       ],
-      "scalable": false
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Flag",
+        "subGroup": "Airflag",
+        "type": "Airflag",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "AirflagLiftoffTurnDark01": {
       "name": "AirflagLiftoffTurnDark01",
@@ -5005,7 +5978,14 @@
           ]
         }
       ],
-      "scalable": false
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Flag",
+        "subGroup": "Airflag",
+        "type": "Airflag",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "AirflagLiftoffTurnWhite01": {
       "name": "AirflagLiftoffTurnWhite01",
@@ -5051,7 +6031,14 @@
           ]
         }
       ],
-      "scalable": false
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Flag",
+        "subGroup": "Airflag",
+        "type": "Airflag",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "AirFlagv01Slalom01": {
       "name": "AirFlagv01Slalom01",
@@ -5097,7 +6084,14 @@
           ]
         }
       ],
-      "scalable": false
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Flag",
+        "subGroup": "Airflag",
+        "type": "Airflag",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "AirFlagv01Turn": {
       "name": "AirFlagv01Turn",
@@ -5143,7 +6137,14 @@
           ]
         }
       ],
-      "scalable": false
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Flag",
+        "subGroup": "Airflag",
+        "type": "Airflag",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "AirflagAustralianArmy01": {
       "name": "AirflagAustralianArmy01",
@@ -5189,7 +6190,14 @@
           ]
         }
       ],
-      "scalable": false
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Flag",
+        "subGroup": "Airflag",
+        "type": "Airflag",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "AirflagLiftoffFinishDark01": {
       "name": "AirflagLiftoffFinishDark01",
@@ -5235,7 +6243,14 @@
           ]
         }
       ],
-      "scalable": false
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Flag",
+        "subGroup": "Airflag",
+        "type": "Airflag",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "AirflagLiftoffFinishWhite01": {
       "name": "AirflagLiftoffFinishWhite01",
@@ -5281,7 +6296,14 @@
           ]
         }
       ],
-      "scalable": false
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Flag",
+        "subGroup": "Airflag",
+        "type": "Airflag",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "AirFlagv01StartFinish01": {
       "name": "AirFlagv01StartFinish01",
@@ -5327,7 +6349,14 @@
           ]
         }
       ],
-      "scalable": false
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Flag",
+        "subGroup": "Airflag",
+        "type": "Airflag",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "AirflagFormulaFPV01": {
       "name": "AirflagFormulaFPV01",
@@ -5373,7 +6402,14 @@
           ]
         }
       ],
-      "scalable": false
+      "scalable": false,
+      "meta": {
+        "mainGroup": "Flag",
+        "subGroup": "Airflag",
+        "type": "Airflag",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     },
     "GemfanFlag360cm01": {
       "name": "GemfanFlag360cm01",
