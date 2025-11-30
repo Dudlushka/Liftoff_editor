@@ -15,119 +15,8 @@ import {snapshot}from './gen_undo.js';
 const deg = (v) => (v * Math.PI) / 180;
 
 // ===== Export / Import =====
-function exportSceneFlattenXML()
-{
-  const out = [];
-
-  function addNode(node, parentMatrix)
-  {
-    const M = new THREE.Matrix4();
-    const Rx = new THREE.Matrix4().makeRotationX(deg(node.rotRYP[0]));
-    const Ry = new THREE.Matrix4().makeRotationY(deg(node.rotRYP[1]));
-    const Rz = new THREE.Matrix4().makeRotationZ(deg(node.rotRYP[2]));
-    const S = new THREE.Matrix4().makeScale(
-      node.scale[0],
-      node.scale[1],
-      node.scale[2],
-    );
-    const T = new THREE.Matrix4().makeTranslation(
-      node.pos[0],
-      node.pos[1],
-      node.pos[2],
-    );
-    M.multiply(parentMatrix)
-      .multiply(T)
-      .multiply(Rx)
-      .multiply(Ry)
-      .multiply(Rz)
-      .multiply(S);
-    if (node.refType === "gp")
-    {
-      const gp = store.gamePrimitives[node.refName];
-      if (!gp) return;
-      gp.parts.forEach((p) =>
-      {
-        const m = new THREE.Matrix4();
-        const Rx2 = new THREE.Matrix4().makeRotationX(deg(p.rotRYP[0]));
-        const Ry2 = new THREE.Matrix4().makeRotationY(deg(p.rotRYP[1]));
-        const Rz2 = new THREE.Matrix4().makeRotationZ(deg(p.rotRYP[2]));
-        const S2 = new THREE.Matrix4().makeScale(
-          p.scale[0],
-          p.scale[1],
-          p.scale[2],
-        );
-        const T2 = new THREE.Matrix4().makeTranslation(
-          p.pos[0],
-          p.pos[1],
-          p.pos[2],
-        );
-        m.multiply(M)
-          .multiply(T2)
-          .multiply(Rx2)
-          .multiply(Ry2)
-          .multiply(Rz2)
-          .multiply(S2);
-        const pos = new THREE.Vector3();
-        const quat = new THREE.Quaternion();
-        const scl = new THREE.Vector3();
-        m.decompose(pos, quat, scl);
-        const eul = new THREE.Euler().setFromQuaternion(quat, "XYZ");
-        out.push({
-          type: p.type,
-          color: p.color,
-          size: [scl.x, scl.y, scl.z],
-          pos: [pos.x, pos.y, pos.z],
-          rotRYP: [
-            (eul.x * 180) / Math.PI,
-            (eul.y * 180) / Math.PI,
-            (eul.z * 180) / Math.PI,
-          ],
-        });
-      });
-    }
-    else
-    {
-      const grp = store.groups[node.refName];
-      if (!grp) return;
-      grp.items.forEach((child) => addNode(child, M));
-    }
-  }
-  const I = new THREE.Matrix4();
-  store.scene.forEach((root) => addNode(root, I));
-  let xml = `<?xml version="1.0" encoding="UTF-8"?>
-<Scene>
-`;
-  out.forEach((p, i) =>
-  {
-    xml += `  <Primitive index="${i}" type="${p.type}">
-`;
-    xml += `    <color>${p.color}</color>
-`;
-    xml += `    <size x="${p.size[0].toFixed(6)}" y="${p.size[1].toFixed(
-      6,
-    )}" z="${p.size[2].toFixed(6)}"/>
-`;
-    xml += `    <position x="${p.pos[0].toFixed(6)}" y="${p.pos[1].toFixed(
-      6,
-    )}" z="${p.pos[2].toFixed(6)}"/>
-`;
-    xml += `    <rotation roll="${p.rotRYP[0].toFixed(6)}" yaw="${p.rotRYP[1].toFixed(
-      6,
-    )}" pitch="${p.rotRYP[2].toFixed(6)}"/>
-`;
-    xml += `  </Primitive>
-`;
-  });
-  xml += `</Scene>
-`;
-  downloadText("scene_export.xml", xml);
-}
 
 
-//---------------------
-
-
-//ui.exportXML.addEventListener("click", exportSceneFlattenXML);
 
 ui.saveJSON.addEventListener("click", saveJSON);
 ui.loadJSON.addEventListener("change", () =>
@@ -144,12 +33,6 @@ ui.importGameXML.addEventListener("change", () =>
 {
   if (ui.importGameXML.files[0]) importGameXML(ui.importGameXML.files[0]);
 });
-
-
-
-
-
-
 
 
 
@@ -242,30 +125,44 @@ function exportGameXML()
       let ey = normalizeDeg(radToDeg(eul.y));
       let ez = normalizeDeg(radToDeg(eul.z));
 
-      // Look up GP and check scalable flag
+      // Look up GP
       const gp = store.gamePrimitives?.[node.refName];
-      const scalable = !!gp?.scalable;
 
-      // Decide blueprint type
-      const bpType = scalable
-        ? "TrackBlueprintFlexibleFlag"
-        : "TrackBlueprintFlag";
+      // XSI type közvetlenül a GP-n
+      // Fallback régi scalable flag alapján, hogy a régi projektek se dőljenek el
+      let xsiType = gp?.xsiType;
+      if (!xsiType)
+      {
+        const legacyScalable = !!gp?.scalable;
+        xsiType = legacyScalable
+          ? "TrackBlueprintFlexibleFlag"
+          : "TrackBlueprintFlag";
+      }
 
-      // Warn if non-scalable GP has non-unit scale
-      if (!scalable && !isUnitScale(scl))
+      // Skála export szabály:
+      // - csak akkor írunk <scale>-t, ha:
+      //   - TrackBlueprintAction, vagy
+      //   - TrackBlueprintFlexibleFlag
+      const exportScale =
+        xsiType === "TrackBlueprintAction" ||
+        xsiType === "TrackBlueprintFlexibleFlag";
+
+      // Warn, ha Flag-hez nem egységskála tartozik (a játék úgysem skálázza)
+      if (!exportScale && !isUnitScale(scl))
       {
         console.warn(
-          "[exportGameXML] GP instance has non-unit scale but GP is not scalable. " +
+          "[exportGameXML] GP instance has non-unit scale but blueprint type does not support scaling. " +
           "Scaling will be ignored.",
           {
             refName: node.refName,
+            xsiType,
             pos: { x: pos.x, y: pos.y, z: pos.z },
             scale: { x: scl.x, y: scl.y, z: scl.z }
           }
         );
       }
 
-      xml += `    <TrackBlueprint xsi:type=\"${bpType}\">
+      xml += `    <TrackBlueprint xsi:type=\"${xsiType}\">
 `;
       xml += `      <itemID>${node.refName}</itemID>
 `;
@@ -284,8 +181,7 @@ function exportGameXML()
       </rotation>
 `;
 
-      // Only write scale if GP is marked scalable
-      if (scalable)
+      if (exportScale)
       {
         xml += `      <scale>
         <x>${scl.x}</x>
@@ -316,6 +212,7 @@ function exportGameXML()
   
   downloadText("track_export.track", xml);
 }
+
 
 
 
@@ -353,99 +250,98 @@ function importGameXML(file)
         : (r) => r * 180 / Math.PI;
 
       dom.querySelectorAll("blueprints > TrackBlueprint").forEach((bp) =>
-{
-  // Read blueprint type (e.g. TrackBlueprintFlag or TrackBlueprintFlexibleFlag)
-  const bpType   = bp.getAttribute("xsi:type") || "";
-  const flexible = bpType.includes("Flexible");
+      {
+        // blueprint type: pl. TrackBlueprintFlag / TrackBlueprintFlexibleFlag / TrackBlueprintAction
+        const bpType = bp.getAttribute("xsi:type") || "";
 
-  // --- itemID, trimmed ---
-  let rawItemID =
-    bp.querySelector("itemID")?.textContent || "UnknownItem";
+        // --- itemID, trimmed ---
+        let rawItemID =
+          bp.querySelector("itemID")?.textContent || "UnknownItem";
 
-  let itemID = String(rawItemID);
-  const trimmedItemID = itemID.trim();
+        let itemID = String(rawItemID);
+        const trimmedItemID = itemID.trim();
 
-  if (trimmedItemID !== itemID)
-  {
-    console.log(
-      "[importGameXML] itemID trimmed:",
-      JSON.stringify(itemID),
-      "->",
-      JSON.stringify(trimmedItemID)
-    );
-  }
-  itemID = trimmedItemID;
-
-  // --- position ---
-  const px = parseFloat(bp.querySelector("position > x")?.textContent || "0");
-  const py = parseFloat(bp.querySelector("position > y")?.textContent || "0");
-  const pz = parseFloat(bp.querySelector("position > z")?.textContent || "0");
-
-  // --- rotation from game (YXZ intrinsic) ---
-  const rxGame = parseFloat(bp.querySelector("rotation > x")?.textContent || "0");
-  const ryGame = parseFloat(bp.querySelector("rotation > y")?.textContent || "0");
-  const rzGame = parseFloat(bp.querySelector("rotation > z")?.textContent || "0");
-
-  const eGame = new THREE.Euler(
-    degToRad(rxGame),
-    degToRad(ryGame),
-    degToRad(rzGame),
-    "YXZ"
-  );
-  const q = new THREE.Quaternion().setFromEuler(eGame);
-
-  // Convert to editor's XYZ euler
-  const eLocal = new THREE.Euler().setFromQuaternion(q, "XYZ");
-
-  const rxLocal = radToDeg(eLocal.x);
-  const ryLocal = radToDeg(eLocal.y);
-  const rzLocal = radToDeg(eLocal.z);
-
-  // --- scale (if present) ---
-  const sx = parseFloat(bp.querySelector("scale > x")?.textContent || "1");
-  const sy = parseFloat(bp.querySelector("scale > y")?.textContent || "1");
-  const sz = parseFloat(bp.querySelector("scale > z")?.textContent || "1");
-  const scaleArr = [sx, sy, sz];
-
-  // Ensure GP exists
-  if (!store.gamePrimitives[itemID])
-  {
-    store.gamePrimitives[itemID] = {
-      name: itemID,
-      parts: [
+        if (trimmedItemID !== itemID)
         {
-          id: crypto.randomUUID(),
-          type: "box",
-          color: "#9aa7b1",
-          scale: [1, 1, 1],
-          pos: [0, 0, 0],
-          rotRYP: [0, 0, 0],
-        },
-      ],
-      // If the track blueprint is flexible, assume this GP is scalable by design
-      scalable: flexible
-    };
-  }
-  else
-  {
-    // Optional: if GP exists but has no scalable flag yet and blueprint is flexible,
-    // we can infer it once.
-    const gp = store.gamePrimitives[itemID];
-    if (gp.scalable === undefined && flexible)
-    {
-      gp.scalable = true;
-    }
-  }
+          console.log(
+            "[importGameXML] itemID trimmed:",
+            JSON.stringify(itemID),
+            "->",
+            JSON.stringify(trimmedItemID)
+          );
+        }
+        itemID = trimmedItemID;
 
-  // Add scene node, now using imported scale
-  store.scene.push({
-    refType: "gp",
-    refName: itemID,
-    pos: [px, py, pz],
-    rotRYP: [rxLocal, ryLocal, rzLocal],
-    scale: scaleArr,
-  });
-});
+        // --- position ---
+        const px = parseFloat(bp.querySelector("position > x")?.textContent || "0");
+        const py = parseFloat(bp.querySelector("position > y")?.textContent || "0");
+        const pz = parseFloat(bp.querySelector("position > z")?.textContent || "0");
+
+        // --- rotation from game (YXZ intrinsic) ---
+        const rxGame = parseFloat(bp.querySelector("rotation > x")?.textContent || "0");
+        const ryGame = parseFloat(bp.querySelector("rotation > y")?.textContent || "0");
+        const rzGame = parseFloat(bp.querySelector("rotation > z")?.textContent || "0");
+
+        const eGame = new THREE.Euler(
+          degToRad(rxGame),
+          degToRad(ryGame),
+          degToRad(rzGame),
+          "YXZ"
+        );
+        const q = new THREE.Quaternion().setFromEuler(eGame);
+
+        // Convert to editor's XYZ euler
+        const eLocal = new THREE.Euler().setFromQuaternion(q, "XYZ");
+
+        const rxLocal = radToDeg(eLocal.x);
+        const ryLocal = radToDeg(eLocal.y);
+        const rzLocal = radToDeg(eLocal.z);
+
+        // --- scale (if present) ---
+        const sx = parseFloat(bp.querySelector("scale > x")?.textContent || "1");
+        const sy = parseFloat(bp.querySelector("scale > y")?.textContent || "1");
+        const sz = parseFloat(bp.querySelector("scale > z")?.textContent || "1");
+        const scaleArr = [sx, sy, sz];
+
+        // Ensure GP exists
+        if (!store.gamePrimitives[itemID])
+        {
+          store.gamePrimitives[itemID] = {
+            name: itemID,
+            parts: [
+              {
+                id: crypto.randomUUID(),
+                type: "box",
+                color: "#9aa7b1",
+                scale: [1, 1, 1],
+                pos: [0, 0, 0],
+                rotRYP: [0, 0, 0],
+              },
+            ],
+            // ÚJ: XSI_Type közvetlenül a GP szinten
+            xsiType: bpType || "TrackBlueprintFlag",
+          };
+        }
+        else
+        {
+          const gp = store.gamePrimitives[itemID];
+
+          // Ha még nincs beállítva az xsiType, vegyük át az importált típust
+          if (!gp.xsiType && bpType)
+          {
+            gp.xsiType = bpType;
+          }
+        }
+
+        // Add scene node, now using imported scale
+        store.scene.push({
+          refType: "gp",
+          refName: itemID,
+          pos: [px, py, pz],
+          rotRYP: [rxLocal, ryLocal, rzLocal],
+          scale: scaleArr,
+        });
+      });
 
       refreshGPList();
       refreshGrpList();
@@ -463,6 +359,8 @@ function importGameXML(file)
 
   console.log("import finished",file);
 }
+
+
 
 
 
@@ -522,6 +420,57 @@ function deepClone(obj)
 
 
 
+
+
+
+function normalizeGPXsiType(gp)
+{
+  if (!gp || typeof gp !== "object")
+  {
+    return;
+  }
+
+  const hasXsi =
+    typeof gp.xsiType === "string" &&
+    gp.xsiType.trim() !== "";
+
+  if (!hasXsi)
+  {
+    console.log("noXsi")
+    // régi scalable alapján döntünk
+    if (gp.scalable === true)
+    {
+      gp.xsiType = "TrackBlueprintFlexibleFlag";
+    }
+    else
+    {
+      gp.xsiType = "TrackBlueprintFlag";
+    }
+  }
+  else
+  {
+    console.log("hasXsi")
+  }
+
+  // scalable mező eltakarítása
+  if ("scalable" in gp)
+  {
+    delete gp.scalable;
+  }
+}
+
+function migrateExistingGPsXsiType()
+{
+  const gps = store.gamePrimitives || {};
+  for (const gp of Object.values(gps))
+  {
+    normalizeGPXsiType(gp);
+  }
+}
+
+
+
+
 /**
  * data: { gamePrimitives?: Record<string, GP>, groups?: Record<string, GRP> }
  * Viselkedés:
@@ -529,6 +478,7 @@ function deepClone(obj)
  *  - ha nincs: hozzáadjuk
  *  - semmit nem törlünk a meglévőkből
  */
+/*
 function mergeLibraryData(data)
 {
   if (data?.gamePrimitives && typeof data.gamePrimitives === "object")
@@ -545,26 +495,30 @@ function mergeLibraryData(data)
       store.groups[name] = deepClone(grp);
     }
   }
+}*/
+
+function mergeLibraryData(data)
+{
+  if (data?.gamePrimitives && typeof data.gamePrimitives === "object")
+  {
+    for (const [name, gp] of Object.entries(data.gamePrimitives))
+    {
+      // előbb normalizáljuk (xsiType + scalable törlése)
+      const cloned = deepClone(gp);
+      normalizeGPXsiType(cloned);
+      store.gamePrimitives[name] = cloned;
+    }
+  }
+
+  if (data?.groups && typeof data.groups === "object")
+  {
+    for (const [name, grp] of Object.entries(data.groups))
+    {
+      store.groups[name] = deepClone(grp);
+    }
+  }
 }
 
-/*function loadJSON(file)
-{
-  const reader = new FileReader();
-  reader.onload = () =>
-  {
-    try
-    {
-      const data = JSON.parse(String(reader.result));
-      applyLibraryDataObject(data);
-      snapshot();
-    }
-    catch (e)
-    {
-      alert("Hibás JSON.");
-    }
-  };
-  reader.readAsText(file);
-}*/
 
 function loadJSON(file)
 {
@@ -611,6 +565,7 @@ async function loadLibraryFromURL(url)
     const data = await res.json();
     applyLibraryDataObject(data);
     console.log("[init] Könyvtár betöltve:", url);
+    migrateExistingGPsXsiType();
     return true;
   }
   catch (err)
@@ -618,6 +573,9 @@ async function loadLibraryFromURL(url)
     console.warn("[init] Könyvtár nem tölthető:", url, err);
     return false;
   }
+
+
+  
 }
 
 window.loadLibraryFromURL       = loadLibraryFromURL;

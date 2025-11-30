@@ -198,7 +198,8 @@ const ui =
   //drawingmode 
   clDrawMode : $("#clDrawMode"),
   //
-  gpScalable : $("#gpScalable"),
+  //gpScalable : $("#gpScalable"),
+  gpXsiType: $("#gpXsiType"),
   trackEnvironment : $("#trackEnvironment"),
   //
 

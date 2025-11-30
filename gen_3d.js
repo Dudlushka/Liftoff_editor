@@ -1600,6 +1600,26 @@ export function fillPartEditors(focus = true)
 
 
 
+function ensureXsiTypeOptionExists(value)
+{
+  if (!ui.gpXsiType) return;
+  if (!value || typeof value !== "string") return;
+
+  const v = value.trim();
+  if (!v) return;
+
+  // már létezik?
+  const exists = Array.from(ui.gpXsiType.options).some(opt => opt.value === v);
+  if (exists) return;
+
+  const opt = document.createElement("option");
+  opt.value = v;
+  opt.textContent = v;
+  ui.gpXsiType.appendChild(opt);
+}
+
+
+
 
 function loadGP(name)
 {
@@ -1635,7 +1655,12 @@ function loadGP(name)
     // Get GP object by name
   const gp = store.gamePrimitives[n];
   
-  if (ui?.gpScalable){  ui.gpScalable.checked = !!gp.scalable; }
+
+  console.log("[loadGP] xsiType: ",gp.xsiType)
+  ensureXsiTypeOptionExists(gp.xsiType);
+  ui.gpXsiType.value = gp.xsiType ?? "";
+
+
   writeMetaToGPUI(gp.meta)
 
   // Kijelölés törlése és frissítések
@@ -1662,12 +1687,13 @@ ui.gpNew.addEventListener("click", () =>
   // 1) Név eldöntése és egyedivé tétele
   const base = (ui?.gpName?.value || "").trim();
   const name = makeUniqueGPName(base || `GamePrim_${Object.keys(store.gamePrimitives).length + 1}`);
-  const scalable = !!ui.gpScalable?.checked;
+  
+
 
 
   // 2) Új GP létrehozása a store-ban
-  //store.gamePrimitives[name] = { name, parts: [] };
-  store.gamePrimitives[name] = { name, parts: [], scalable};
+  store.gamePrimitives[name] = { name, parts: [] };
+  
 
   // 3) Aktívvá tesszük
   store.activeGPName = name;
@@ -1681,6 +1707,8 @@ ui.gpNew.addEventListener("click", () =>
   snapshot?.();
 });
 
+
+
 ui.gpSave.addEventListener("click", () =>
 {
   // 1) Active name and target name
@@ -1692,8 +1720,11 @@ ui.gpSave.addEventListener("click", () =>
 
   const newNameInput = (ui?.gpName?.value || "").trim() || oldName;
 
-  // Update scalable flag from UI
-  gp.scalable = !!ui.gpScalable?.checked;
+
+  //oldscale
+
+  const t = String(ui.gpXsiType.value || "").trim();
+  gp.xsiType = t === "" ? undefined : t;
   gp.meta = readMetaFromGPUI();
 
   // 2) If rename happens
