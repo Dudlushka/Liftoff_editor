@@ -177,6 +177,43 @@ function applySceneEditorsToSelectedCPs()
 
 
 
+//------------------------------------------------------------------------------------------
+//Button icons
+//--------------------------------------
+
+const mainGroupIconMap = {
+  "Primitive": "public/pics/1.jpg",
+  "Checkpoint": "public/pics/2.jpg",
+  "Flag": "public/pics/3.jpg",
+  "Gate": "public/pics/4.jpg",
+  "LED": "public/pics/5.jpg",
+  "Road": "public/pics/6.jpg",
+  "Rig": "public/pics/7.jpg",
+  "Tape": "public/pics/8.jpg",
+  "Logical": "public/pics/9.jpg",
+
+  
+};
+
+
+
+function attachMainGroupIcon(summaryEl, mainName)
+{
+  if (!summaryEl || !mainName) return;
+
+  const key = String(mainName).trim();
+  const url = mainGroupIconMap[key];
+  if (!url) return; // ha nincs ikon definiálva, marad sima szöveg
+
+  const img = document.createElement("img");
+  img.src = url;
+  img.alt = key;
+  img.className = "tree-main-icon";
+
+  // FONTOS: először az ikont tesszük be, utána a szöveget appendeljük
+  summaryEl.appendChild(img);
+}
+
 
 //------------------------------------------------------------------------------------------
 // 1) Kövesd a betűgombok állapotát globálisan
@@ -1331,7 +1368,12 @@ export function refreshGPList()
         // csak az aktív GP-t tartalmazó main nyíljon ki
         detMain.open = (main === activeMain);
         const sumMain = document.createElement("summary");
-        sumMain.textContent = main;
+
+        attachMainGroupIcon(sumMain, main);
+
+        sumMain.append(main); // szöveg a kép mögé
+
+        //sumMain.textContent = main;
         detMain.appendChild(sumMain);
 
         const ulSub = document.createElement("ul");
@@ -3302,7 +3344,12 @@ function refreshScnSourceTree(kind, names)
         // csak az aktív GP/GRP-hez tartozó main ág legyen nyitva
         detMain.open = (main === activeMain);
         const sumMain = document.createElement("summary");
-        sumMain.textContent = main;
+
+        attachMainGroupIcon(sumMain, main);
+        sumMain.append(main);
+
+
+        //sumMain.textContent = main;
         detMain.appendChild(sumMain);
 
         const ulSub = document.createElement("ul");

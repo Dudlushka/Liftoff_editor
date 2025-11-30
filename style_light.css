@@ -416,3 +416,22 @@ ul.list::-webkit-scrollbar-track {
   object-fit: contain;      /* ne torzuljon a kép */
   border-radius: 50%;       /* ha kör alakút szeretnél, különben kiveheted */
 }
+
+
+/* gpList és Scene tree: ne legyen default bullet*/
+#gpList ul,
+#gpList li,
+#scnAddSourceTree ul,
+#scnAddSourceTree li {
+  list-style-type: none;
+  margin: 0;
+  padding-left: 8px; /* hogy legyen egy kis behúzás */
+}
+
+/* az ikon a fő csoport előtt */
+.tree-main-icon {
+  width: 32px;      /* itt állítod a pixel méretet */
+  height: 30px;
+  margin-right: 2px;
+  vertical-align: middle;
+}
