@@ -55,7 +55,8 @@ export const drawControlLines = (...args) =>
 
 function ensureCLLoaded(li) {
   if (typeof loadCL === 'function' && currentCLIndex !== li) {
-    loadCL(li); // UI és lista frissül
+    //loadCL(li); // UI és lista frissül
+    window.loadCL(li);
   }
 }
 
@@ -177,22 +178,20 @@ function applySceneEditorsToSelectedCPs()
 
 
 
-//------------------------------------------------------------------------------------------
+//--------------------------------------
 //Button icons
 //--------------------------------------
 
 const mainGroupIconMap = {
-  "Primitive": "public/pics/1.jpg",
-  "Checkpoint": "public/pics/2.jpg",
-  "Flag": "public/pics/3.jpg",
-  "Gate": "public/pics/4.jpg",
-  "LED": "public/pics/5.jpg",
-  "Road": "public/pics/6.jpg",
-  "Rig": "public/pics/7.jpg",
-  "Tape": "public/pics/8.jpg",
-  "Logical": "public/pics/9.jpg",
-
-  
+  "Primitive":   "public/pics/1.jpg",
+  "Checkpoint":  "public/pics/2.jpg",
+  "Flag":        "public/pics/3.jpg",
+  "Gate":        "public/pics/4.jpg",
+  "LED":         "public/pics/5.jpg",
+  "Road":        "public/pics/6.jpg",
+  "Rig":         "public/pics/7.jpg",
+  "Tape":        "public/pics/8.jpg",
+  "Logical":     "public/pics/9.jpg",
 };
 
 
@@ -286,8 +285,6 @@ function isRotateGesture(e)
 }
 
 
-
-
 const snapAccum = { x: 0, y: 0, z: 0 };
 
 function resetSnapAccum()
@@ -296,10 +293,6 @@ function resetSnapAccum()
   snapAccum.y = 0;
   snapAccum.z = 0;
 }
-
-
-
-
 
 // 3) startDrag: csak ezt cseréld
 function startDrag(e) 
@@ -427,7 +420,7 @@ function updateCamera()
 worldRoot.add(gpRoot, grpRoot, scnRoot, clRoot);
 
 // KIZÁRÓLAG ezekre raycastelünk
-const pickRoots = [gpRoot, grpRoot, scnRoot, clRoot];
+//const pickRoots = [gpRoot, grpRoot, scnRoot, clRoot];
 
 
 // Picking & drag
@@ -444,7 +437,40 @@ let isPanning   = false,
 
 
 const dragPlane = new THREE.Plane(new THREE.Vector3(0, 1, 0), 0);
-let lastHit = null; // a delta számításhoz multi-move esetén
+let lastHit = null;   // a delta számításhoz multi-move esetén
+let hoverObj = null;  // aktuálisan egér alatt lévő pickelhető objektum (gp/grp/scn)
+
+
+
+function getPickRoots()
+{
+    const mode = ui.mode?.value || "gp";
+    const roots = [];
+
+    if (mode === "gp")
+    {
+        if (gpRoot) roots.push(gpRoot);
+    }
+    else if (mode === "grp")
+    {
+        if (grpRoot) roots.push(grpRoot);
+    }
+    else if (mode === "scn")
+    {
+        // SCENE módban ÉLNEK a controlline-ok is → együtt raycasteljük őket
+        if (scnRoot) roots.push(scnRoot);
+        if (clRoot)  roots.push(clRoot);
+    }
+    
+    else
+    {
+      log.console ("[getPickRoots]unknown mode for raycasting");
+    }
+
+    return roots;
+}
+
+
 
 
 
@@ -621,18 +647,13 @@ export function rebuildAllBounds()
 
     // ha ki van kapcsolva a megjelenítés, lépjünk ki
     const show = (ui.groupBoundsVis?.value === 'on');
-    if (!show)
-    {
-        return;
-    }
+    if (!show){return;}
 
     // 1) szülő (aktív mód gyökere)
     const mode   = ui.mode.value;
     const parent = getModeRoot(); // gpRoot, grpRoot, scnRoot
     if (!parent)
-    {
-        return;
-    }
+    {return;}
 
     parent.updateMatrixWorld(true);
     const parentWorldInv = parent.matrixWorld.clone().invert();
@@ -659,9 +680,13 @@ parent.traverse(o =>
     if (o.visible === false) return;
 
     const selected = isSelectedUd(ud);
+    const hovered  = (hoverObj && o === hoverObj);
 
-    // Scene módban csak a kijelölt scene-itemekre rajzoljunk keretet
-    if (pk === 'scnItem' && !selected)
+    // Scene módban csak a kijelölt vagy éppen egér alatti scene-itemekre rajzoljunk keretet
+    if (pk === 'scnItem' && !selected && !hovered){return;}
+
+    // Ha sem kijelölt, sem éppen hover alatt, ne rajzoljunk keretet
+    if (!selected && !hovered)
     {
         return;
     }
@@ -679,6 +704,8 @@ parent.traverse(o =>
     // 2) Kis keret – O lokál terében, az objektumhoz csatolva
     const color    = selected ? 0xff3333 : 0xffff00; // piros / citromsárga
     const smallBox = new THREE.Box3Helper(boxLocal, color);
+    
+    
     markHelper(smallBox);
 
     // NINCS saját mátrix buherálás, NINCS matrixAutoUpdate = false
@@ -720,50 +747,94 @@ parent.traverse(o =>
     }
 });
 
-    // 3) Kijelölt CP-k piros keretei (ez maradhat, ahogy nálad volt)
+    // 3) Kijelölt CP-k piros keretei 
 
-    let cpNodesForHull = []; // csak akkor tesszük be a unionba, ha ugyanazon szülő alatt vannak
-    if (typeof clRoot !== 'undefined' && currentCLIndex >= 0 && cpSelSet?.size > 0)
+    // --------------------------------------------------
+// CP keretek (kijelölt = piros, hover = sárga)
+// --------------------------------------------------
+let cpNodesForHull = [];
+
+if (typeof clRoot !== "undefined" && clRoot)
+{
+    const cpParent = clRoot;
+    cpParent.updateMatrixWorld(true);
+    const cpParentInv = cpParent.matrixWorld.clone().invert();
+
+    const foundCpNodes = [];
+
+    cpParent.traverse(o =>
     {
-        const cpParent = clRoot;
-        cpParent.updateMatrixWorld(true);
-        const cpParentInv = cpParent.matrixWorld.clone().invert();
+        const ud = o?.userData;
+        if (!ud || ud.pickKind !== "cp") return;
+        if (o.visible === false) return;
 
-        const wanted = new Set([...cpSelSet].map(i => `${currentCLIndex}:${i}`));
-        const foundCpNodes = [];
-
-        cpParent.traverse(o =>
+        // kijelölt CP: az aktuális CL-en, ha cpSelSet tartalmazza a pointIdx-et
+        let selected = false;
+        if (currentCLIndex >= 0 && cpSelSet && cpSelSet.size > 0)
         {
-            const ud = o?.userData;
-            if (!ud || ud.pickKind !== 'cp') return;
-            if (o.visible === false) return;
-
-            const key = `${ud.lineIdx}:${ud.pointIdx}`;
-            if (!wanted.has(key)) return;
-
-            // ha van cpCenterBox, csak azt vegyük a kerethez
-            const target = (ud.cpCenterBox instanceof THREE.Object3D)
-                ? ud.cpCenterBox
-                : o;
-
-            // világ → CP-szülő lokál
-            const boxW = new THREE.Box3().setFromObject(target);
-            const boxL = boxW.clone().applyMatrix4(cpParentInv);
-
-            const helper = new THREE.Box3Helper(boxL, 0xff3333);
-            markHelper(helper);
-            cpParent.add(helper);
-
-            foundCpNodes.push(o);
-        });
-
-        // csak akkor vesszük bele a CP-ket a nagy „union” keretbe,
-        // ha a CP-k ugyanazon parent alatt vannak, mint az aktív kiválasztottak
-        if (cpParent === parent)
-        {
-            cpNodesForHull = foundCpNodes;
+            if (ud.lineIdx === currentCLIndex && cpSelSet.has(ud.pointIdx))
+            {
+                selected = true;
+            }
         }
-    }
+
+        // hover CP: bármelyik CL bármelyik CP-je lehet
+        let hovered = false;
+        if (hoverObj && hoverObj.userData && hoverObj.userData.pickKind === "cp")
+        {
+            const hud = hoverObj.userData;
+            if (hud.lineIdx === ud.lineIdx && hud.pointIdx === ud.pointIdx)
+            {
+                hovered = true;
+            }
+        }
+
+        // ha sem kijelölt, sem hover, ide nem rajzolunk keretet
+        if (!selected && !hovered)
+        {
+            return;
+        }
+
+        // ha van cpCenterBox, ahhoz igazítjuk a keretet
+        const target = (ud.cpCenterBox instanceof THREE.Object3D)
+            ? ud.cpCenterBox
+            : o;
+
+        // világ → CP-parent lokál
+        const boxW = new THREE.Box3().setFromObject(target);
+        const boxL = boxW.clone().applyMatrix4(cpParentInv);
+
+        const color  = selected ? 0xff3333 : 0xffff00; // piros: selected, sárga: hover
+        const helper = new THREE.Box3Helper(boxL, color);
+        markHelper(helper);
+        cpParent.add(helper);
+
+        if (selected)
+        {
+            foundCpNodes.push(o); // union kerethez csak a kijelöltek kellenek
+        }
+    });
+
+    cpNodesForHull = foundCpNodes;
+
+    // ha nálad van CP-union (narancs) keret, azt itt hagyd meg,
+    // csak az input listája legyen a cpNodesForHull, ahogy eddig is.
+    //
+    // pl. valami ilyesmi lehet alatta:
+    //
+    // if (cpNodesForHull.length > 1)
+    // {
+    //     const unionBox = new THREE.Box3();
+    //     for (const n of cpNodesForHull)
+    //     {
+    //         unionBox.expandByObject(n);
+    //     }
+    //     const unionHelper = new THREE.Box3Helper(unionBox, 0xff8800);
+    //     markHelper(unionHelper);
+    //     sceneRoot.add(unionHelper);
+    // }
+}
+
 
     // 4) Összesítő (union) keret a teljes kiválasztott halmaz köré (narancs)
     const hullCandidates = selectedNodes.concat(cpNodesForHull);
@@ -832,7 +903,21 @@ function pick(evt)
   raycaster.setFromCamera(mouseNDC, camera);
 
   const meshes = [];
-  pickRoots.forEach(root => root.traverse(o => { if (o.isMesh && o.visible) meshes.push(o); }));
+  
+  //pickRoots.forEach(root => root.traverse(o => { if (o.isMesh && o.visible) meshes.push(o); }));
+
+    const roots = getPickRoots();
+  roots.forEach(root =>
+  {
+      if (!root) return;
+      root.traverse(o =>
+      {
+          if (o.isMesh && o.visible)
+          {
+              meshes.push(o);
+          }
+      });
+  });
 
   const hits = raycaster.intersectObjects(meshes, true);
   if (!hits.length) return null;
@@ -2870,8 +2955,27 @@ function getModeAndSelection()
         return { mode: "grp", arr: grp.items ?? [], sel: grpSelSet };
     }
 
-    // scn
-    return { mode: "scn", arr: store.scene ?? [], sel: scnSelSet };
+    if (m === "scn")
+    {
+        // 1) Ha van CP-kijelölés: azt kezeljük pivot-logikával
+        if (typeof cpSelSet !== "undefined" &&
+            cpSelSet.size > 0 &&
+            Number.isInteger(currentCLIndex) &&
+            currentCLIndex >= 0)
+        {
+            const cl = store?.controlLines?.[currentCLIndex];
+            if (cl && Array.isArray(cl.points))
+            {
+                // arr = CP tömb, sel = cpSelSet
+                return { mode: "scn-cp", arr: cl.points, sel: cpSelSet };
+            }
+        }
+
+        // 2) Különben a sima scene-itemek
+        return { mode: "scn", arr: store.scene ?? [], sel: scnSelSet };
+    }
+
+    return null;
 }
 
 function setTRSFromEulerDeg(target, posV3, eulerDeg, scaleArr)
@@ -2984,8 +3088,17 @@ function rotateSelectionAroundPivot(axisChar, dAngDeg)
         refreshGrpItemList?.();
         drawGRPPreview?.();
     }
+    else if (mode === "scn-cp")
+    {
+        // Több CP forgatása pivot körül
+        // – Scene editor töltés az első CP-ből
+        // – Controlline-ok újrarajzolása
+        syncSceneEditorsFromFirstCP?.();
+        drawControlLines?.();
+    }
     else
     {
+        // Normál Scene-item forgatás
         fillScnEditors?.(false);
         refreshScnList?.();
         drawScene?.();
@@ -4005,10 +4118,45 @@ if (dragMode === "rotate")
     rebuildAllBounds?.();
 }
 
+  }
+});
 
 
 
+// Hover-keret: az egér alatti GP/GRP/SCN elem kiemelése
+canvas.addEventListener("mousemove", (e) =>
+{
+  // ha épp panning/orbitálás/drag van, nem akarunk hover-kiemelést frissíteni
+  if (isPanning || isOrbiting || isLDragging || dragMode)
+  {
+    return;
+  }
 
+  const obj = pick(e);
+  let newHover = null;
+
+  if (obj && obj.userData)
+  {
+    const pk = obj.userData.pickKind;
+    if (pk === 'gpPart' || pk === 'grpItem' || pk === 'scnItem' || pk === 'cp')
+    {
+      newHover = obj;
+    }
+  }
+
+  if (newHover !== hoverObj)
+  {
+    hoverObj = newHover;
+    rebuildAllBounds?.();
+  }
+});
+
+canvas.addEventListener("mouseleave", () =>
+{
+  if (hoverObj)
+  {
+    hoverObj = null;
+    rebuildAllBounds?.();
   }
 });
 
