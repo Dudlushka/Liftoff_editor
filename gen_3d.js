@@ -2055,10 +2055,12 @@ export function refreshGrpList()
     for (const name of names)
     {
         // névre szűrés ugyanúgy, mint eddig
+        /*
         if (!nameMatchesGRPFilter(name))
         {
             continue;
         }
+            */
 
         const grp  = all[name];
         const meta = grp?.meta || {};
