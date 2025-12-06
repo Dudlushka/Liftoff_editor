@@ -78,6 +78,7 @@ function generateUUIDv4()
 
 ui.genUUID?.addEventListener("click", () =>
 {
+  console.log("gen. UUID button pressed")
     ui.trackUUID.value = generateUUIDv4();
 });
 
