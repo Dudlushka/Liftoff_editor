@@ -61,8 +61,8 @@
         "mainGroup": "Primitive",
         "subGroup": "Cone",
         "type": "Cone_1x1",
-        "btnColor": "#000000",
-        "btnNr": null
+        "btnColor": "#d3d3d5",
+        "btnNr": 5
       },
       "xsiType": "TrackBlueprintFlag"
     },
@@ -94,8 +94,8 @@
         "mainGroup": "Primitive",
         "subGroup": "Cone",
         "type": "Cone_1x1",
-        "btnColor": "#000000",
-        "btnNr": null
+        "btnColor": "#f89c41",
+        "btnNr": 4
       },
       "xsiType": "TrackBlueprintFlag"
     },
@@ -127,8 +127,8 @@
         "mainGroup": "Primitive",
         "subGroup": "Cone",
         "type": "Cone_1x1",
-        "btnColor": "#000000",
-        "btnNr": null
+        "btnColor": "#32375a",
+        "btnNr": 3
       },
       "xsiType": "TrackBlueprintFlag"
     },
@@ -160,8 +160,8 @@
         "mainGroup": "Primitive",
         "subGroup": "Cone",
         "type": "Cone_1x1",
-        "btnColor": "#000000",
-        "btnNr": null
+        "btnColor": "#5a93d8",
+        "btnNr": 2
       },
       "xsiType": "TrackBlueprintFlag"
     },
@@ -193,8 +193,8 @@
         "mainGroup": "Primitive",
         "subGroup": "Cone",
         "type": "Cone_1x1",
-        "btnColor": "#000000",
-        "btnNr": null
+        "btnColor": "#3d5688",
+        "btnNr": 1
       },
       "xsiType": "TrackBlueprintFlag"
     },
@@ -280,7 +280,7 @@
         "subGroup": "Cone",
         "type": "Cone_5x5",
         "btnColor": "#000000",
-        "btnNr": null
+        "btnNr": 5
       },
       "xsiType": "TrackBlueprintFlag"
     },
@@ -313,7 +313,7 @@
         "subGroup": "Cone",
         "type": "Cone_5x5",
         "btnColor": "#000000",
-        "btnNr": null
+        "btnNr": 4
       },
       "xsiType": "TrackBlueprintFlag"
     },
@@ -1763,8 +1763,8 @@
         "mainGroup": "Primitive",
         "subGroup": "Sphere",
         "type": "Sphere_1",
-        "btnColor": "#000000",
-        "btnNr": null
+        "btnColor": "#2b45c1",
+        "btnNr": 1
       },
       "xsiType": "TrackBlueprintFlag"
     },
@@ -2027,8 +2027,8 @@
         "mainGroup": "Primitive",
         "subGroup": "Sphere",
         "type": "Sphere_5",
-        "btnColor": "#000000",
-        "btnNr": null
+        "btnColor": "#3e5789",
+        "btnNr": 1
       },
       "xsiType": "TrackBlueprintFlag"
     },
@@ -4045,8 +4045,8 @@
         "mainGroup": "Primitive",
         "subGroup": "Sphere",
         "type": "Sphere_5",
-        "btnColor": "#000000",
-        "btnNr": null
+        "btnColor": "#5a93d8",
+        "btnNr": 2
       },
       "xsiType": "TrackBlueprintFlag"
     },
@@ -4078,8 +4078,8 @@
         "mainGroup": "Primitive",
         "subGroup": "Sphere",
         "type": "Sphere_5",
-        "btnColor": "#000000",
-        "btnNr": null
+        "btnColor": "#263491",
+        "btnNr": 3
       },
       "xsiType": "TrackBlueprintFlag"
     },
@@ -4111,8 +4111,8 @@
         "mainGroup": "Primitive",
         "subGroup": "Sphere",
         "type": "Sphere_5",
-        "btnColor": "#000000",
-        "btnNr": null
+        "btnColor": "#f89c41",
+        "btnNr": 4
       },
       "xsiType": "TrackBlueprintFlag"
     },
@@ -4144,8 +4144,8 @@
         "mainGroup": "Primitive",
         "subGroup": "Sphere",
         "type": "Sphere_5",
-        "btnColor": "#000000",
-        "btnNr": null
+        "btnColor": "#d3d3d5",
+        "btnNr": 5
       },
       "xsiType": "TrackBlueprintFlag"
     },
@@ -4177,8 +4177,8 @@
         "mainGroup": "Primitive",
         "subGroup": "Sphere",
         "type": "Sphere_1",
-        "btnColor": "#000000",
-        "btnNr": null
+        "btnColor": "#5a93d8",
+        "btnNr": 2
       },
       "xsiType": "TrackBlueprintFlag"
     },
@@ -4210,8 +4210,8 @@
         "mainGroup": "Primitive",
         "subGroup": "Sphere",
         "type": "Sphere_1",
-        "btnColor": "#000000",
-        "btnNr": null
+        "btnColor": "#32375a",
+        "btnNr": 3
       },
       "xsiType": "TrackBlueprintFlag"
     },
@@ -4243,8 +4243,8 @@
         "mainGroup": "Primitive",
         "subGroup": "Sphere",
         "type": "Sphere_1",
-        "btnColor": "#000000",
-        "btnNr": null
+        "btnColor": "#f89c41",
+        "btnNr": 4
       },
       "xsiType": "TrackBlueprintFlag"
     },
@@ -4276,8 +4276,8 @@
         "mainGroup": "Primitive",
         "subGroup": "Sphere",
         "type": "Sphere_1",
-        "btnColor": "#000000",
-        "btnNr": null
+        "btnColor": "#d3d3d5",
+        "btnNr": 5
       },
       "xsiType": "TrackBlueprintFlag"
     },
@@ -5094,7 +5094,7 @@
         "subGroup": "Cone",
         "type": "Cone_5x5",
         "btnColor": "#000000",
-        "btnNr": null
+        "btnNr": 1
       },
       "xsiType": "TrackBlueprintFlag"
     },
@@ -5127,7 +5127,7 @@
         "subGroup": "Cone",
         "type": "Cone_5x5",
         "btnColor": "#000000",
-        "btnNr": null
+        "btnNr": 2
       },
       "xsiType": "TrackBlueprintFlag"
     },
@@ -5160,7 +5160,7 @@
         "subGroup": "Cone",
         "type": "Cone_5x5",
         "btnColor": "#000000",
-        "btnNr": null
+        "btnNr": 3
       },
       "xsiType": "TrackBlueprintFlag"
     },
