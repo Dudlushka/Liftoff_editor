@@ -44,6 +44,7 @@ const ui =
   gameVersion: $("#gameVersion"),
   trackName: $("#trackName"),
   trackUUID: $("#trackUUID"),
+  genUUID: $("#btnGenUUID"),
   // szerkesztés
   undoBtn: $("#undoBtn"),
   redoBtn: $("#redoBtn"),

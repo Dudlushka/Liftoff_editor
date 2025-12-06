@@ -1,0 +1,138 @@
+{
+  "gamePrimitives": {
+    "DrawingBoardCube5mx5m04": {
+      "name": "DrawingBoardCube5mx5m04",
+      "parts": [
+        {
+          "id": "da6a095a-17b0-46e5-ad1e-73f31712d560",
+          "type": "box",
+          "color": "#e9c445",
+          "scale": [
+            0.5,
+            0.5,
+            0.5
+          ],
+          "pos": [
+            0,
+            0.25,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+
+
+
+
+
+
+
+    "DrawingBoardCube5mx5m05": {
+      "name": "DrawingBoardCube5mx5m05",
+      "parts": [
+        {
+          "id": "9d95c4aa-c09f-4350-ac29-3aadf37ee181",
+          "type": "box",
+          "color": "#e8e8e8",
+          "scale": [
+            0.5,
+            0.5,
+            0.5
+          ],
+          "pos": [
+            0,
+            0.25,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "DrawingBoardCube5mx5m03": {
+      "name": "DrawingBoardCube5mx5m03",
+      "parts": [
+        {
+          "id": "3c434599-acfc-4007-bbee-0bb240123c38",
+          "type": "box",
+          "color": "#263491",
+          "scale": [
+            0.5,
+            0.5,
+            0.5
+          ],
+          "pos": [
+            0,
+            0.25,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "DrawingBoardCube5mx5m02": {
+      "name": "DrawingBoardCube5mx5m02",
+      "parts": [
+        {
+          "id": "d15d3ebb-5aa5-4525-82e0-a441925b3a9f",
+          "type": "box",
+          "color": "#7481d6",
+          "scale": [
+            0.5,
+            0.5,
+            0.5
+          ],
+          "pos": [
+            0,
+            0.25,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "DrawingBoardCube5mx5m01": {
+      "name": "DrawingBoardCube5mx5m01",
+      "parts": [
+        {
+          "id": "9e18d585-7735-45de-970d-09150f515b9b",
+          "type": "box",
+          "color": "#2b45c1",
+          "scale": [
+            0.5,
+            0.5,
+            0.5
+          ],
+          "pos": [
+            0,
+            0.25,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    }
+  },
+  "groups": {
+	}
+}

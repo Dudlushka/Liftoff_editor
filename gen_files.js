@@ -36,6 +36,72 @@ ui.importGameXML.addEventListener("change", () =>
 
 
 
+//--------------------------------------------------------------------------
+
+function generateUUIDv4()
+{
+    // Biztonságosabb: crypto.getRandomValues, ha van
+    
+    if (window.crypto && window.crypto.getRandomValues)
+    {
+      console.log("with cripto lib");
+        const buf = new Uint8Array(16);
+        window.crypto.getRandomValues(buf);
+
+        // RFC 4122: version (4) és variant bitek beállítása
+        buf[6] = (buf[6] & 0x0f) | 0x40; // version 4
+        buf[8] = (buf[8] & 0x3f) | 0x80; // variant 10xx
+
+        const hex = Array.from(buf, b => b.toString(16).padStart(2, "0")).join("");
+
+        return (
+            hex.slice(0, 8) + "-" +
+            hex.slice(8, 12) + "-" +
+            hex.slice(12, 16) + "-" +
+            hex.slice(16, 20) + "-" +
+            hex.slice(20)
+        );
+    }
+
+    // Fallback: ha nincs crypto, akkor sima Math.random (kevésbé szép, de elég editorhoz)
+    return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, c =>
+    {
+      console.log("no cripto lib");
+
+        const r = Math.random() * 16 | 0;
+        const v = (c === "x") ? r : (r & 0x3 | 0x8);
+        return v.toString(16);
+    });
+}
+
+//------------------------------------------------------------------------------
+
+ui.genUUID?.addEventListener("click", () =>
+{
+    ui.trackUUID.value = generateUUIDv4();
+});
+
+
+
+
+function getTrackExportFilename()
+{
+    let uuid = (ui.trackUUID?.value || "").trim();
+
+    // ha nincs UUID beírva, generálunk egyet és beírjuk a mezőbe is
+    if (!uuid)
+    {
+        uuid = generateUUIDv4?.() || "noname";
+        if (ui.trackUUID)
+        {
+            ui.trackUUID.value = uuid;
+        }
+    }
+
+    // ha valamiért nem UUID-szerű, akkor is elmegy névnek
+    return `${uuid}_0001.track`;
+}
+
 
 
 
@@ -210,7 +276,10 @@ function exportGameXML()
 </Track>
 `;
   
-  downloadText("track_export.track", xml);
+  //downloadText("track_export.track", xml);
+
+  const fname = getTrackExportFilename();
+  downloadText(fname, xml);
 }
 
 
