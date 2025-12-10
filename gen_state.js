@@ -234,6 +234,14 @@ const ui =
 
   gpVariantIconBar: $("#gpVariantIconBar"),
 
+  //Action related shit
+  gpActionXsiType: $("#gpActionXsiType"),
+  gpActionName:    $("#gpActionName"),
+  scnActionRow:    $("#scnActionRow"),
+  scnActionLabel:  $("#scnActionLabel"),
+  scnActionValue:  $("#scnActionValue"),
+
+
 };
 window.ui = ui;        // ez is globális
 

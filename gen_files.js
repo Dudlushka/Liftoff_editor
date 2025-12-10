@@ -231,24 +231,46 @@ function exportGameXML()
         );
       }
 
-      xml += `    <TrackBlueprint xsi:type=\"${xsiType}\">
-`;
-      xml += `      <itemID>${node.refName}</itemID>
-`;
-      xml += `      <instanceID>${instanceID++}</instanceID>
-`;
+      xml += `    <TrackBlueprint xsi:type=\"${xsiType}\">`;
+      xml += `      <itemID>${node.refName}</itemID>`;
+      xml += `      <instanceID>${instanceID++}</instanceID>`;
       xml += `      <position>
         <x>${pos.x}</x>
         <y>${pos.y}</y>
         <z>${pos.z}</z>
-      </position>
-`;
+      </position>`;
       xml += `      <rotation>
         <x>${ex}</x>
         <y>${ey}</y>
         <z>${ez}</z>
-      </rotation>
-`;
+      </rotation>`;
+
+      //-----------------------------------------------------------------------------------------------
+      // ----- Action blokk (ha van actionXsiType + actionName + userActionValue) -----
+      const actionXsiType =
+        gp?.actionXsiType && gp.actionXsiType.trim()
+          ? gp.actionXsiType.trim()
+          : null;
+
+      const actionName =
+        gp?.actionName && gp.actionName.trim()
+          ? gp.actionName.trim()
+          : null;
+
+      const actionValue =
+        node.userActionValue && String(node.userActionValue).trim()
+          ? String(node.userActionValue).trim()
+          : null;
+
+      if (actionXsiType && actionName && actionValue)
+      {
+        xml += `      <action xsi:type=\"${actionXsiType}\">
+        <${actionName}>${actionValue}</${actionName}>
+        </action>`;
+      }
+
+
+      //-------------------------------------
 
       if (exportScale)
       {
@@ -375,10 +397,31 @@ function importGameXML(file)
         const sz = parseFloat(bp.querySelector("scale > z")?.textContent || "1");
         const scaleArr = [sx, sy, sz];
 
+        //================================================
+        // --- action blokk (ha van) ---
+        let actionXsiType = "";
+        let actionName    = "";
+        let actionValue   = "";
+
+        const actionElem = bp.querySelector("action");
+        if (actionElem)
+        {
+          actionXsiType = actionElem.getAttribute("xsi:type") || "";
+
+          const firstChild = actionElem.firstElementChild;
+          if (firstChild)
+          {
+            // XML DOM-ban a localName általában a valódi tag-név (soundfile / fullRepairTime)
+            actionName  = firstChild.localName || firstChild.tagName || "";
+            actionValue = firstChild.textContent || "";
+          }
+        }
+        //================================================
+
         // Ensure GP exists
         if (!store.gamePrimitives[itemID])
         {
-          store.gamePrimitives[itemID] = {
+          const gp = {
             name: itemID,
             parts: [
               {
@@ -390,9 +433,21 @@ function importGameXML(file)
                 rotRYP: [0, 0, 0],
               },
             ],
-            // ÚJ: XSI_Type közvetlenül a GP szinten
+            // XSI_Type közvetlenül a GP szinten
             xsiType: bpType || "TrackBlueprintFlag",
           };
+
+          // Action meta, ha volt
+          if (actionXsiType)
+          {
+            gp.actionXsiType = actionXsiType;
+          }
+          if (actionName)
+          {
+            gp.actionName = actionName;
+          }
+
+          store.gamePrimitives[itemID] = gp;
         }
         else
         {
@@ -403,8 +458,26 @@ function importGameXML(file)
           {
             gp.xsiType = bpType;
           }
+
+          // Action meta csak akkor írjuk, ha még nincs
+          if (!gp.actionXsiType && actionXsiType)
+          {
+            gp.actionXsiType = actionXsiType;
+          }
+          if (!gp.actionName && actionName)
+          {
+            gp.actionName = actionName;
+          }
         }
 
+
+
+
+
+
+
+
+        //--------------------------------------------------------
         // Add scene node, now using imported scale
         store.scene.push({
           refType: "gp",
@@ -412,6 +485,7 @@ function importGameXML(file)
           pos: [px, py, pz],
           rotRYP: [rxLocal, ryLocal, rzLocal],
           scale: scaleArr,
+          userActionValue: actionValue || "",   // ÚJ
         });
       });
 
@@ -660,10 +734,19 @@ window.loadLibraryFromURL       = loadLibraryFromURL;
 function saveSceneJSON()
 {
   const payload = {
+    // meta
+    name:        ui.trackName ? ui.trackName.value : "",
+    uuid:        ui.trackUUID ? ui.trackUUID.value : "",
+    gameVersion: ui.gameVersion ? ui.gameVersion.value : "",
+    // tartalom
     scene: store.scene,
     controlLines: Array.isArray(store.controlLines) ? store.controlLines : [],
   };
-  downloadText("scene.json", JSON.stringify(payload, null, 2));
+
+  // fájlnév: track name, ha üres, akkor "scene"
+  const baseName = (ui.trackName && ui.trackName.value.trim()) || "scene";
+
+  downloadText(baseName + ".json", JSON.stringify(payload, null, 2));
 }
 
 
@@ -678,7 +761,24 @@ function loadSceneJSON(file)
   {
     //try{
       const data = JSON.parse(String(reader.result));
-      
+
+      // meta mezők visszatöltése, ha benne vannak
+      if (typeof data.name === "string" && ui.trackName)
+      {
+        ui.trackName.value = data.name;
+      }
+
+      if (typeof data.uuid === "string" && ui.trackUUID)
+      {
+        ui.trackUUID.value = data.uuid;
+      }
+
+      if (typeof data.gameVersion === "string" && ui.gameVersion)
+      {
+        ui.gameVersion.value = data.gameVersion;
+      }
+
+      // scene
       if (Array.isArray(data.scene))
       {
         store.scene = data.scene;
@@ -686,26 +786,20 @@ function loadSceneJSON(file)
         snapshot();
       }
 
-
-
-      if( Array.isArray(data.controlLines))
+      // controlLines
+      if (Array.isArray(data.controlLines))
       {
         store.controlLines = data.controlLines;
-
 
         cpSelSet?.clear?.();
         setCurrentCLIndex(-1);
 
-      // Ha vannak saját CL-pane frissítők, hívd meg őket biztonságosan:
+        // Ha vannak saját CL-pane frissítők, hívd meg őket biztonságosan:
         drawControlLines?.();
-        RefreshCL_AAA()
+        RefreshCL_AAA();
       }
 
     //}catch (e){alert("Hibás Scene JSON.");}
-  
-  
-
-
   };
   reader.readAsText(file);
 }

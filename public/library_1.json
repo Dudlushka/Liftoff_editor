@@ -1271,7 +1271,9 @@
         "btnColor": "#000000",
         "btnNr": null
       },
-      "xsiType": "TrackBlueprintAction"
+      "xsiType": "TrackBlueprintAction",
+      "actionXsiType": "ShowTextAction",
+      "actionName": "displayText"
     },
     "DrawingBoardCube10mx10m01": {
       "name": "DrawingBoardCube10mx10m01",
@@ -8046,7 +8048,9 @@
         "btnColor": "#000000",
         "btnNr": null
       },
-      "xsiType": "TrackBlueprintAction"
+      "xsiType": "TrackBlueprintAction",
+      "actionXsiType": "ChargeBatteryAction",
+      "actionName": "fullRechargeTime"
     },
     "TriggerBox_KillDrone_1mX1m01": {
       "name": "TriggerBox_KillDrone_1mX1m01",
@@ -8112,7 +8116,9 @@
         "btnColor": "#000000",
         "btnNr": null
       },
-      "xsiType": "TrackBlueprintAction"
+      "xsiType": "TrackBlueprintAction",
+      "actionXsiType": "PlaySoundAction",
+      "actionName": "soundfile"
     },
     "TriggerBox_RepairPropellers_1mX1m01": {
       "name": "TriggerBox_RepairPropellers_1mX1m01",
@@ -8145,7 +8151,9 @@
         "btnColor": "#000000",
         "btnNr": null
       },
-      "xsiType": "TrackBlueprintAction"
+      "xsiType": "TrackBlueprintAction",
+      "actionXsiType": "RepairPropellersAction",
+      "actionName": "fullRepairTime"
     },
     "PlayerPosition01": {
       "name": "PlayerPosition01",

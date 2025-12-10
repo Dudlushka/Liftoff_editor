@@ -1659,6 +1659,7 @@ export function fillPartEditors(focus = true)
   // Aktív GP kikeresése
   const activeName = store?.activeGPName ?? (ui?.gpName?.value || "");
   const gp = activeName ? store?.gamePrimitives?.[activeName] : null;
+ 
   if (!gp || !Array.isArray(gp.parts))
   {
     // UI mezők feltöltése
@@ -1787,6 +1788,9 @@ function loadGP(name)
   ensureXsiTypeOptionExists(gp.xsiType);
   ui.gpXsiType.value = gp.xsiType ?? "";
 
+  ui.gpActionXsiType.value = gp.actionXsiType ?? "";
+  ui.gpActionName.value    = gp.actionName    ?? "";
+
 
   writeMetaToGPUI(gp.meta)
 
@@ -1852,6 +1856,11 @@ ui.gpSave.addEventListener("click", () =>
 
   const t = String(ui.gpXsiType.value || "").trim();
   gp.xsiType = t === "" ? undefined : t;
+
+  gp.actionXsiType = ui.gpActionXsiType.value.trim() || "";
+  gp.actionName = ui.gpActionName.value.trim() || "";
+
+
   gp.meta = readMetaFromGPUI();
 
   // 2) If rename happens
@@ -2599,34 +2608,7 @@ ui.applyGrpItem.addEventListener("click", applyGrpNow);
 
 // ===== Scene =====
 
-/*
-function refreshScnSourceOptions()
-{
-  if (!ui.scnAddSource) return;
 
-  ui.scnAddSource.innerHTML = "";
-
-  // Alap lista: vagy GP-k, vagy Groupok – ahogy eddig
-  const allNames =
-    ui.scnAddType.value === "gp"
-      ? Object.keys(store.gamePrimitives)
-      : Object.keys(store.groups);
-
-  // Szűrő szöveg (új mező: scnFilter)
-  const filter = (ui.scnFilter?.value || "").trim().toLowerCase();
-
-  const src = filter
-    ? allNames.filter((n) => n.toLowerCase().includes(filter))
-    : allNames;
-
-  src.forEach((n) =>
-  {
-    const o = document.createElement("option");
-    o.value = n;
-    o.textContent = n;
-    ui.scnAddSource.appendChild(o);
-  });
-}*/
 
 
 export function refreshScnSourceOptions()
@@ -2839,6 +2821,14 @@ export function fillScnEditors(focus = true)
     if (ui.sSy)     ui.sSy.value = '';
     if (ui.sSz)     ui.sSz.value = '';
 
+
+        // action mező elrejtése / ürítése
+        if (ui.scnActionValue){ui.scnActionValue.value = '';}
+        if (ui.scnActionRow){ui.scnActionRow.style.display = 'none';}
+
+
+
+
     if (focus)
     {
       refreshScnList();
@@ -2847,6 +2837,11 @@ export function fillScnEditors(focus = true)
   }
 
   if((currentCLIndex > 0 || cpSelSet.size !== 0)){
+
+        // action mező elrejtése / ürítése
+        if (ui.scnActionValue){ui.scnActionValue.value = '';}
+        if (ui.scnActionRow){ui.scnActionRow.style.display = 'none';}
+
     syncSceneEditorsFromFirstCP?.();
     return;
   }
@@ -2864,8 +2859,115 @@ export function fillScnEditors(focus = true)
   ui.sSy.value = it.scale[1];
   ui.sSz.value = it.scale[2];
   
+
+
+  //============
+
+  let gp = null;
+
+  if (it && it.refType === 'gp' && store?.gamePrimitives)
+  {
+    gp = store.gamePrimitives[it.refName] ?? null;
+  }
+
+    const hasActionConfig = 
+    (
+        gp &&
+        typeof gp.actionXsiType === 'string' && gp.actionXsiType.trim() !== '' &&
+        typeof gp.actionName === 'string'    && gp.actionName.trim()    !== ''
+    );
+
+    if (hasActionConfig)
+    {
+      console.log("hasActionConfig");
+
+        if (ui.scnActionRow)
+        {
+            ui.scnActionRow.style.display = '';
+        }
+
+        if (ui.scnActionLabel)
+        {
+            // infot is:
+            ui.scnActionLabel.textContent = `Action (${gp.actionXsiType} / ${gp.actionName})`;
+        }
+
+        if (ui.scnActionValue)
+        {
+            ui.scnActionValue.value = it.userActionValue || '';
+        }
+    }
+    else
+    {
+        console.log("NO actionConfig");
+        console.log(gp);
+
+        if (ui.scnActionRow)
+        {
+            ui.scnActionRow.style.display = 'none';
+        }
+        if (ui.scnActionValue)
+        {
+            ui.scnActionValue.value = '';
+        }
+    }
+
+
+
+
+  //============
+
   if (focus) refreshScnList();
 }
+
+
+//============================dfghfghgfhgfh
+// If there is "Action"
+
+ui.scnActionValue?.addEventListener('change', () =>
+{
+  if (scnSelSet.size === 0) { return; }
+
+  console.log("[scnActionValue] SZED")
+
+  const idx = firstSelIndex(scnSelSet);
+  const it  = store.scene[idx];
+  if (!it) { return; }
+
+  let gp = null;
+  if (it.refType === 'gp' && store?.gamePrimitives)
+  {
+    gp = store.gamePrimitives[it.refName] ?? null;
+  }
+
+  const hasActionConfig =
+  (
+    gp &&
+    typeof gp.actionXsiType === 'string' && gp.actionXsiType.trim() !== '' &&
+    typeof gp.actionName    === 'string' && gp.actionName.trim()    !== ''
+  );
+
+  if (!hasActionConfig)
+  {
+    // ehhez a scene-itemhez nem tartozik action-config → nem írunk semmit
+    console.log("not an Action item");
+    return;
+  }
+
+  it.userActionValue = ui.scnActionValue.value;
+  snapshot?.();
+});
+
+
+
+
+
+
+
+
+
+
+
 
 function applyTRS(obj, pos, rotRYP, scale)
 {
