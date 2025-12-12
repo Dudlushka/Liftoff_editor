@@ -245,11 +245,13 @@
       "xsiType": "TrackBlueprintFlag",
       "meta": {
         "mainGroup": "Rig",
-        "subGroup": null,
-        "type": null,
+        "subGroup": "Concrete",
+        "type": "Concrete",
         "btnColor": "#000000",
         "btnNr": null
-      }
+      },
+      "actionXsiType": "",
+      "actionName": ""
     },
     "DrawingBoardCone5mx5m05": {
       "name": "DrawingBoardCone5mx5m05",
@@ -622,14 +624,54 @@
           "type": "box",
           "color": "#9aa7b1",
           "scale": [
-            1,
-            1,
-            1
+            0.01,
+            2.956,
+            0.09
           ],
           "pos": [
+            0.045,
+            1.478,
+            0
+          ],
+          "rotRYP": [
             0,
             0,
             0
+          ]
+        },
+        {
+          "id": "706ee123-3976-4fe2-9ae4-19d6a3e4102f",
+          "type": "box",
+          "color": "#9aa7b1",
+          "scale": [
+            0.01,
+            2.956,
+            0.09
+          ],
+          "pos": [
+            -0.045,
+            1.478,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "706ee123-3976-4fe2-9ae4-19d6a3e4102f",
+          "type": "box",
+          "color": "#9aa7b1",
+          "scale": [
+            0.09,
+            2.956,
+            0.01
+          ],
+          "pos": [
+            0,
+            1.478,
+            -0.045
           ],
           "rotRYP": [
             0,
@@ -1083,13 +1125,13 @@
           "type": "box",
           "color": "#9aa7b1",
           "scale": [
-            1,
-            1,
-            1
+            0.285,
+            0.01,
+            0.285
           ],
           "pos": [
             0,
-            0,
+            0.005,
             0
           ],
           "rotRYP": [
@@ -1246,7 +1288,7 @@
         {
           "id": "d4f2c391-c620-4cb0-96db-3a82f815d7a5",
           "type": "box",
-          "color": "#9aa7b1",
+          "color": "#ffffff",
           "scale": [
             1,
             1,
@@ -1266,8 +1308,8 @@
       ],
       "meta": {
         "mainGroup": "Logical",
-        "subGroup": "TriggerBox",
-        "type": "TriggerBox",
+        "subGroup": "Trigger",
+        "type": "Box",
         "btnColor": "#000000",
         "btnNr": null
       },
@@ -2986,10 +3028,12 @@
       "meta": {
         "mainGroup": "Rig",
         "subGroup": "Ramp",
-        "type": "GenericRamp",
+        "type": "Ramp",
         "btnColor": "#000000",
         "btnNr": null
-      }
+      },
+      "actionXsiType": "",
+      "actionName": ""
     },
     "DrawingBoardCylinder0.5mx5m03": {
       "name": "DrawingBoardCylinder0.5mx5m03",
@@ -5278,15 +5322,15 @@
         {
           "id": "e4d1f9a0-9ce1-4b29-9f93-83698d1142f2",
           "type": "box",
-          "color": "#bdbdbd",
+          "color": "#b8faf7",
           "scale": [
-            1,
-            1,
-            1
+            5,
+            5,
+            0.1
           ],
           "pos": [
             0,
-            0,
+            2.5,
             0
           ],
           "rotRYP": [
@@ -5299,27 +5343,29 @@
       "xsiType": "TrackBlueprintFlag",
       "meta": {
         "mainGroup": "Rig",
-        "subGroup": null,
-        "type": null,
+        "subGroup": "Banner_5x5",
+        "type": "Liftoff",
         "btnColor": "#000000",
         "btnNr": null
-      }
+      },
+      "actionXsiType": "",
+      "actionName": ""
     },
     "Banner5x5mLiftoffGreen01": {
       "name": "Banner5x5mLiftoffGreen01",
       "parts": [
         {
-          "id": "6e2fc355-086c-4e78-98a6-ffe87d4df060",
+          "id": "e4d1f9a0-9ce1-4b29-9f93-83698d1142f2",
           "type": "box",
-          "color": "#9aa7b1",
+          "color": "#98f38b",
           "scale": [
-            1,
-            1,
-            1
+            5,
+            5,
+            0.1
           ],
           "pos": [
             0,
-            0,
+            2.5,
             0
           ],
           "rotRYP": [
@@ -5332,11 +5378,13 @@
       "xsiType": "TrackBlueprintFlag",
       "meta": {
         "mainGroup": "Rig",
-        "subGroup": null,
-        "type": null,
+        "subGroup": "Banner_5x5",
+        "type": "Liftoff",
         "btnColor": "#000000",
         "btnNr": null
-      }
+      },
+      "actionXsiType": "",
+      "actionName": ""
     },
     "TapeWhiteRed01": {
       "name": "TapeWhiteRed01",
@@ -8023,7 +8071,7 @@
         {
           "id": "979a4625-9544-497d-b12d-33a8b94fd23d",
           "type": "box",
-          "color": "#9aa7b1",
+          "color": "#55f77d",
           "scale": [
             1,
             1,
@@ -8043,8 +8091,8 @@
       ],
       "meta": {
         "mainGroup": "Logical",
-        "subGroup": "TriggerBox",
-        "type": "TriggerBox",
+        "subGroup": "Trigger",
+        "type": "Box",
         "btnColor": "#000000",
         "btnNr": null
       },
@@ -8058,7 +8106,7 @@
         {
           "id": "e29ba3ae-5d7f-454c-b8e5-a7bf6faf138b",
           "type": "box",
-          "color": "#9aa7b1",
+          "color": "#e86464",
           "scale": [
             1,
             1,
@@ -8078,12 +8126,14 @@
       ],
       "meta": {
         "mainGroup": "Logical",
-        "subGroup": "TriggerBox",
-        "type": "TriggerBox",
+        "subGroup": "Trigger",
+        "type": "Box",
         "btnColor": "#000000",
         "btnNr": null
       },
-      "xsiType": "TrackBlueprintAction"
+      "xsiType": "TrackBlueprintAction",
+      "actionXsiType": "",
+      "actionName": ""
     },
     "TriggerBox_PlaySound_1mX1m01": {
       "name": "TriggerBox_PlaySound_1mX1m01",
@@ -8091,7 +8141,7 @@
         {
           "id": "6b2df5f5-9c3d-45df-9032-b2415acf28cf",
           "type": "box",
-          "color": "#9aa7b1",
+          "color": "#dee996",
           "scale": [
             1,
             1,
@@ -8111,8 +8161,8 @@
       ],
       "meta": {
         "mainGroup": "Logical",
-        "subGroup": "TriggerBox",
-        "type": "TriggerBox",
+        "subGroup": "Trigger",
+        "type": "Box",
         "btnColor": "#000000",
         "btnNr": null
       },
@@ -8126,7 +8176,7 @@
         {
           "id": "c34e4c0f-6f86-426d-9946-f464eaac052a",
           "type": "box",
-          "color": "#9aa7b1",
+          "color": "#e393e6",
           "scale": [
             1,
             1,
@@ -8146,8 +8196,8 @@
       ],
       "meta": {
         "mainGroup": "Logical",
-        "subGroup": "TriggerBox",
-        "type": "TriggerBox",
+        "subGroup": "Trigger",
+        "type": "Box",
         "btnColor": "#000000",
         "btnNr": null
       },
@@ -8159,23 +8209,123 @@
       "name": "PlayerPosition01",
       "parts": [
         {
-          "id": "58105785-cb33-43a3-9a25-43fb4f23c565",
-          "type": "box",
-          "color": "#9aa7b1",
+          "id": "32517128-0830-49ff-8a10-fcebc56dea75",
+          "type": "sphere",
+          "color": "#bdbdbd",
           "scale": [
-            1,
-            1,
-            1
+            0.4,
+            0.4,
+            0.4
           ],
           "pos": [
             0,
-            0,
+            1.72,
             0
           ],
           "rotRYP": [
-            0,
-            0,
+            -2.6717478968579714e-19,
+            90,
             0
+          ]
+        },
+        {
+          "id": "26fd72f4-84a1-4868-8334-471127cc2c53",
+          "type": "sphere",
+          "color": "#bdbdbd",
+          "scale": [
+            0.6,
+            1,
+            0.6
+          ],
+          "pos": [
+            -5.045873851553879e-23,
+            1.1,
+            2.0815966024542627e-19
+          ],
+          "rotRYP": [
+            -2.6717478968579714e-19,
+            90,
+            0
+          ]
+        },
+        {
+          "id": "0f854b2f-b466-437d-8032-9c7a5df55b60",
+          "type": "sphere",
+          "color": "#bdbdbd",
+          "scale": [
+            0.2,
+            1,
+            0.2
+          ],
+          "pos": [
+            0.16908302699912225,
+            0.5,
+            -0.01739994445877933
+          ],
+          "rotRYP": [
+            -2.6717478968579714e-19,
+            90,
+            0
+          ]
+        },
+        {
+          "id": "0f854b2f-b466-437d-8032-9c7a5df55b60",
+          "type": "sphere",
+          "color": "#bdbdbd",
+          "scale": [
+            0.2,
+            1,
+            0.2
+          ],
+          "pos": [
+            -0.15539437280840354,
+            0.5,
+            -0.017399944458779328
+          ],
+          "rotRYP": [
+            -2.6717478968579714e-19,
+            90,
+            0
+          ]
+        },
+        {
+          "id": "0f854b2f-b466-437d-8032-9c7a5df55b60",
+          "type": "sphere",
+          "color": "#bdbdbd",
+          "scale": [
+            0.2,
+            0.7,
+            0.2
+          ],
+          "pos": [
+            -0.31408552941867973,
+            1.23,
+            0.2536199739492854
+          ],
+          "rotRYP": [
+            98.90678040355765,
+            63.22142382132434,
+            -135.96454393000468
+          ]
+        },
+        {
+          "id": "0f854b2f-b466-437d-8032-9c7a5df55b60",
+          "type": "sphere",
+          "color": "#bdbdbd",
+          "scale": [
+            0.2,
+            0.7,
+            0.2
+          ],
+          "pos": [
+            0.24507900696619847,
+            1.23,
+            0.22582583613745394
+          ],
+          "rotRYP": [
+            166.66055160925217,
+            35.3778862226767,
+            150.27166652310493
           ]
         }
       ],
@@ -16421,6 +16571,4316 @@
         }
       ],
       "xsiType": "TrackBlueprintFlag"
+    },
+    "BannerStructure01": {
+      "name": "BannerStructure01",
+      "parts": [
+        {
+          "id": "ea33a5f1-dc7d-4a12-b185-bd29e6e0fa56",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.05,
+            2,
+            0.05
+          ],
+          "pos": [
+            1.05,
+            1,
+            -1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "ea33a5f1-dc7d-4a12-b185-bd29e6e0fa56",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.05,
+            2,
+            0.05
+          ],
+          "pos": [
+            -1.05,
+            1,
+            -1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "ea33a5f1-dc7d-4a12-b185-bd29e6e0fa56",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.05,
+            2,
+            0.05
+          ],
+          "pos": [
+            -1.05,
+            1,
+            1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "ea33a5f1-dc7d-4a12-b185-bd29e6e0fa56",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.05,
+            2,
+            0.05
+          ],
+          "pos": [
+            1.05,
+            1,
+            1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "ea33a5f1-dc7d-4a12-b185-bd29e6e0fa56",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.05,
+            2,
+            0.05
+          ],
+          "pos": [
+            1.05,
+            1,
+            3
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "ea33a5f1-dc7d-4a12-b185-bd29e6e0fa56",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.05,
+            2,
+            0.05
+          ],
+          "pos": [
+            -1.05,
+            1,
+            3
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "ea33a5f1-dc7d-4a12-b185-bd29e6e0fa56",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.05,
+            2,
+            0.05
+          ],
+          "pos": [
+            -1.05,
+            1,
+            -3
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "ea33a5f1-dc7d-4a12-b185-bd29e6e0fa56",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.05,
+            2,
+            0.05
+          ],
+          "pos": [
+            1.05,
+            1,
+            -3
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "2a54018f-91db-451d-b783-41d6f5ae34bf",
+          "type": "box",
+          "color": "#bdbdbd",
+          "scale": [
+            0.01,
+            0.2,
+            2
+          ],
+          "pos": [
+            -1.05,
+            0.2,
+            -2
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "2a54018f-91db-451d-b783-41d6f5ae34bf",
+          "type": "box",
+          "color": "#bdbdbd",
+          "scale": [
+            0.01,
+            0.2,
+            2
+          ],
+          "pos": [
+            -1.05,
+            0.2,
+            2
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "2a54018f-91db-451d-b783-41d6f5ae34bf",
+          "type": "box",
+          "color": "#bdbdbd",
+          "scale": [
+            0.01,
+            0.2,
+            2
+          ],
+          "pos": [
+            1.05,
+            0.2,
+            -2
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "2a54018f-91db-451d-b783-41d6f5ae34bf",
+          "type": "box",
+          "color": "#bdbdbd",
+          "scale": [
+            0.01,
+            0.2,
+            2
+          ],
+          "pos": [
+            1.05,
+            0.2,
+            2
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "6e2fa9a4-25a6-4cf9-b0f3-f7b3fb40cb66",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.05,
+            6,
+            0.05
+          ],
+          "pos": [
+            1.05,
+            2,
+            0
+          ],
+          "rotRYP": [
+            90,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "6e2fa9a4-25a6-4cf9-b0f3-f7b3fb40cb66",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.05,
+            6,
+            0.05
+          ],
+          "pos": [
+            -1.05,
+            2,
+            0
+          ],
+          "rotRYP": [
+            90,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "6e2fa9a4-25a6-4cf9-b0f3-f7b3fb40cb66",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.05,
+            2.1,
+            0.05
+          ],
+          "pos": [
+            0,
+            2,
+            -1
+          ],
+          "rotRYP": [
+            90,
+            0,
+            90
+          ]
+        },
+        {
+          "id": "6e2fa9a4-25a6-4cf9-b0f3-f7b3fb40cb66",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.05,
+            2.1,
+            0.05
+          ],
+          "pos": [
+            0,
+            2,
+            -3
+          ],
+          "rotRYP": [
+            90,
+            0,
+            90
+          ]
+        },
+        {
+          "id": "6e2fa9a4-25a6-4cf9-b0f3-f7b3fb40cb66",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.05,
+            2.1,
+            0.05
+          ],
+          "pos": [
+            0,
+            2,
+            1
+          ],
+          "rotRYP": [
+            90,
+            0,
+            90
+          ]
+        },
+        {
+          "id": "6e2fa9a4-25a6-4cf9-b0f3-f7b3fb40cb66",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.05,
+            2.1,
+            0.05
+          ],
+          "pos": [
+            0,
+            2,
+            3
+          ],
+          "rotRYP": [
+            90,
+            0,
+            90
+          ]
+        },
+        {
+          "id": "2a54018f-91db-451d-b783-41d6f5ae34bf",
+          "type": "box",
+          "color": "#ed7477",
+          "scale": [
+            0.01,
+            0.85,
+            2
+          ],
+          "pos": [
+            1.05,
+            1.25,
+            -2
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "2a54018f-91db-451d-b783-41d6f5ae34bf",
+          "type": "box",
+          "color": "#ed7477",
+          "scale": [
+            0.01,
+            0.85,
+            2
+          ],
+          "pos": [
+            1.05,
+            1.25,
+            2
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "2a54018f-91db-451d-b783-41d6f5ae34bf",
+          "type": "box",
+          "color": "#ed7477",
+          "scale": [
+            0.01,
+            0.85,
+            2
+          ],
+          "pos": [
+            -1.05,
+            1.25,
+            2
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "2a54018f-91db-451d-b783-41d6f5ae34bf",
+          "type": "box",
+          "color": "#ed7477",
+          "scale": [
+            0.01,
+            0.85,
+            2
+          ],
+          "pos": [
+            -1.05,
+            1.25,
+            -2
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "xsiType": "TrackBlueprintFlag",
+      "actionXsiType": "",
+      "actionName": "",
+      "meta": {
+        "mainGroup": "Rig",
+        "subGroup": "Tent",
+        "type": "BannerStruct",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
+    },
+    "BannerStructure02": {
+      "name": "BannerStructure02",
+      "parts": [
+        {
+          "id": "ea33a5f1-dc7d-4a12-b185-bd29e6e0fa56",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.05,
+            2,
+            0.05
+          ],
+          "pos": [
+            1.05,
+            1,
+            -1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "ea33a5f1-dc7d-4a12-b185-bd29e6e0fa56",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.05,
+            2,
+            0.05
+          ],
+          "pos": [
+            -1.05,
+            1,
+            -1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "ea33a5f1-dc7d-4a12-b185-bd29e6e0fa56",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.05,
+            2,
+            0.05
+          ],
+          "pos": [
+            -1.05,
+            1,
+            1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "ea33a5f1-dc7d-4a12-b185-bd29e6e0fa56",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.05,
+            2,
+            0.05
+          ],
+          "pos": [
+            1.05,
+            1,
+            1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "ea33a5f1-dc7d-4a12-b185-bd29e6e0fa56",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.05,
+            2,
+            0.05
+          ],
+          "pos": [
+            1.05,
+            1,
+            3
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "ea33a5f1-dc7d-4a12-b185-bd29e6e0fa56",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.05,
+            2,
+            0.05
+          ],
+          "pos": [
+            -1.05,
+            1,
+            3
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "ea33a5f1-dc7d-4a12-b185-bd29e6e0fa56",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.05,
+            2,
+            0.05
+          ],
+          "pos": [
+            -1.05,
+            1,
+            -3
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "ea33a5f1-dc7d-4a12-b185-bd29e6e0fa56",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.05,
+            2,
+            0.05
+          ],
+          "pos": [
+            1.05,
+            1,
+            -3
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "2a54018f-91db-451d-b783-41d6f5ae34bf",
+          "type": "box",
+          "color": "#bdbdbd",
+          "scale": [
+            0.01,
+            0.2,
+            2
+          ],
+          "pos": [
+            -1.05,
+            0.2,
+            -2
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "2a54018f-91db-451d-b783-41d6f5ae34bf",
+          "type": "box",
+          "color": "#bdbdbd",
+          "scale": [
+            0.01,
+            0.2,
+            2
+          ],
+          "pos": [
+            -1.05,
+            0.2,
+            2
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "2a54018f-91db-451d-b783-41d6f5ae34bf",
+          "type": "box",
+          "color": "#bdbdbd",
+          "scale": [
+            0.01,
+            0.2,
+            2
+          ],
+          "pos": [
+            1.05,
+            0.2,
+            -2
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "2a54018f-91db-451d-b783-41d6f5ae34bf",
+          "type": "box",
+          "color": "#bdbdbd",
+          "scale": [
+            0.01,
+            0.2,
+            2
+          ],
+          "pos": [
+            1.05,
+            0.2,
+            2
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "6e2fa9a4-25a6-4cf9-b0f3-f7b3fb40cb66",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.05,
+            6,
+            0.05
+          ],
+          "pos": [
+            1.05,
+            2,
+            0
+          ],
+          "rotRYP": [
+            90,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "6e2fa9a4-25a6-4cf9-b0f3-f7b3fb40cb66",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.05,
+            6,
+            0.05
+          ],
+          "pos": [
+            -1.05,
+            2,
+            0
+          ],
+          "rotRYP": [
+            90,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "6e2fa9a4-25a6-4cf9-b0f3-f7b3fb40cb66",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.05,
+            2.1,
+            0.05
+          ],
+          "pos": [
+            0,
+            2,
+            -1
+          ],
+          "rotRYP": [
+            90,
+            0,
+            90
+          ]
+        },
+        {
+          "id": "6e2fa9a4-25a6-4cf9-b0f3-f7b3fb40cb66",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.05,
+            2.1,
+            0.05
+          ],
+          "pos": [
+            0,
+            2,
+            -3
+          ],
+          "rotRYP": [
+            90,
+            0,
+            90
+          ]
+        },
+        {
+          "id": "6e2fa9a4-25a6-4cf9-b0f3-f7b3fb40cb66",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.05,
+            2.1,
+            0.05
+          ],
+          "pos": [
+            0,
+            2,
+            1
+          ],
+          "rotRYP": [
+            90,
+            0,
+            90
+          ]
+        },
+        {
+          "id": "6e2fa9a4-25a6-4cf9-b0f3-f7b3fb40cb66",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.05,
+            2.1,
+            0.05
+          ],
+          "pos": [
+            0,
+            2,
+            3
+          ],
+          "rotRYP": [
+            90,
+            0,
+            90
+          ]
+        },
+        {
+          "id": "2a54018f-91db-451d-b783-41d6f5ae34bf",
+          "type": "box",
+          "color": "#81dbe2",
+          "scale": [
+            0.01,
+            0.85,
+            2
+          ],
+          "pos": [
+            1.05,
+            1.25,
+            -2
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "2a54018f-91db-451d-b783-41d6f5ae34bf",
+          "type": "box",
+          "color": "#81dbe2",
+          "scale": [
+            0.01,
+            0.85,
+            2
+          ],
+          "pos": [
+            1.05,
+            1.25,
+            2
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "2a54018f-91db-451d-b783-41d6f5ae34bf",
+          "type": "box",
+          "color": "#81dbe2",
+          "scale": [
+            0.01,
+            0.85,
+            2
+          ],
+          "pos": [
+            -1.05,
+            1.25,
+            2
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "2a54018f-91db-451d-b783-41d6f5ae34bf",
+          "type": "box",
+          "color": "#81dbe2",
+          "scale": [
+            0.01,
+            0.85,
+            2
+          ],
+          "pos": [
+            -1.05,
+            1.25,
+            -2
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "xsiType": "TrackBlueprintFlag",
+      "actionXsiType": "",
+      "actionName": "",
+      "meta": {
+        "mainGroup": "Rig",
+        "subGroup": "Tent",
+        "type": "BannerStruct",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
+    },
+    "BannerStructure03": {
+      "name": "BannerStructure03",
+      "parts": [
+        {
+          "id": "ea33a5f1-dc7d-4a12-b185-bd29e6e0fa56",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.05,
+            2,
+            0.05
+          ],
+          "pos": [
+            1.05,
+            1,
+            -1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "ea33a5f1-dc7d-4a12-b185-bd29e6e0fa56",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.05,
+            2,
+            0.05
+          ],
+          "pos": [
+            -1.05,
+            1,
+            -1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "ea33a5f1-dc7d-4a12-b185-bd29e6e0fa56",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.05,
+            2,
+            0.05
+          ],
+          "pos": [
+            -1.05,
+            1,
+            1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "ea33a5f1-dc7d-4a12-b185-bd29e6e0fa56",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.05,
+            2,
+            0.05
+          ],
+          "pos": [
+            1.05,
+            1,
+            1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "ea33a5f1-dc7d-4a12-b185-bd29e6e0fa56",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.05,
+            2,
+            0.05
+          ],
+          "pos": [
+            1.05,
+            1,
+            3
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "ea33a5f1-dc7d-4a12-b185-bd29e6e0fa56",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.05,
+            2,
+            0.05
+          ],
+          "pos": [
+            -1.05,
+            1,
+            3
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "ea33a5f1-dc7d-4a12-b185-bd29e6e0fa56",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.05,
+            2,
+            0.05
+          ],
+          "pos": [
+            -1.05,
+            1,
+            -3
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "ea33a5f1-dc7d-4a12-b185-bd29e6e0fa56",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.05,
+            2,
+            0.05
+          ],
+          "pos": [
+            1.05,
+            1,
+            -3
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "2a54018f-91db-451d-b783-41d6f5ae34bf",
+          "type": "box",
+          "color": "#bdbdbd",
+          "scale": [
+            0.01,
+            0.2,
+            2
+          ],
+          "pos": [
+            -1.05,
+            0.2,
+            -2
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "2a54018f-91db-451d-b783-41d6f5ae34bf",
+          "type": "box",
+          "color": "#bdbdbd",
+          "scale": [
+            0.01,
+            0.2,
+            2
+          ],
+          "pos": [
+            -1.05,
+            0.2,
+            2
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "2a54018f-91db-451d-b783-41d6f5ae34bf",
+          "type": "box",
+          "color": "#bdbdbd",
+          "scale": [
+            0.01,
+            0.2,
+            2
+          ],
+          "pos": [
+            1.05,
+            0.2,
+            -2
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "2a54018f-91db-451d-b783-41d6f5ae34bf",
+          "type": "box",
+          "color": "#bdbdbd",
+          "scale": [
+            0.01,
+            0.2,
+            2
+          ],
+          "pos": [
+            1.05,
+            0.2,
+            2
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "6e2fa9a4-25a6-4cf9-b0f3-f7b3fb40cb66",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.05,
+            6,
+            0.05
+          ],
+          "pos": [
+            1.05,
+            2,
+            0
+          ],
+          "rotRYP": [
+            90,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "6e2fa9a4-25a6-4cf9-b0f3-f7b3fb40cb66",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.05,
+            6,
+            0.05
+          ],
+          "pos": [
+            -1.05,
+            2,
+            0
+          ],
+          "rotRYP": [
+            90,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "6e2fa9a4-25a6-4cf9-b0f3-f7b3fb40cb66",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.05,
+            2.1,
+            0.05
+          ],
+          "pos": [
+            0,
+            2,
+            -1
+          ],
+          "rotRYP": [
+            90,
+            0,
+            90
+          ]
+        },
+        {
+          "id": "6e2fa9a4-25a6-4cf9-b0f3-f7b3fb40cb66",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.05,
+            2.1,
+            0.05
+          ],
+          "pos": [
+            0,
+            2,
+            -3
+          ],
+          "rotRYP": [
+            90,
+            0,
+            90
+          ]
+        },
+        {
+          "id": "6e2fa9a4-25a6-4cf9-b0f3-f7b3fb40cb66",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.05,
+            2.1,
+            0.05
+          ],
+          "pos": [
+            0,
+            2,
+            1
+          ],
+          "rotRYP": [
+            90,
+            0,
+            90
+          ]
+        },
+        {
+          "id": "6e2fa9a4-25a6-4cf9-b0f3-f7b3fb40cb66",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.05,
+            2.1,
+            0.05
+          ],
+          "pos": [
+            0,
+            2,
+            3
+          ],
+          "rotRYP": [
+            90,
+            0,
+            90
+          ]
+        },
+        {
+          "id": "2a54018f-91db-451d-b783-41d6f5ae34bf",
+          "type": "box",
+          "color": "#a9f5e4",
+          "scale": [
+            0.01,
+            0.85,
+            2
+          ],
+          "pos": [
+            1.05,
+            1.25,
+            -2
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "2a54018f-91db-451d-b783-41d6f5ae34bf",
+          "type": "box",
+          "color": "#ed7477",
+          "scale": [
+            0.01,
+            0.85,
+            2
+          ],
+          "pos": [
+            1.05,
+            1.25,
+            2
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "2a54018f-91db-451d-b783-41d6f5ae34bf",
+          "type": "box",
+          "color": "#ed7477",
+          "scale": [
+            0.01,
+            0.85,
+            2
+          ],
+          "pos": [
+            -1.05,
+            1.25,
+            2
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "2a54018f-91db-451d-b783-41d6f5ae34bf",
+          "type": "box",
+          "color": "#a9f5e4",
+          "scale": [
+            0.01,
+            0.85,
+            2
+          ],
+          "pos": [
+            -1.05,
+            1.25,
+            -2
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "xsiType": "TrackBlueprintFlag",
+      "actionXsiType": "",
+      "actionName": "",
+      "meta": {
+        "mainGroup": "Rig",
+        "subGroup": "Tent",
+        "type": "BannerStruct",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
+    },
+    "BlueOSB10001": {
+      "name": "BlueOSB10001",
+      "parts": [
+        {
+          "id": "4b35aaa0-68a8-4c32-9121-35c4f3f303e9",
+          "type": "box",
+          "color": "#81dbe2",
+          "scale": [
+            0.112,
+            0.95,
+            3.6
+          ],
+          "pos": [
+            0,
+            0.525,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "404dfa87-e984-4e0a-865d-16f0e94dfabb",
+          "type": "box",
+          "color": "#bdbdbd",
+          "scale": [
+            1.62,
+            0.05,
+            0.12
+          ],
+          "pos": [
+            -0.0007639075327317002,
+            0.025,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "404dfa87-e984-4e0a-865d-16f0e94dfabb",
+          "type": "box",
+          "color": "#bdbdbd",
+          "scale": [
+            1.62,
+            0.05,
+            0.12
+          ],
+          "pos": [
+            -0.0007639075327317002,
+            0.025,
+            -1.6
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "404dfa87-e984-4e0a-865d-16f0e94dfabb",
+          "type": "box",
+          "color": "#bdbdbd",
+          "scale": [
+            1.62,
+            0.05,
+            0.12
+          ],
+          "pos": [
+            -0.0007639075327317002,
+            0.025,
+            1.6
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "404dfa87-e984-4e0a-865d-16f0e94dfabb",
+          "type": "box",
+          "color": "#bdbdbd",
+          "scale": [
+            1,
+            0.05,
+            0.12
+          ],
+          "pos": [
+            -0.3579985550905539,
+            0.385,
+            -1.671141113824683
+          ],
+          "rotRYP": [
+            90,
+            45,
+            0
+          ]
+        },
+        {
+          "id": "404dfa87-e984-4e0a-865d-16f0e94dfabb",
+          "type": "box",
+          "color": "#bdbdbd",
+          "scale": [
+            1,
+            0.05,
+            0.12
+          ],
+          "pos": [
+            -0.3579985550905539,
+            0.385,
+            -0.07079921138471423
+          ],
+          "rotRYP": [
+            90,
+            45,
+            0
+          ]
+        },
+        {
+          "id": "404dfa87-e984-4e0a-865d-16f0e94dfabb",
+          "type": "box",
+          "color": "#bdbdbd",
+          "scale": [
+            1,
+            0.05,
+            0.12
+          ],
+          "pos": [
+            -0.3579985550905539,
+            0.385,
+            1.5351108004063063
+          ],
+          "rotRYP": [
+            90,
+            45,
+            0
+          ]
+        },
+        {
+          "id": "af9b2507-90e7-4855-b608-d4fc639c03ee",
+          "type": "box",
+          "color": "#ffffff",
+          "scale": [
+            0.1,
+            0.5,
+            1
+          ],
+          "pos": [
+            0.032496618005658284,
+            0.5600000000000002,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "xsiType": "TrackBlueprintFlag",
+      "actionXsiType": "",
+      "actionName": "",
+      "meta": {
+        "mainGroup": "Rig",
+        "subGroup": "OSB",
+        "type": "10",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
+    },
+    "BlueOSB15001": {
+      "name": "BlueOSB15001",
+      "parts": [
+        {
+          "id": "4b35aaa0-68a8-4c32-9121-35c4f3f303e9",
+          "type": "box",
+          "color": "#81dbe2",
+          "scale": [
+            0.112,
+            1.45,
+            3.6
+          ],
+          "pos": [
+            0,
+            0.775,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "404dfa87-e984-4e0a-865d-16f0e94dfabb",
+          "type": "box",
+          "color": "#bdbdbd",
+          "scale": [
+            1.62,
+            0.05,
+            0.12
+          ],
+          "pos": [
+            -0.0007639075327317002,
+            0.025,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "404dfa87-e984-4e0a-865d-16f0e94dfabb",
+          "type": "box",
+          "color": "#bdbdbd",
+          "scale": [
+            1.62,
+            0.05,
+            0.12
+          ],
+          "pos": [
+            -0.0007639075327317002,
+            0.025,
+            -1.6
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "404dfa87-e984-4e0a-865d-16f0e94dfabb",
+          "type": "box",
+          "color": "#bdbdbd",
+          "scale": [
+            1.62,
+            0.05,
+            0.12
+          ],
+          "pos": [
+            -0.0007639075327317002,
+            0.025,
+            1.6
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "404dfa87-e984-4e0a-865d-16f0e94dfabb",
+          "type": "box",
+          "color": "#bdbdbd",
+          "scale": [
+            1,
+            0.05,
+            0.12
+          ],
+          "pos": [
+            -0.3579985550905539,
+            0.385,
+            -1.671141113824683
+          ],
+          "rotRYP": [
+            90,
+            45,
+            0
+          ]
+        },
+        {
+          "id": "404dfa87-e984-4e0a-865d-16f0e94dfabb",
+          "type": "box",
+          "color": "#bdbdbd",
+          "scale": [
+            1,
+            0.05,
+            0.12
+          ],
+          "pos": [
+            -0.3579985550905539,
+            0.385,
+            -0.07079921138471423
+          ],
+          "rotRYP": [
+            90,
+            45,
+            0
+          ]
+        },
+        {
+          "id": "404dfa87-e984-4e0a-865d-16f0e94dfabb",
+          "type": "box",
+          "color": "#bdbdbd",
+          "scale": [
+            1,
+            0.05,
+            0.12
+          ],
+          "pos": [
+            -0.3579985550905539,
+            0.385,
+            1.5351108004063063
+          ],
+          "rotRYP": [
+            90,
+            45,
+            0
+          ]
+        },
+        {
+          "id": "af9b2507-90e7-4855-b608-d4fc639c03ee",
+          "type": "box",
+          "color": "#ffffff",
+          "scale": [
+            0.1,
+            0.5,
+            1
+          ],
+          "pos": [
+            0.032496618005658284,
+            0.8200000000000004,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "xsiType": "TrackBlueprintFlag",
+      "actionXsiType": "",
+      "actionName": "",
+      "meta": {
+        "mainGroup": "Rig",
+        "subGroup": "OSB",
+        "type": "15",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
+    },
+    "BlueOSB22001": {
+      "name": "BlueOSB22001",
+      "parts": [
+        {
+          "id": "4b35aaa0-68a8-4c32-9121-35c4f3f303e9",
+          "type": "box",
+          "color": "#81dbe2",
+          "scale": [
+            0.112,
+            2.2,
+            3.6
+          ],
+          "pos": [
+            0,
+            1.151,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "404dfa87-e984-4e0a-865d-16f0e94dfabb",
+          "type": "box",
+          "color": "#bdbdbd",
+          "scale": [
+            1.62,
+            0.05,
+            0.12
+          ],
+          "pos": [
+            -0.0007639075327317002,
+            0.025,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "404dfa87-e984-4e0a-865d-16f0e94dfabb",
+          "type": "box",
+          "color": "#bdbdbd",
+          "scale": [
+            1.62,
+            0.05,
+            0.12
+          ],
+          "pos": [
+            -0.0007639075327317002,
+            0.025,
+            -1.6
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "404dfa87-e984-4e0a-865d-16f0e94dfabb",
+          "type": "box",
+          "color": "#bdbdbd",
+          "scale": [
+            1.62,
+            0.05,
+            0.12
+          ],
+          "pos": [
+            -0.0007639075327317002,
+            0.025,
+            1.6
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "404dfa87-e984-4e0a-865d-16f0e94dfabb",
+          "type": "box",
+          "color": "#bdbdbd",
+          "scale": [
+            1,
+            0.05,
+            0.12
+          ],
+          "pos": [
+            -0.3579985550905539,
+            0.385,
+            -1.671141113824683
+          ],
+          "rotRYP": [
+            90,
+            45,
+            0
+          ]
+        },
+        {
+          "id": "404dfa87-e984-4e0a-865d-16f0e94dfabb",
+          "type": "box",
+          "color": "#bdbdbd",
+          "scale": [
+            1,
+            0.05,
+            0.12
+          ],
+          "pos": [
+            -0.3579985550905539,
+            0.385,
+            -0.07079921138471423
+          ],
+          "rotRYP": [
+            90,
+            45,
+            0
+          ]
+        },
+        {
+          "id": "404dfa87-e984-4e0a-865d-16f0e94dfabb",
+          "type": "box",
+          "color": "#bdbdbd",
+          "scale": [
+            1,
+            0.05,
+            0.12
+          ],
+          "pos": [
+            -0.3579985550905539,
+            0.385,
+            1.5351108004063063
+          ],
+          "rotRYP": [
+            90,
+            45,
+            0
+          ]
+        },
+        {
+          "id": "af9b2507-90e7-4855-b608-d4fc639c03ee",
+          "type": "box",
+          "color": "#ffffff",
+          "scale": [
+            0.1,
+            0.5,
+            1
+          ],
+          "pos": [
+            0.05542398264732373,
+            0.6600000000000003,
+            -0.8119792349622752
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "af9b2507-90e7-4855-b608-d4fc639c03ee",
+          "type": "box",
+          "color": "#ffffff",
+          "scale": [
+            0.1,
+            0.5,
+            1
+          ],
+          "pos": [
+            0.05542398264732373,
+            1.700000000000001,
+            -0.8119792349622752
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "af9b2507-90e7-4855-b608-d4fc639c03ee",
+          "type": "box",
+          "color": "#ffffff",
+          "scale": [
+            0.1,
+            0.5,
+            1
+          ],
+          "pos": [
+            0.05542398264732373,
+            1.700000000000001,
+            0.7927991218376014
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "af9b2507-90e7-4855-b608-d4fc639c03ee",
+          "type": "box",
+          "color": "#ffffff",
+          "scale": [
+            0.1,
+            0.5,
+            1
+          ],
+          "pos": [
+            0.05542398264732373,
+            0.6600000000000003,
+            0.7927991218376014
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "xsiType": "TrackBlueprintFlag",
+      "actionXsiType": "",
+      "actionName": "",
+      "meta": {
+        "mainGroup": "Rig",
+        "subGroup": "OSB",
+        "type": "22",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
+    },
+    "ConradCrowdControlBarrier01": {
+      "name": "ConradCrowdControlBarrier01",
+      "parts": [
+        {
+          "id": "9b7d81f9-eb53-464d-8092-f1e563e83f4a",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.05,
+            0.75,
+            0.05
+          ],
+          "pos": [
+            0,
+            0.56,
+            -1.05
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "9b7d81f9-eb53-464d-8092-f1e563e83f4a",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.05,
+            2.1,
+            0.05
+          ],
+          "pos": [
+            0,
+            0.92,
+            0
+          ],
+          "rotRYP": [
+            90,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "9b7d81f9-eb53-464d-8092-f1e563e83f4a",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.05,
+            2.1,
+            0.05
+          ],
+          "pos": [
+            0,
+            0.2,
+            0
+          ],
+          "rotRYP": [
+            90,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "9b7d81f9-eb53-464d-8092-f1e563e83f4a",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.05,
+            0.5,
+            0.05
+          ],
+          "pos": [
+            0,
+            0.17,
+            -1.05
+          ],
+          "rotRYP": [
+            0,
+            0,
+            90
+          ]
+        },
+        {
+          "id": "9b7d81f9-eb53-464d-8092-f1e563e83f4a",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.05,
+            0.5,
+            0.05
+          ],
+          "pos": [
+            0,
+            0.17,
+            1.05
+          ],
+          "rotRYP": [
+            0,
+            0,
+            90
+          ]
+        },
+        {
+          "id": "9b7d81f9-eb53-464d-8092-f1e563e83f4a",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.05,
+            0.75,
+            0.05
+          ],
+          "pos": [
+            0,
+            0.56,
+            1.05
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "9b7d81f9-eb53-464d-8092-f1e563e83f4a",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.05,
+            0.17,
+            0.05
+          ],
+          "pos": [
+            0.25,
+            0.075,
+            -1.05
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "9b7d81f9-eb53-464d-8092-f1e563e83f4a",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.05,
+            0.17,
+            0.05
+          ],
+          "pos": [
+            0.25,
+            0.075,
+            1.05
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "9b7d81f9-eb53-464d-8092-f1e563e83f4a",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.05,
+            0.17,
+            0.05
+          ],
+          "pos": [
+            -0.25,
+            0.075,
+            1.05
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "9b7d81f9-eb53-464d-8092-f1e563e83f4a",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.05,
+            0.17,
+            0.05
+          ],
+          "pos": [
+            -0.25,
+            0.075,
+            -1.05
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "16fd8cd0-14b7-41f5-a05d-0f079f3e440b",
+          "type": "box",
+          "color": "#88e8f2",
+          "scale": [
+            0.02,
+            0.6,
+            2
+          ],
+          "pos": [
+            0,
+            0.57,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "xsiType": "TrackBlueprintFlag",
+      "actionXsiType": "",
+      "actionName": "",
+      "meta": {
+        "mainGroup": "Rig",
+        "subGroup": "CrowdBarrier",
+        "type": "CB",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
+    },
+    "CrowdControlBarrier01": {
+      "name": "CrowdControlBarrier01",
+      "parts": [
+        {
+          "id": "9b7d81f9-eb53-464d-8092-f1e563e83f4a",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.05,
+            0.75,
+            0.05
+          ],
+          "pos": [
+            0,
+            0.56,
+            -1.05
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "9b7d81f9-eb53-464d-8092-f1e563e83f4a",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.05,
+            2.1,
+            0.05
+          ],
+          "pos": [
+            0,
+            0.92,
+            0
+          ],
+          "rotRYP": [
+            90,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "9b7d81f9-eb53-464d-8092-f1e563e83f4a",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.05,
+            2.1,
+            0.05
+          ],
+          "pos": [
+            0,
+            0.2,
+            0
+          ],
+          "rotRYP": [
+            90,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "9b7d81f9-eb53-464d-8092-f1e563e83f4a",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.05,
+            0.5,
+            0.05
+          ],
+          "pos": [
+            0,
+            0.17,
+            -1.05
+          ],
+          "rotRYP": [
+            0,
+            0,
+            90
+          ]
+        },
+        {
+          "id": "9b7d81f9-eb53-464d-8092-f1e563e83f4a",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.05,
+            0.5,
+            0.05
+          ],
+          "pos": [
+            0,
+            0.17,
+            1.05
+          ],
+          "rotRYP": [
+            0,
+            0,
+            90
+          ]
+        },
+        {
+          "id": "9b7d81f9-eb53-464d-8092-f1e563e83f4a",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.05,
+            0.75,
+            0.05
+          ],
+          "pos": [
+            0,
+            0.56,
+            1.05
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "9b7d81f9-eb53-464d-8092-f1e563e83f4a",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.05,
+            0.17,
+            0.05
+          ],
+          "pos": [
+            0.25,
+            0.075,
+            -1.05
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "9b7d81f9-eb53-464d-8092-f1e563e83f4a",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.05,
+            0.17,
+            0.05
+          ],
+          "pos": [
+            0.25,
+            0.075,
+            1.05
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "9b7d81f9-eb53-464d-8092-f1e563e83f4a",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.05,
+            0.17,
+            0.05
+          ],
+          "pos": [
+            -0.25,
+            0.075,
+            1.05
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "9b7d81f9-eb53-464d-8092-f1e563e83f4a",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.05,
+            0.17,
+            0.05
+          ],
+          "pos": [
+            -0.25,
+            0.075,
+            -1.05
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "9b7d81f9-eb53-464d-8092-f1e563e83f4a",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.02,
+            0.75,
+            0.02
+          ],
+          "pos": [
+            0,
+            0.56,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "9b7d81f9-eb53-464d-8092-f1e563e83f4a",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.02,
+            0.75,
+            0.02
+          ],
+          "pos": [
+            0,
+            0.56,
+            0.1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "9b7d81f9-eb53-464d-8092-f1e563e83f4a",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.02,
+            0.75,
+            0.02
+          ],
+          "pos": [
+            0,
+            0.56,
+            0.2
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "9b7d81f9-eb53-464d-8092-f1e563e83f4a",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.02,
+            0.75,
+            0.02
+          ],
+          "pos": [
+            0,
+            0.56,
+            -0.30000000000000004
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "9b7d81f9-eb53-464d-8092-f1e563e83f4a",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.02,
+            0.75,
+            0.02
+          ],
+          "pos": [
+            0,
+            0.56,
+            -0.20000000000000004
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "9b7d81f9-eb53-464d-8092-f1e563e83f4a",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.02,
+            0.75,
+            0.02
+          ],
+          "pos": [
+            0,
+            0.56,
+            -0.1
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "9b7d81f9-eb53-464d-8092-f1e563e83f4a",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.02,
+            0.75,
+            0.02
+          ],
+          "pos": [
+            0,
+            0.56,
+            -0.8999999999999999
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "9b7d81f9-eb53-464d-8092-f1e563e83f4a",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.02,
+            0.75,
+            0.02
+          ],
+          "pos": [
+            0,
+            0.56,
+            -0.7999999999999999
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "9b7d81f9-eb53-464d-8092-f1e563e83f4a",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.02,
+            0.75,
+            0.02
+          ],
+          "pos": [
+            0,
+            0.56,
+            -0.7
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "9b7d81f9-eb53-464d-8092-f1e563e83f4a",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.02,
+            0.75,
+            0.02
+          ],
+          "pos": [
+            0,
+            0.56,
+            -0.6
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "9b7d81f9-eb53-464d-8092-f1e563e83f4a",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.02,
+            0.75,
+            0.02
+          ],
+          "pos": [
+            0,
+            0.56,
+            -0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "9b7d81f9-eb53-464d-8092-f1e563e83f4a",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.02,
+            0.75,
+            0.02
+          ],
+          "pos": [
+            0,
+            0.56,
+            -0.4
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "9b7d81f9-eb53-464d-8092-f1e563e83f4a",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.02,
+            0.75,
+            0.02
+          ],
+          "pos": [
+            0,
+            0.56,
+            0.30000000000000004
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "9b7d81f9-eb53-464d-8092-f1e563e83f4a",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.02,
+            0.75,
+            0.02
+          ],
+          "pos": [
+            0,
+            0.56,
+            0.4
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "9b7d81f9-eb53-464d-8092-f1e563e83f4a",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.02,
+            0.75,
+            0.02
+          ],
+          "pos": [
+            0,
+            0.56,
+            0.5
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "9b7d81f9-eb53-464d-8092-f1e563e83f4a",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.02,
+            0.75,
+            0.02
+          ],
+          "pos": [
+            0,
+            0.56,
+            0.6
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "9b7d81f9-eb53-464d-8092-f1e563e83f4a",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.02,
+            0.75,
+            0.02
+          ],
+          "pos": [
+            0,
+            0.56,
+            0.7
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "9b7d81f9-eb53-464d-8092-f1e563e83f4a",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.02,
+            0.75,
+            0.02
+          ],
+          "pos": [
+            0,
+            0.56,
+            0.7999999999999999
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "9b7d81f9-eb53-464d-8092-f1e563e83f4a",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.02,
+            0.75,
+            0.02
+          ],
+          "pos": [
+            0,
+            0.56,
+            0.8999999999999999
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "xsiType": "TrackBlueprintFlag",
+      "actionXsiType": "",
+      "actionName": "",
+      "meta": {
+        "mainGroup": "Rig",
+        "subGroup": "CrowdBarrier",
+        "type": "CB",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
+    },
+    "LiftoffCrowdControlBarrier01": {
+      "name": "LiftoffCrowdControlBarrier01",
+      "parts": [
+        {
+          "id": "9b7d81f9-eb53-464d-8092-f1e563e83f4a",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.05,
+            0.75,
+            0.05
+          ],
+          "pos": [
+            0,
+            0.56,
+            -1.05
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "9b7d81f9-eb53-464d-8092-f1e563e83f4a",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.05,
+            2.1,
+            0.05
+          ],
+          "pos": [
+            0,
+            0.92,
+            0
+          ],
+          "rotRYP": [
+            90,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "9b7d81f9-eb53-464d-8092-f1e563e83f4a",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.05,
+            2.1,
+            0.05
+          ],
+          "pos": [
+            0,
+            0.2,
+            0
+          ],
+          "rotRYP": [
+            90,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "9b7d81f9-eb53-464d-8092-f1e563e83f4a",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.05,
+            0.5,
+            0.05
+          ],
+          "pos": [
+            0,
+            0.17,
+            -1.05
+          ],
+          "rotRYP": [
+            0,
+            0,
+            90
+          ]
+        },
+        {
+          "id": "9b7d81f9-eb53-464d-8092-f1e563e83f4a",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.05,
+            0.5,
+            0.05
+          ],
+          "pos": [
+            0,
+            0.17,
+            1.05
+          ],
+          "rotRYP": [
+            0,
+            0,
+            90
+          ]
+        },
+        {
+          "id": "9b7d81f9-eb53-464d-8092-f1e563e83f4a",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.05,
+            0.75,
+            0.05
+          ],
+          "pos": [
+            0,
+            0.56,
+            1.05
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "9b7d81f9-eb53-464d-8092-f1e563e83f4a",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.05,
+            0.17,
+            0.05
+          ],
+          "pos": [
+            0.25,
+            0.075,
+            -1.05
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "9b7d81f9-eb53-464d-8092-f1e563e83f4a",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.05,
+            0.17,
+            0.05
+          ],
+          "pos": [
+            0.25,
+            0.075,
+            1.05
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "9b7d81f9-eb53-464d-8092-f1e563e83f4a",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.05,
+            0.17,
+            0.05
+          ],
+          "pos": [
+            -0.25,
+            0.075,
+            1.05
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "9b7d81f9-eb53-464d-8092-f1e563e83f4a",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.05,
+            0.17,
+            0.05
+          ],
+          "pos": [
+            -0.25,
+            0.075,
+            -1.05
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "16fd8cd0-14b7-41f5-a05d-0f079f3e440b",
+          "type": "box",
+          "color": "#9a9a9a",
+          "scale": [
+            0.02,
+            0.6,
+            2
+          ],
+          "pos": [
+            0,
+            0.57,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "xsiType": "TrackBlueprintFlag",
+      "actionXsiType": "",
+      "actionName": "",
+      "meta": {
+        "mainGroup": "Rig",
+        "subGroup": "CrowdBarrier",
+        "type": "CB",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
+    },
+    "PALCrowdControlBarrier01": {
+      "name": "PALCrowdControlBarrier01",
+      "parts": [
+        {
+          "id": "9b7d81f9-eb53-464d-8092-f1e563e83f4a",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.05,
+            0.75,
+            0.05
+          ],
+          "pos": [
+            0,
+            0.56,
+            -1.05
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "9b7d81f9-eb53-464d-8092-f1e563e83f4a",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.05,
+            2.1,
+            0.05
+          ],
+          "pos": [
+            0,
+            0.92,
+            0
+          ],
+          "rotRYP": [
+            90,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "9b7d81f9-eb53-464d-8092-f1e563e83f4a",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.05,
+            2.1,
+            0.05
+          ],
+          "pos": [
+            0,
+            0.2,
+            0
+          ],
+          "rotRYP": [
+            90,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "9b7d81f9-eb53-464d-8092-f1e563e83f4a",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.05,
+            0.5,
+            0.05
+          ],
+          "pos": [
+            0,
+            0.17,
+            -1.05
+          ],
+          "rotRYP": [
+            0,
+            0,
+            90
+          ]
+        },
+        {
+          "id": "9b7d81f9-eb53-464d-8092-f1e563e83f4a",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.05,
+            0.5,
+            0.05
+          ],
+          "pos": [
+            0,
+            0.17,
+            1.05
+          ],
+          "rotRYP": [
+            0,
+            0,
+            90
+          ]
+        },
+        {
+          "id": "9b7d81f9-eb53-464d-8092-f1e563e83f4a",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.05,
+            0.75,
+            0.05
+          ],
+          "pos": [
+            0,
+            0.56,
+            1.05
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "9b7d81f9-eb53-464d-8092-f1e563e83f4a",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.05,
+            0.17,
+            0.05
+          ],
+          "pos": [
+            0.25,
+            0.075,
+            -1.05
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "9b7d81f9-eb53-464d-8092-f1e563e83f4a",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.05,
+            0.17,
+            0.05
+          ],
+          "pos": [
+            0.25,
+            0.075,
+            1.05
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "9b7d81f9-eb53-464d-8092-f1e563e83f4a",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.05,
+            0.17,
+            0.05
+          ],
+          "pos": [
+            -0.25,
+            0.075,
+            1.05
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "9b7d81f9-eb53-464d-8092-f1e563e83f4a",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.05,
+            0.17,
+            0.05
+          ],
+          "pos": [
+            -0.25,
+            0.075,
+            -1.05
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "16fd8cd0-14b7-41f5-a05d-0f079f3e440b",
+          "type": "box",
+          "color": "#bdbdbd",
+          "scale": [
+            0.02,
+            0.6,
+            2
+          ],
+          "pos": [
+            0,
+            0.57,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "xsiType": "TrackBlueprintFlag",
+      "actionXsiType": "",
+      "actionName": "",
+      "meta": {
+        "mainGroup": "Rig",
+        "subGroup": "CrowdBarrier",
+        "type": "CB",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
+    },
+    "ConstructionFencingGraphics01": {
+      "name": "ConstructionFencingGraphics01",
+      "parts": [
+        {
+          "id": "7480be24-a9f8-47f8-b15d-1d8c372623d4",
+          "type": "box",
+          "color": "#9aa7b1",
+          "scale": [
+            2.8,
+            1.9,
+            0.1
+          ],
+          "pos": [
+            -1.5000000000000004,
+            1.2,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "75ccbc53-5433-4a07-aef8-4f6909071c06",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.03,
+            2.4,
+            0.03
+          ],
+          "pos": [
+            -3.000000000000001,
+            1.2,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "75ccbc53-5433-4a07-aef8-4f6909071c06",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.03,
+            2.4,
+            0.03
+          ],
+          "pos": [
+            1.3877787807814457e-16,
+            1.2,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "75ccbc53-5433-4a07-aef8-4f6909071c06",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.03,
+            3,
+            0.03
+          ],
+          "pos": [
+            -1.5000000000000004,
+            2.25,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            90
+          ]
+        },
+        {
+          "id": "75ccbc53-5433-4a07-aef8-4f6909071c06",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.03,
+            3,
+            0.03
+          ],
+          "pos": [
+            -1.5000000000000004,
+            0.2,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            90
+          ]
+        },
+        {
+          "id": "e3674a0e-7fe0-4bec-9d81-6b5d9cb5b79e",
+          "type": "box",
+          "color": "#bdbdbd",
+          "scale": [
+            0.2,
+            0.1,
+            0.1
+          ],
+          "pos": [
+            -3.0500000000000007,
+            0.05,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "xsiType": "TrackBlueprintFlag",
+      "actionXsiType": "",
+      "actionName": "",
+      "meta": {
+        "mainGroup": "Rig",
+        "subGroup": "Fence",
+        "type": "Fence",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
+    },
+    "ConstructionFencingGraphics02": {
+      "name": "ConstructionFencingGraphics02",
+      "parts": [
+        {
+          "id": "7480be24-a9f8-47f8-b15d-1d8c372623d4",
+          "type": "box",
+          "color": "#9aa7b1",
+          "scale": [
+            2.8,
+            1.9,
+            0.1
+          ],
+          "pos": [
+            -1.5000000000000004,
+            1.2,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "75ccbc53-5433-4a07-aef8-4f6909071c06",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.03,
+            2.4,
+            0.03
+          ],
+          "pos": [
+            -3.000000000000001,
+            1.2,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "75ccbc53-5433-4a07-aef8-4f6909071c06",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.03,
+            2.4,
+            0.03
+          ],
+          "pos": [
+            1.3877787807814457e-16,
+            1.2,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "75ccbc53-5433-4a07-aef8-4f6909071c06",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.03,
+            3,
+            0.03
+          ],
+          "pos": [
+            -1.5000000000000004,
+            2.25,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            90
+          ]
+        },
+        {
+          "id": "75ccbc53-5433-4a07-aef8-4f6909071c06",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.03,
+            3,
+            0.03
+          ],
+          "pos": [
+            -1.5000000000000004,
+            0.2,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            90
+          ]
+        },
+        {
+          "id": "e3674a0e-7fe0-4bec-9d81-6b5d9cb5b79e",
+          "type": "box",
+          "color": "#bdbdbd",
+          "scale": [
+            0.2,
+            0.1,
+            0.1
+          ],
+          "pos": [
+            -3.0500000000000007,
+            0.05,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "xsiType": "TrackBlueprintFlag",
+      "actionXsiType": "",
+      "actionName": "",
+      "meta": {
+        "mainGroup": "Rig",
+        "subGroup": "Fence",
+        "type": "Fence",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
+    },
+    "ConstructionFencingLiftoff01White01": {
+      "name": "ConstructionFencingLiftoff01White01",
+      "parts": [
+        {
+          "id": "7480be24-a9f8-47f8-b15d-1d8c372623d4",
+          "type": "box",
+          "color": "#9aa7b1",
+          "scale": [
+            2.8,
+            1.9,
+            0.1
+          ],
+          "pos": [
+            -1.5000000000000004,
+            1.2,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "75ccbc53-5433-4a07-aef8-4f6909071c06",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.03,
+            2.4,
+            0.03
+          ],
+          "pos": [
+            -3.000000000000001,
+            1.2,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "75ccbc53-5433-4a07-aef8-4f6909071c06",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.03,
+            2.4,
+            0.03
+          ],
+          "pos": [
+            1.3877787807814457e-16,
+            1.2,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "75ccbc53-5433-4a07-aef8-4f6909071c06",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.03,
+            3,
+            0.03
+          ],
+          "pos": [
+            -1.5000000000000004,
+            2.25,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            90
+          ]
+        },
+        {
+          "id": "75ccbc53-5433-4a07-aef8-4f6909071c06",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.03,
+            3,
+            0.03
+          ],
+          "pos": [
+            -1.5000000000000004,
+            0.2,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            90
+          ]
+        },
+        {
+          "id": "e3674a0e-7fe0-4bec-9d81-6b5d9cb5b79e",
+          "type": "box",
+          "color": "#bdbdbd",
+          "scale": [
+            0.2,
+            0.1,
+            0.1
+          ],
+          "pos": [
+            -3.0500000000000007,
+            0.05,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "xsiType": "TrackBlueprintFlag",
+      "actionXsiType": "",
+      "actionName": "",
+      "meta": {
+        "mainGroup": "Rig",
+        "subGroup": "Fence",
+        "type": "Fence",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
+    },
+    "ConstructionFencingLiftoffBlack01": {
+      "name": "ConstructionFencingLiftoffBlack01",
+      "parts": [
+        {
+          "id": "7480be24-a9f8-47f8-b15d-1d8c372623d4",
+          "type": "box",
+          "color": "#9aa7b1",
+          "scale": [
+            2.8,
+            1.9,
+            0.1
+          ],
+          "pos": [
+            -1.5000000000000004,
+            1.2,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "75ccbc53-5433-4a07-aef8-4f6909071c06",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.03,
+            2.4,
+            0.03
+          ],
+          "pos": [
+            -3.000000000000001,
+            1.2,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "75ccbc53-5433-4a07-aef8-4f6909071c06",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.03,
+            2.4,
+            0.03
+          ],
+          "pos": [
+            1.3877787807814457e-16,
+            1.2,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "75ccbc53-5433-4a07-aef8-4f6909071c06",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.03,
+            3,
+            0.03
+          ],
+          "pos": [
+            -1.5000000000000004,
+            2.25,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            90
+          ]
+        },
+        {
+          "id": "75ccbc53-5433-4a07-aef8-4f6909071c06",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.03,
+            3,
+            0.03
+          ],
+          "pos": [
+            -1.5000000000000004,
+            0.2,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            90
+          ]
+        },
+        {
+          "id": "e3674a0e-7fe0-4bec-9d81-6b5d9cb5b79e",
+          "type": "box",
+          "color": "#bdbdbd",
+          "scale": [
+            0.2,
+            0.1,
+            0.1
+          ],
+          "pos": [
+            -3.0500000000000007,
+            0.05,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "xsiType": "TrackBlueprintFlag",
+      "actionXsiType": "",
+      "actionName": "",
+      "meta": {
+        "mainGroup": "Rig",
+        "subGroup": "Fence",
+        "type": "Fence",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
+    },
+    "GenericPitwall01": {
+      "name": "GenericPitwall01",
+      "parts": [
+        {
+          "id": "6c288690-ecd7-4a0e-9ad4-b600eb5340d6",
+          "type": "isoTriPrism",
+          "color": "#bdbdbd",
+          "scale": [
+            0.8,
+            1,
+            2
+          ],
+          "pos": [
+            0,
+            0.5,
+            0
+          ],
+          "rotRYP": [
+            0,
+            90,
+            0
+          ]
+        }
+      ],
+      "xsiType": "TrackBlueprintFlag",
+      "actionXsiType": "",
+      "actionName": "",
+      "meta": {
+        "mainGroup": "Rig",
+        "subGroup": "PitWall",
+        "type": "PitWall",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
+    },
+    "IDRAPitwall01": {
+      "name": "IDRAPitwall01",
+      "parts": [
+        {
+          "id": "6c288690-ecd7-4a0e-9ad4-b600eb5340d6",
+          "type": "isoTriPrism",
+          "color": "#88e0f2",
+          "scale": [
+            0.8,
+            1,
+            2
+          ],
+          "pos": [
+            0,
+            0.5,
+            0
+          ],
+          "rotRYP": [
+            0,
+            90,
+            0
+          ]
+        }
+      ],
+      "xsiType": "TrackBlueprintFlag",
+      "actionXsiType": "",
+      "actionName": "",
+      "meta": {
+        "mainGroup": "Rig",
+        "subGroup": "PitWall",
+        "type": "PitWall",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
+    },
+    "IDRARamp01": {
+      "name": "IDRARamp01",
+      "parts": [
+        {
+          "id": "ed3fb144-cd22-4e43-b2e1-f7882fdd4717",
+          "type": "rightTriPrism",
+          "color": "#8ee3f2",
+          "scale": [
+            4.85,
+            3.638,
+            1
+          ],
+          "pos": [
+            -0.5549742753827804,
+            1.819,
+            0.012882661296795384
+          ],
+          "rotRYP": [
+            0,
+            180,
+            0
+          ]
+        }
+      ],
+      "xsiType": "TrackBlueprintFlag",
+      "actionXsiType": "",
+      "actionName": "",
+      "meta": {
+        "mainGroup": "Rig",
+        "subGroup": "Ramp",
+        "type": "Ramp",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
+    },
+    "PartyTentWhite01": {
+      "name": "PartyTentWhite01",
+      "parts": [
+        {
+          "id": "c3972fc8-325a-4158-ad0b-7a21ffac4947",
+          "type": "box",
+          "color": "#ffffff",
+          "scale": [
+            3.8,
+            0.3,
+            3.8
+          ],
+          "pos": [
+            0,
+            2,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "d90ca3a6-126c-49ab-9ab3-16b646afbb72",
+          "type": "pyramid",
+          "color": "#ffffff",
+          "scale": [
+            3.8,
+            1.35,
+            3.8
+          ],
+          "pos": [
+            0,
+            2.15,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "b5421cd1-5d36-40c9-a18a-5404b2f2709b",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.1,
+            1.85,
+            0.1
+          ],
+          "pos": [
+            1.8,
+            0.925,
+            1.8
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "b5421cd1-5d36-40c9-a18a-5404b2f2709b",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.1,
+            1.85,
+            0.1
+          ],
+          "pos": [
+            -1.8,
+            0.925,
+            1.8
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "b5421cd1-5d36-40c9-a18a-5404b2f2709b",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.1,
+            1.85,
+            0.1
+          ],
+          "pos": [
+            -1.8,
+            0.925,
+            -1.8
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "b5421cd1-5d36-40c9-a18a-5404b2f2709b",
+          "type": "cylinder",
+          "color": "#bdbdbd",
+          "scale": [
+            0.1,
+            1.85,
+            0.1
+          ],
+          "pos": [
+            1.8,
+            0.925,
+            -1.8
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "xsiType": "TrackBlueprintFlag",
+      "actionXsiType": "",
+      "actionName": "",
+      "meta": {
+        "mainGroup": "Rig",
+        "subGroup": "Tent",
+        "type": "PartyTent",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
+    },
+    "Banner5x5mLiftoffPurple01": {
+      "name": "Banner5x5mLiftoffPurple01",
+      "parts": [
+        {
+          "id": "e4d1f9a0-9ce1-4b29-9f93-83698d1142f2",
+          "type": "box",
+          "color": "#f9b9f9",
+          "scale": [
+            5,
+            5,
+            0.1
+          ],
+          "pos": [
+            0,
+            2.5,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "xsiType": "TrackBlueprintFlag",
+      "actionXsiType": "",
+      "actionName": "",
+      "meta": {
+        "mainGroup": "Rig",
+        "subGroup": "Banner_5x5",
+        "type": "Liftoff",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
+    },
+    "Banner5x5mLiftoffRed01": {
+      "name": "Banner5x5mLiftoffRed01",
+      "parts": [
+        {
+          "id": "e4d1f9a0-9ce1-4b29-9f93-83698d1142f2",
+          "type": "box",
+          "color": "#ffb3b3",
+          "scale": [
+            5,
+            5,
+            0.1
+          ],
+          "pos": [
+            0,
+            2.5,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "xsiType": "TrackBlueprintFlag",
+      "actionXsiType": "",
+      "actionName": "",
+      "meta": {
+        "mainGroup": "Rig",
+        "subGroup": "Banner_5x5",
+        "type": "Liftoff",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
+    },
+    "Banner5x5mLiftoffYellow01": {
+      "name": "Banner5x5mLiftoffYellow01",
+      "parts": [
+        {
+          "id": "e4d1f9a0-9ce1-4b29-9f93-83698d1142f2",
+          "type": "box",
+          "color": "#f1fca7",
+          "scale": [
+            5,
+            5,
+            0.1
+          ],
+          "pos": [
+            0,
+            2.5,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "xsiType": "TrackBlueprintFlag",
+      "actionXsiType": "",
+      "actionName": "",
+      "meta": {
+        "mainGroup": "Rig",
+        "subGroup": "Banner_5x5",
+        "type": "Liftoff",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
+    },
+    "TriggerSphere_ChargeBattery_1mX1m01": {
+      "name": "TriggerSphere_ChargeBattery_1mX1m01",
+      "parts": [
+        {
+          "id": "34bd9815-2830-48da-a2be-5883db2d1789",
+          "type": "sphere",
+          "color": "#93d77b",
+          "scale": [
+            1,
+            1,
+            1
+          ],
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "xsiType": "TrackBlueprintAction",
+      "actionXsiType": "ChargeBatteryAction",
+      "actionName": "fullRechargeTime",
+      "meta": {
+        "mainGroup": "Logical",
+        "subGroup": "Trigger",
+        "type": "Sphere",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
+    },
+    "TriggerSphere_KillDrone_1mX1m01": {
+      "name": "TriggerSphere_KillDrone_1mX1m01",
+      "parts": [
+        {
+          "id": "c93e99a9-8e6b-434a-bfc8-5ac1c5964e3c",
+          "type": "sphere",
+          "color": "#f28888",
+          "scale": [
+            1,
+            1,
+            1
+          ],
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "xsiType": "TrackBlueprintAction",
+      "actionXsiType": "",
+      "actionName": "",
+      "meta": {
+        "mainGroup": "Logical",
+        "subGroup": "Trigger",
+        "type": "Sphere",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
+    },
+    "TriggerSphere_PlaySound_1mX1m01": {
+      "name": "TriggerSphere_PlaySound_1mX1m01",
+      "parts": [
+        {
+          "id": "69f31da7-6f07-4a7b-9ea8-bb5d55ab02e6",
+          "type": "sphere",
+          "color": "#eaee99",
+          "scale": [
+            1,
+            1,
+            1
+          ],
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "xsiType": "TrackBlueprintAction",
+      "actionXsiType": "PlaySoundAction",
+      "actionName": "soundfile",
+      "meta": {
+        "mainGroup": "Logical",
+        "subGroup": "Trigger",
+        "type": "Sphere",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
+    },
+    "TriggerSphere_RepairPropellers_1mX1m01": {
+      "name": "TriggerSphere_RepairPropellers_1mX1m01",
+      "parts": [
+        {
+          "id": "fdb50f7a-2805-4bed-9e77-610fbc7339c9",
+          "type": "sphere",
+          "color": "#f3aff5",
+          "scale": [
+            1,
+            1,
+            1
+          ],
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "xsiType": "TrackBlueprintAction",
+      "actionXsiType": "RepairPropellersAction",
+      "actionName": "fullRepairTime",
+      "meta": {
+        "mainGroup": "Logical",
+        "subGroup": "Trigger",
+        "type": "Sphere",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
+    },
+    "TriggerSphere_ShowText_1mX1m01": {
+      "name": "TriggerSphere_ShowText_1mX1m01",
+      "parts": [
+        {
+          "id": "27b6f637-0f12-45a2-a178-138f9cc329aa",
+          "type": "sphere",
+          "color": "#efefef",
+          "scale": [
+            1,
+            1,
+            1
+          ],
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "rotRYP": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "xsiType": "TrackBlueprintAction",
+      "actionXsiType": "ShowTextAction",
+      "actionName": "displayText",
+      "meta": {
+        "mainGroup": "Logical",
+        "subGroup": "Trigger",
+        "type": "Sphere",
+        "btnColor": "#000000",
+        "btnNr": null
+      }
     }
   },
   "groups": {}
