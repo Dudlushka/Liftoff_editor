@@ -71,32 +71,25 @@ function copySelection()
 }
 
 
-
 function pasteClipboard(targetMode = ui.mode.value)
 {
-     console.log("[Paste]");
+    console.log("[Paste]");
 
-    targetMode = ui.mode.value
+    targetMode = ui.mode.value;
     const clipboard = window.appClipboard;
-
-
-
-
 
     if (!clipboard || !Array.isArray(clipboard.items) || clipboard.items.length === 0)
     {
         return;
     }
 
-    console.log("[Paste](2)");
-    console.log("targetmode:",targetMode);
-
+    console.log("");
+    console.log("targetmode:", targetMode);
 
     snapshot?.();
 
     //const off = [0.2, 0, 0.2]; // kis eltolás, hogy látszódjon az új példány
-    const off = [0.0, 0.0, 0.0]; // kis eltolás, hogy látszódjon az új példány
-
+    const off = [0.0, 0.0, 0.0];
 
     // -------- GP cél --------
     if (targetMode === "gp")
@@ -110,8 +103,8 @@ function pasteClipboard(targetMode = ui.mode.value)
 
         clipboard.items.forEach((it) =>
         {
-            console.log("[Paste](3)");
-            const p = cloneDeep(it);
+            console.log("");
+            const p = cloneDeep(it);   // ha lenne rajta userActionValue, ez is jönne vele
             p.pos = [p.pos[0] + off[0], p.pos[1] + off[1], p.pos[2] + off[2]];
             gp.parts.push(p);
         });
@@ -131,23 +124,21 @@ function pasteClipboard(targetMode = ui.mode.value)
     // -------- GRP cél --------
     if (targetMode === "grp")
     {
-
         const grp = getActiveGRP?.();
         if (!grp) { return; }
 
-        const activeName = getActiveGRPName();
-        const base = grp.items.length;
+        const activeName      = getActiveGRPName();
+        const base            = grp.items.length;
         const appendedIndices = [];
 
         if (clipboard.mode === "grp")
         {
-
             console.log("[Paste](grp / grp)");
 
             let acc = 0;
             clipboard.items.forEach((it) =>
             {
-                console.log("[Paste](3)");
+                console.log("");
 
                 const t = it.refType ?? "gp";
 
@@ -160,6 +151,12 @@ function pasteClipboard(targetMode = ui.mode.value)
                 const p = normalizeGrpItemLike(it);
                 p.pos = [p.pos[0] + off[0], p.pos[1] + off[1], p.pos[2] + off[2]];
 
+                // --- ÚJ: action érték áthozása, ha létezik a forráson ---
+                if (it.userActionValue !== undefined)
+                {
+                    p.userActionValue = it.userActionValue;
+                }
+
                 grp.items.push(p);
                 appendedIndices.push(base + acc);
                 acc++;
@@ -167,7 +164,8 @@ function pasteClipboard(targetMode = ui.mode.value)
         }
         else if (clipboard.mode === "scn")
         {
-          console.log("[Paste](grp / scn)");
+            console.log("[Paste](grp / scn)");
+
             let acc = 0;
             clipboard.items.forEach((it) =>
             {
@@ -175,6 +173,13 @@ function pasteClipboard(targetMode = ui.mode.value)
                 if (!mapped) { return; }
 
                 mapped.pos = [mapped.pos[0] + off[0], mapped.pos[1] + off[1], mapped.pos[2] + off[2]];
+
+                // --- ÚJ: Scene item userActionValue -> GRP item userActionValue ---
+                if (it.userActionValue !== undefined)
+                {
+                    mapped.userActionValue = it.userActionValue;
+                }
+
                 grp.items.push(mapped);
                 appendedIndices.push(base + acc);
                 acc++;
@@ -182,7 +187,8 @@ function pasteClipboard(targetMode = ui.mode.value)
         }
         else if (clipboard.mode === "gp")
         {
-          console.log("[Paste](grp / gp)");
+            console.log("[Paste](grp / gp)");
+
             let acc = 0;
             clipboard.items.forEach((part) =>
             {
@@ -217,7 +223,7 @@ function pasteClipboard(targetMode = ui.mode.value)
 
         clipboard.items.forEach((it) =>
         {
-            const p = cloneDeep(it);
+            const p = cloneDeep(it);  // itt a userActionValue automatikusan jön
             p.pos = [p.pos[0] + off[0], p.pos[1] + off[1], p.pos[2] + off[2]];
             store.scene.push(p);
         });
@@ -234,6 +240,7 @@ function pasteClipboard(targetMode = ui.mode.value)
         return;
     }
 }
+
 
 
 function duplicateSelection()

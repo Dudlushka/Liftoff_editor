@@ -111,6 +111,8 @@ function flattenGroupInstanceToScene(grpName, parentTRS, parentHidden, out)
                 rotRYP:  combinedTRS.rotRYP,
                 scale:   combinedTRS.scale,
                 hidden:  combinedHidden,
+
+                userActionValue: it.userActionValue ?? "",
             });
         }
         else if (it.refType === "grp")
@@ -329,6 +331,9 @@ function makeGroupFromSceneSelection()
             rotRYP:  localTRS.rotRYP,
             scale:   localTRS.scale,
             hidden:  !!it.hidden,
+
+                        // Itt hozzuk magunkkal az action értéket is:
+            userActionValue: it.userActionValue ?? "",
         });
     });
 
