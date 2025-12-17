@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MIDI Musical Road Generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>MIDI Musical Road Generator</h1>
+        <p>
+            Load a MIDI file, pick two channels, configure Blip/Bloop triggers, and export as a GRP JSON "musical road".
+        </p>
+    </header>
+
+    <section class="controls">
+        <div class="control-group">
+            <label for="midiFile">Load MIDI file:</label>
+            <input type="file" id="midiFile" accept=".mid,.midi">
+        </div>
+
+        <div class="control-group">
+            <label for="channelTop">Top channel:</label>
+            <select id="channelTop" disabled>
+                <option value="">– none –</option>
+            </select>
+
+            <label for="channelBottom">Bottom channel:</label>
+            <select id="channelBottom" disabled>
+                <option value="">– none –</option>
+            </select>
+        </div>
+
+        <div class="control-group">
+            <span>Piano roll draw mode:</span>
+            <label>
+                <input type="radio" name="mode" value="bars" checked>
+                Bars (note on → note off)
+            </label>
+            <label>
+                <input type="radio" name="mode" value="onsets">
+                Onsets only (small blocks)
+            </label>
+        </div>
+    </section>
+
+    <section class="channel-settings">
+        <div class="channel-card">
+            <h2>Top channel settings</h2>
+            <div class="control-row">
+                <label for="instTop">Instrument:</label>
+                <select id="instTop">
+                    <option value="Blip">Blip</option>
+                    <option value="Bloop">Bloop</option>
+                </select>
+            </div>
+            <div class="control-row">
+                <label for="gateTop">Gate type:</label>
+                <select id="gateTop">
+                    <option value="TriggerSphere_PlaySound_1mX1m01">TriggerSphere_PlaySound_1mX1m01</option>
+                    <option value="TriggerBox_PlaySound_1mX1m01">TriggerBox_PlaySound_1mX1m01</option>
+                </select>
+            </div>
+            <div class="control-row">
+                <span>Offset (X, Y, Z):</span>
+                <input type="number" id="offsetTopX" step="0.1" value="0">
+                <input type="number" id="offsetTopY" step="0.1" value="0">
+                <input type="number" id="offsetTopZ" step="0.1" value="-1">
+            </div>
+            <div class="control-row">
+                <span>Scale (X, Y, Z):</span>
+                <input type="number" id="scaleTopX" step="0.1" value="1">
+                <input type="number" id="scaleTopY" step="0.1" value="1">
+                <input type="number" id="scaleTopZ" step="0.1" value="1">
+            </div>
+        </div>
+
+        <div class="channel-card">
+            <h2>Bottom channel settings</h2>
+            <div class="control-row">
+                <label for="instBottom">Instrument:</label>
+                <select id="instBottom">
+                    <option value="Blip">Blip</option>
+                    <option value="Bloop">Bloop</option>
+                </select>
+            </div>
+            <div class="control-row">
+                <label for="gateBottom">Gate type:</label>
+                <select id="gateBottom">
+                    <option value="TriggerSphere_PlaySound_1mX1m01">TriggerSphere_PlaySound_1mX1m01</option>
+                    <option value="TriggerBox_PlaySound_1mX1m01">TriggerBox_PlaySound_1mX1m01</option>
+                </select>
+            </div>
+            <div class="control-row">
+                <span>Offset (X, Y, Z):</span>
+                <input type="number" id="offsetBottomX" step="0.1" value="0">
+                <input type="number" id="offsetBottomY" step="0.1" value="0">
+                <input type="number" id="offsetBottomZ" step="0.1" value="1">
+            </div>
+            <div class="control-row">
+                <span>Scale (X, Y, Z):</span>
+                <input type="number" id="scaleBottomX" step="0.1" value="1">
+                <input type="number" id="scaleBottomY" step="0.1" value="1">
+                <input type="number" id="scaleBottomZ" step="0.1" value="1">
+            </div>
+        </div>
+    </section>
+
+    <section class="export-settings">
+        <h2>Road parameters, metadata and export</h2>
+
+        <div class="control-group">
+            <label for="distPerQuarter">Distance per quarter note (m):</label>
+            <input type="number" id="distPerQuarter" step="0.1" value="2">
+
+            <label for="groupLength">Segment (group) length (m):</label>
+            <input type="number" id="groupLength" step="0.1" value="10">
+        </div>
+
+        <div class="control-group">
+            <label for="tempoBpm">Tempo (BPM):</label>
+            <input type="number" id="tempoBpm" step="0.1" value="120">
+            <span id="tempoFromMidiInfo" class="hint"></span>
+        </div>
+
+        <div class="control-group">
+            <span id="speedInfo" class="hint">Tempo / speed: –</span>
+        </div>
+
+        <div class="control-group">
+            <h3>Group naming</h3>
+        </div>
+
+        <div class="control-group">
+            <label for="groupPrefix">Group name prefix:</label>
+            <input type="text" id="groupPrefix" value="GRP">
+
+            <label for="mergedGroupName">Merged group name:</label>
+            <input type="text" id="mergedGroupName" value="MusicRoad">
+        </div>
+
+        <div class="control-group">
+
+            <label>
+                <input type="checkbox" id="generateEmptyGrps" checked>
+                Generate empty GRPs (placeholder segments)
+            </label>
+        </div>
+
+        <div class="control-group">
+            <h3>Metadata (meta.*)</h3>
+        </div>
+        <div class="control-group">
+            <label for="metaMainGroup">meta.mainGroup:</label>
+            <input type="text" id="metaMainGroup" value="MyGroup">
+
+            <label for="metaSubGroup">meta.subGroup:</label>
+            <input type="text" id="metaSubGroup" value="MusicRoad">
+        </div>
+
+        <div class="control-group">
+            <label for="metaTypeParts">meta.type (segments):</label>
+            <input type="text" id="metaTypeParts" value="MusicRoad_parts">
+
+            <label for="metaTypeMerged">meta.type (merged road):</label>
+            <input type="text" id="metaTypeMerged" value="MusicRoad_full">
+        </div>
+
+        <div class="control-group export-buttons">
+            <button id="btnExport">Export GRP JSON</button>
+        </div>
+
+        <div class="control-group">
+            <label for="jsonOutput">Exported GRPlibrary JSON:</label>
+            <textarea id="jsonOutput" rows="12" spellcheck="false"></textarea>
+        </div>
+    </section>
+
+    <main>
+        <div class="canvas-block">
+            <div class="canvas-title" id="titleTop">Top channel</div>
+            <canvas id="canvasTop"></canvas>
+        </div>
+
+        <div class="canvas-block">
+            <div class="canvas-title" id="titleBottom">Bottom channel</div>
+            <canvas id="canvasBottom"></canvas>
+        </div>
+    </main>
+
+    <footer>
+        <small>MIDI → piano roll → Liftoff GRP "musical road" generator.</small>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
